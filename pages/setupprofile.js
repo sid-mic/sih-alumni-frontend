@@ -4,8 +4,10 @@ import { Feature } from "../components/Feature";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { Nav } from "../components/Navbar";
+import SetupProfile from "../components/SetupProfile";
+import { SmallHeader } from "../components/SmallHeader";
 
-export default function Home() {
+export default function Setup() {
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
@@ -14,8 +16,7 @@ export default function Home() {
       </Head>
 
       <Nav />
-      <Hero />
-      <Feature />
+      <SetupProfile />
       <Footer />
     </div>
   );

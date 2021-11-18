@@ -8,10 +8,15 @@ module.exports = {
         transparent: "transparent",
         indblue: "#394686",
       },
+      backgroundImage: {
+        imgoverlay: "url('/img/hero-pattern.svg')",
+
+        "footer-texture": "url('/img/footer-texture.png')",
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

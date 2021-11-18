@@ -6,7 +6,7 @@ export const Hero = () => {
         className=" absolute inset-0 object-cover w-full h-full"
         alt=""
       />
-      <div className="relative bg-opacity-75 bg-indblue">
+      <div className="relative bg-opacity-80 bg-indblue">
         <svg
           className="absolute mb-0 inset-x-0 bottom-0 text-white"
           viewBox="0 -1 1160 163"
@@ -24,12 +24,16 @@ export const Hero = () => {
                   fontFamily: "Montserrat",
                   lineHeight: "1.3",
                 }}
-                className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
+                className=" filter drop-shadow-xl max-w-lg mb-6  font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
               >
                 HELPING STARTUPS REACH
                 <br className="hidden md:block" />
-                THE NEXT LEVEL.
+                <span className="mr-2 ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                  THE NEXT
+                </span>
+                LEVEL.
               </h2>
+
               <p className="max-w-xl mb-4 text-base text-white md:text-lg">
                 Are you a winner of a government recognized hackathon? Join us
                 and gain access to funding, mentorship and support from the
@@ -55,6 +59,8 @@ export const Hero = () => {
               <br />
             </div>
             <div className="w-full  max-w-xl xl:px-8 xl:w-5/12">
+              <br />
+              <br />
               <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                 <h3
                   style={{
@@ -85,16 +91,18 @@ export const Hero = () => {
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
+                      style={{ fontFamily: "Montserrat" }}
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indblue hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
-                      Sign In
+                      SIGN IN
                     </button>
                   </div>
-                  <p className="text-xs align-center text-gray-600 sm:text-sm">
-                    Only accesible for Winners of Smart India Hackathon.
+                  <p className="text-xs text-center text-gray-600 sm:text-sm">
+                    Only accesible for Winners of MIC Hackathons
                   </p>
                 </form>
+                <br />
               </div>
             </div>
           </div>
