@@ -1,4 +1,6 @@
 import Head from "next/head";
+import AdminResourceCard from "../components/AdminResourceCard";
+import AdminResources from "../components/AdminResources";
 import Banner from "../components/Banner";
 import { Feature } from "../components/Feature";
 import { Footer } from "../components/Footer";
