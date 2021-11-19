@@ -1,6 +1,6 @@
 export const WelcomeHero = (props) => {
   return (
-    <div className="mt-10 px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+    <div className="  mt-10 px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
       <div className="max-w-2xl mx-auto sm:max-w-xl md:max-w-2xl">
         <div className="text-center">
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
