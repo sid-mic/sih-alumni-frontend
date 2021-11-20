@@ -3,6 +3,8 @@ import EditProfile from "../components/EditProfile";
 import News from "../components/News";
 import SidebarMobile from "../components/SidebarMobile";
 import { WelcomeHero } from "../components/WelcomeHero";
+import ProjectComponent from "../components/ProjectComponent";
+import HomeHero from "../components/HomeHero";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -43,23 +45,26 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
-            <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
-                <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
-                <News />
-              </div>
-            </div>
-          </div>
+          <HomeHero />
         </>
       );
     }
     if (this.state.selectedmoduletype === 2) {
       return (
-        <SidebarMobile
-          moduletypes={this.state.moduletypes}
-          selectedtype={this.setModuleType}
-        />
+        <>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+          />
+          <div className="flex flex-col min-h-screen">
+            <div className="flex  flex-wrap">
+              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+                <WelcomeHero h1="PROJECT" />
+                <ProjectComponent />
+              </div>
+            </div>
+          </div>
+        </>
       );
     }
     if (this.state.selectedmoduletype === 3) {
@@ -116,7 +121,7 @@ class Dashboard extends Component {
                       />
                     </div>
 
-                    <div class="my-1 px-1 w-full  overflow-hidden lg:my-3 lg:px-3">
+                    <div class="my-1 px-1 w-full  lg:my-3 lg:px-3">
                       Welcome to the alumni portal. Navigate with the links in
                       the menu.
                     </div>

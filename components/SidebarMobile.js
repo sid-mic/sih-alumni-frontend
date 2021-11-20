@@ -17,7 +17,7 @@ class SidebarMobile extends Component {
   }
   render() {
     return (
-      <div class="bg-indblue static uppercase font-semibold  flex md:flex-col  shadow-lg  justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
+      <div class="bg-indblue static uppercase font-semibold  flex h-16 md:flex-col  shadow-lg  justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
         <img
           className="hidden h-10 md:block"
           src="https://mic.gov.in/assets/img/logo.png"
