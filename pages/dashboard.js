@@ -6,6 +6,10 @@ import { WelcomeHero } from "../components/WelcomeHero";
 import ProjectComponent from "../components/ProjectComponent";
 import HomeHero from "../components/HomeHero";
 import Resources from "../components/Resources";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBookReader } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,18 +22,22 @@ class Dashboard extends Component {
       {
         id: 1,
         type: "Home",
+        icon: faHome,
       },
       {
         id: 2,
         type: "Project",
+        icon: faBars,
       },
       {
         id: 3,
         type: "Resources",
+        icon: faBookReader,
       },
       {
         id: 4,
         type: "Profile",
+        icon: faUser,
       },
     ],
     selectedmoduletype: 0,

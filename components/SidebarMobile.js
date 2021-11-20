@@ -34,7 +34,7 @@ class SidebarMobile extends Component {
               key={moduletype.id}
               onClick={() => this.handleChange(moduletype.id)}
             >
-              <FontAwesomeIcon icon="fa-house" />
+              <FontAwesomeIcon  icon={ moduletype.icon } className="m-2"/>
               <span
                 style={{ fontFamily: "Montserrat" }}
                 className="hidden  md:block text-sm"
