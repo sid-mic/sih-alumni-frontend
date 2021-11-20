@@ -5,6 +5,7 @@ import SidebarMobile from "../components/SidebarMobile";
 import { WelcomeHero } from "../components/WelcomeHero";
 import ProjectComponent from "../components/ProjectComponent";
 import HomeHero from "../components/HomeHero";
+import Resources from "../components/Resources";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -78,6 +79,7 @@ class Dashboard extends Component {
             <div className="flex  flex-wrap">
               <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
                 <WelcomeHero h1="RESOURCES" />
+                <Resources />
               </div>
             </div>
           </div>
