@@ -68,7 +68,7 @@ class Carousel extends Component {
 
   render() {
     return (
-      <div className="mt-8 p-10">
+      <div className=" p-7 rounded-2xl">
         <div className="max-w-screen h-72  flex items-center overflow-hidden relative">
           <AiOutlineLeft
             onClick={this.prevSlide}
