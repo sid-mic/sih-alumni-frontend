@@ -10,6 +10,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Banner from "../components/Banner";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -54,7 +55,11 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <HomeHero />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="container mt-1 md:rounded-tl-2xl min-h-screen bg-gray-100">
+              <HomeHero />
+            </div>
+          </div>
         </>
       );
     }
@@ -65,9 +70,34 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="right-0 p-2 ">
+              {" "}
+              <div class="sm:hidden md:flex md:flex-wrap hover:shadow-md p-2 rounded-xl text-3xl font-bold text-white text-center md:p-3 ">
+                <svg
+                  class="w-6 h-6 mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  ></path>
+                </svg>
+                <span
+                  style={{ fontFamily: "Montserrat" }}
+                  className="hidden text-right md:block text-sm"
+                >
+                  Log Out
+                </span>
+              </div>
+            </div>
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60">
                 <WelcomeHero h1="PROJECT" />
                 <ProjectComponent />
               </div>
@@ -83,9 +113,9 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                 <WelcomeHero h1="RESOURCES" />
                 <Resources />
               </div>
@@ -101,9 +131,9 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                 <WelcomeHero h1="PROFILE" />
                 <EditProfile />
               </div>
@@ -118,9 +148,9 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                 <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
                 <div className="p-10 items-center md:ml-80">
                   <div class="flex flex-wrap -mx-1 overflow-hidden lg:-mx-3">

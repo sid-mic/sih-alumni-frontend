@@ -8,7 +8,7 @@ export default function Resources() {
           {" "}
           <a href="" class="flex flex-col p-2 bg-gray-300 rounded-xl">
             <img
-              src="https://www.hyperui.dev/code/photos/shoe-1.jpeg"
+              src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png"
               alt=""
               class="w-full rounded-lg"
             />
@@ -34,7 +34,7 @@ export default function Resources() {
           {" "}
           <a href="" class="flex flex-col p-2 bg-gray-300 rounded-xl">
             <img
-              src="https://www.hyperui.dev/code/photos/shoe-1.jpeg"
+              src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png"
               alt=""
               class="w-full rounded-lg"
             />
@@ -60,7 +60,7 @@ export default function Resources() {
           {" "}
           <a href="" class="flex flex-col p-2 bg-gray-300 rounded-xl">
             <img
-              src="https://www.hyperui.dev/code/photos/shoe-1.jpeg"
+              src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png"
               alt=""
               class="w-full rounded-lg"
             />
@@ -86,7 +86,7 @@ export default function Resources() {
           {" "}
           <a href="" class="flex flex-col p-2 bg-gray-300 rounded-xl">
             <img
-              src="https://www.hyperui.dev/code/photos/shoe-1.jpeg"
+              src="https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png"
               alt=""
               class="w-full rounded-lg"
             />

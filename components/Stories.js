@@ -109,35 +109,6 @@ class Stories extends Component {
               </div>
             </a>
           </div>
-
-          <div class="my-4 px-4 w-full overflow-hidden lg:w-1/3">
-            <a class="mb-5 block overflow-hidden shadow-xl rounded-3xl" href="">
-              <img
-                class="object-cover w-full h-64"
-                src="https://www.hyperui.dev/code/photos/university-3.jpeg"
-                alt=""
-              />
-
-              <div class="relative w-full p-6 -mt-8 bg-white rounded-3xl">
-                <h5 class="text-xl font-bold text-gray-900">
-                  My first day at the campus
-                </h5>
-
-                <p class="hidden mt-0 text-gray-500 sm:block">by Sakshi</p>
-                <p class="hidden mt-5 text-gray-500 sm:block">
-                  After being stuck in enormous traffic for hours, finally you
-                  manage to somehow find a blue colored board proclaiming 'IIT
-                  Bombay, Gyanaarth Praveshan...!
-                </p>
-
-                <dl class="items-center mt-3 sm:flex">
-                  <dl class="items-center sm:flex text-indblue font-bold">
-                    Read more
-                  </dl>
-                </dl>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     );
