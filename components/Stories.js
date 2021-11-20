@@ -1,110 +1,147 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function Stories() {
-  return (
-    <div>
-      <section>
-        <div class="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 sm:py-24">
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
-            <div class="flex items-center p-8 bg-gray-100 rounded">
-              <div class="max-w-xs mx-auto text-center lg:text-left">
-                <h2 class="text-2xl font-bold sm:text-3xl">
-                  Product Collection
-                </h2>
+class Stories extends Component {
+  constructor(props) {
+    super(props);
 
-                <p class="mt-8 text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                  eveniet ducimus neque sequi amet quia laboriosam dolore
-                  dolores rerum ex?
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    //this.state = {selectedtype: event.target.value}
+    alert(event.target.id);
+    this.props.selectedtype.bind(this, event.target.id);
+  }
+
+  render() {
+    return (
+      <div className="px-4 mt-20  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
+        <h2
+          style={{ fontFamily: "Montserrat" }}
+          className="max-w-3xl mb-6 font-sans text-1xl font-bold leading-none tracking-tight text-gray-900 sm:text-3xl mb-10"
+        >
+          POPULAR STORIES
+        </h2>
+        <div class="flex flex-wrap -mx-4 overflow-hidden">
+          <div class="my-4 px-4 w-full overflow-hidden lg:w-1/3">
+            <a class="mb-5 block overflow-hidden shadow-xl rounded-3xl" href="">
+              <img
+                class="object-cover w-full h-64"
+                src="https://www.hyperui.dev/code/photos/university-3.jpeg"
+                alt=""
+              />
+
+              <div class="relative w-full p-6 -mt-8 bg-white rounded-3xl">
+                <h5 class="text-xl font-bold text-gray-900">
+                  My first day at the campus
+                </h5>
+
+                <p class="hidden mt-0 text-gray-500 sm:block">by Sakshi</p>
+                <p class="hidden mt-5 text-gray-500 sm:block">
+                  After being stuck in enormous traffic for hours, finally you
+                  manage to somehow find a blue colored board proclaiming 'IIT
+                  Bombay, Gyanaarth Praveshan...!
                 </p>
 
-                <a
-                  href=""
-                  class="inline-flex items-center px-5 py-3 mt-12 text-white bg-blue-600 rounded-lg"
-                >
-                  <span class="text-sm font-medium"> View collection </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6 ml-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
+                <dl class="items-center mt-3 sm:flex">
+                  <dl class="items-center sm:flex text-indblue font-bold">
+                    Read more
+                  </dl>
+                </dl>
               </div>
-            </div>
+            </a>
+          </div>
 
-            <div class="grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-4 lg:py-24">
-              <a href="" class="block transition-opacity hover:opacity-75">
-                <div class="aspect-w-1 aspect-h-1">
-                  <img
-                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1378&q=80"
-                    alt=""
-                    class="object-cover rounded"
-                  />
-                </div>
+          <div class="my-4 px-4 w-full overflow-hidden lg:w-1/3">
+            <a class="mb-5 block overflow-hidden shadow-xl rounded-3xl" href="">
+              <img
+                class="object-cover w-full h-64"
+                src="https://www.hyperui.dev/code/photos/university-3.jpeg"
+                alt=""
+              />
 
-                <div class="mt-2 font-medium">
-                  <h2 class="lg:text-lg">Clean Watch</h2>
-                  <p class="text-sm">$150</p>
-                </div>
-              </a>
+              <div class="relative w-full p-6 -mt-8 bg-white rounded-3xl">
+                <h5 class="text-xl font-bold text-gray-900">
+                  My first day at the campus
+                </h5>
 
-              <a href="" class="block transition-opacity hover:opacity-75">
-                <div class="aspect-w-1 aspect-h-1">
-                  <img
-                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1378&q=80"
-                    alt=""
-                    class="object-cover rounded"
-                  />
-                </div>
+                <p class="hidden mt-0 text-gray-500 sm:block">by Sakshi</p>
+                <p class="hidden mt-5 text-gray-500 sm:block">
+                  After being stuck in enormous traffic for hours, finally you
+                  manage to somehow find a blue colored board proclaiming 'IIT
+                  Bombay, Gyanaarth Praveshan...!
+                </p>
 
-                <div class="mt-2 font-medium">
-                  <h2 class="lg:text-lg">Clean Watch</h2>
-                  <p class="text-sm">$150</p>
-                </div>
-              </a>
+                <dl class="items-center mt-3 sm:flex">
+                  <dl class="items-center sm:flex text-indblue font-bold">
+                    Read more
+                  </dl>
+                </dl>
+              </div>
+            </a>
+          </div>
 
-              <a href="" class="block transition-opacity hover:opacity-75">
-                <div class="aspect-w-1 aspect-h-1">
-                  <img
-                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1378&q=80"
-                    alt=""
-                    class="object-cover rounded"
-                  />
-                </div>
+          <div class="my-4 px-4 w-full overflow-hidden lg:w-1/3">
+            <a class="mb-5 block overflow-hidden shadow-xl rounded-3xl" href="">
+              <img
+                class="object-cover w-full h-64"
+                src="https://www.hyperui.dev/code/photos/university-3.jpeg"
+                alt=""
+              />
 
-                <div class="mt-2 font-medium">
-                  <h2 class="lg:text-lg">Clean Watch</h2>
-                  <p class="text-sm">$150</p>
-                </div>
-              </a>
+              <div class="relative w-full p-6 -mt-8 bg-white rounded-3xl">
+                <h5 class="text-xl font-bold text-gray-900">
+                  My first day at the campus
+                </h5>
 
-              <a href="" class="block transition-opacity hover:opacity-75">
-                <div class="aspect-w-1 aspect-h-1">
-                  <img
-                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1378&q=80"
-                    alt=""
-                    class="object-cover rounded"
-                  />
-                </div>
+                <p class="hidden mt-0 text-gray-500 sm:block">by Sakshi</p>
+                <p class="hidden mt-5 text-gray-500 sm:block">
+                  After being stuck in enormous traffic for hours, finally you
+                  manage to somehow find a blue colored board proclaiming 'IIT
+                  Bombay, Gyanaarth Praveshan...!
+                </p>
 
-                <div class="mt-2 font-medium">
-                  <h2 class="lg:text-lg">Clean Watch</h2>
-                  <p class="text-sm">$150</p>
-                </div>
-              </a>
-            </div>
+                <dl class="items-center mt-3 sm:flex">
+                  <dl class="items-center sm:flex text-indblue font-bold">
+                    Read more
+                  </dl>
+                </dl>
+              </div>
+            </a>
+          </div>
+
+          <div class="my-4 px-4 w-full overflow-hidden lg:w-1/3">
+            <a class="mb-5 block overflow-hidden shadow-xl rounded-3xl" href="">
+              <img
+                class="object-cover w-full h-64"
+                src="https://www.hyperui.dev/code/photos/university-3.jpeg"
+                alt=""
+              />
+
+              <div class="relative w-full p-6 -mt-8 bg-white rounded-3xl">
+                <h5 class="text-xl font-bold text-gray-900">
+                  My first day at the campus
+                </h5>
+
+                <p class="hidden mt-0 text-gray-500 sm:block">by Sakshi</p>
+                <p class="hidden mt-5 text-gray-500 sm:block">
+                  After being stuck in enormous traffic for hours, finally you
+                  manage to somehow find a blue colored board proclaiming 'IIT
+                  Bombay, Gyanaarth Praveshan...!
+                </p>
+
+                <dl class="items-center mt-3 sm:flex">
+                  <dl class="items-center sm:flex text-indblue font-bold">
+                    Read more
+                  </dl>
+                </dl>
+              </div>
+            </a>
           </div>
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    );
+  }
 }
+
+export default Stories;
