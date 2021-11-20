@@ -2,10 +2,9 @@ import React from "react";
 import Slider from "./slider";
 import { WelcomeHero } from "./WelcomeHero";
 import News from "./News";
+import Stories from "./Stories";
 
 export default function HomeHero() {
-
-
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex  flex-wrap">
@@ -13,6 +12,7 @@ export default function HomeHero() {
           <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
 
           <News />
+          <Stories />
         </div>
       </div>
     </div>
