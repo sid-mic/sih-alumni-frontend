@@ -7,6 +7,9 @@ import { Nav } from "../components/Navbar";
 
 export default function Home() {
   return (
+    //Add svg with parallax scroll
+    
+
     <div className="flex flex-col min-h-screen">
       <Head>
         <title>Create Next App</title>
