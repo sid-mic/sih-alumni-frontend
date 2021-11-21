@@ -53,12 +53,13 @@ class Dashboard extends Component {
   async componentDidMount() {
     let data = await requireAuth('/');
 
-    if (data.user?.signed_up_at ==  null) {
-      Router.push('/setup-profile');
-    }
+    if (data.isAuth){
+      if (data.user?.signed_up_at == null) {
+        await Router.push('/setup-profile');
+      }
 
-    this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id});
-    console.log('Mount running')
+      this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id});
+    }
   }
 
   setModuleType(selectedtype) {
