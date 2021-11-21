@@ -27,7 +27,7 @@
     "react-easy-swipe": "^0.0.22",
     "react-icons": "^4.3.1",
     "react-text-loop": "^2.3.0",
-    "simple-react-validator": "^1.6.1"
+    "simple-react-validator": "^1.6.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
