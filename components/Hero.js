@@ -1,4 +1,30 @@
-export const Hero = () => {
+import { useEffect, useReducer, useRef, useState } from "react";
+import SimpleReactValidator from "simple-react-validator";
+
+export const Hero = (props) => {
+  const simpleValidator = useRef(new SimpleReactValidator());
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (simpleValidator.current.allValid()) {
+      props.auth
+        .login(email)
+        .then(() => alert("EMAIL Sent!")) //TODO: Use popup
+        .catch((error) => {
+          if (error.response.status === 404) {
+            alert("EMAIL Not found"); // TODO: USE POPups
+          }
+        });
+    } else {
+      simpleValidator.current.showMessages();
+      forceUpdate();
+    }
+  }
+
   return (
     <div className="relative">
       <img
@@ -37,7 +63,7 @@ export const Hero = () => {
               <p className="max-w-xl mb-4 text-base text-white md:text-lg">
                 Are you a winner of a government recognized hackathon? Join us
                 and gain access to funding, mentorship and support from the
-                Ministry of Human Resources and Developmment.
+                Ministry of Human Resources and Development.
               </p>
               <br />
               <a
@@ -87,19 +113,32 @@ export const Hero = () => {
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="email"
                       name="email"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        simpleValidator.current.fieldValid("email")
+                          ? simpleValidator.current.hideMessageFor("email")
+                          : simpleValidator.current.showMessageFor("email");
+                      }}
                     />
+                    {simpleValidator.current.message(
+                      "email",
+                      email,
+                      "required|email",
+                      { className: "text-red-800" }
+                    )}
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
                       style={{ fontFamily: "Montserrat" }}
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indblue hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      onClick={handleSubmit}
                     >
                       SIGN IN
                     </button>
                   </div>
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
-                    Only accesible for Winners of MIC Hackathons
+                    Only accessible for Winners of MIC Hackathons
                   </p>
                 </form>
                 <br />
