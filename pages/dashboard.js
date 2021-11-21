@@ -11,6 +11,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/Banner";
+import requireAuth from "../utils/requireAuth";
+import auth from "../utils/auth";
+import Router from "next/router";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -42,7 +45,21 @@ class Dashboard extends Component {
       },
     ],
     selectedmoduletype: 0,
+    user: null,
+    isAuth: false,
+    userId: 0
   };
+
+  async componentDidMount() {
+    let data = await requireAuth('/');
+
+    if (data.user?.signed_up_at ==  null) {
+      Router.push('/setup-profile');
+    }
+
+    this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id});
+    console.log('Mount running')
+  }
 
   setModuleType(selectedtype) {
     this.setState({ selectedmoduletype: selectedtype });
@@ -57,8 +74,9 @@ class Dashboard extends Component {
           />
           <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                <HomeHero />
+              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+                <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
+                <News />
               </div>
             </div>
           </div>
@@ -112,7 +130,7 @@ class Dashboard extends Component {
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                 <WelcomeHero h1="PROFILE" />
-                <EditProfile />
+                <EditProfile user={this.state.user} isAuth={this.state.isAuth} userId={this.state.userId} key={this.state.userId} />
               </div>
             </div>
           </div>
