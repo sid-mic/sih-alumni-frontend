@@ -67,8 +67,7 @@ class ProjectComponent extends Component {
         <>
           <ProjectComponentTabs
             categorytypes={this.state.categorytypes}
-            selectedt
-            ype={this.setCategoryType}
+            selectedtype={this.setCategoryType}
           />
           <TeamQuestions />
         </>

@@ -71,7 +71,7 @@ class EditProfile extends Component {
               <input
                 type="text"
                 required={true}
-                className="w-full -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                className="w-full -ml-10 pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                 onChange={(e) => {
                   this.setState({ name: e.target.value });
                   this.validator.fieldValid("name")
