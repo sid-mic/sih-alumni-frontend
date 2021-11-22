@@ -16,7 +16,7 @@ export default function HomeHero() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex  flex-wrap">
-        <div className="container min-h-screen bg-lightblue pt-0 md:ml-60 overflow-auto">
+        <div className="container min-h-screen bg-lightblue pt-0 overflow-auto">
           <Transition
             show={isShowing}
             enter="transform duration-700 transition ease-in-out"
