@@ -1,3 +1,4 @@
+import TextLoop from "react-text-loop";
 import { useEffect, useReducer, useRef, useState } from "react";
 import SimpleReactValidator from "simple-react-validator";
 
@@ -52,12 +53,22 @@ export const Hero = (props) => {
                 }}
                 className=" filter drop-shadow-xl max-w-lg mb-6  font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
               >
-                HELPING STARTUPS REACH
                 <br className="hidden md:block" />
-                <span className="mr-2 ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                  THE NEXT
-                </span>
-                LEVEL.
+                HELPING STARTUPS IN
+                <TextLoop>
+                  <span className="mr-2  text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                    FUNDRAISING.
+                  </span>
+                  <span className="mr-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                    MENTORSHIP.
+                  </span>
+                  <span className="mr-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                    COLLABORATION.
+                  </span>
+                  <span className="mr-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                    CONNECTING.
+                  </span>
+                </TextLoop>
               </h2>
 
               <p className="max-w-xl mb-4 text-base text-white md:text-lg">
@@ -66,20 +77,7 @@ export const Hero = (props) => {
                 Ministry of Human Resources and Development.
               </p>
               <br />
-              <a
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-white hover:text-black"
-              >
-                Learn more
-                <svg
-                  className="inline-block w-3 ml-2"
-                  fill="currentColor"
-                  viewBox="0 0 12 12"
-                >
-                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                </svg>
-              </a>
+
               <br />
               <br />
               <br />
@@ -87,7 +85,7 @@ export const Hero = (props) => {
             <div className="w-full  max-w-xl xl:px-8 xl:w-5/12">
               <br />
               <br />
-              <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
+              <div className="bg-white shadow-2xl rounded-3xl p-7 sm:p-10">
                 <h3
                   style={{
                     fontFamily: "Montserrat",

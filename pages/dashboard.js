@@ -44,7 +44,7 @@ class Dashboard extends Component {
         icon: faUser,
       },
     ],
-    selectedmoduletype: 0,
+    selectedmoduletype: 1,
     user: null,
     isAuth: false,
     userId: 0
@@ -75,8 +75,8 @@ class Dashboard extends Component {
           />
            <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-              <HomeHero />
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <HomeHero />
               </div>
             </div>
           </div>
@@ -91,14 +91,14 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="PROJECT" />
                 <ProjectComponent />
               </div>
             </div>
-          </div> */}
+          </div>
         </>
       );
     }
@@ -109,14 +109,14 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="RESOURCES" />
                 <Resources />
               </div>
             </div>
-          </div> */}
+          </div>
         </>
       );
     }
@@ -127,14 +127,14 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="PROFILE" />
                 <EditProfile user={this.state.user} isAuth={this.state.isAuth} userId={this.state.userId} key={this.state.userId} />
               </div>
             </div>
-          </div> */}
+          </div>
         </>
       );
     } else {
