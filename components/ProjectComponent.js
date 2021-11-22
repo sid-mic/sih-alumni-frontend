@@ -33,7 +33,7 @@ class ProjectComponent extends Component {
         type: "Feedback"
       },
     ],
-    selectedcategorytype: 0,
+    selectedcategorytype: 1,
   };
 
   setCategoryType(selectedtype) {
@@ -80,6 +80,7 @@ class ProjectComponent extends Component {
         <ProjectComponentTabs 
           categorytypes = {this.state.categorytypes}
           selectedtype  = {this.setCategoryType}
+          // default = {this.state.selectedcategorytype}
         />   
         </>
       );
