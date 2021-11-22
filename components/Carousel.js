@@ -68,8 +68,8 @@ class Carousel extends Component {
 
   render() {
     return (
-      <div className=" p-7 rounded-2xl">
-        <div className="max-w-screen h-72  flex items-center overflow-hidden relative">
+      <div className=" p-7 md:rounded-2xl rounded-2xl">
+        <div className="max-w-screen h-72   flex items-center overflow-hidden relative">
           <AiOutlineLeft
             onClick={this.prevSlide}
             className="absolute left-0 text-3xl inset-y-1/2 text-white cursor-pointer"
@@ -84,7 +84,7 @@ class Carousel extends Component {
                   key={index}
                   className={
                     index === this.state.currentSlide
-                      ? "block w-full h-auto object-cover rounded-xl"
+                      ? "block w-full h-auto object-cover md:rounded-xl rounded-xl"
                       : "hidden"
                   }
                   onMouseEnter={() => {
@@ -104,8 +104,8 @@ class Carousel extends Component {
                 <div
                   className={
                     index === this.state.currentSlide
-                      ? "h-2 w-2 bg-blue-700 rounded-full mx-2 mb-2 cursor-pointer"
-                      : "h-2 w-2 bg-white rounded-full mx-2 mb-2 cursor-pointer"
+                      ? "h-2 w-2 bg-blue-700 md:rounded-xl rounded-full mx-2 mb-2 cursor-pointer"
+                      : "h-2 w-2 bg-white md:rounded-xl rounded-full mx-2 mb-2 cursor-pointer"
                   }
                   key={index}
                   onClick={() => {
