@@ -32,7 +32,7 @@ class ProjectComponent extends Component {
         type: "Feedback",
       },
     ],
-    selectedcategorytype: 0,
+    selectedcategorytype: 1,
   };
 
   setCategoryType(selectedtype) {

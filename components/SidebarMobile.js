@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class SidebarMobile extends Component {
   constructor(props) {
     super(props);
-    this.state = { ClickedButton: "" };
+    this.state = { ClickedButton: 1};
     this.handleChange = this.handleChange.bind(this);
   }
 
