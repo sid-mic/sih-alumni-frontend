@@ -1,8 +1,6 @@
 import Head from "next/head";
-import AdminSidebar from "../../components/AdminSidebar";
-import { AdminStats } from "../../components/AdminStats";
-import { ChartStats } from "../../components/ChartStats";
-import DataComponent from "../../components/DataComponent";
+import AdminSidebar from "../../components/admin/AdminSidebar";
+import DataComponent from "../../components/admin/DataComponent";
 import { WelcomeHero } from "../../components/WelcomeHero";
 
 export default function Home() {
