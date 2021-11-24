@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from "react";
-import Slider from "./slider";
 import { WelcomeHero } from "./WelcomeHero";
 import News from "./News";
 import Stories from "./Stories";
