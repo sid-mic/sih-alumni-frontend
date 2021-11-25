@@ -2,11 +2,11 @@ import "../styles/Feature.module.css";
 
 export const Feature = () => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className=" px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
         <div className="lg:w-1/2">
           <div className="bg-hero-pattern font-bold max-w-md mb-6 sm:text-xl text-xl xl:max-w-lg bg-cover bg-center">
-            <h1 className="font-bold max-w-md bg-clip-content mt-6 mb-6 sm:text-xl text-2xl md:text-4xl xl:max-w-lg mix-blend-lighten">
+            <h1 className=" font-bold max-w-md  mt-6 mb-6 sm:text-xl text-2xl md:text-4xl xl:max-w-lg">
               REVOLUTIONIZING STARTUPS FOR
               <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                 A SELF-RELIANT INDIA.
@@ -16,11 +16,11 @@ export const Feature = () => {
         </div>
         <div className="lg:w-1/2">
           <p className="text-base text-gray-700 md:text-lg">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.Lorem Ipsum is simply dummy text of the printing and
-            typesettin. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry.Lorem Ipsum is simply dummy text of the
-            printing and typesettin.
+            MoE's Innovation Cell aims to support and nurture startups by
+            providing funding, mentorship and collaboration opportunities.
+            Through a number of hackathons and other innovation contests, we
+            identify the nation's best ideas and help the young entrepreneurs in
+            scaling their ideas into products.
           </p>
         </div>
       </div>

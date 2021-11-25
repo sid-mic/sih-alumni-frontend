@@ -35,7 +35,7 @@ export const Hero = (props) => {
       />
       <div className="relative bg-opacity-80 bg-indblue">
         <svg
-          className="absolute mb-0 inset-x-0 bottom-0 text-white"
+          className="absolute mb-0 inset-x-0 bottom-0 text-lightblue"
           viewBox="0 -1 1160 163"
         >
           <path
@@ -72,9 +72,8 @@ export const Hero = (props) => {
               </h2>
 
               <p className="max-w-xl mb-4 text-base text-white md:text-lg">
-                Are you a winner of a government recognized hackathon? Join us
-                and gain access to funding, mentorship and support from the
-                Ministry of Human Resources and Development.
+                Are you a winner of an MIC recognized hackathon? Sign in to gain
+                access for funding, mentorship and support from MIC.
               </p>
               <br />
 
@@ -91,9 +90,8 @@ export const Hero = (props) => {
                     fontFamily: "Montserrat",
                     lineHeight: "1.3",
                   }}
-                  className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
+                  className="mb-4  text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
                 >
-                  ARE YOU AN SIH WINNER? <br />
                   SIGN IN TO GET STARTED
                 </h3>
                 <form>
