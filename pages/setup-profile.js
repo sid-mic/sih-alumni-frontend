@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import requireAuth from "../utils/requireAuth";
 import Router from "next/router";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Setup() {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
@@ -34,8 +37,19 @@ export default function Setup() {
       </Head>
 
       <Nav />
-      <SetupProfile isAuth={isAuth} user={user} />
+      <SetupProfile isAuth={isAuth} user={user} toast={toast} />
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

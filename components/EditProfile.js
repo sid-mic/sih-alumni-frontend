@@ -19,6 +19,7 @@ class EditProfile extends Component {
       name: this.props.user?.name,
       phone: this.props.user?.phone,
       gender: this.props.user?.gender,
+      isLoading: false
     };
   }
 
@@ -38,14 +39,32 @@ class EditProfile extends Component {
     e.preventDefault();
 
     if (this.validator.allValid() && this.props.user != null) {
-      axios()
-        .patch(`/users/${this.props.user.id}/update`, {
-          _method: "PATCH",
+      this.props.toast.promise(
+        axios().patch(`/users/${this.props.user.id}/update`, {
+            _method: "PATCH",
           name: this.state.name,
           phone: this.state.phone,
           gender: this.state.gender,
-        })
-        .then((res) => alert("Profile updated successfully")); //TODO: Add a small popup kinda maybe
+          }),
+          {
+            pending: {
+              render() {
+                return "Setting up profile....";
+              },
+            },
+            success: {
+              render() {
+                Router.push("/dashboard");
+                return "Profile updated successfully!";
+              },
+            },
+            error: {
+              render() {
+                return "Something went wrong!";
+              },
+            },
+          }
+      );
     } else {
       this.validator.showMessages();
       this.forceUpdate();
@@ -168,7 +187,7 @@ class EditProfile extends Component {
               className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
               onClick={this.handleSubmit}
             >
-              Update profile
+              {this.state.isLoading ? 'Updating profile....' : 'Update profile'}
             </button>
           </div>
         </div>

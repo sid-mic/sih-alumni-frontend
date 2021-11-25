@@ -10,6 +10,7 @@ export default function SetupProfile(props) {
   const [name, setName] = useState(props.user?.name);
   const [phone, setPhone] = useState(props.user?.phone);
   const [gender, setGender] = useState(props.user?.gender);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setName(props.user?.name);
@@ -21,14 +22,35 @@ export default function SetupProfile(props) {
     e.preventDefault();
 
     if (simpleValidator.current.allValid() && props.user != null) {
-      axios()
-        .patch(`/users/${props.user?.id}/update`, {
+      props.toast.promise(
+        axios().patch(`/users/${props.user?.id}/update`, {
           _method: "PATCH",
           name: name,
           phone: phone,
           gender: gender,
-        })
-        .then((res) => Router.push("/dashboard"));
+        }),
+        {
+          pending: {
+            render() {
+              setIsLoading(true);
+              return "Setting up profile....";
+            },
+          },
+          success: {
+            render() {
+              setIsLoading(false);
+              Router.push("/dashboard");
+              return "Profile updated successfully!";
+            },
+          },
+          error: {
+            render() {
+              setIsLoading(false);
+              return "Something went wrong!";
+            },
+          },
+        }
+      );
     } else {
       simpleValidator.current.showMessages();
       forceUpdate();
@@ -167,7 +189,7 @@ export default function SetupProfile(props) {
                     className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
                     onClick={handleSubmit}
                   >
-                    CONFIRM AND CONTINUE
+                    {isLoading ? 'Setting up.....' : 'CONFIRM AND CONTINUE'}
                   </button>
                 </div>
               </div>

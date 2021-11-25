@@ -15,6 +15,9 @@ import requireAuth from "../utils/requireAuth";
 import auth from "../utils/auth";
 import Router from "next/router";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -80,7 +83,6 @@ class Dashboard extends Component {
               </div>
             </div>
           </div>
-          
         </>
       );
     }
@@ -131,10 +133,21 @@ class Dashboard extends Component {
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="PROFILE" />
-                <EditProfile user={this.state.user} isAuth={this.state.isAuth} userId={this.state.userId} key={this.state.userId} />
+                <EditProfile user={this.state.user} isAuth={this.state.isAuth} userId={this.state.userId} key={this.state.userId} toast={toast} />
               </div>
             </div>
           </div>
+          <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
         </>
       );
     } else {

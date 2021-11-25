@@ -4,12 +4,12 @@ import axios from "./axios";
 import { api_token_store_name, retrieve, store } from "./store";
 
 export default function auth() {
+  let isAuth =
+    retrieve(api_token_store_name()) != null &&
+    retrieve(api_token_store_name()) != "";
 
   const fetchUser = async () => {
-    let isAuth =
-        retrieve(api_token_store_name()) != null &&
-        retrieve(api_token_store_name()) != "";
-    let user = null;
+    let user;
 
     try {
       user = await (await axios().get("/user")).data.user;
@@ -19,7 +19,7 @@ export default function auth() {
     } catch (error) {
       store(api_token_store_name(), null);
       isAuth = false;
-      user = null; //TODO maybe show token expired popup or login again popup
+      user = null;
 
       return { isAuth: isAuth, user: user };
     }
@@ -37,16 +37,15 @@ export default function auth() {
     await Router.push("/dashboard");
   };
 
-  const logout = (email, password) =>
-    axios().post("/logout").then((data) => {
-
-      Router.push("/");
-    });
+  const logout = () => {
+    return axios().post("/logout");
+  };
 
   return {
     login,
     setToken,
     logout,
     fetchUser,
+    isAuth,
   };
 }
