@@ -5,7 +5,7 @@ import Stories from "./Stories";
 import Carousel from "./Carousel";
 import { Transition } from "@headlessui/react";
 
-export default function HomeHero() {
+export default function HomeHero(props) {
   const [isShowing, setIsShowing] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function HomeHero() {
             enterFrom="opacity-0 rotate-0 translate-x-4"
             enterTo="opacity-100"
           >
-            <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
+            <WelcomeHero h1="Welcome, " h2={props.name} />
             <Carousel />
             <News />
             <Stories />

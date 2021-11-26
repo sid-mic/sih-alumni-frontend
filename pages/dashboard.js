@@ -79,7 +79,7 @@ class Dashboard extends Component {
            <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <HomeHero />
+                <HomeHero name={this.state.user?.name}/>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ class Dashboard extends Component {
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
-                <WelcomeHero h1="Welcome, " h2="Bhuvanesh." />
+                <WelcomeHero h1="Welcome, " h2={this.state.user?.name} />
                 <div className="p-10 items-center md:ml-80">
                   <div class="flex flex-wrap -mx-1 overflow-hidden lg:-mx-3">
                     <div class="my-1 px-1 w-full overflow-hidden lg:my-3 lg:px-3">
