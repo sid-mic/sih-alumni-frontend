@@ -99,123 +99,64 @@ export const Hero = (props) => {
               <br />
               <br />
             </div>
-            <div className="w-full  max-w-xl xl:px-8 xl:w-5/12">
-              <br />
-              <br />
-              <div className="bg-white shadow-2xl rounded-3xl p-7 sm:p-10">
-                <h3
-                  style={{
-                    fontFamily: "Montserrat",
-                    lineHeight: "1.3",
-                  }}
-                  className="mb-4  text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
-                >
-                  SIGN IN TO GET STARTED
-                </h3>
-                <form>
-                  <div className="mb-1 sm:mb-2">
-                    <label
-                      htmlFor="email"
-                      className="inline-block mb-1 font-medium"
-                    >
-                      E-mail
-                    </label>
-                    <input
-                      placeholder="example@example.com"
-                      required
-                      type="text"
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                      id="email"
-                      name="email"
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        simpleValidator.current.fieldValid("email")
-                          ? simpleValidator.current.hideMessageFor("email")
-                          : simpleValidator.current.showMessageFor("email");
-                      }}
-                    />
-                    {simpleValidator.current.message(
-                      "email",
-                      email,
-                      "required|email",
-                      { className: "text-red-800" }
-                    )}
-                  </div>
-                  <div className="mt-4 mb-2 sm:mb-4">
-                    <button
-                      style={{ fontFamily: "Montserrat" }}
-                      type="submit"
-                      className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indblue hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      onClick={handleSubmit}
-                    >
-                      SIGN IN
-                    </button>
-                  </div>
-                  <p className="text-xs text-center text-gray-600 sm:text-sm">
-                    Only accessible for Winners of MIC Hackathons
-                  </p>
-                </form>
-                <br />
-                <br />
-                <div className="bg-white shadow-2xl rounded-3xl p-7 sm:p-10">
-                  <h3
-                    style={{
-                      fontFamily: "Montserrat",
-                      lineHeight: "1.3",
-                    }}
-                    className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
+            <div className="bg-white shadow-2xl rounded-3xl p-7 sm:p-10">
+              <h3
+                style={{
+                  fontFamily: "Montserrat",
+                  lineHeight: "1.3",
+                }}
+                className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
+              >
+                ARE YOU AN SIH WINNER? <br />
+                SIGN IN TO GET STARTED
+              </h3>
+              <form>
+                <div className="mb-1 sm:mb-2">
+                  <label
+                    htmlFor="email"
+                    className="inline-block mb-1 font-medium"
                   >
-                    ARE YOU AN SIH WINNER? <br />
-                    SIGN IN TO GET STARTED
-                  </h3>
-                  <form>
-                    <div className="mb-1 sm:mb-2">
-                      <label
-                        htmlFor="email"
-                        className="inline-block mb-1 font-medium"
-                      >
-                        E-mail
-                      </label>
-                      <input
-                        placeholder="example@example.com"
-                        required
-                        type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                        id="email"
-                        name="email"
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          simpleValidator.current.fieldValid("email")
-                            ? simpleValidator.current.hideMessageFor("email")
-                            : simpleValidator.current.showMessageFor("email");
-                        }}
-                      />
-                      {simpleValidator.current.message(
-                        "email",
-                        email,
-                        "required|email",
-                        { className: "text-red-800" }
-                      )}
-                    </div>
-                    <div className="mt-4 mb-2 sm:mb-4">
-                      <button
-                        style={{ fontFamily: "Montserrat" }}
-                        type="submit"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indblue hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        onClick={handleSubmit}
-                      >
-                        {isLoading ? "Signing in..." : "SIGN IN"}
-                      </button>
-                    </div>
-                    <p className="text-xs text-center text-gray-600 sm:text-sm">
-                      Only accessible for Winners of MIC Hackathons
-                    </p>
-                  </form>
-                  <br />
+                    E-mail
+                  </label>
+                  <input
+                    placeholder="example@example.com"
+                    required
+                    type="text"
+                    className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                    id="email"
+                    name="email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      simpleValidator.current.fieldValid("email")
+                        ? simpleValidator.current.hideMessageFor("email")
+                        : simpleValidator.current.showMessageFor("email");
+                    }}
+                  />
+                  {simpleValidator.current.message(
+                    "email",
+                    email,
+                    "required|email",
+                    { className: "text-red-800" }
+                  )}
                 </div>
-              </div>
-            )}
+                <div className="mt-4 mb-2 sm:mb-4">
+                  <button
+                    style={{ fontFamily: "Montserrat" }}
+                    type="submit"
+                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indblue hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                    onClick={handleSubmit}
+                  >
+                    {isLoading ? "Signing in..." : "SIGN IN"}
+                  </button>
+                </div>
+                <p className="text-xs text-center text-gray-600 sm:text-sm">
+                  Only accessible for Winners of MIC Hackathons
+                </p>
+              </form>
+              <br />
+            </div>
           </div>
+          )}
         </div>
       </div>
     </div>
