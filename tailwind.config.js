@@ -7,7 +7,7 @@ module.exports = {
       colors: {
         transparent: "transparent",
         indblue: "#394686",
-        lightblue: "#e0ecff",
+        lightblue: "#e8f0fc",
       },
       backgroundImage: {
         imgoverlay: "url('/img/hero-pattern.svg')",

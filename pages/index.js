@@ -8,8 +8,8 @@ import Scroller from "../components/Marquee";
 import { Nav } from "../components/Navbar";
 import { useEffect, useState } from "react";
 import authImport from "../utils/auth";
-import {ToastContainer} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -35,22 +35,24 @@ export default function Home() {
       </Head>
 
       <Nav />
-      <Hero user={user} isAuth={isAuth} auth={auth}/>
-      <Feature />
-      <Scroller />
-      <Featured />
-      <Footer />
-        <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-        />
+      <Hero user={user} isAuth={isAuth} auth={auth} />
+      <div class="bg-lightblue">
+        <Feature />
+        <Scroller />
+        <Featured />
+        <Footer />
+      </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

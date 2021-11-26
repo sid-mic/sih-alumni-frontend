@@ -156,7 +156,6 @@ export const Hero = (props) => {
               <br />
             </div>
           </div>
-          )}
         </div>
       </div>
     </div>

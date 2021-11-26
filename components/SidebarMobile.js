@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class SidebarMobile extends Component {
   constructor(props) {
     super(props);
-    this.state = { ClickedButton: 1};
+    this.state = { ClickedButton: 1 };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -17,7 +17,7 @@ class SidebarMobile extends Component {
   }
   render() {
     return (
-      <div class="bg-indblue static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
+      <div class="bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
         <img
           className="hidden h-10 md:block"
           src="https://mic.gov.in/assets/img/logo.png"

@@ -30,7 +30,7 @@ export const Feature = () => {
       >
         <div className="grid grid-cols-2 gap-5 row-gap-5 sm:grid-cols-3 lg:grid-cols-6">
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -51,7 +51,7 @@ export const Feature = () => {
             </h6>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -72,7 +72,7 @@ export const Feature = () => {
             </h6>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -93,7 +93,7 @@ export const Feature = () => {
             </h6>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -114,7 +114,7 @@ export const Feature = () => {
             </h6>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -135,7 +135,7 @@ export const Feature = () => {
             </h6>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-12 sm:h-12">
+            <div className="flex items-center justify-center w-10 h-10 mx-auto mb-4 rounded-full bg-white sm:w-12 sm:h-12">
               <svg
                 class="w-6 h-6"
                 fill="none"
