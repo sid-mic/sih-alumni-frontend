@@ -10,6 +10,8 @@ import {
 import EditProfile from "./EditProfile";
 import TeamQuestions from "./TeamQuestions";
 import ProjectComponentTabs from "./ProjectComponentTabs";
+import IndividualQuestions from "./IndividualQuestions";
+import FeedbackQuestions from "./FeedbackQuestions";
 
 class ProjectComponent extends Component {
   constructor(props) {
@@ -58,7 +60,7 @@ class ProjectComponent extends Component {
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
           />
-          <TeamQuestions />
+          <IndividualQuestions />
         </>
       );
     }
@@ -69,7 +71,7 @@ class ProjectComponent extends Component {
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
           />
-          <TeamQuestions />
+          <FeedbackQuestions />
         </>
       );
     } else {

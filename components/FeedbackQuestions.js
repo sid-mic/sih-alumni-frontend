@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TeamQuestions() {
+export default function FeedbackQuestions() {
   const [hired, setHired] = useState();
   const [participatingOpportunity, setParticipatingOpportunity] = useState();
   const [recommendations, setRecommendations] = useState();

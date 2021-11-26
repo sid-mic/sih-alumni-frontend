@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TeamQuestions() {
+export default function IndividualQuestions() {
   const [prototypeDevOther, setPrototypeDevOther] = useState();
 
   const [fundStatus, setFundStatus] = useState();
