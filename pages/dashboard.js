@@ -61,7 +61,7 @@ class Dashboard extends Component {
         await Router.push('/setup-profile');
       }
 
-      this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id});
+      this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id, logout: auth().logout});
     }
   }
 
@@ -75,6 +75,7 @@ class Dashboard extends Component {
           <SidebarMobile
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
+            logout={this.state.logout}
           />
            <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
@@ -97,10 +98,21 @@ class Dashboard extends Component {
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="PROJECT" />
-                <ProjectComponent />
+                <ProjectComponent user={this.state.user} project_id={this.state.user?.project_id}/>
               </div>
             </div>
           </div>
+          <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
         </>
       );
     }

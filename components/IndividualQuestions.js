@@ -1,35 +1,122 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "../utils/axios";
+import { toast } from "react-toastify";
 
-export default function IndividualQuestions() {
-  const [prototypeDevOther, setPrototypeDevOther] = useState();
+export default function IndividualQuestions(props) {
+  const [currentStatus, setCurrentStatus] = useState();
+  const [projectPrototype, setProjectPrototype] = useState();
+  const [projectTitle, setProjectTitle] = useState();
+  const [projectTheme, setProjectTheme] = useState();
+  const [projectStatus, setProjectStatus] = useState();
+  const [projectIpGenerated, setProjectIpGenerated] = useState();
+  const [projectIpType, setProjectIpType] = useState();
+  const [projectIpStatus, setProjectIpStatus] = useState();
+  const [projectHackathonRelated, setProjectHackathonRelated] = useState();
+  const [projectFundingSupport, setProjectFundingSupport] = useState();
+  const [projectTrlLevel, setProjectTrlLevel] = useState();
+  const [projectVideoUrl, setProjectVideoUrl] = useState();
 
-  const [fundStatus, setFundStatus] = useState();
-  const [fundOrganisation, setFundOrganisation] = useState();
-  const [fundAmount, setFundAmount] = useState();
-  const [fundingDate, setFundingDate] = useState();
-  const [fundingSupportNeeded, setFundingSupportNeeded] = useState();
-  const [projectDeliveryStatus, setProjectDeliveryStatus] = useState();
-  const [projectDeliveredStatus, setProjectDeliveredStatus] = useState();
-  const [
-    projectImplementedByMinistry,
-    setProjectImplementedByMinistry,
-  ] = useState();
-  const [micSupportDeploy, setMicSupportDeploy] = useState();
-  const [incubatorStatus, setIncubatorStatus] = useState();
-  const [nameOfIncubator, setNameOfIncubator] = useState();
-  const [trlLevel, setTrlLevel] = useState();
-  const [videoUrl, setVideoUrl] = useState();
-  const [ipStatus, setIpStatus] = useState();
-  const [ipType, setIpType] = useState();
-  const [isPatentRegistered, setIsPatentRegistered] = useState();
-  const [ipNumber, setIpNumber] = useState();
-  const [dateOfIpReg, setDateOfIpReg] = useState();
-  const [noOfIpFiledTillDate, setNoOfIpFiledTillDate] = useState();
-  const [startupStatus, setStartupStatus] = useState();
-  const [startupName, setStartupName] = useState();
-  const [companyRegistrationStatus, setCompanyRegistrationStatus] = useState();
-  const [companyName, setCompanyName] = useState();
-  const [companyCin, setCompanyCin] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    console.log(props)
+    if (props.user?.id != null) {
+      axios()
+        .get(
+          process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
+            `/users/${props.user?.id}/status`
+        )
+        .then((response) => {
+          if (response?.status == 200) {
+            let data = response.data;
+
+            setCurrentStatus(data.current_status);
+            setProjectPrototype(data.project_prototype);
+            setProjectTitle(data.project_title);
+            setProjectTheme(data.project_theme);
+            setProjectStatus(data.project_status);
+            setProjectIpGenerated(data.project_ip_generated);
+            setProjectIpType(data.project_ip_type);
+            setProjectIpStatus(data.project_ip_status);
+            setProjectHackathonRelated(data.project_hackathon_related);
+            setProjectFundingSupport(data.project_funding_support);
+            setProjectTrlLevel(data.project_trl_level);
+            setProjectVideoUrl(data.project_video_url);
+          }
+        })
+        .catch(() => {
+          return;
+        });
+    }
+  }, [props.user]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // if (simpleValidator.current.allValid() && props.user != null) {
+    toast.promise(
+      axios().post(
+        process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
+          `/users/${props.user?.id}/status`,
+        {
+          current_status: currentStatus,
+          project_prototype: projectPrototype,
+          project_title: projectTitle,
+          project_theme: projectTheme,
+          project_status: projectStatus,
+          project_ip_generated: projectIpGenerated,
+          project_ip_type: projectIpType,
+          project_ip_status: projectIpStatus,
+          project_hackathon_related: projectHackathonRelated,
+          project_funding_support: projectFundingSupport,
+          project_trl_level: projectTrlLevel,
+          project_video_url: projectVideoUrl,
+        }
+      ),
+      {
+        pending: {
+          render() {
+            setIsLoading(true);
+            return "Updating....";
+          },
+        },
+        success: {
+          render() {
+            setIsLoading(false);
+            return "Project status updated successfully!";
+          },
+        },
+        error: {
+          render({ data }) {
+            setIsLoading(false);
+            let status = data.response.status;
+            data = data.response.data;
+            if (status == 422) {
+              Object.entries(data.errors).forEach(([key, value]) => {
+                toast.error(value.toString(), {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              });
+
+              return "There were errors in some fields";
+            } else {
+              return "Something went wrong!";
+            }
+          },
+        },
+      }
+    );
+    // } else {
+    //   simpleValidator.current.showMessages();
+    //   forceUpdate();
+    // }
+  }
 
   return (
     <div className="mb-20 min-h-screen  ml-20 mr-20">
@@ -45,7 +132,10 @@ export default function IndividualQuestions() {
             <textarea
               rows={5}
               className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-            ></textarea>
+              onChange={(e) => setCurrentStatus(e.target.value)}
+              defaultValue={currentStatus}
+            >
+            </textarea>
           </div>
         </div>
       </div>
@@ -61,8 +151,8 @@ export default function IndividualQuestions() {
                 className="my-auto transform scale-125"
                 type="radio"
                 value={1}
-                checked={prototypeDevOther == true}
-                onChange={(e) => setPrototypeDevOther(e.target.value)}
+                checked={projectPrototype == true}
+                onChange={(e) => setProjectPrototype(e.target.value)}
               />
               <div className="title px-2">Yes</div>
             </label>
@@ -72,8 +162,8 @@ export default function IndividualQuestions() {
                 className="my-auto transform scale-125"
                 type="radio"
                 value={0}
-                checked={prototypeDevOther == false}
-                onChange={(e) => setPrototypeDevOther(e.target.value)}
+                checked={projectPrototype == false}
+                onChange={(e) => setProjectPrototype(e.target.value)}
               />
               <div className="title px-2">No</div>
             </label>
@@ -81,62 +171,14 @@ export default function IndividualQuestions() {
         </div>
       </div>
 
-      {prototypeDevOther == true && (
-        <div className="flex -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">
-              If yes please elaborate the idea, current status of the project,
-              other implementation of the project
-            </label>
-            <div className="flex">
-              <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-              </div>
-              <textarea
-                rows={5}
-                className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Whether this SIH project development activity was supported/funded
-            by any Ministry or AICTE or any Private Organization?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={fundStatus == true}
-                onChange={(e) => setFundStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={fundStatus == false}
-                onChange={(e) => setFundStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-      {fundStatus == true && (
+      {projectPrototype == true && (
         <>
+          <h1>
+            <strong>Project Details:</strong>
+          </h1>
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">Organization</label>
+              <label className="text-md font-semibold">Title</label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
@@ -144,15 +186,15 @@ export default function IndividualQuestions() {
                 <input
                   type="text"
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={fundOrganisation}
-                  onChange={(e) => setFundOrganisation(e.target.value)}
+                  value={projectTitle}
+                  onChange={(e) => setProjectTitle(e.target.value)}
                 />
               </div>
             </div>
           </div>
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">Amount</label>
+              <label className="text-md font-semibold">Theme</label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
@@ -160,410 +202,34 @@ export default function IndividualQuestions() {
                 <input
                   type="text"
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={fundAmount}
-                  onChange={(e) => setFundAmount(e.target.value)}
+                  value={projectTheme}
+                  onChange={(e) => setProjectTheme(e.target.value)}
                 />
               </div>
             </div>
           </div>
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">Date of funding</label>
+              <label className="text-md font-semibold">Status</label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                 </div>
-                <input
-                  type="date"
+                <textarea
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={fundingDate}
-                  onChange={(e) => setFundingDate(e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
-      {fundStatus == false && (
-        <div className="flex -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">
-              Do you need funding support to deploy your SIH project further?
-            </label>
-            <div className="main flex overflow-hidden m-2 select-none">
-              <label className="flex radio p-2 cursor-pointer">
-                <input
-                  className="my-auto transform scale-125"
-                  type="radio"
-                  value={1}
-                  checked={fundingSupportNeeded == true}
-                  onChange={(e) => setFundingSupportNeeded(e.target.value)}
-                />
-                <div className="title px-2">Yes</div>
-              </label>
-
-              <label className="flex radio p-2 cursor-pointer">
-                <input
-                  className="my-auto transform scale-125"
-                  type="radio"
-                  value={0}
-                  checked={fundingSupportNeeded == false}
-                  onChange={(e) => setFundingSupportNeeded(e.target.value)}
-                />
-                <div className="title px-2">No</div>
-              </label>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Whether the developed project was delivered to the concerned
-            Ministry/Department ?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={projectDeliveryStatus == true}
-                onChange={(e) => setProjectDeliveryStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={projectDeliveryStatus == false}
-                onChange={(e) => setProjectDeliveryStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {projectDeliveryStatus == true && (
-        <div className="flex mb-5 -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">Select an option</label>
-            <div className="flex">
-              <select
-                className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
-                onChange={(e) => {
-                  setProjectDeliveredStatus(e.target.value);
-                  setProjectImplementedByMinistry(
-                    e.target.value ===
-                      "Delivered and Implemented by Department/Ministry/Organisation"
-                  );
-                }}
-              >
-                <option
-                  value="Delivered and Implemented by Department/Ministry/Organisation"
-                  selected={
-                    projectDeliveredStatus ===
-                    "Delivered and Implemented by Department/Ministry/Organisation"
-                  }
+                  onChange={(e) => setProjectStatus(e.target.value)}
+                  rows={5}
+                  defaultValue={projectStatus}
                 >
-                  (a) Delivered and Implemented by
-                  Department/Ministry/Organisation
-                </option>
-                <option
-                  value="Delivered to the Ministry but not implemented by the concerned Department/Ministry/Organisation"
-                  selected={
-                    projectDeliveredStatus ===
-                    "Delivered to the Ministry but not implemented by the concerned Department/Ministry/Organisation"
-                  }
-                >
-                  (b) Delivered to the Ministry but not implemented by the
-                  concerned Department/Ministry/Organisation
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {projectDeliveryStatus == false && (
-        <div className="flex -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">
-              Do you need MIC support to deploy your SIH project further ?
-            </label>
-            <div className="main flex overflow-hidden m-2 select-none">
-              <label className="flex radio p-2 cursor-pointer">
-                <input
-                  className="my-auto transform scale-125"
-                  type="radio"
-                  value={1}
-                  checked={micSupportDeploy == true}
-                  onChange={(e) => setMicSupportDeploy(e.target.value)}
-                />
-                <div className="title px-2">Yes</div>
-              </label>
-
-              <label className="flex radio p-2 cursor-pointer">
-                <input
-                  className="my-auto transform scale-125"
-                  type="radio"
-                  value={0}
-                  checked={micSupportDeploy == false}
-                  onChange={(e) => setMicSupportDeploy(e.target.value)}
-                />
-                <div className="title px-2">No</div>
-              </label>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Have you incubated under any Incubator to deploy your project ?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={incubatorStatus == true}
-                onChange={(e) => setIncubatorStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={incubatorStatus == false}
-                onChange={(e) => setIncubatorStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {incubatorStatus == true && (
-        <div className="flex mb-5 -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">
-              Name of the Incubator
-            </label>
-            <div className="flex">
-              <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-              </div>
-              <input
-                type="text"
-                className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                value={nameOfIncubator}
-                onChange={(e) => setNameOfIncubator(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex mb-5 -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Select Your Project's current TRL level
-          </label>
-          <div className="flex">
-            <select
-              className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-state"
-              onChange={(e) => {
-                setTrlLevel(e.target.value);
-              }}
-            >
-              <option
-                value="TRL 0 : Idea. Unproven concept, no testing has been performed."
-                selected={
-                  trlLevel ===
-                  "TRL 0 : Idea. Unproven concept, no testing has been performed."
-                }
-              >
-                TRL 0 : Idea. Unproven concept, no testing has been performed.
-              </option>
-              <option
-                value="TRL 1 : Basic research. Principles postulated observed but no experimental proof available."
-                selected={
-                  trlLevel ===
-                  "TRL 1 : Basic research. Principles postulated observed but no experimental proof available."
-                }
-              >
-                TRL 1 : Basic research. Principles postulated observed but no
-                experimental proof available.
-              </option>
-              <option
-                value="TRL 2 : Technology formulation. Concept and application have been formulated."
-                selected={
-                  trlLevel ===
-                  "TRL 2 : Technology formulation. Concept and application have been formulated."
-                }
-              >
-                TRL 2 : Technology formulation. Concept and application have
-                been formulated.
-              </option>
-              <option
-                value="TRL 3 : Applied research. First laboratory tests completed; proof of concept."
-                selected={
-                  trlLevel ===
-                  "TRL 3 : Applied research. First laboratory tests completed; proof of concept."
-                }
-              >
-                TRL 3 : Applied research. First laboratory tests completed;
-                proof of concept.
-              </option>
-              <option
-                value="TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype)."
-                selected={
-                  trlLevel ===
-                  "'TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype).'"
-                }
-              >
-                TRL 4 : Small scale prototype built in a laboratory environment
-                ('ugly' prototype).
-              </option>
-              <option
-                value="TRL 5 : Large scale prototype tested in intended environment."
-                selected={
-                  trlLevel ===
-                  "TRL 5 : Large scale prototype tested in intended environment."
-                }
-              >
-                TRL 5 : Large scale prototype tested in intended environment.
-              </option>
-              <option
-                value="TRL 6 : Prototype system tested in intended environment close to expected performance."
-                selected={
-                  trlLevel ===
-                  "TRL 6 : Prototype system tested in intended environment close to expected performance."
-                }
-              >
-                TRL 6 : Prototype system tested in intended environment close to
-                expected performance.
-              </option>
-              <option
-                value="TRL 7 : Demonstration system operating in operational environment at pre-commercial scale."
-                selected={
-                  trlLevel ===
-                  "TRL 7 : Demonstration system operating in operational environment at pre-commercial scale."
-                }
-              >
-                TRL 7 : Demonstration system operating in operational
-                environment at pre-commercial scale.
-              </option>
-              <option
-                value="TRL 8 : First of a kind commercial system. Manufacturing issues solved."
-                selected={
-                  trlLevel ===
-                  "TRL 8 : First of a kind commercial system. Manufacturing issues solved."
-                }
-              >
-                TRL 8 : First of a kind commercial system. Manufacturing issues
-                solved.
-              </option>
-              <option
-                value="TRL 9 : Full commercial application, technology available for consumers."
-                selected={
-                  trlLevel ===
-                  "TRL 9 : Full commercial application, technology available for consumers."
-                }
-              >
-                TRL 9 : Full commercial application, technology available for
-                consumers.
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex mb-5 -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">Video URL:</label>
-          <div className="flex">
-            <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-              <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-            </div>
-            <input
-              type="text"
-              className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-              value={videoUrl}
-              onChange={(e) => setVideoUrl(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Have you applied for any IP (Intellectual Property) against the
-            challenge solved by you during Hackathon ?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={ipStatus == true}
-                onChange={(e) => setIpStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={ipStatus == false}
-                onChange={(e) => setIpStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {ipStatus == true && (
-        <>
-          <div className="flex mb-5 -mx-3">
-            <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">IP type:</label>
-              <div className="flex">
-                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                </div>
-                <input
-                  type="text"
-                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={ipType}
-                  onChange={(e) => setIpType(e.target.value)}
-                />
+                </textarea>
               </div>
             </div>
           </div>
+
           <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
-                Is Patent Registered?
+                Any IP generated? ?
               </label>
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
@@ -571,8 +237,8 @@ export default function IndividualQuestions() {
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
-                    checked={isPatentRegistered == true}
-                    onChange={(e) => setIsPatentRegistered(e.target.value)}
+                    checked={projectIpGenerated == true}
+                    onChange={(e) => setProjectIpGenerated(e.target.value)}
                   />
                   <div className="title px-2">Yes</div>
                 </label>
@@ -582,156 +248,249 @@ export default function IndividualQuestions() {
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
-                    checked={isPatentRegistered == false}
-                    onChange={(e) => setIsPatentRegistered(e.target.value)}
+                    checked={projectIpGenerated == false}
+                    onChange={(e) => setProjectIpGenerated(e.target.value)}
                   />
                   <div className="title px-2">No</div>
                 </label>
               </div>
             </div>
           </div>
-          <div className="flex mb-5 -mx-3">
-            <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">IP Number:</label>
-              <div className="flex">
-                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+
+          {projectIpGenerated == true && (
+            <>
+              <div className="flex mb-5 -mx-3">
+                <div className="w-full px-3 mb-5">
+                  <label className="text-md font-semibold">IP Type</label>
+                  <div className="flex">
+                    <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
+                      <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                    </div>
+                    <input
+                      type="text"
+                      className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                      value={projectIpType}
+                      onChange={(e) => setProjectIpType(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={ipNumber}
-                  onChange={(e) => setIpNumber(e.target.value)}
-                />
+              </div>
+              <div className="flex -mx-3">
+                <div className="w-full px-3 mb-5">
+                  <label className="text-md font-semibold">IP Status ?</label>
+                  <div className="main flex overflow-hidden m-2 select-none">
+                    <label className="flex radio p-2 cursor-pointer">
+                      <input
+                        className="my-auto transform scale-125"
+                        type="radio"
+                        value={0}
+                        checked={projectIpStatus == false}
+                        onChange={(e) => setProjectIpStatus(e.target.value)}
+                      />
+                      <div className="title px-2">Filed</div>
+                    </label>
+
+                    <label className="flex radio p-2 cursor-pointer">
+                      <input
+                        className="my-auto transform scale-125"
+                        type="radio"
+                        value={1}
+                        checked={projectIpStatus == true}
+                        onChange={(e) => setProjectIpStatus(e.target.value)}
+                      />
+                      <div className="title px-2">Granted</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          <div className="flex -mx-3">
+            <div className="w-full px-3 mb-5">
+              <label className="text-md font-semibold">
+                Is your current project related to the challenge that you solved
+                in the Hackathon ?
+              </label>
+              <div className="main flex overflow-hidden m-2 select-none">
+                <label className="flex radio p-2 cursor-pointer">
+                  <input
+                    className="my-auto transform scale-125"
+                    type="radio"
+                    value={1}
+                    checked={projectHackathonRelated == true}
+                    onChange={(e) => setProjectHackathonRelated(e.target.value)}
+                  />
+                  <div className="title px-2">Yes</div>
+                </label>
+
+                <label className="flex radio p-2 cursor-pointer">
+                  <input
+                    className="my-auto transform scale-125"
+                    type="radio"
+                    value={0}
+                    checked={projectHackathonRelated == false}
+                    onChange={(e) => setProjectHackathonRelated(e.target.value)}
+                  />
+                  <div className="title px-2">No</div>
+                </label>
               </div>
             </div>
           </div>
-          <div className="flex mb-5 -mx-3">
+
+          <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">Date of IP Reg:</label>
-              <div className="flex">
-                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                </div>
-                <input
-                  type="date"
-                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={dateOfIpReg}
-                  onChange={(e) => setDateOfIpReg(e.target.value)}
-                />
+              <label className="text-md font-semibold">
+                Do you need funding support to develop your innovation/prototype
+                further ?
+              </label>
+              <div className="main flex overflow-hidden m-2 select-none">
+                <label className="flex radio p-2 cursor-pointer">
+                  <input
+                    className="my-auto transform scale-125"
+                    type="radio"
+                    value={1}
+                    checked={projectFundingSupport == true}
+                    onChange={(e) => setProjectFundingSupport(e.target.value)}
+                  />
+                  <div className="title px-2">Yes</div>
+                </label>
+
+                <label className="flex radio p-2 cursor-pointer">
+                  <input
+                    className="my-auto transform scale-125"
+                    type="radio"
+                    value={0}
+                    checked={projectFundingSupport == false}
+                    onChange={(e) => setProjectFundingSupport(e.target.value)}
+                  />
+                  <div className="title px-2">No</div>
+                </label>
               </div>
             </div>
           </div>
+
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
-                Number of IP Filed Till Date:
+                Select Your Project's current TRL level
               </label>
               <div className="flex">
-                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                </div>
-                <input
-                  type="text"
-                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={noOfIpFiledTillDate}
-                  onChange={(e) => setNoOfIpFiledTillDate(e.target.value)}
-                />
+                <select
+                  className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-state"
+                  onChange={(e) => {
+                    setProjectTrlLevel(e.target.value);
+                  }}
+                >
+                  <option
+                    value="TRL 0 : Idea. Unproven concept, no testing has been performed."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 0 : Idea. Unproven concept, no testing has been performed."
+                    }
+                  >
+                    TRL 0 : Idea. Unproven concept, no testing has been
+                    performed.
+                  </option>
+                  <option
+                    value="TRL 1 : Basic research. Principles postulated observed but no experimental proof available."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 1 : Basic research. Principles postulated observed but no experimental proof available."
+                    }
+                  >
+                    TRL 1 : Basic research. Principles postulated observed but
+                    no experimental proof available.
+                  </option>
+                  <option
+                    value="TRL 2 : Technology formulation. Concept and application have been formulated."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 2 : Technology formulation. Concept and application have been formulated."
+                    }
+                  >
+                    TRL 2 : Technology formulation. Concept and application have
+                    been formulated.
+                  </option>
+                  <option
+                    value="TRL 3 : Applied research. First laboratory tests completed; proof of concept."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 3 : Applied research. First laboratory tests completed; proof of concept."
+                    }
+                  >
+                    TRL 3 : Applied research. First laboratory tests completed;
+                    proof of concept.
+                  </option>
+                  <option
+                    value="TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype)."
+                    selected={
+                      projectTrlLevel ===
+                      "'TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype).'"
+                    }
+                  >
+                    TRL 4 : Small scale prototype built in a laboratory
+                    environment ('ugly' prototype).
+                  </option>
+                  <option
+                    value="TRL 5 : Large scale prototype tested in intended environment."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 5 : Large scale prototype tested in intended environment."
+                    }
+                  >
+                    TRL 5 : Large scale prototype tested in intended
+                    environment.
+                  </option>
+                  <option
+                    value="TRL 6 : Prototype system tested in intended environment close to expected performance."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 6 : Prototype system tested in intended environment close to expected performance."
+                    }
+                  >
+                    TRL 6 : Prototype system tested in intended environment
+                    close to expected performance.
+                  </option>
+                  <option
+                    value="TRL 7 : Demonstration system operating in operational environment at pre-commercial scale."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 7 : Demonstration system operating in operational environment at pre-commercial scale."
+                    }
+                  >
+                    TRL 7 : Demonstration system operating in operational
+                    environment at pre-commercial scale.
+                  </option>
+                  <option
+                    value="TRL 8 : First of a kind commercial system. Manufacturing issues solved."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 8 : First of a kind commercial system. Manufacturing issues solved."
+                    }
+                  >
+                    TRL 8 : First of a kind commercial system. Manufacturing
+                    issues solved.
+                  </option>
+                  <option
+                    value="TRL 9 : Full commercial application, technology available for consumers."
+                    selected={
+                      projectTrlLevel ===
+                      "TRL 9 : Full commercial application, technology available for consumers."
+                    }
+                  >
+                    TRL 9 : Full commercial application, technology available
+                    for consumers.
+                  </option>
+                </select>
               </div>
             </div>
           </div>
-        </>
-      )}
 
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Have you established your own start-up based on your hackathon
-            project ?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={startupStatus == true}
-                onChange={(e) => setStartupStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={startupStatus == false}
-                onChange={(e) => setStartupStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {startupStatus == true && (
-        <div className="flex mb-5 -mx-3">
-          <div className="w-full px-3 mb-5">
-            <label className="text-md font-semibold">
-              Give the name of your start-up:
-            </label>
-            <div className="flex">
-              <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-              </div>
-              <input
-                type="text"
-                className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                value={startupName}
-                onChange={(e) => setStartupName(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="flex -mx-3">
-        <div className="w-full px-3 mb-5">
-          <label className="text-md font-semibold">
-            Have you Registered Your Company ?
-          </label>
-          <div className="main flex overflow-hidden m-2 select-none">
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={1}
-                checked={companyRegistrationStatus == true}
-                onChange={(e) => setCompanyRegistrationStatus(e.target.value)}
-              />
-              <div className="title px-2">Yes</div>
-            </label>
-
-            <label className="flex radio p-2 cursor-pointer">
-              <input
-                className="my-auto transform scale-125"
-                type="radio"
-                value={0}
-                checked={companyRegistrationStatus == false}
-                onChange={(e) => setCompanyRegistrationStatus(e.target.value)}
-              />
-              <div className="title px-2">No</div>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {companyRegistrationStatus == true && (
-        <>
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">Company Name:</label>
+              <label className="text-md font-semibold">Video URL:</label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
@@ -739,26 +498,8 @@ export default function IndividualQuestions() {
                 <input
                   type="text"
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={companyName}
-                  onChange={(e) => setCompanyName(e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex mb-5 -mx-3">
-            <div className="w-full px-3 mb-5">
-              <label className="text-md font-semibold">
-                Company Identification Number:
-              </label>
-              <div className="flex">
-                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
-                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-                </div>
-                <input
-                  type="text"
-                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                  value={companyCin}
-                  onChange={(e) => setCompanyCin(e.target.value)}
+                  value={projectVideoUrl}
+                  onChange={(e) => setProjectVideoUrl(e.target.value)}
                 />
               </div>
             </div>
@@ -771,9 +512,10 @@ export default function IndividualQuestions() {
         <div className="w-full px-3 mb-5">
           <button
             style={{ fontFamily: "Montserrat" }}
+            onClick={handleSubmit}
             className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
           >
-            SAVE CHANGES
+            {isLoading ? "Saving...." : "SAVE CHANGES"}
           </button>
         </div>
       </div>

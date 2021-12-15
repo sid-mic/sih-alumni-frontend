@@ -6,7 +6,8 @@ import { api_token_store_name, retrieve, store } from "./store";
 export default function auth() {
   let isAuth =
     retrieve(api_token_store_name()) != null &&
-    retrieve(api_token_store_name()) != "";
+    retrieve(api_token_store_name()) != "" &&
+    retrieve(api_token_store_name()) != "null";
 
   const fetchUser = async () => {
     let user;
@@ -17,7 +18,7 @@ export default function auth() {
 
       return { isAuth: isAuth, user: user };
     } catch (error) {
-      store(api_token_store_name(), null);
+      store(api_token_store_name(), '');
       isAuth = false;
       user = null;
 
@@ -37,8 +38,12 @@ export default function auth() {
     await Router.push("/dashboard");
   };
 
-  const logout = () => {
-    return axios().post("/logout");
+  const logout = async (redirectUrl = "/") => {
+    await axios().post("/logout");
+
+    store(api_token_store_name(), '');
+
+    await Router.push(redirectUrl);
   };
 
   return {

@@ -49,7 +49,7 @@ class ProjectComponent extends Component {
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
           />
-          <TeamQuestions />
+          <TeamQuestions user={this.props.user} project_id={this.props.project_id} />
         </>
       );
     }
@@ -60,7 +60,7 @@ class ProjectComponent extends Component {
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
           />
-          <IndividualQuestions />
+          <IndividualQuestions user={this.props.user} project_id={this.props.project_id} />
         </>
       );
     }
@@ -71,7 +71,7 @@ class ProjectComponent extends Component {
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
           />
-          <FeedbackQuestions />
+          <FeedbackQuestions user={this.props.user} project_id={this.props.project_id} />
         </>
       );
     } else {

@@ -61,6 +61,7 @@ class SidebarMobile extends Component {
           <span
             style={{ fontFamily: "Montserrat" }}
             className="hidden md:block text-sm"
+            onClick={() => this.props.logout('/')}
           >
             Log Out
           </span>

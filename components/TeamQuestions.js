@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
+import { toast } from "react-toastify";
+import axios from "../utils/axios";
+import SimpleReactValidator from "simple-react-validator";
 
-export default function TeamQuestions() {
+export default function TeamQuestions(props) {
+  const simpleValidator = useRef(new SimpleReactValidator());
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
   const [developmentStatus, setDevelopmentStatus] = useState();
   const [description, setDescription] = useState();
   const [micSupport, setMicSupport] = useState();
@@ -30,110 +36,140 @@ export default function TeamQuestions() {
   const [companyName, setCompanyName] = useState();
   const [companyCin, setCompanyCin] = useState();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (props.user?.id != null) {
+      axios()
+        .get(
+          process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
+            `/projects/${props?.project_id}/status`
+        )
+        .then((response) => {
+          if (response?.status == 200) {
+            let data = response.data;
+            setDevelopmentStatus(data.development_status);
+            setDescription(data.description);
+            setMicSupport(data.mic_support);
+            setFundStatus(data.fund_status);
+            setFundOrganisation(data.fund_organisation);
+            setFundAmount(data.fund_amount);
+            setFundingDate(data.funding_date);
+            setFundingSupportNeeded(data.funding_support_needed);
+            setProjectDeliveryStatus(data.project_delivery_status);
+            setProjectDeliveredStatus(data.project_delivered_status);
+            setProjectImplementedByMinistry(
+              data.project_implemented_by_ministry
+            );
+            setMicSupportDeploy(data.mic_support_deploy);
+            setIncubatorStatus(data.incubator_status);
+            setNameOfIncubator(data.name_of_incubator);
+            setTrlLevel(data.trl_level);
+            setVideoUrl(data.video_url);
+            setIpStatus(data.ip_status);
+            setIpType(data.ip_type);
+            setIsPatentRegistered(data.is_patent_registered);
+            setIpNumber(data.ip_number);
+            setDateOfIpReg(data.date_of_ip_reg);
+            setNoOfIpFiledTillDate(data.no_of_ip_filed_till_date);
+            setStartupStatus(data.startup_status);
+            setStartupName(data.startup_name);
+            setCompanyRegistrationStatus(data.company_registration_status);
+            setCompanyName(data.company_name);
+            setCompanyCin(data.company_cin);
+          }
+        })
+        .catch(() => {
+          return;
+        });
+    }
+  }, [props.user]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // if (simpleValidator.current.allValid() && props.user != null) {
+      toast.promise(
+        axios().post(
+          process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
+            `/projects/${props?.project_id}/status`,
+          {
+            development_status: developmentStatus,
+            description: description,
+            mic_support: micSupport,
+            fund_status: fundStatus,
+            fund_organisation: fundOrganisation,
+            fund_amount: fundAmount,
+            funding_date: fundingDate,
+            funding_support_needed: fundingSupportNeeded,
+            project_delivery_status: projectDeliveryStatus,
+            project_delivered_status: projectDeliveredStatus,
+            project_implemented_by_ministry: projectImplementedByMinistry,
+            mic_support_deploy: micSupportDeploy,
+            incubator_status: incubatorStatus,
+            name_of_incubator: nameOfIncubator,
+            trl_level: trlLevel,
+            video_url: videoUrl,
+            ip_status: ipStatus,
+            ip_type: ipType,
+            is_patent_registered: isPatentRegistered,
+            ip_number: ipNumber,
+            date_of_ip_reg: dateOfIpReg,
+            no_of_ip_filed_till_date: noOfIpFiledTillDate,
+            startup_status: startupStatus,
+            startup_name: startupName,
+            company_registration_status: companyRegistrationStatus,
+            company_name: companyName,
+            company_cin: companyCin,
+          }
+        ),
+        {
+          pending: {
+            render() {
+              setIsLoading(true);
+              return "Updating....";
+            },
+          },
+          success: {
+            render() {
+              setIsLoading(false);
+              return "Project status updated successfully!";
+            },
+          },
+          error: {
+            render({ data }) {
+              setIsLoading(false);
+              let status = data.response.status;
+              data = data.response.data;
+              if (status == 422) {
+                Object.entries(data.errors).forEach(([key, value]) => {
+                  toast.error(value.toString(), {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                });
+
+                return "There were errors in some fields";
+              } else {
+                return "Something went wrong!";
+              }
+            },
+          },
+        }
+      );
+    // } else {
+    //   simpleValidator.current.showMessages();
+    //   forceUpdate();
+    // }
+  }
+
   return (
     <div className="mb-20 min-h-screen  ml-20 mr-20">
-      {/*<div className="flex mb-5 -mx-3">*/}
-      {/*  <div className="w-full px-3 mb-5">*/}
-      {/*    <label for="" className="text-md font-semibold">*/}
-      {/*      Have you further developed the solution that you worked on during*/}
-      {/*      SIH?*/}
-      {/*    </label>*/}
-      {/*    <div className="flex">*/}
-      {/*      <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">*/}
-      {/*        <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>*/}
-      {/*      </div>*/}
-      {/*      <input*/}
-      {/*        type="text"*/}
-      {/*        className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"*/}
-      {/*      />*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-      {/*<div className="flex mb-5 -mx-3">*/}
-      {/*  <div className="w-full px-3 mb-5">*/}
-      {/*    <label for="" className="text-md font-semibold">*/}
-      {/*      Have you further developed the solution that you worked on during*/}
-      {/*      SIH?*/}
-      {/*    </label>*/}
-      {/*    <div className="flex">*/}
-      {/*      <select*/}
-      {/*        className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"*/}
-      {/*        id="grid-state"*/}
-      {/*      >*/}
-      {/*        <option>Option1</option>*/}
-      {/*        <option>Option2</option>*/}
-      {/*        <option>Option3</option>*/}
-      {/*      </select>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-      {/*<div className="flex -mx-3">*/}
-      {/*  <div className="w-full px-3 mb-5">*/}
-      {/*    <label for="" className="text-md font-semibold">*/}
-      {/*      Have you further developed the solution that you worked on during*/}
-      {/*      SIH?*/}
-      {/*    </label>*/}
-      {/*    <div class="main flex overflow-hidden m-2 select-none">*/}
-      {/*      <label class="flex radio p-2 cursor-pointer">*/}
-      {/*        <input*/}
-      {/*          class="my-auto transform scale-125"*/}
-      {/*          type="radio"*/}
-      {/*          name="sfg"*/}
-      {/*        />*/}
-      {/*        <div class="title px-2">male</div>*/}
-      {/*      </label>*/}
-
-      {/*      <label class="flex radio p-2 cursor-pointer">*/}
-      {/*        <input*/}
-      {/*          class="my-auto transform scale-125"*/}
-      {/*          type="radio"*/}
-      {/*          name="sfg"*/}
-      {/*        />*/}
-      {/*        <div class="title px-2">female</div>*/}
-      {/*      </label>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>{" "}*/}
-      {/*<div className="flex -mx-3">*/}
-      {/*  <div className="w-full px-3 mb-5">*/}
-      {/*    <label for="" className="text-md font-semibold">*/}
-      {/*      Have you further developed the solution that you worked on during*/}
-      {/*      SIH?*/}
-      {/*    </label>*/}
-
-      {/*    <fieldset class="mb-5 mt-5">*/}
-      {/*      <div class="flex items-start items-center mb-4">*/}
-      {/*        <input*/}
-      {/*          id="checkbox-2"*/}
-      {/*          aria-describedby="checkbox-2"*/}
-      {/*          type="checkbox"*/}
-      {/*          class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded"*/}
-      {/*        />*/}
-      {/*        <label*/}
-      {/*          for="checkbox-2"*/}
-      {/*          class="text-sm ml-3 font-medium text-gray-900"*/}
-      {/*        >*/}
-      {/*          Option 1*/}
-      {/*        </label>*/}
-      {/*      </div>*/}
-
-      {/*      <div class="flex items-start items-center mb-4">*/}
-      {/*        <input*/}
-      {/*          id="checkbox-3"*/}
-      {/*          aria-describedby="checkbox-3"*/}
-      {/*          type="checkbox"*/}
-      {/*          class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded"*/}
-      {/*        />*/}
-      {/*        <label*/}
-      {/*          for="checkbox-3"*/}
-      {/*          class="text-sm ml-3 font-medium text-gray-900"*/}
-      {/*        >*/}
-      {/*          Option 2*/}
-      {/*        </label>*/}
-      {/*      </div>*/}
-      {/*    </fieldset>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
       <div className="flex -mx-3">
         <div className="w-full px-3 mb-5">
           <label className="text-md font-semibold">
@@ -147,7 +183,12 @@ export default function TeamQuestions() {
                 type="radio"
                 value={1}
                 checked={developmentStatus == true}
-                onChange={(e) => setDevelopmentStatus(e.target.value)}
+                onChange={(e) => {
+                  setDevelopmentStatus(e.target.value)
+                  // simpleValidator.current.fieldValid("developmentStatus")
+                  //     ? simpleValidator.current.hideMessageFor("developmentStatus")
+                  //     : simpleValidator.current.showMessageFor("developmentStatus");
+                }}
               />
               <div class="title px-2">Yes</div>
             </label>
@@ -158,11 +199,30 @@ export default function TeamQuestions() {
                 type="radio"
                 value={0}
                 checked={developmentStatus == false}
-                onChange={(e) => setDevelopmentStatus(e.target.value)}
+                onChange={(e) => {
+                  setDevelopmentStatus(e.target.value)
+                  // simpleValidator.current.fieldValid("developmentStatus")
+                  //     ? simpleValidator.current.hideMessageFor("developmentStatus")
+                  //     : simpleValidator.current.showMessageFor("developmentStatus");
+                }}
               />
               <div class="title px-2">No</div>
             </label>
           </div>
+          {/*{simpleValidator.current.message(*/}
+          {/*    "developmentStatus",*/}
+          {/*    () => {*/}
+          {/*      if (developmentStatus === 1) {*/}
+          {/*        return true;*/}
+          {/*      } else if (developmentStatus === 0) {*/}
+          {/*        return false;*/}
+          {/*      }*/}
+
+          {/*      return null;*/}
+          {/*    },*/}
+          {/*    "required|boolean",*/}
+          {/*    { className: "text-red-600" }*/}
+          {/*)}*/}
         </div>
       </div>
       {developmentStatus == true && (
@@ -181,8 +241,8 @@ export default function TeamQuestions() {
                 rows={5}
                 className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                 onChange={(e) => setDescription(e.target.value)}
+                defaultValue={description}
               >
-                {description}
               </textarea>
             </div>
           </div>
@@ -553,7 +613,7 @@ export default function TeamQuestions() {
                 value="TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype)."
                 selected={
                   trlLevel ===
-                  "'TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype).'"
+                  "TRL 4 : Small scale prototype built in a laboratory environment ('ugly' prototype)."
                 }
               >
                 TRL 4 : Small scale prototype built in a laboratory environment
@@ -891,9 +951,10 @@ export default function TeamQuestions() {
         <div className="w-full px-3 mb-5">
           <button
             style={{ fontFamily: "Montserrat" }}
+            onClick={handleSubmit}
             className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
           >
-            SAVE CHANGES
+            {isLoading ? "Saving...." : "SAVE CHANGES"}
           </button>
         </div>
       </div>
