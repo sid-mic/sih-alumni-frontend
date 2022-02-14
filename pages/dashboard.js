@@ -84,110 +84,124 @@ class Dashboard extends Component {
       return <Loading> </Loading>;
     }
 
-    return (
-      <>
-        <Head>
-          <title>Dashboard | MIC Alumni Portal</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        {this.state.selectedmoduletype === 1 && (
-          <>
-            <SidebarMobile
-              moduletypes={this.state.moduletypes}
-              selectedtype={this.setModuleType}
-              logout={this.state.logout}
-            />
-            <div className="flex flex-col bg-indblue min-h-full min-w-full">
-              <div className="flex  flex-wrap">
-                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                  <HomeHero name={this.state.user?.name} />
-                </div>
+    if (this.state.selectedmoduletype === 1) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+            logout={this.state.logout}
+          />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="flex  flex-wrap">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <HomeHero name={this.state.user?.name} />
               </div>
             </div>
-          </>
-        )}
-        {this.state.selectedmoduletype === 2 && (
-          <>
-            <SidebarMobile
-              moduletypes={this.state.moduletypes}
-              selectedtype={this.setModuleType}
-            />
-            <div className="flex flex-col bg-indblue min-h-full min-w-full">
-              <div className="flex  flex-wrap">
-                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                  {/*<WelcomeHero h1="PROJECT" />*/}
-                  <ProjectComponent
-                    user={this.state.user}
-                    project_id={this.state.user?.project_id}
-                  />
-                </div>
+          </div>
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 2) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+          />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="flex  flex-wrap">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <ProjectComponent
+                  user={this.state.user}
+                  project_id={this.state.user?.project_id}
+                />
               </div>
             </div>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-          </>
-        )}
-        {this.state.selectedmoduletype === 3 && (
-          <>
-            <SidebarMobile
-              moduletypes={this.state.moduletypes}
-              selectedtype={this.setModuleType}
-            />
-            <div className="flex flex-col bg-indblue min-h-full min-w-full">
-              <div className="flex  flex-wrap">
-                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                  <WelcomeHero h1="RESOURCES" />
-                  <Resources />
-                </div>
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 3) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+          />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="flex  flex-wrap">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <WelcomeHero h1="RESOURCES" />
+                <Resources />
               </div>
             </div>
-          </>
-        )}
-
-        {this.state.selectedmoduletype === 4 && (
-          <>
-            <SidebarMobile
-              moduletypes={this.state.moduletypes}
-              selectedtype={this.setModuleType}
-            />
-            <div className="flex flex-col bg-indblue min-h-full min-w-full">
-              <div className="flex  flex-wrap">
-                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                  <WelcomeHero h1="PROFILE" />
-                  <EditProfile
-                    user={this.state.user}
-                    isAuth={this.state.isAuth}
-                    userId={this.state.userId}
-                    key={this.state.userId}
-                    toast={toast}
-                  />
-                </div>
+          </div>
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 4) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+          />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="flex  flex-wrap">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <WelcomeHero h1="PROFILE" />
+                <EditProfile
+                  user={this.state.user}
+                  isAuth={this.state.isAuth}
+                  userId={this.state.userId}
+                  key={this.state.userId}
+                  toast={toast}
+                />
               </div>
             </div>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-          </>
-        )}
-      </>
-    );
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      );
+    }
   }
 }
 
