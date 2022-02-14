@@ -17,6 +17,8 @@ import Router from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../components/Loading";
+import Head from "next/head";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -50,150 +52,143 @@ class Dashboard extends Component {
     selectedmoduletype: 1,
     user: null,
     isAuth: false,
-    userId: 0
+    userId: 0,
+    isLoading: true,
   };
 
   async componentDidMount() {
-    let data = await requireAuth('/');
+    let data = await requireAuth("/");
 
-    if (data.isAuth){
+    if (data.isAuth) {
       if (data.user?.signed_up_at == null) {
-        await Router.push('/setup-profile');
+        await Router.push("/setup-profile");
       }
 
-      this.setState({user: data.user, isAuth: data.isAuth, userId: data.user.id, logout: auth().logout});
+      this.setState({
+        user: data.user,
+        isAuth: data.isAuth,
+        userId: data.user.id,
+        logout: auth().logout,
+      });
     }
+
+    this.setState({ isLoading: false });
   }
 
   setModuleType(selectedtype) {
     this.setState({ selectedmoduletype: selectedtype });
   }
-  render() {
-    if (this.state.selectedmoduletype === 1) {
-      return (
-        <>
-          <SidebarMobile
-            moduletypes={this.state.moduletypes}
-            selectedtype={this.setModuleType}
-            logout={this.state.logout}
-          />
-           <div className="flex flex-col bg-indblue min-h-full min-w-full">
-            <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <HomeHero name={this.state.user?.name}/>
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    }
-    if (this.state.selectedmoduletype === 2) {
-      return (
-        <>
-          <SidebarMobile
-            moduletypes={this.state.moduletypes}
-            selectedtype={this.setModuleType}
-          />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
-            <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="PROJECT" />
-                <ProjectComponent user={this.state.user} project_id={this.state.user?.project_id}/>
-              </div>
-            </div>
-          </div>
-          <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-          />
-        </>
-      );
-    }
-    if (this.state.selectedmoduletype === 3) {
-      return (
-        <>
-          <SidebarMobile
-            moduletypes={this.state.moduletypes}
-            selectedtype={this.setModuleType}
-          />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
-            <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="RESOURCES" />
-                <Resources />
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    }
-    if (this.state.selectedmoduletype === 4) {
-      return (
-        <>
-          <SidebarMobile
-            moduletypes={this.state.moduletypes}
-            selectedtype={this.setModuleType}
-          />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
-            <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="PROFILE" />
-                <EditProfile user={this.state.user} isAuth={this.state.isAuth} userId={this.state.userId} key={this.state.userId} toast={toast} />
-              </div>
-            </div>
-          </div>
-          <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-          />
-        </>
-      );
-    } else {
-      return (
-        <>
-          <SidebarMobile
-            moduletypes={this.state.moduletypes}
-            selectedtype={this.setModuleType}
-          />
-          <div className="flex flex-col min-h-screen">
-            <div className="flex  flex-wrap">
-              <div className="container min-h-screen bg-gray-100 pt-0 md:ml-60">
-                <WelcomeHero h1="Welcome, " h2={this.state.user?.name} />
-                <div className="p-10 items-center md:ml-80">
-                  <div class="flex flex-wrap -mx-1 overflow-hidden lg:-mx-3">
-                    <div class="my-1 px-1 w-full overflow-hidden lg:my-3 lg:px-3">
-                      <img
-                        className="md:max-w-lg sm:max-w-md"
-                        src="assets/startup2.gif"
-                      />
-                    </div>
 
-                    <div class="my-1 px-1 w-full  lg:my-3 lg:px-3">
-                      Welcome to the alumni portal. Navigate with the links in
-                      the menu.
-                    </div>
-                  </div>
+  render() {
+    if (this.state.isLoading) {
+      return <Loading> </Loading>;
+    }
+
+    return (
+      <>
+        <Head>
+          <title>Dashboard | MIC Alumni Portal</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        {this.state.selectedmoduletype === 1 && (
+          <>
+            <SidebarMobile
+              moduletypes={this.state.moduletypes}
+              selectedtype={this.setModuleType}
+              logout={this.state.logout}
+            />
+            <div className="flex flex-col bg-indblue min-h-full min-w-full">
+              <div className="flex  flex-wrap">
+                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                  <HomeHero name={this.state.user?.name} />
                 </div>
               </div>
             </div>
-          </div>
-        </>
-      );
-    }
+          </>
+        )}
+        {this.state.selectedmoduletype === 2 && (
+          <>
+            <SidebarMobile
+              moduletypes={this.state.moduletypes}
+              selectedtype={this.setModuleType}
+            />
+            <div className="flex flex-col bg-indblue min-h-full min-w-full">
+              <div className="flex  flex-wrap">
+                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                  {/*<WelcomeHero h1="PROJECT" />*/}
+                  <ProjectComponent
+                    user={this.state.user}
+                    project_id={this.state.user?.project_id}
+                  />
+                </div>
+              </div>
+            </div>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </>
+        )}
+        {this.state.selectedmoduletype === 3 && (
+          <>
+            <SidebarMobile
+              moduletypes={this.state.moduletypes}
+              selectedtype={this.setModuleType}
+            />
+            <div className="flex flex-col bg-indblue min-h-full min-w-full">
+              <div className="flex  flex-wrap">
+                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                  <WelcomeHero h1="RESOURCES" />
+                  <Resources />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
+        {this.state.selectedmoduletype === 4 && (
+          <>
+            <SidebarMobile
+              moduletypes={this.state.moduletypes}
+              selectedtype={this.setModuleType}
+            />
+            <div className="flex flex-col bg-indblue min-h-full min-w-full">
+              <div className="flex  flex-wrap">
+                <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                  <WelcomeHero h1="PROFILE" />
+                  <EditProfile
+                    user={this.state.user}
+                    isAuth={this.state.isAuth}
+                    userId={this.state.userId}
+                    key={this.state.userId}
+                    toast={toast}
+                  />
+                </div>
+              </div>
+            </div>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+          </>
+        )}
+      </>
+    );
   }
 }
+
 export default Dashboard;

@@ -10,49 +10,56 @@ import { useEffect, useState } from "react";
 import authImport from "../utils/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../components/Loading";
+import  Router from "next/router";
 
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
   const [auth, setAuth] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(async () => {
     setAuth(authImport());
     if (authImport().isAuth) {
-      let data = await authImport().fetchUser();
-
-      setIsAuth(data.isAuth);
-      setUser(data.user);
+      await Router.push("/dashboard");
     }
+
+    setIsLoading(false);
   }, [""]);
   return (
     //Add svg with parallax scroll
 
     <div className="flex flex-col min-h-screen">
       <Head>
-        <title>Create Next App</title>
+        <title>MIC Alumni Portal</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Nav />
-      <Hero user={user} isAuth={isAuth} auth={auth} />
-      <div class="bg-lightblue">
-        <Feature />
-        <Scroller />
-        <Featured />
-        <Footer />
-      </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      {isLoading ? (
+        <Loading></Loading>
+      ) : (
+        <>
+          <Nav />
+          <Hero user={user} isAuth={isAuth} auth={auth} />
+          <div class="bg-lightblue">
+            <Feature />
+            <Scroller />
+            <Featured />
+            <Footer />
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      )}
     </div>
   );
 }
