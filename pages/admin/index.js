@@ -13,13 +13,14 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
-import { faFileImport } from "@fortawesome/free-solid-svg-icons";
+import { faFileImport, faTable } from "@fortawesome/free-solid-svg-icons";
 import requireAuth from "../../utils/requireAuth";
 import Router from "next/router";
 import auth from "../../utils/auth";
 import Loading from "../../components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ImportsTable from "../../components/admin/ImportsTable";
 
 class Home extends Component {
   constructor(props) {
@@ -51,7 +52,12 @@ class Home extends Component {
       },
       {
         id: 5,
-        type: "Import",
+        type: "Imports",
+        icon: faTable,
+      },
+      {
+        id: 6,
+        type: "New Import",
         icon: faFileImport,
       },
     ],
@@ -180,6 +186,39 @@ class Home extends Component {
     }
     if (this.state.selectedmoduletype === 5) {
       return (
+          <>
+            <div className="flex flex-col min-h-screen">
+              <div className="flex  flex-wrap">
+                <AdminSidebar
+                    moduletypes={this.state.moduletypes}
+                    selectedtype={this.setModuleType}
+                />
+                <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                  <div className="flex  flex-wrap">
+                    <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                      <WelcomeHero h1="Imports" />
+                      <ImportsTable user={this.state.user}></ImportsTable>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+              />
+            </div>
+          </>
+      );
+    }
+    if (this.state.selectedmoduletype === 6) {
+      return (
         <>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
@@ -190,7 +229,7 @@ class Home extends Component {
               <div className="flex flex-col bg-indblue min-h-full min-w-full">
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                    <WelcomeHero h1="Import" />
+                    <WelcomeHero h1="New Import" />
                     <AdminUser toast={toast} user={this.state.user}/>
                   </div>
                 </div>
@@ -210,29 +249,8 @@ class Home extends Component {
           </div>
         </>
       );
-    } else {
-      return (
-        <>
-          <div className="flex flex-col min-h-screen">
-            <div className="flex  flex-wrap">
-              <AdminSidebar
-                moduletypes={this.state.moduletypes}
-                selectedtype={this.setModuleType}
-              />
-              <div className="flex flex-col bg-indblue min-h-full min-w-full">
-                <div className="flex  flex-wrap">
-                  <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                    <WelcomeHero h1="Welcome, " h2="Admin." />
-                    <AdminStats />
-                    <ChartStats />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      );
     }
   }
 }
+
 export default Home;
