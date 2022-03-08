@@ -23,7 +23,7 @@ export default function FeedbackQuestions(props) {
       axios()
         .get(
           process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-            `/users/${props.user?.id}/feedback`
+            `/projects/${props?.project.id}/feedback`
         )
         .then((response) => {
           if (response?.status == 200) {
@@ -56,7 +56,7 @@ export default function FeedbackQuestions(props) {
     toast.promise(
       axios().post(
         process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-          `/users/${props.user?.id}/feedback`,
+          `/projects/${props?.project.id}/feedback`,
         {
           hired_by_ministry: hiredByMinistry,
           hired_by_ministry_elaborate: hiredByMinistryElaborate,

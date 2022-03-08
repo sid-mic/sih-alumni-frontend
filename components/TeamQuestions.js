@@ -46,7 +46,7 @@ export default function TeamQuestions(props) {
       axios()
         .get(
           process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-            `/projects/${props?.project_id}/status`
+            `/projects/${props?.project.id}/status`
         )
         .then((response) => {
           if (response?.status == 200) {
@@ -97,7 +97,7 @@ export default function TeamQuestions(props) {
     toast.promise(
       axios().post(
         process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-          `/projects/${props?.project_id}/status`,
+          `/projects/${props?.project.id}/status`,
         {
           development_status: developmentStatus,
           description: description,

@@ -52,6 +52,7 @@ class Dashboard extends Component {
     selectedmoduletype: 1,
     user: null,
     isAuth: false,
+      projects: [],
     userId: 0,
     isLoading: true,
   };
@@ -68,6 +69,7 @@ class Dashboard extends Component {
         user: data.user,
         isAuth: data.isAuth,
         userId: data.user.id,
+        projects: data.projects,
         logout: auth().logout,
       });
     }
@@ -122,7 +124,7 @@ class Dashboard extends Component {
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <ProjectComponent
                   user={this.state.user}
-                  project_id={this.state.user?.project_id}
+                  projects={this.state.projects}
                 />
               </div>
             </div>

@@ -21,7 +21,6 @@ export default function IndividualQuestions(props) {
   const [isInitialising, setIsInitialising] = useState(true);
 
   useEffect(() => {
-    console.log(props);
     if (props.user?.id != null) {
       axios()
         .get(

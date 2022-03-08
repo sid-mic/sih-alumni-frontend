@@ -7,12 +7,12 @@ export default async function requireAuth(redirectUrl = "/login") {
     if (data.isAuth === false) {
         return await Router.push(redirectUrl);
     } else {
-        let {user, isAuth} = await auth().fetchUser();
+        let {user, isAuth, projects} = await auth().fetchUser();
 
         if (!isAuth) {
             return await Router.push(redirectUrl);
         }
 
-        return {user, isAuth};
+        return {user, isAuth, projects};
     }
 }
