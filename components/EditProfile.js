@@ -19,7 +19,7 @@ class EditProfile extends Component {
       name: this.props.user?.name,
       phone: this.props.user?.phone,
       gender: this.props.user?.gender,
-      isLoading: false
+      isLoading: false,
     };
   }
 
@@ -41,29 +41,29 @@ class EditProfile extends Component {
     if (this.validator.allValid() && this.props.user != null) {
       this.props.toast.promise(
         axios().patch(`/users/${this.props.user.id}/update`, {
-            _method: "PATCH",
+          _method: "PATCH",
           name: this.state.name,
           phone: this.state.phone,
           gender: this.state.gender,
-          }),
-          {
-            pending: {
-              render() {
-                return "Setting up profile....";
-              },
+        }),
+        {
+          pending: {
+            render() {
+              return "Setting up profile....";
             },
-            success: {
-              render() {
-                Router.push("/dashboard");
-                return "Profile updated successfully!";
-              },
+          },
+          success: {
+            render() {
+              Router.push("/dashboard");
+              return "Profile updated successfully!";
             },
-            error: {
-              render() {
-                return "Something went wrong!";
-              },
+          },
+          error: {
+            render() {
+              return "Something went wrong!";
             },
-          }
+          },
+        }
       );
     } else {
       this.validator.showMessages();
@@ -79,7 +79,14 @@ class EditProfile extends Component {
   }
   render() {
     return (
-      <div className=" min-h-screen  ml-20 mr-20">
+      <div className=" min-h-screen  ml-20 mr-20 mb-20">
+        <div className="flex rounded-full h-30 w-30 justify-center text-center mb-10 mt-10">
+          <img
+            className="inline-block h-60 w-60 rounded-full ring-2 ring-indblue"
+            src="https://www.mintableblocks.com/assets/guru.png"
+            alt=""
+          />
+        </div>
         <div className="flex -mx-3">
           <div className="w-full px-3 mb-5">
             <label className="text-xs font-semibold px-1">Name</label>
@@ -187,7 +194,7 @@ class EditProfile extends Component {
               className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
               onClick={this.handleSubmit}
             >
-              {this.state.isLoading ? 'Updating profile....' : 'Update profile'}
+              {this.state.isLoading ? "Updating profile...." : "Update profile"}
             </button>
           </div>
         </div>

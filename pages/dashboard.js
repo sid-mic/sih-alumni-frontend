@@ -49,7 +49,7 @@ class Dashboard extends Component {
         icon: faUser,
       },
     ],
-    selectedmoduletype: 2,
+    selectedmoduletype: 1,
     user: null,
     isAuth: false,
     projects: [],
