@@ -46,7 +46,7 @@ class ProjectComponent extends Component {
               {Object.entries(this.props.projects).map(([id, project]) => {
                 return (
                   <button
-                    className="block bg-indblue p-5 "
+                    className="block bg-indblue text-white p-5 rounded-xl"
                     key={id}
                     onClick={() => {
                       this.setProject(id);
@@ -67,12 +67,28 @@ class ProjectComponent extends Component {
         <>
           <div className="flex justify-between">
             <button
-              className="button-active bg-indblue p-5 m-3"
+              style={{ fontFamily: "Montserrat" }}
+              className="button-active bg-indblue p-5 m-3 text-white rounded-lg w-40 flex"
               onClick={() => this.setProject(null)}
             >
-              BACK
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>{" "}
+              <span className="ml-6">Back</span>
             </button>
-            <div className="bg-indblue p-5 m-3 mr-14 -ml-10">
+            <div
+              style={{ fontFamily: "Montserrat" }}
+              className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
+            >
               {this.props.projects[this.state.selected_project].hackathon} -{" "}
               {this.props.projects[this.state.selected_project].year}
             </div>
@@ -96,12 +112,28 @@ class ProjectComponent extends Component {
         <>
           <div className="flex justify-between">
             <button
-              className="button-active bg-indblue p-5 m-3"
+              style={{ fontFamily: "Montserrat" }}
+              className="button-active bg-indblue p-5 m-3 text-white rounded-lg w-40 flex"
               onClick={() => this.setProject(null)}
             >
-              BACK
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>{" "}
+              <span className="ml-6">Back</span>
             </button>
-            <div className="bg-indblue p-5 m-3 mr-14 -ml-10">
+            <div
+              style={{ fontFamily: "Montserrat" }}
+              className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
+            >
               {this.props.projects[this.state.selected_project].hackathon} -{" "}
               {this.props.projects[this.state.selected_project].year}
             </div>
@@ -124,12 +156,28 @@ class ProjectComponent extends Component {
         <>
           <div className="flex justify-between">
             <button
-              className="button-active bg-indblue p-5 m-3"
+              style={{ fontFamily: "Montserrat" }}
+              className="button-active bg-indblue p-5 m-3 text-white rounded-lg w-40 flex"
               onClick={() => this.setProject(null)}
             >
-              BACK
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>{" "}
+              <span className="ml-6">Back</span>
             </button>
-            <div className="bg-indblue p-5 m-3 mr-14 -ml-10">
+            <div
+              style={{ fontFamily: "Montserrat" }}
+              className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
+            >
               {this.props.projects[this.state.selected_project].hackathon} -{" "}
               {this.props.projects[this.state.selected_project].year}
             </div>
