@@ -41,11 +41,6 @@ class Home extends Component {
         icon: faDatabase,
       },
       {
-        id: 3,
-        type: "Resources",
-        icon: faBookReader,
-      },
-      {
         id: 4,
         type: "ANNOUNCEMENTS",
         icon: faBullhorn,
@@ -174,13 +169,24 @@ class Home extends Component {
               <div className="flex flex-col bg-indblue min-h-full min-w-full">
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                    <WelcomeHero h1="ADD ANNOUNCEMENTS" />
+                    <WelcomeHero h1="ANNOUNCEMENTS" />
                     <AdminAnnouncements />
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
         </>
       );
     }
