@@ -1,3 +1,4 @@
+import axios from "../utils/axios";
 import React, { Component } from "react";
 
 class News extends Component {
@@ -7,10 +8,23 @@ class News extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  state = {
+    data: null,
+  };
+
   handleChange(event) {
     //this.state = {selectedtype: event.target.value}
     alert(event.target.id);
     this.props.selectedtype.bind(this, event.target.id);
+  }
+
+  componentDidMount() {
+    axios()
+      .get("announcements/public")
+      .then((resp) => {
+        console.log(resp.data);
+        this.setState({ data: resp.data });
+      });
   }
 
   render() {
@@ -33,37 +47,10 @@ class News extends Component {
               </div>
             </div>
             <div>
-              <div className="mb-2">
-                <a
-                  href="/"
-                  className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                  aria-label="Category"
-                  title="Delevopment"
-                >
-                  Delevopment
-                </a>
-              </div>
-              <div className="mb-2">
-                <a
-                  href="/"
-                  aria-label="Article"
-                  className="inline-block text-lg font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
-                  Why I love Laravel
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
-            <div className="pt-1 mr-6 text-center">
-              <div className="px-2 pb-1 mb-1 border-b border-gray-400">
-                <p className="text-sm text-blue-gray-700">Jul</p>
-              </div>
-              <div className="px-2">
-                <p className="text-lg font-bold">18</p>
-              </div>
-            </div>
-            <div>
+              {/* {this.state.data.map((item) => {
+                return <NewsCard item={item} />;
+              })} */}
+
               <div className="mb-2">
                 <a
                   href="/"
@@ -123,6 +110,43 @@ class News extends Component {
 }
 
 export default News;
+
+function NewsCard({ item }) {
+  return (
+    <div className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
+      <div className="pt-1 mr-6 text-center">
+        <div className="px-2 pb-1 mb-1 border-b border-gray-400">
+          <p className="text-sm text-blue-gray-700">Jul</p>
+        </div>
+        <div className="px-2">
+          <p className="text-lg font-bold">18</p>
+        </div>
+      </div>
+      <div>
+        <div className="mb-2">
+          <a
+            href="/"
+            className="font-semibold tracking-wide text-xl uppercase transition-colors text-indblue duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+            aria-label="Category"
+            title="Delevopment"
+            style={{ fontFamily: "Montserrat" }}
+          >
+            {item.title}
+          </a>
+        </div>
+        <div className="mb-2">
+          <a
+            href="/"
+            aria-label="Article"
+            className="inline-block text-md  leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            {item.description}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // export const News = () => {
 //   return (
