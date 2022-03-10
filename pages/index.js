@@ -11,7 +11,8 @@ import authImport from "../utils/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../components/Loading";
-import  Router from "next/router";
+import Router from "next/router";
+import Initiatives from "../components/Initiatives";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -44,6 +45,7 @@ export default function Home() {
           <div class="bg-lightblue">
             <Feature />
             <Scroller />
+            <Initiatives />
             <Featured />
             <Footer />
           </div>
