@@ -10,7 +10,7 @@ export default function Scroller() {
       >
         PARTNERED COMPETITIONS
       </h1>
-      <Marquee gradient="true" gradient="true" gradientColor="[224, 236, 255]">
+      <Marquee gradient="true" gradientColor="[224, 236, 255]">
         <div className="pr-12 md:pr-20">
           <img
             className="max-h-20"

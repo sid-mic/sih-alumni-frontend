@@ -44,9 +44,9 @@ export default function Home() {
           <Hero user={user} isAuth={isAuth} auth={auth} />
           <div class="bg-lightblue">
             <Feature />
-            <Scroller />
             <Initiatives />
             <Featured />
+            <Scroller />
             <Footer />
           </div>
           <ToastContainer
