@@ -5,17 +5,15 @@ import download from "js-file-download";
 
 export default function ImportsTable(props) {
   const [imports, setImports] = useState();
-  const [meta, setMeta] = useState();
   const [isInitialising, setIsInitialising] = useState(true);
 
   useEffect(() => {
     if (props.user?.id != null) {
       axios()
-        .get(process.env.NEXT_PUBLIC_BACKEND_DOMAIN + `/imports`)
+        .get("/imports")
         .then((response) => {
           if (response?.status == 200) {
             setImports(response.data.data);
-            setMeta(response.data.meta);
           }
 
           setIsInitialising(false);
@@ -27,17 +25,16 @@ export default function ImportsTable(props) {
   }, [props.user]);
 
   function renderStatus(status) {
-          switch (status) {
-              case "F":
-                  return <span>Failed</span>;
-              case "C":
-                  return <span>Completed</span>;
-              case "P":
-                  return <span>Processing</span>;
-              case "W":
-                  return <span>Waiting</span>;
-
-          }
+    switch (status) {
+      case "F":
+        return <span>Failed</span>;
+      case "C":
+        return <span>Completed</span>;
+      case "P":
+        return <span>Processing</span>;
+      case "W":
+        return <span>Waiting</span>;
+    }
   }
 
   function handleDownload(route, file_name) {
@@ -67,6 +64,16 @@ export default function ImportsTable(props) {
         <FormLoader></FormLoader>
       ) : (
         <div className={"mx-10 min-h-screen"}>
+          <div className={"flex justify-end mb-3"}>
+            <button
+              onClick={() =>
+                handleDownload("imports/sample/download", "sample.xlsx")
+              }
+              className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+            >
+              Download Sample
+            </button>
+          </div>
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
             <thead className="block md:table-header-group rounded-2xl">
               <tr className="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
@@ -74,7 +81,7 @@ export default function ImportsTable(props) {
                   File name
                 </th>
                 <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Hackathon
+                  Initiative
                 </th>
                 <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
                   Projects
@@ -112,7 +119,7 @@ export default function ImportsTable(props) {
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Hackathon:
                     </span>
-                    {i.hackathon}
+                    {i.initiative}
                   </td>
                   <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
@@ -130,7 +137,7 @@ export default function ImportsTable(props) {
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Status:
                     </span>
-                      {renderStatus(i.status)}
+                    {renderStatus(i.status)}
                   </td>
                   <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
@@ -146,7 +153,7 @@ export default function ImportsTable(props) {
                   </td>
                   <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                     <span className="inline-block w-1/3 md:hidden font-bold">
-                      Download
+                      Download:
                     </span>
                     <button
                       onClick={() => handleDownload(i.download, i.file_name)}
@@ -160,7 +167,7 @@ export default function ImportsTable(props) {
             </tbody>
           </table>
 
-            {/*//TODO: ADD PAGINATION*/}
+          {/*//TODO: ADD PAGINATION*/}
         </div>
       )}
     </>
