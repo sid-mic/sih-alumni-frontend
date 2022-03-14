@@ -1,22 +1,15 @@
 import axios from "../utils/axios";
 import React, { Component } from "react";
+import FormLoader from "./FormLoader";
 
 class News extends Component {
   constructor(props) {
     super(props);
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
   state = {
     data: null,
   };
-
-  handleChange(event) {
-    //this.state = {selectedtype: event.target.value}
-    alert(event.target.id);
-    this.props.selectedtype.bind(this, event.target.id);
-  }
 
   componentDidMount() {
     axios()
@@ -28,6 +21,9 @@ class News extends Component {
   }
 
   render() {
+    if (this.state.data == null) {
+      return <FormLoader></FormLoader>;
+    }
     return (
       <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
         <h2
@@ -37,72 +33,9 @@ class News extends Component {
           NEWS AND UPCOMING EVENTS
         </h2>
         <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-          <div className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
-            <div className="pt-1 mr-6 text-center">
-              <div className="px-2 pb-1 mb-1 border-b border-gray-400">
-                <p className="text-sm text-blue-gray-700">Jul</p>
-              </div>
-              <div className="px-2">
-                <p className="text-lg font-bold">18</p>
-              </div>
-            </div>
-            <div>
-              {/* {this.state.data.map((item) => {
-                return <NewsCard item={item} />;
-              })} */}
-
-              <div className="mb-2">
-                <a
-                  href="/"
-                  className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                  aria-label="Category"
-                  title="Delevopment"
-                >
-                  Delevopment
-                </a>
-              </div>
-              <div className="mb-2">
-                <a
-                  href="/"
-                  aria-label="Article"
-                  className="inline-block text-lg font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
-                  Why I love Laravel
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
-            <div className="pt-1 mr-6 text-center">
-              <div className="px-2 pb-1 mb-1 border-b border-gray-400">
-                <p className="text-sm text-blue-gray-700">Jul</p>
-              </div>
-              <div className="px-2">
-                <p className="text-lg font-bold">18</p>
-              </div>
-            </div>
-            <div>
-              <div className="mb-2">
-                <a
-                  href="/"
-                  className="text-xs font-semibold tracking-wide uppercase transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                  aria-label="Category"
-                  title="Delevopment"
-                >
-                  Delevopment
-                </a>
-              </div>
-              <div className="mb-2">
-                <a
-                  href="/"
-                  aria-label="Article"
-                  className="inline-block text-lg font-bold leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                >
-                  Why I love Laravel
-                </a>
-              </div>
-            </div>
-          </div>
+          {this.state.data.map((item) => {
+            return <NewsCard item={item} />;
+          })}
         </div>
       </div>
     );
@@ -113,38 +46,36 @@ export default News;
 
 function NewsCard({ item }) {
   return (
-    <div className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
+    <a href={item.url} className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
       <div className="pt-1 mr-6 text-center">
         <div className="px-2 pb-1 mb-1 border-b border-gray-400">
-          <p className="text-sm text-blue-gray-700">Jul</p>
+          <p className="text-sm text-blue-gray-700">{item.created_month}</p>
         </div>
         <div className="px-2">
-          <p className="text-lg font-bold">18</p>
+          <p className="text-lg font-bold">{item.created_date}</p>
         </div>
       </div>
       <div>
         <div className="mb-2">
-          <a
-            href="/"
+          <div
             className="font-semibold tracking-wide text-xl uppercase transition-colors text-indblue duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             aria-label="Category"
             title="Delevopment"
             style={{ fontFamily: "Montserrat" }}
           >
             {item.title}
-          </a>
+          </div>
         </div>
         <div className="mb-2">
-          <a
-            href="/"
+          <div
             aria-label="Article"
             className="inline-block text-md  leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
           >
             {item.description}
-          </a>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
