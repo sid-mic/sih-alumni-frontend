@@ -6,10 +6,14 @@ import { WelcomeHero } from "../components/WelcomeHero";
 import ProjectComponent from "../components/ProjectComponent";
 import HomeHero from "../components/HomeHero";
 import Resources from "../components/Resources";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faUserAlt,
+  faUserEdit,
+} from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faUserAltSlash } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/Banner";
 import requireAuth from "../utils/requireAuth";
 import auth from "../utils/auth";
@@ -19,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../components/Loading";
 import Head from "next/head";
+import IndividualQuestions from "../components/IndividualQuestions";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -40,13 +45,13 @@ class Dashboard extends Component {
       },
       {
         id: 3,
-        type: "Resources",
-        icon: faBookReader,
+        type: "Participant",
+        icon: faUser,
       },
       {
-        id: 4,
+        id: 5,
         type: "Profile",
-        icon: faUser,
+        icon: faUserEdit,
       },
     ],
     selectedmoduletype: 1,
@@ -160,6 +165,39 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                <WelcomeHero h1="Participant Status" />
+                <IndividualQuestions user={this.state.user} />
+              </div>
+            </div>
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 4) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <SidebarMobile
+            moduletypes={this.state.moduletypes}
+            selectedtype={this.setModuleType}
+          />
+          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+            <div className="flex  flex-wrap">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
                 <WelcomeHero h1="RESOURCES" />
                 <Resources />
               </div>
@@ -168,7 +206,7 @@ class Dashboard extends Component {
         </>
       );
     }
-    if (this.state.selectedmoduletype === 4) {
+    if (this.state.selectedmoduletype === 5) {
       return (
         <>
           <Head>
