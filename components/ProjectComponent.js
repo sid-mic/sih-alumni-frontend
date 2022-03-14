@@ -17,10 +17,6 @@ class ProjectComponent extends Component {
         type: "Team Questions",
       },
       {
-        id: 2,
-        type: "Individual Questions",
-      },
-      {
         id: 3,
         type: "Feedback",
       },
@@ -42,7 +38,14 @@ class ProjectComponent extends Component {
       return (
         <div>
           <div className="min-h-screen ml-20 mr-20">
-            <div className="flex -mx-3 justify-center my-10">
+            <div className="flex -mx-3 justify-center mt-10 ">
+              {" "}
+              <h3>Please choose the Hackathon to enter:</h3>
+              <br />
+              <br />
+            </div>
+
+            <div className="flex -mx-3 justify-center my-5">
               {Object.entries(this.props.projects).map(([id, project]) => {
                 return (
                   <button
@@ -52,7 +55,8 @@ class ProjectComponent extends Component {
                       this.setProject(id);
                     }}
                   >
-                    {project.hackathon} - {project.year}
+                    {project.initiative.hackathon} -{" "}
+                    {project.initiative.edition}
                   </button>
                 );
               })}
@@ -89,8 +93,15 @@ class ProjectComponent extends Component {
               style={{ fontFamily: "Montserrat" }}
               className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
             >
-              {this.props.projects[this.state.selected_project].hackathon} -{" "}
-              {this.props.projects[this.state.selected_project].year}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .hackathon
+              }{" "}
+              -{" "}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .edition
+              }
             </div>
             <div className="col-span-4" />
           </div>
@@ -134,8 +145,15 @@ class ProjectComponent extends Component {
               style={{ fontFamily: "Montserrat" }}
               className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
             >
-              {this.props.projects[this.state.selected_project].hackathon} -{" "}
-              {this.props.projects[this.state.selected_project].year}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .hackathon
+              }{" "}
+              -{" "}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .edition
+              }
             </div>
             <div className="col-span-4" />
           </div>
@@ -178,8 +196,15 @@ class ProjectComponent extends Component {
               style={{ fontFamily: "Montserrat" }}
               className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
             >
-              {this.props.projects[this.state.selected_project].hackathon} -{" "}
-              {this.props.projects[this.state.selected_project].year}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .hackathon
+              }{" "}
+              -{" "}
+              {
+                this.props.projects[this.state.selected_project].initiative
+                  .edition
+              }
             </div>
             <div className="col-span-4" />
           </div>
