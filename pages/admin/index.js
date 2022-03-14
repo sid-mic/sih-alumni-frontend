@@ -9,7 +9,7 @@ import AdminSidebar from "../../components/admin/AdminSidebar";
 import { AdminStats } from "../../components/admin/AdminStats";
 import { ChartStats } from "../../components/ChartStats";
 import { WelcomeHero } from "../../components/WelcomeHero";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faFolderPlus, faHome } from "@fortawesome/free-solid-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +21,7 @@ import Loading from "../../components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImportsTable from "../../components/admin/ImportsTable";
+import Initiatives from "../../components/admin/Initiatives";
 
 class Home extends Component {
   constructor(props) {
@@ -39,6 +40,11 @@ class Home extends Component {
         id: 2,
         type: "Data",
         icon: faDatabase,
+      },
+      {
+        id: 3,
+        type: "Initiatives",
+        icon: faFolderPlus,
       },
       {
         id: 4,
@@ -147,13 +153,24 @@ class Home extends Component {
               <div className="flex flex-col bg-indblue min-h-full min-w-full">
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                    <WelcomeHero h1="ADD RESOURCES" />
-                    <AdminResources />
+                    <WelcomeHero h1="INITIATIVES" />
+                    <Initiatives />
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </>
       );
     }
@@ -177,15 +194,15 @@ class Home extends Component {
             </div>
           </div>
           <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
           />
         </>
       );
