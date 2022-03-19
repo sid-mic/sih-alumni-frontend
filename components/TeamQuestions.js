@@ -4,10 +4,14 @@ import axios from "../utils/axios";
 import SimpleReactValidator from "simple-react-validator";
 import Loading from "./Loading";
 import FormLoader from "./FormLoader";
+import FormNotFilled from "./FormNotFilled";
 
 export default function TeamQuestions(props) {
   const simpleValidator = useRef(new SimpleReactValidator());
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const disabled = props.disabled;
+  const [isFormFilled, setIsFormFilled] = useState(null);
 
   const [developmentStatus, setDevelopmentStatus] = useState();
   const [description, setDescription] = useState();
@@ -51,35 +55,41 @@ export default function TeamQuestions(props) {
         .then((response) => {
           if (response?.status == 200) {
             let data = response.data;
-            setDevelopmentStatus(data.development_status);
-            setDescription(data.description);
-            setMicSupport(data.mic_support);
-            setFundStatus(data.fund_status);
-            setFundOrganisation(data.fund_organisation);
-            setFundAmount(data.fund_amount);
-            setFundingDate(data.funding_date);
-            setFundingSupportNeeded(data.funding_support_needed);
-            setProjectDeliveryStatus(data.project_delivery_status);
-            setProjectDeliveredStatus(data.project_delivered_status);
-            setProjectImplementedByMinistry(
-              data.project_implemented_by_ministry
-            );
-            setMicSupportDeploy(data.mic_support_deploy);
-            setIncubatorStatus(data.incubator_status);
-            setNameOfIncubator(data.name_of_incubator);
-            setTrlLevel(data.trl_level);
-            setVideoUrl(data.video_url);
-            setIpStatus(data.ip_status);
-            setIpType(data.ip_type);
-            setIsPatentRegistered(data.is_patent_registered);
-            setIpNumber(data.ip_number);
-            setDateOfIpReg(data.date_of_ip_reg);
-            setNoOfIpFiledTillDate(data.no_of_ip_filed_till_date);
-            setStartupStatus(data.startup_status);
-            setStartupName(data.startup_name);
-            setCompanyRegistrationStatus(data.company_registration_status);
-            setCompanyName(data.company_name);
-            setCompanyCin(data.company_cin);
+
+            if (Object.keys(data).length === 0) {
+              setIsFormFilled(false);
+            } else {
+              setIsFormFilled(true);
+              setDevelopmentStatus(data.development_status);
+              setDescription(data.description);
+              setMicSupport(data.mic_support);
+              setFundStatus(data.fund_status);
+              setFundOrganisation(data.fund_organisation);
+              setFundAmount(data.fund_amount);
+              setFundingDate(data.funding_date);
+              setFundingSupportNeeded(data.funding_support_needed);
+              setProjectDeliveryStatus(data.project_delivery_status);
+              setProjectDeliveredStatus(data.project_delivered_status);
+              setProjectImplementedByMinistry(
+                  data.project_implemented_by_ministry
+              );
+              setMicSupportDeploy(data.mic_support_deploy);
+              setIncubatorStatus(data.incubator_status);
+              setNameOfIncubator(data.name_of_incubator);
+              setTrlLevel(data.trl_level);
+              setVideoUrl(data.video_url);
+              setIpStatus(data.ip_status);
+              setIpType(data.ip_type);
+              setIsPatentRegistered(data.is_patent_registered);
+              setIpNumber(data.ip_number);
+              setDateOfIpReg(data.date_of_ip_reg);
+              setNoOfIpFiledTillDate(data.number_of_ip_filed_till_date);
+              setStartupStatus(data.startup_status);
+              setStartupName(data.startup_name);
+              setCompanyRegistrationStatus(data.company_registration_status);
+              setCompanyName(data.company_name);
+              setCompanyCin(data.company_cin);
+            }
           }
 
           setIsInitialising(false);
@@ -92,6 +102,10 @@ export default function TeamQuestions(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (disabled) {
+      return;
+    }
 
     // if (simpleValidator.current.allValid() && props.user != null) {
     toast.promise(
@@ -120,7 +134,7 @@ export default function TeamQuestions(props) {
           is_patent_registered: isPatentRegistered,
           ip_number: ipNumber,
           date_of_ip_reg: dateOfIpReg,
-          no_of_ip_filed_till_date: noOfIpFiledTillDate,
+          number_of_ip_filed_till_date: noOfIpFiledTillDate,
           startup_status: startupStatus,
           startup_name: startupName,
           company_registration_status: companyRegistrationStatus,
@@ -176,7 +190,9 @@ export default function TeamQuestions(props) {
   return (
     <>
       {isInitialising ? (
-        <FormLoader></FormLoader>
+          <FormLoader></FormLoader>
+      ) : disabled && !isFormFilled ? (
+          <FormNotFilled/>
       ) : (
         <div className="mb-20 min-h-screen  ml-20 mr-20">
           <div className="flex -mx-3 ">
@@ -192,11 +208,9 @@ export default function TeamQuestions(props) {
                     type="radio"
                     value={1}
                     checked={developmentStatus == true}
+                    disabled={disabled}
                     onChange={(e) => {
                       setDevelopmentStatus(e.target.value);
-                      // simpleValidator.current.fieldValid("developmentStatus")
-                      //     ? simpleValidator.current.hideMessageFor("developmentStatus")
-                      //     : simpleValidator.current.showMessageFor("developmentStatus");
                     }}
                   />
                   <div class="title px-2">Yes</div>
@@ -207,31 +221,15 @@ export default function TeamQuestions(props) {
                     class="my-auto transform scale-125"
                     type="radio"
                     value={0}
+                    disabled={disabled}
                     checked={developmentStatus == false}
                     onChange={(e) => {
                       setDevelopmentStatus(e.target.value);
-                      // simpleValidator.current.fieldValid("developmentStatus")
-                      //     ? simpleValidator.current.hideMessageFor("developmentStatus")
-                      //     : simpleValidator.current.showMessageFor("developmentStatus");
                     }}
                   />
                   <div class="title px-2">No</div>
                 </label>
               </div>
-              {/*{simpleValidator.current.message(*/}
-              {/*    "developmentStatus",*/}
-              {/*    () => {*/}
-              {/*      if (developmentStatus === 1) {*/}
-              {/*        return true;*/}
-              {/*      } else if (developmentStatus === 0) {*/}
-              {/*        return false;*/}
-              {/*      }*/}
-
-              {/*      return null;*/}
-              {/*    },*/}
-              {/*    "required|boolean",*/}
-              {/*    { className: "text-red-600" }*/}
-              {/*)}*/}
             </div>
           </div>
           {developmentStatus == true && (
@@ -247,6 +245,7 @@ export default function TeamQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <textarea
+                    disabled={disabled}
                     rows={5}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     onChange={(e) => setDescription(e.target.value)}
@@ -268,6 +267,7 @@ export default function TeamQuestions(props) {
                       className="my-auto transform scale-125"
                       type="radio"
                       value={1}
+                      disabled={disabled}
                       checked={micSupport == true}
                       onChange={(e) => setMicSupport(e.target.value)}
                     />
@@ -279,6 +279,7 @@ export default function TeamQuestions(props) {
                       className="my-auto transform scale-125"
                       type="radio"
                       value={0}
+                      disabled={disabled}
                       checked={micSupport == false}
                       onChange={(e) => setMicSupport(e.target.value)}
                     />
@@ -302,6 +303,7 @@ export default function TeamQuestions(props) {
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
+                    disabled={disabled}
                     checked={fundStatus == true}
                     onChange={(e) => setFundStatus(e.target.value)}
                   />
@@ -313,6 +315,7 @@ export default function TeamQuestions(props) {
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
+                    disabled={disabled}
                     checked={fundStatus == false}
                     onChange={(e) => setFundStatus(e.target.value)}
                   />
@@ -332,6 +335,7 @@ export default function TeamQuestions(props) {
                     </div>
                     <input
                       type="text"
+                      disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={fundOrganisation}
                       onChange={(e) => setFundOrganisation(e.target.value)}
@@ -348,6 +352,7 @@ export default function TeamQuestions(props) {
                     </div>
                     <input
                       type="text"
+                      disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={fundAmount}
                       onChange={(e) => setFundAmount(e.target.value)}
@@ -366,6 +371,7 @@ export default function TeamQuestions(props) {
                     </div>
                     <input
                       type="date"
+                      disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={fundingDate}
                       onChange={(e) => setFundingDate(e.target.value)}
@@ -386,6 +392,7 @@ export default function TeamQuestions(props) {
                 <div className="main flex overflow-hidden m-2 select-none">
                   <label className="flex radio p-2 cursor-pointer">
                     <input
+                      disabled={disabled}
                       className="my-auto transform scale-125"
                       type="radio"
                       value={1}
@@ -397,6 +404,7 @@ export default function TeamQuestions(props) {
 
                   <label className="flex radio p-2 cursor-pointer">
                     <input
+                      disabled={disabled}
                       className="my-auto transform scale-125"
                       type="radio"
                       value={0}
@@ -419,6 +427,7 @@ export default function TeamQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -430,6 +439,7 @@ export default function TeamQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -450,6 +460,7 @@ export default function TeamQuestions(props) {
                 </label>
                 <div className="flex">
                   <select
+                    disabled={disabled}
                     className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state"
                     onChange={(e) => {
@@ -495,6 +506,7 @@ export default function TeamQuestions(props) {
                 <div className="main flex overflow-hidden m-2 select-none">
                   <label className="flex radio p-2 cursor-pointer">
                     <input
+                      disabled={disabled}
                       className="my-auto transform scale-125"
                       type="radio"
                       value={1}
@@ -506,6 +518,7 @@ export default function TeamQuestions(props) {
 
                   <label className="flex radio p-2 cursor-pointer">
                     <input
+                      disabled={disabled}
                       className="my-auto transform scale-125"
                       type="radio"
                       value={0}
@@ -527,6 +540,7 @@ export default function TeamQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -538,6 +552,7 @@ export default function TeamQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -561,6 +576,7 @@ export default function TeamQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <input
+                    disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     value={nameOfIncubator}
@@ -578,6 +594,7 @@ export default function TeamQuestions(props) {
               </label>
               <div className="flex">
                 <select
+                  disabled={disabled}
                   className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
                   onChange={(e) => {
@@ -697,6 +714,7 @@ export default function TeamQuestions(props) {
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                 </div>
                 <input
+                  disabled={disabled}
                   type="text"
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                   value={videoUrl}
@@ -715,6 +733,7 @@ export default function TeamQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -726,6 +745,7 @@ export default function TeamQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -748,6 +768,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={ipType}
@@ -764,6 +785,7 @@ export default function TeamQuestions(props) {
                   <div className="main flex overflow-hidden m-2 select-none">
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={1}
@@ -775,6 +797,7 @@ export default function TeamQuestions(props) {
 
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={0}
@@ -794,6 +817,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={ipNumber}
@@ -812,6 +836,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="date"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={dateOfIpReg}
@@ -830,6 +855,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={noOfIpFiledTillDate}
@@ -850,6 +876,7 @@ export default function TeamQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -861,6 +888,7 @@ export default function TeamQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -884,6 +912,7 @@ export default function TeamQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <input
+                    disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     value={startupName}
@@ -902,6 +931,7 @@ export default function TeamQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -915,6 +945,7 @@ export default function TeamQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -939,6 +970,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={companyName}
@@ -957,6 +989,7 @@ export default function TeamQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={companyCin}

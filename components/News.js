@@ -1,52 +1,62 @@
 import axios from "../utils/axios";
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import FormLoader from "./FormLoader";
+import AnnouncementsCard from "./AnnouncementsCard";
 
-class News extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default function News() {
+  const [data, setData] = useState(null);
+  const [selected, setSelected] = useState(null);
 
-  state = {
-    data: null,
-  };
-
-  componentDidMount() {
-    axios()
-      .get("announcements/public")
-      .then((resp) => {
-        console.log(resp.data);
-        this.setState({ data: resp.data });
-      });
-  }
-
-  render() {
-    if (this.state.data == null) {
-      return <FormLoader></FormLoader>;
+  useEffect(() => {
+    console.log("USE", selected);
+    if (!data) {
+      axios()
+        .get("announcements/public")
+        .then((resp) => {
+          setData(resp.data);
+        });
     }
-    return (
-      <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
-        <h2
-          style={{ fontFamily: "Montserrat" }}
-          className="max-w-3xl mb-6 font-sans text-1xl font-bold leading-none tracking-tight text-gray-900 sm:text-3xl mb-10"
-        >
-          NEWS AND UPCOMING EVENTS
-        </h2>
-        <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-          {this.state.data.map((item) => {
-            return <NewsCard item={item} />;
-          })}
-        </div>
-      </div>
-    );
+  }, [data, selected]);
+
+  if (data == null) {
+    return <FormLoader></FormLoader>;
   }
+
+  return (
+    <div className="px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
+      <h2
+        style={{ fontFamily: "Montserrat" }}
+        className="max-w-3xl mb-6 font-sans text-1xl font-bold leading-none tracking-tight text-gray-900 sm:text-3xl mb-10"
+      >
+        NEWS AND UPCOMING EVENTS
+      </h2>
+
+      <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+        {data.map((item, key) => {
+          return <NewsCard item={item} index={key} setSelected={setSelected} />;
+        })}
+      </div>
+      {selected !== null && (
+        <AnnouncementsCard item={data[selected]} setSelected={setSelected} />
+      )}
+    </div>
+  );
 }
 
-export default News;
+function NewsCard(props) {
+  let key = props.index
+  let item = props.item
+  let setSelected = props.setSelected
 
-function NewsCard({ item }) {
   return (
-    <a href={item.url} className="flex bg-gray-200 p-5 rounded-xl shadow-xl">
+    <a
+      href={"#"}
+      onClick={(e) => {
+        setSelected(key);
+        e.preventDefault();
+      }}
+      className="flex bg-gray-200 p-5 rounded-xl shadow-xl"
+    >
       <div className="pt-1 mr-6 text-center">
         <div className="px-2 pb-1 mb-1 border-b border-gray-400">
           <p className="text-sm text-blue-gray-700">{item.created_month}</p>
@@ -64,14 +74,6 @@ function NewsCard({ item }) {
             style={{ fontFamily: "Montserrat" }}
           >
             {item.title}
-          </div>
-        </div>
-        <div className="mb-2">
-          <div
-            aria-label="Article"
-            className="inline-block text-md  leading-5 text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            {item.description}
           </div>
         </div>
       </div>

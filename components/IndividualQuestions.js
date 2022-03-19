@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "../utils/axios";
 import { toast } from "react-toastify";
 import FormLoader from "./FormLoader";
+import FormNotFilled from "./FormNotFilled";
 
 export default function IndividualQuestions(props) {
+  const disabled = props.view_only_mode ?? false;
+  const [isFormFilled, setIsFormFilled] = useState(null);
+
   const [currentStatus, setCurrentStatus] = useState();
   const [projectPrototype, setProjectPrototype] = useState();
   const [projectTitle, setProjectTitle] = useState();
@@ -31,18 +35,23 @@ export default function IndividualQuestions(props) {
           if (response?.status == 200) {
             let data = response.data;
 
-            setCurrentStatus(data.current_status);
-            setProjectPrototype(data.project_prototype);
-            setProjectTitle(data.project_title);
-            setProjectTheme(data.project_theme);
-            setProjectStatus(data.project_status);
-            setProjectIpGenerated(data.project_ip_generated);
-            setProjectIpType(data.project_ip_type);
-            setProjectIpStatus(data.project_ip_status);
-            setProjectHackathonRelated(data.project_hackathon_related);
-            setProjectFundingSupport(data.project_funding_support);
-            setProjectTrlLevel(data.project_trl_level);
-            setProjectVideoUrl(data.project_video_url);
+            if (Object.keys(data).length === 0) {
+              setIsFormFilled(false);
+            } else {
+              setIsFormFilled(true);
+              setCurrentStatus(data.current_status);
+              setProjectPrototype(data.project_prototype);
+              setProjectTitle(data.project_title);
+              setProjectTheme(data.project_theme);
+              setProjectStatus(data.project_status);
+              setProjectIpGenerated(data.project_ip_generated);
+              setProjectIpType(data.project_ip_type);
+              setProjectIpStatus(data.project_ip_status);
+              setProjectHackathonRelated(data.project_hackathon_related);
+              setProjectFundingSupport(data.project_funding_support);
+              setProjectTrlLevel(data.project_trl_level);
+              setProjectVideoUrl(data.project_video_url);
+            }
           }
 
           setIsInitialising(false);
@@ -56,7 +65,10 @@ export default function IndividualQuestions(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // if (simpleValidator.current.allValid() && props.user != null) {
+    if (disabled) {
+      return;
+    }
+
     toast.promise(
       axios().post(
         process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
@@ -86,7 +98,7 @@ export default function IndividualQuestions(props) {
         success: {
           render() {
             setIsLoading(false);
-            return "Project status updated successfully!";
+            return "Your status updated successfully!";
           },
         },
         error: {
@@ -115,16 +127,14 @@ export default function IndividualQuestions(props) {
         },
       }
     );
-    // } else {
-    //   simpleValidator.current.showMessages();
-    //   forceUpdate();
-    // }
   }
 
   return (
     <>
       {isInitialising ? (
         <FormLoader></FormLoader>
+      ) : disabled && !isFormFilled ? (
+        <FormNotFilled/>
       ) : (
         <div className="mb-20 min-h-screen  ml-20 mr-20">
           <div className="flex -mx-3">
@@ -137,6 +147,7 @@ export default function IndividualQuestions(props) {
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                 </div>
                 <textarea
+                  disabled={disabled}
                   rows={5}
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                   onChange={(e) => setCurrentStatus(e.target.value)}
@@ -154,6 +165,7 @@ export default function IndividualQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -165,6 +177,7 @@ export default function IndividualQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -190,6 +203,7 @@ export default function IndividualQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={projectTitle}
@@ -206,6 +220,7 @@ export default function IndividualQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={projectTheme}
@@ -222,6 +237,7 @@ export default function IndividualQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <textarea
+                      disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       onChange={(e) => setProjectStatus(e.target.value)}
                       rows={5}
@@ -239,6 +255,7 @@ export default function IndividualQuestions(props) {
                   <div className="main flex overflow-hidden m-2 select-none">
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={1}
@@ -250,6 +267,7 @@ export default function IndividualQuestions(props) {
 
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={0}
@@ -272,6 +290,7 @@ export default function IndividualQuestions(props) {
                           <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                         </div>
                         <input
+                          disabled={disabled}
                           type="text"
                           className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                           value={projectIpType}
@@ -288,6 +307,7 @@ export default function IndividualQuestions(props) {
                       <div className="main flex overflow-hidden m-2 select-none">
                         <label className="flex radio p-2 cursor-pointer">
                           <input
+                            disabled={disabled}
                             className="my-auto transform scale-125"
                             type="radio"
                             value={0}
@@ -299,6 +319,7 @@ export default function IndividualQuestions(props) {
 
                         <label className="flex radio p-2 cursor-pointer">
                           <input
+                            disabled={disabled}
                             className="my-auto transform scale-125"
                             type="radio"
                             value={1}
@@ -322,6 +343,7 @@ export default function IndividualQuestions(props) {
                   <div className="main flex overflow-hidden m-2 select-none">
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={1}
@@ -335,6 +357,7 @@ export default function IndividualQuestions(props) {
 
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={0}
@@ -358,6 +381,7 @@ export default function IndividualQuestions(props) {
                   <div className="main flex overflow-hidden m-2 select-none">
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={1}
@@ -371,6 +395,7 @@ export default function IndividualQuestions(props) {
 
                     <label className="flex radio p-2 cursor-pointer">
                       <input
+                        disabled={disabled}
                         className="my-auto transform scale-125"
                         type="radio"
                         value={0}
@@ -392,6 +417,7 @@ export default function IndividualQuestions(props) {
                   </label>
                   <div className="flex">
                     <select
+                      disabled={disabled}
                       className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       id="grid-state"
                       onChange={(e) => {
@@ -511,6 +537,7 @@ export default function IndividualQuestions(props) {
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
+                      disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                       value={projectVideoUrl}
@@ -523,17 +550,19 @@ export default function IndividualQuestions(props) {
           )}
 
           <br />
-          <div className="flex -mx-3">
-            <div className="w-full px-3 mb-5">
-              <button
-                style={{ fontFamily: "Montserrat" }}
-                onClick={handleSubmit}
-                className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
-              >
-                {isLoading ? "Saving...." : "SAVE CHANGES"}
-              </button>
+          {!disabled && (
+            <div className="flex -mx-3">
+              <div className="w-full px-3 mb-5">
+                <button
+                  style={{ fontFamily: "Montserrat" }}
+                  onClick={handleSubmit}
+                  className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
+                >
+                  {isLoading ? "Saving...." : "SAVE CHANGES"}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </>

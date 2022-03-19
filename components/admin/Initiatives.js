@@ -7,7 +7,14 @@ import FormLoader from "../FormLoader";
 export default function Initiatives(props) {
   const [page, setpage] = useState(0);
   const [editpage, seteditform] = useState({});
-  const [list_data, setlistdata] = useState(false);
+  const [list_data, setList_data] = useState(props.data);
+
+  function setlistdata(data) {
+    if (data != list_data) {
+      props.setInitiatives(data);
+      setList_data(data);
+    }
+  }
 
   useEffect(() => {
     if (!list_data) {

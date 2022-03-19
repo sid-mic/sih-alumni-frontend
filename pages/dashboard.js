@@ -6,15 +6,9 @@ import { WelcomeHero } from "../components/WelcomeHero";
 import ProjectComponent from "../components/ProjectComponent";
 import HomeHero from "../components/HomeHero";
 import Resources from "../components/Resources";
-import {
-  faHome,
-  faUserAlt,
-  faUserEdit,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHome, faPen, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faBookReader } from "@fortawesome/free-solid-svg-icons";
-import { faUser, faUserAltSlash } from "@fortawesome/free-solid-svg-icons";
-import Banner from "../components/Banner";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import requireAuth from "../utils/requireAuth";
 import auth from "../utils/auth";
 import Router from "next/router";
@@ -24,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loading from "../components/Loading";
 import Head from "next/head";
 import IndividualQuestions from "../components/IndividualQuestions";
+import ParticipantStory from "../components/ParticipantStory";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -47,6 +42,11 @@ class Dashboard extends Component {
         id: 3,
         type: "Participant",
         icon: faUser,
+      },
+      {
+        id: 4,
+        type: "Story",
+        icon: faPen,
       },
       {
         id: 5,
@@ -198,11 +198,22 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="RESOURCES" />
-                <Resources />
+                <WelcomeHero h1="Participant Story" />
+                <ParticipantStory user={this.state.user} />
               </div>
             </div>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </>
       );
     }
@@ -227,6 +238,7 @@ class Dashboard extends Component {
                   userId={this.state.userId}
                   key={this.state.userId}
                   toast={toast}
+                  parentObj={this}
                 />
               </div>
             </div>

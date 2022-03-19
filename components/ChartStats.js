@@ -1,23 +1,23 @@
 import Pie from "../components/charts/pie";
-import Bar from "../components/charts/bar";
 import Line from "../components/charts/line";
 
-export const ChartStats = () => {
+export const ChartStats = ({gender_stats, signups_count}) => {
   const piedata = {
-    labels: ["Female", "Other", "Male"],
+    labels: ["Male", "Female", "Others", "Not assigned"],
     datasets: [
       {
-        data: [300, 50, 100],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        data: [gender_stats.male ?? 0, gender_stats.female ?? 0, gender_stats.other ?? 0, gender_stats.na ?? 0],
+        backgroundColor: ["#36A2EB", "#FF6384", "#FFCE56", "#3AEB34"],
+        hoverBackgroundColor: ["#36A2EB", "#FF6384", "#FFCE56", "#3AEB34"],
       },
     ],
   };
+
   const linedata = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: Object.keys(signups_count).reverse(),
     datasets: [
       {
-        label: "My First dataset",
+        label: "Registrations",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -35,10 +35,19 @@ export const ChartStats = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: Object.values(signups_count).reverse(),
       },
     ],
   };
+
+  const linechart_options = {
+    scaleLabel : "<%= value + ' + two = ' + (Number(value) + 2)   %>",
+
+    scaleOverride: true,
+    scaleSteps: 10,
+    scaleStepWidth: Math.ceil(100 / 10),
+    scaleStartValue: 0
+  }
 
   return (
     <div
@@ -46,11 +55,11 @@ export const ChartStats = () => {
       className="px-10 min-h-screen mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0"
     >
       <div className="grid items-center grid-cols-1 row-gap-8 md:grid-cols-2">
-        <div className=" mr-7    text-center mb-5">
+        <div className=" mr-7 text-center mb-5">
           <Pie name="GENDER RATIO" data={piedata} width="auto" />
         </div>
         <div className=" mr-7    text-center  mb-5">
-          <Line name="REGISTRATIONS" data={linedata} width="auto" />
+          <Line name="REGISTRATIONS" data={linedata} options={linechart_options} width="auto" />
         </div>
       </div>
     </div>

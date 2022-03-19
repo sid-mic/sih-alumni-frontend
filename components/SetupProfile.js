@@ -8,12 +8,15 @@ export default function SetupProfile(props) {
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const [name, setName] = useState(props.user?.name);
+  const [alternate_email, setAlternateEmail] = useState(props.user?.alternate_email)
   const [phone, setPhone] = useState(props.user?.phone);
   const [gender, setGender] = useState(props.user?.gender);
+  const [upload_picture, setUploadPicture] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setName(props.user?.name);
+    setAlternateEmail(props.user?.alternate_email);
     setPhone(props.user?.phone);
     setGender(props.user?.gender);
   }, props.user);
@@ -22,13 +25,19 @@ export default function SetupProfile(props) {
     e.preventDefault();
 
     if (simpleValidator.current.allValid() && props.user != null) {
+      const form_data = new FormData();
+      form_data.append("name", name);
+      form_data.append("alternate_email", alternate_email);
+      form_data.append("phone", phone);
+      form_data.append("gender", gender);
+
+      if (upload_picture) {
+        form_data.append("picture", upload_picture);
+      }
+
       props.toast.promise(
-        axios().patch(`/users/${props.user?.id}/update`, {
-          _method: "PATCH",
-          name: name,
-          phone: phone,
-          gender: gender,
-        }),
+        axios().post(`/users/${props.user?.id}/update`, form_data
+        ),
         {
           pending: {
             render() {
@@ -110,6 +119,31 @@ export default function SetupProfile(props) {
               </div>
               <div className="flex -mx-3">
                 <div className="w-full px-3 mb-5">
+                  <label className="text-xs font-semibold px-1">Alternate Email</label>
+                  <div className="flex">
+                    <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                      <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                    </div>
+                    <input
+                        type="email"
+                        required={true}
+                        className="w-full -ml-10 pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                        onChange={(e) => {
+                          setAlternateEmail(e.target.value);
+                          simpleValidator.current.fieldValid("alternate_email")
+                              ? simpleValidator.current.hideMessageFor("alternate_email")
+                              : simpleValidator.current.howMessageFor("alternate_email");
+                        }}
+                        defaultValue={alternate_email}
+                    />
+                  </div>
+                  {simpleValidator.current.message("alternate_email", alternate_email, "email", {
+                    className: "text-red-600",
+                  })}
+                </div>
+              </div>
+              <div className="flex -mx-3">
+                <div className="w-full px-3 mb-5">
                   <label className="text-xs font-semibold px-1">
                     Phone number
                   </label>
@@ -179,6 +213,24 @@ export default function SetupProfile(props) {
                     "required|in:male,female,other",
                     { className: "text-red-600" }
                   )}
+                </div>
+              </div>
+              <div className="flex -mx-3">
+                <div className="w-full px-3 mb-5">
+                  <label htmlFor="" className="text-xs font-semibold px-1">
+                    Profile Picture
+                  </label>
+                  <div className="flex">
+                    <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"></div>
+                    <input
+                        type="file"
+                        accept="image/png, image/jpg, image/jpeg"
+                        className="w-full -ml-10 pl-5 pr-3 py-2 bg-white rounded-lg border-2"
+                        onChange={(e) =>
+                            setUploadPicture(e.target.files[0])
+                        }
+                    />
+                  </div>
                 </div>
               </div>
               <br />

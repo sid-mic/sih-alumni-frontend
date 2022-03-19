@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "../utils/axios";
 import { toast } from "react-toastify";
 import FormLoader from "./FormLoader";
+import FormNotFilled from "./FormNotFilled";
 
 export default function FeedbackQuestions(props) {
+  const disabled = props.disabled;
+  const [isFormFilled, setIsFormFilled] = useState(null);
+
   const [hiredByMinistry, setHiredByMinistry] = useState();
   const [hiredByMinistryElaborate, setHiredByMinistryElaborate] = useState();
   const [opportunityStatus, setOpportunityStatus] = useState();
@@ -23,22 +27,27 @@ export default function FeedbackQuestions(props) {
       axios()
         .get(
           process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-            `/projects/${props?.project.id}/feedback`
+          `/projects/${props?.project.id}` + (disabled ? `/user/${props.user.id}/feedback` : '/feedback')
         )
         .then((response) => {
           if (response?.status == 200) {
             let data = response.data;
 
-            setHiredByMinistry(data.hired_by_ministry);
-            setHiredByMinistryElaborate(data.hired_by_ministry_elaborate);
-            setOpportunityStatus(data.opportunity_status);
-            setOpportunityDetails(data.opportunity_details);
-            setRecommendationStatus(data.recommendation_status);
-            setRecommendationDetails(data.recommendation_details);
-            setMicHelp(data.mic_help);
-            setRecommendToStudent(data.recommend_to_student);
-            setMicParticipation(data.mic_participation);
-            setComments(data.comments);
+            if (Object.keys(data).length === 0) {
+              setIsFormFilled(false);
+            } else {
+              setIsFormFilled(true);
+              setHiredByMinistry(data.hired_by_ministry);
+              setHiredByMinistryElaborate(data.hired_by_ministry_elaborate);
+              setOpportunityStatus(data.opportunity_status);
+              setOpportunityDetails(data.opportunity_details);
+              setRecommendationStatus(data.recommendation_status);
+              setRecommendationDetails(data.recommendation_details);
+              setMicHelp(data.mic_help);
+              setRecommendToStudent(data.recommend_to_student);
+              setMicParticipation(data.mic_participation);
+              setComments(data.comments);
+            }
           }
 
           setIsInitialising(false);
@@ -51,6 +60,11 @@ export default function FeedbackQuestions(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (disabled) {
+      return;
+    }
+
 
     // if (simpleValidator.current.allValid() && props.user != null) {
     toast.promise(
@@ -118,7 +132,9 @@ export default function FeedbackQuestions(props) {
   return (
     <>
       {isInitialising ? (
-        <FormLoader></FormLoader>
+          <FormLoader></FormLoader>
+      ) : disabled && !isFormFilled ? (
+          <FormNotFilled/>
       ) : (
         <div className="mb-20 min-h-screen  ml-20 mr-20">
           <div className="flex -mx-3">
@@ -130,6 +146,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -141,6 +158,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -164,6 +182,7 @@ export default function FeedbackQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <textarea
+                    disabled={disabled}
                     rows={5}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     onChange={(e) =>
@@ -186,6 +205,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -197,6 +217,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -218,6 +239,7 @@ export default function FeedbackQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <textarea
+                    disabled={disabled}
                     rows={5}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     onChange={(e) => setOpportunityDetails(e.target.value)}
@@ -237,6 +259,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -248,6 +271,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -269,6 +293,7 @@ export default function FeedbackQuestions(props) {
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
                   <textarea
+                    disabled={disabled}
                     rows={5}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                     onChange={(e) => setRecommendationDetails(e.target.value)}
@@ -287,6 +312,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -298,6 +324,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -319,6 +346,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -330,6 +358,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -351,6 +380,7 @@ export default function FeedbackQuestions(props) {
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={1}
@@ -362,6 +392,7 @@ export default function FeedbackQuestions(props) {
 
                 <label className="flex radio p-2 cursor-pointer">
                   <input
+                    disabled={disabled}
                     className="my-auto transform scale-125"
                     type="radio"
                     value={0}
@@ -385,6 +416,7 @@ export default function FeedbackQuestions(props) {
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                 </div>
                 <textarea
+                  disabled={disabled}
                   rows={5}
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                   onChange={(e) => setComments(e.target.value)}
@@ -395,17 +427,19 @@ export default function FeedbackQuestions(props) {
           </div>
 
           <br />
-          <div className="flex -mx-3">
-            <div className="w-full px-3 mb-5">
-              <button
-                style={{ fontFamily: "Montserrat" }}
-                onClick={handleSubmit}
-                className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
-              >
-                {isLoading ? "Saving...." : "SAVE CHANGES"}
-              </button>
+          {!disabled && (
+            <div className="flex -mx-3">
+              <div className="w-full px-3 mb-5">
+                <button
+                  style={{ fontFamily: "Montserrat" }}
+                  onClick={handleSubmit}
+                  className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
+                >
+                  {isLoading ? "Saving...." : "SAVE CHANGES"}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </>

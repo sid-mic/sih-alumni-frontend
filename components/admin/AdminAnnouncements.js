@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "../../utils/axios";
 import { toast } from "react-toastify";
@@ -10,15 +10,16 @@ export default function AdminAnnouncements() {
   const [editpage, seteditform] = useState({});
   const [announcement_list_data, setlistdata] = useState(false);
 
-  useState(() => {
-    axios()
-      .get("/announcements")
-      .then(function (response) {
-        if (response.status == 200) {
-          setlistdata(response.data);
-          console.log(response.data);
-        }
-      });
+  useEffect(() => {
+    if (!announcement_list_data) {
+      axios()
+        .get("/announcements")
+        .then(function (response) {
+          if (response.status == 200) {
+            setlistdata(response.data);
+          }
+        });
+    }
   }, [announcement_list_data]);
 
   if (page === 0) {
@@ -39,25 +40,33 @@ export default function AdminAnnouncements() {
           data={announcement_list_data}
           editform={seteditform}
           setpage={setpage}
+          setlist={setlistdata}
         />
       </>
     );
   }
   if (page === 1) {
-    return <AdminAnnouncementForm setpage={setpage} />;
+    return (
+      <AdminAnnouncementForm
+        setpage={setpage}
+        list={announcement_list_data}
+        setlist={setlistdata}
+      />
+    );
   }
   if (page === 2) {
     return (
       <AdminAnnouncementForm
         data={editpage}
         setpage={setpage}
+        list={announcement_list_data}
         setlist={setlistdata}
       />
     );
   }
 }
 
-function AdminAnnouncementList({ data, editform, setpage }) {
+function AdminAnnouncementList({ data, editform, setpage, setlist }) {
   if (!data) {
     return <FormLoader></FormLoader>;
   } else if (data.length === 0) {
@@ -77,7 +86,10 @@ function AdminAnnouncementList({ data, editform, setpage }) {
                   Title
                 </th>
                 <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Created by
+                  Name
+                </th>
+                <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                  Status
                 </th>
                 <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
                   Created at
@@ -95,6 +107,7 @@ function AdminAnnouncementList({ data, editform, setpage }) {
                     data={row}
                     editform={editform}
                     setpage={setpage}
+                    setlist={setlist}
                   />
                 );
               })}
@@ -104,6 +117,7 @@ function AdminAnnouncementList({ data, editform, setpage }) {
                     data={row}
                     editform={editform}
                     setpage={setpage}
+                    setlist={setlist}
                   />
                 );
               })}
@@ -115,27 +129,28 @@ function AdminAnnouncementList({ data, editform, setpage }) {
   }
 }
 
-function handleDelete(id) {
-  toast.promise(axios().post(`announcements/${id}`, { _method: "delete" }), {
-    pending: {
-      render() {
-        return "Deleting.....";
+function AnnouncementCard({ data, editform, setpage, setlist }) {
+  function handleDelete(id) {
+    toast.promise(axios().post(`announcements/${id}`, { _method: "delete" }), {
+      pending: {
+        render() {
+          return "Deleting.....";
+        },
       },
-    },
-    success: {
-      render() {
-        return "Announcement deleted successfully!";
+      success: {
+        render() {
+          setlist(false);
+          return "Announcement deleted successfully!";
+        },
       },
-    },
-    error: {
-      render() {
-        return "Something went wrong!";
+      error: {
+        render() {
+          return "Something went wrong!";
+        },
       },
-    },
-  });
-}
+    });
+  }
 
-function AnnouncementCard({ data, editform, setpage }) {
   return (
     <tr
       className="bg-gray-300 border border-grey-500 md:border-none block md:table-row sm:mt-10"
@@ -148,32 +163,46 @@ function AnnouncementCard({ data, editform, setpage }) {
         {data.user.name}
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+        {data.status}
+      </td>
+      <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         {data.created_at}
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         <div className={"ml-3 flex content-center"}>
           <button
-              onClick={() => {
-                editform(data);
-                setpage(2);
-              }}
-              className={"block bg-yellow-500 p-3 mr-4"}
+            onClick={() => {
+              editform(data);
+              setpage(2);
+            }}
+            className={"block bg-yellow-500 p-3 mr-4"}
           >
             <svg
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg%22%3E"
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg%22%3E"
             >
-              <path
-                  d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
             </svg>
           </button>
-          <button className={"block bg-red-600 p-3"}>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg%22%3E">
-              <path fill-rule="evenodd"
-                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                    clip-rule="evenodd"></path>
+          <button
+            onClick={() => {
+              handleDelete(data.id);
+            }}
+            className={"block bg-red-600 p-3"}
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg%22%3E"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clip-rule="evenodd"
+              ></path>
             </svg>
           </button>
         </div>
@@ -207,54 +236,48 @@ function AdminAnnouncementForm(props) {
     if (id != null) {
       form_data.append("_method", "PUT");
     }
-    toast.promise(
-      axios()
-        .post(post_url, form_data)
-        .then((response) => console.log(response, response.data)),
-      {
-        pending: {
-          render() {
-            setIsLoading(true);
-            return data?.id ? "Updating...." : "Saving.....";
-          },
+    toast.promise(axios().post(post_url, form_data), {
+      pending: {
+        render() {
+          setIsLoading(true);
+          return data?.id ? "Updating...." : "Saving.....";
         },
-        success: {
-          render() {
-            setIsLoading(false);
-            setpage(0);
-            setlist(null);
-            return data?.id
-              ? "Announcement updated successfully!"
-              : "Announcement added successfully!";
-          },
+      },
+      success: {
+        render() {
+          setIsLoading(false);
+          setpage(0);
+          setlist(false);
+          return data?.id
+            ? "Announcement updated successfully!"
+            : "Announcement added successfully!";
         },
-        error: {
-          render({ data }) {
-            setIsLoading(false);
-            setpage(0);
-            let status = data.response.status;
-            data = data.response.data;
-            if (status == 422) {
-              Object.entries(data.errors).forEach(([key, value]) => {
-                toast.error(value.toString(), {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                });
+      },
+      error: {
+        render({ data }) {
+          setIsLoading(false);
+          let status = data.response.status;
+          data = data.response.data;
+          if (status == 422) {
+            Object.entries(data.errors).forEach(([key, value]) => {
+              toast.error(value.toString(), {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
               });
+            });
 
-              return "There were errors in some fields";
-            } else {
-              return "Something went wrong!";
-            }
-          },
+            return "There were errors in some fields";
+          } else {
+            return "Something went wrong!";
+          }
         },
-      }
-    );
+      },
+    });
   }
 
   if (isLoading) {

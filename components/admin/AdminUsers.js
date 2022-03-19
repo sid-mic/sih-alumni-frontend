@@ -11,18 +11,7 @@ export default function AdminUser(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [initiative, setInitiative] = useState("");
   const [file, setFile] = useState();
-  const [initiatives, setInitiatives] = useState([]);
-
-  useEffect(() => {
-    if (!initiatives.length) {
-      axios()
-        .get("initiatives")
-        .then((response) => {
-          setInitiatives(response.data);
-          setInitiative(response.data[0].id);
-        });
-    }
-  });
+  const [initiatives, setInitiatives] = useState(props.initiatives);
 
   function handleSubmit(e) {
     e.preventDefault();

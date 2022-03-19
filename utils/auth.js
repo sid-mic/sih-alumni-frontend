@@ -9,12 +9,12 @@ export default function auth() {
     retrieve(api_token_store_name()) != "" &&
     retrieve(api_token_store_name()) != "null";
 
-  const fetchUser = async () => {
+  const fetchUser = async (id = null) => {
     let user;
     let projects = [];
 
     try {
-      let data = await (await axios().get("/user")).data;
+      let data = await (await axios().get("/user" + (id ? `/${id}` : ''))).data;
       user = data.user;
       projects = data.projects;
       isAuth = true;

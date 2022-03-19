@@ -2,14 +2,16 @@ import Head from "next/head";
 import { Component } from "react";
 import AdminUser from "../../components/admin/AdminUsers";
 import AdminAnnouncements from "../../components/admin/AdminAnnouncements";
-import AdminResources from "../../components/admin/AdminResources";
-import AdminResourceCard from "../../components/admin/AdminResourceCard";
 import DataComponent from "../../components/admin/DataComponent";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import { AdminStats } from "../../components/admin/AdminStats";
 import { ChartStats } from "../../components/ChartStats";
 import { WelcomeHero } from "../../components/WelcomeHero";
-import { faFolderPlus, faHome } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFolderPlus,
+  faHome,
+  faPenAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
@@ -22,11 +24,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImportsTable from "../../components/admin/ImportsTable";
 import Initiatives from "../../components/admin/Initiatives";
+import Stories from "../stories";
+import AdminStoriesTable from "../../components/admin/AdminStoriesTable";
+import axios from "../../utils/axios";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.setModuleType = this.setModuleType.bind(this);
+    this.setInitiativesData = this.setInitiativesData.bind(this);
   }
 
   state = {
@@ -52,6 +58,11 @@ class Home extends Component {
         icon: faBullhorn,
       },
       {
+        id: 7,
+        type: "Stories",
+        icon: faPenAlt,
+      },
+      {
         id: 5,
         type: "Imports",
         icon: faTable,
@@ -67,6 +78,7 @@ class Home extends Component {
     isAuth: false,
     userId: 0,
     isLoading: true,
+    initiatives: [],
   };
 
   async componentDidMount() {
@@ -77,15 +89,24 @@ class Home extends Component {
         await Router.push("/dashboard");
       }
 
+      let stats = await axios().get("stats");
+      let initiatives = await axios().get("initiatives");
+
       this.setState({
         user: data.user,
         isAuth: data.isAuth,
         userId: data.user.id,
         logout: auth().logout,
+        stats: stats.data,
+        initiatives: initiatives.data,
       });
     }
 
     this.setState({ isLoading: false });
+  }
+
+  setInitiativesData(data) {
+    this.setState({ initiatives: data });
   }
 
   setModuleType(selectedtype) {
@@ -105,12 +126,15 @@ class Home extends Component {
                 moduletypes={this.state.moduletypes}
                 selectedtype={this.setModuleType}
               />
-              <div className="flex flex-col bg-indblue min-h-full min-w-full">
+              <div className="flex flex-col bg-indblue min-w-full">
                 <div className="flex  flex-wrap">
-                  <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                  <div className="container md:rounded-tl-2xl bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="Welcome, " h2="Admin." />
-                    <AdminStats />
-                    <ChartStats />
+                    <AdminStats stats={this.state.stats.top_counts} />
+                    <ChartStats
+                      gender_stats={this.state.stats.users_gender_count}
+                      signups_count={this.state.stats.signup_count}
+                    />
                   </div>
                 </div>
               </div>
@@ -132,7 +156,7 @@ class Home extends Component {
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="User data" />
-                    <DataComponent />
+                    <DataComponent initiatives={this.state.initiatives} />
                   </div>
                 </div>
               </div>
@@ -154,7 +178,10 @@ class Home extends Component {
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="INITIATIVES" />
-                    <Initiatives />
+                    <Initiatives
+                      data={this.state.initiatives}
+                      setInitiatives={this.setInitiativesData}
+                    />
                   </div>
                 </div>
               </div>
@@ -188,6 +215,39 @@ class Home extends Component {
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="ANNOUNCEMENTS" />
                     <AdminAnnouncements />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 7) {
+      return (
+        <>
+          <div className="flex flex-col min-h-screen">
+            <div className="flex  flex-wrap">
+              <AdminSidebar
+                moduletypes={this.state.moduletypes}
+                selectedtype={this.setModuleType}
+              />
+              <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                <div className="flex  flex-wrap">
+                  <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                    <WelcomeHero h1="Stories" />
+                    <AdminStoriesTable />
                   </div>
                 </div>
               </div>
@@ -253,7 +313,7 @@ class Home extends Component {
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="New Import" />
-                    <AdminUser toast={toast} user={this.state.user} />
+                    <AdminUser toast={toast} user={this.state.user} initiatives={this.state.initiatives} />
                   </div>
                 </div>
               </div>
