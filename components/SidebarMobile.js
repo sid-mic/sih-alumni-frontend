@@ -3,6 +3,7 @@ import React from "react";
 import { Component } from "react";
 import "./test.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import auth from "../utils/auth";
 
 class SidebarMobile extends Component {
   constructor(props) {
@@ -61,7 +62,7 @@ class SidebarMobile extends Component {
           <span
             style={{ fontFamily: "Montserrat" }}
             className="hidden md:block text-sm"
-            onClick={() => this.props.logout('/')}
+            onClick={() => auth().logout()}
           >
             Log Out
           </span>

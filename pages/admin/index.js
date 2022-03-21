@@ -87,19 +87,19 @@ class Home extends Component {
     if (data.isAuth) {
       if (data.user.role !== "admin") {
         await Router.push("/dashboard");
+      } else {
+        let stats = await axios().get("stats");
+        let initiatives = await axios().get("initiatives");
+
+        this.setState({
+          user: data.user,
+          isAuth: data.isAuth,
+          userId: data.user.id,
+          logout: auth().logout,
+          stats: stats.data,
+          initiatives: initiatives.data,
+        });
       }
-
-      let stats = await axios().get("stats");
-      let initiatives = await axios().get("initiatives");
-
-      this.setState({
-        user: data.user,
-        isAuth: data.isAuth,
-        userId: data.user.id,
-        logout: auth().logout,
-        stats: stats.data,
-        initiatives: initiatives.data,
-      });
     }
 
     this.setState({ isLoading: false });
@@ -313,7 +313,11 @@ class Home extends Component {
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="New Import" />
-                    <AdminUser toast={toast} user={this.state.user} initiatives={this.state.initiatives} />
+                    <AdminUser
+                      toast={toast}
+                      user={this.state.user}
+                      initiatives={this.state.initiatives}
+                    />
                   </div>
                 </div>
               </div>

@@ -41,12 +41,17 @@ export default function auth() {
     await Router.push("/dashboard");
   };
 
-  const logout = async (redirectUrl = "/") => {
-    await axios().post("/logout");
+  const logout = async (redirectUrl = "/", token_expired = false) => {
 
-    store(api_token_store_name(), '');
+    try {
+      if (!token_expired) {
+        await axios().post("/logout");
+      }
+    } finally {
+      store(api_token_store_name(), '');
 
-    await Router.push(redirectUrl);
+      await Router.push(redirectUrl);
+    }
   };
 
   return {

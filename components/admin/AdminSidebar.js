@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import auth from "../../utils/auth";
 
 class AdminSidebar extends Component {
   constructor(props) {
@@ -44,7 +45,9 @@ class AdminSidebar extends Component {
 
         )}
          <div className="hidden md:block md:h-20"></div>
-      <div class="hidden md:flex md:flex-wrap hover:shadow-md p-4 rounded-xl duration-1000 ease-in-out transform hover:scale-125 delay-200  text-3xl font-bold text-center bg-red-500 md:p-5 ">
+      <div
+          onClick={() => auth().logout()}
+          class="hidden md:flex md:flex-wrap hover:shadow-md p-4 rounded-xl duration-1000 ease-in-out transform hover:scale-125 delay-200  text-3xl font-bold text-center bg-red-500 md:p-5 ">
       <svg
           class="w-6 h-6 mr-3"
           fill="none"

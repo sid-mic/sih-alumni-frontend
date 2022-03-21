@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import StoryCard from "../StoryCard";
 
 export default function AdminStoriesTable() {
-  const [list_data, setlistdata] = useState(false);
+  const [list_data, setlistdata] = useState([]);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
