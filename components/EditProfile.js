@@ -59,7 +59,7 @@ class EditProfile extends Component {
       }
 
       this.props.toast.promise(
-        axios().post(`/users/${this.props.user.id}/update`, form_data),
+        axios().post(`/user/update`, form_data),
         {
           pending: {
             render() {

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import StoryCard from "../StoryCard";
 
 export default function AdminStoriesTable() {
-  const [list_data, setlistdata] = useState([]);
+  const [list_data, setlistdata] = useState(false);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function AdminStoriesTable() {
 function AdminAnnouncementList({ data, setlist, setSelected }) {
   if (!data) {
     return <FormLoader></FormLoader>;
-  } else if (data.length === 0) {
+  } else if (data.length == 0) {
     return (
       <div className="text-center mt-10">
         <h1 className={"font-bold"}>No stories yet!</h1>

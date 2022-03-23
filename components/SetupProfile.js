@@ -36,7 +36,7 @@ export default function SetupProfile(props) {
       }
 
       props.toast.promise(
-        axios().post(`/users/${props.user?.id}/update`, form_data
+        axios().post(`/user/update`, form_data
         ),
         {
           pending: {

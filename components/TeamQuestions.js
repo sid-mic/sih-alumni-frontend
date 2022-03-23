@@ -1002,17 +1002,17 @@ export default function TeamQuestions(props) {
           )}
 
           <br />
-          <div className="flex -mx-3">
+          {!disabled && <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
               <button
-                style={{ fontFamily: "Montserrat" }}
-                onClick={handleSubmit}
-                className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
+                  style={{fontFamily: "Montserrat"}}
+                  onClick={handleSubmit}
+                  className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
               >
                 {isLoading ? "Saving...." : "SAVE CHANGES"}
               </button>
             </div>
-          </div>
+          </div>}
         </div>
       )}
     </>

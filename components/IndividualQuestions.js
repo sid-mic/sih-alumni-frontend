@@ -28,8 +28,7 @@ export default function IndividualQuestions(props) {
     if (props.user?.id != null) {
       axios()
         .get(
-          process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-            `/users/${props.user?.id}/status`
+            disabled ? `users/${props.user?.id}/status` : 'user/status'
         )
         .then((response) => {
           if (response?.status == 200) {

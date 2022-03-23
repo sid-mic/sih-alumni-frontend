@@ -15,7 +15,7 @@ export default function axiosFunction() {
       if (error.response.status === 401) {
         await auth().logout("/", true);
       } else {
-          throw error;
+        throw error;
       }
     }
   );

@@ -14,14 +14,14 @@ export default function auth() {
     let projects = [];
 
     try {
-      let data = await (await axios().get("/user" + (id ? `/${id}` : ''))).data;
+      let data = await (await axios().get("/user" + (id ? `s/${id}` : ""))).data;
       user = data.user;
       projects = data.projects;
       isAuth = true;
 
       return { isAuth: isAuth, user, projects };
     } catch (error) {
-      store(api_token_store_name(), '');
+      store(api_token_store_name(), "");
       isAuth = false;
       user = null;
 
@@ -42,13 +42,12 @@ export default function auth() {
   };
 
   const logout = async (redirectUrl = "/", token_expired = false) => {
-
     try {
       if (!token_expired) {
         await axios().post("/logout");
       }
     } finally {
-      store(api_token_store_name(), '');
+      store(api_token_store_name(), "");
 
       await Router.push(redirectUrl);
     }

@@ -17,7 +17,7 @@ export default function ParticipantStory(props) {
   useEffect(() => {
     if (props.user?.id != null) {
       axios()
-        .get(`/users/${props.user?.id}/story`)
+        .get(disabled ? `/users/${props.user?.id}/story` : 'user/story')
         .then((response) => {
           if (response?.status == 200) {
             let data = response.data;
@@ -47,7 +47,7 @@ export default function ParticipantStory(props) {
 
     // if (simpleValidator.current.allValid() && props.user != null) {
     toast.promise(
-      axios().post(`/users/${props.user?.id}/story`, {
+      axios().post(`/user/story`, {
         title,
         description,
       }),

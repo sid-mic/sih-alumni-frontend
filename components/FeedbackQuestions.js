@@ -27,7 +27,7 @@ export default function FeedbackQuestions(props) {
       axios()
         .get(
           process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
-          `/projects/${props?.project.id}` + (disabled ? `/user/${props.user.id}/feedback` : '/feedback')
+          `/projects/${props?.project.id}` + (disabled ? `/users/${props.user.id}/feedback` : '/feedback')
         )
         .then((response) => {
           if (response?.status == 200) {

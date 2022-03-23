@@ -62,15 +62,17 @@ export default function Participant1() {
       if (data.isAuth) {
         if (data.user?.signed_up_at == null) {
           await Router.push("/setup-profile");
+        } else if (data.user.role !== "admin") {
+          await Router.push("/dashboard");
+        } else {
+          let user_data = await auth().fetchUser(id);
+
+          setIsAuth(user_data.isAuth);
+          setUser(user_data.user);
+          setProjects(user_data.projects);
+
+          setIsLoading(false);
         }
-
-        let user_data = await auth().fetchUser(id);
-
-        setIsAuth(user_data.isAuth);
-        setUser(user_data.user);
-        setProjects(user_data.projects);
-
-        setIsLoading(false);
       }
     }
   }, [id]);
@@ -97,7 +99,11 @@ export default function Participant1() {
         >
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-              <ProjectComponent view_only_mode={true} user={user} projects={projects} />
+              <ProjectComponent
+                view_only_mode={true}
+                user={user}
+                projects={projects}
+              />
             </div>
           </div>
         </div>
