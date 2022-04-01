@@ -54,7 +54,7 @@ export default function Stories() {
           </svg>{" "}
           <span className="ml-6">Back</span>
         </a>
-        <div className={"grid grid-cols-2"}>
+        <div className={"flex justify-between mr-20"}>
           <div>
             {" "}
             <h1
@@ -69,10 +69,13 @@ export default function Stories() {
             </div>
           </div>
           <div>
-            <img className="rounded-2xl" src="http://127.0.0.1:8000/storage/images/profile.png" />
+            <img
+              className="rounded-2xl w-40 h-40"
+              src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+            />
             <h3
               style={{ fontFamily: "Montserrat" }}
-              className="text-black text-xl"
+              className="text-black text-xl mt-10"
             >
               by {story.user.name}
             </h3>
