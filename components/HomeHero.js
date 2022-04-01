@@ -25,7 +25,6 @@ export default function HomeHero(props) {
             <WelcomeHero h1="Welcome, " h2={props.name} />
             <Carousel />
             <News />
-            <Stories />
           </Transition>
         </div>
       </div>

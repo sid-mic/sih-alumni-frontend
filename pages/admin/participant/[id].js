@@ -92,7 +92,7 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} />
+        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
         <div
           style={{ fontFamily: "Montserrat" }}
           className="flex flex-col bg-indblue rounded-xl min-h-full min-w-full"
@@ -128,7 +128,7 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} />
+        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
         <div className="flex flex-col bg-indblue min-h-full min-w-full">
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
@@ -158,7 +158,7 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} />
+        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
         <div className="flex flex-col bg-indblue min-h-full min-w-full">
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
@@ -188,7 +188,7 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} />
+        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
         <div className="flex flex-col bg-indblue min-h-full min-w-full">
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">

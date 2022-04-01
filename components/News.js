@@ -8,7 +8,6 @@ export default function News() {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    console.log("USE", selected);
     if (!data) {
       axios()
         .get("announcements/public")
