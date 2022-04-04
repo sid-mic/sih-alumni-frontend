@@ -272,7 +272,11 @@ export default function DataComponent(props) {
                     <span className="inline-block w-1/3 md:hidden font-bold">
                       Detailed info
                     </span>
-                    <a href={"/admin/participant/" + item.id} target={"_blank"} className="bg-indblue hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+                    <a
+                      href={"/admin/participant/" + item.id}
+                      target={"_blank"}
+                      className="bg-indblue hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
+                    >
                       View Response
                     </a>
                   </td>

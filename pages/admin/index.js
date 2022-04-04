@@ -24,7 +24,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImportsTable from "../../components/admin/ImportsTable";
 import Initiatives from "../../components/admin/Initiatives";
-import Stories from "../stories";
 import AdminStoriesTable from "../../components/admin/AdminStoriesTable";
 import axios from "../../utils/axios";
 

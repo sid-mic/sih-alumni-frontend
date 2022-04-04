@@ -29,7 +29,7 @@ export default function Featured() {
   return (
     <div>
       <section>
-        <div class="px-4 mt-20 md:mt-0 py-0 mx-auto max-w-screen-xl sm:px-6 lg:px-8 ">
+        <div class="px-4 mt-5 md:mt-0 py-0 mx-auto max-w-screen-xl sm:px-6 lg:px-8 ">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-16 lg:h-screen lg:items-center">
             {stories?.mentor?.length > 2 && (
               <div class="relative  sm:h-96  ">
@@ -40,12 +40,13 @@ export default function Featured() {
                 >
                   FEATURED MENTORS
                 </h1>
-                <div class="flex flex-wrap -mx-3 overflow-hidden bg-indblue bg-opacity-20 rounded-xl">
+                <div class="flex flex-wrap -mx-3 overflow-hidden bg-indblue bg-opacity-20 rounded-xl py-3">
                   {stories.mentor.map((mentor, index) =>
                   <div class="my-3 px-3 w-1/2 overflow-hidden lg:w-1/3" key={index}>
-                    <a class="relative block bg-black group" href="">
+                    <a class="relative block bg-black group" href={`/stories/${index+4}`}>
                       <img
                         class="absolute inset-0 object-cover w-full h-full opacity-75 transition-opacity group-hover:opacity-50"
+                        style={{height: 226, width:176}}
                         src={mentor.user.picture}
                         alt={mentor.user.name}
                       />
@@ -82,11 +83,12 @@ export default function Featured() {
                 </h1>
                 <div class="flex flex-wrap -mx-3 overflow-hidden bg-indblue bg-opacity-20 rounded-xl">
                   {stories.alumni.map((alumni, index) => <div class="my-3 px-3 w-1/2 overflow-hidden lg:w-1/3" key={index}>
-                    <a class="relative block bg-black group" href="">
+                    <a class="relative block bg-black group" href={`/stories/${index + 1}`}>
                       <img
                           class="absolute inset-0 object-cover w-full h-full opacity-75 transition-opacity group-hover:opacity-50"
                           src={alumni.user.picture}
                           alt={alumni.user.name}
+                          style={{height: 226, width:176}}
                       />
                       {/*TODO: FIX IMAGE HEIGHTS*/}
                       <div class="relative p-8">

@@ -71,7 +71,7 @@ export default function Stories() {
           <div>
             <img
               className="rounded-2xl w-40 h-40"
-              src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+              src={story.user.picture}
             />
             <h3
               style={{ fontFamily: "Montserrat" }}

@@ -74,7 +74,7 @@ export const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-white"
                   >
-                    Hackathon1
+                    Smart India Hackathon
                   </a>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ export const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-white"
                   >
-                    Hackathon2
+                    Toycathon
                   </a>
                 </li>
                 <li>
@@ -90,7 +90,7 @@ export const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-white"
                   >
-                    Hackathon3
+                    Singapore India Hackathon
                   </a>
                 </li>
                 <li>
@@ -98,7 +98,7 @@ export const Footer = () => {
                     href="/"
                     className="transition-colors duration-300 text-white"
                   >
-                    Hackathon4
+                    ASEAN - India Hackathon
                   </a>
                 </li>
               </ul>
@@ -138,7 +138,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
           <p className="text-sm text-gray-100">
-            © Copyright 2021. All rights reserved.
+            © Copyright 2022. All rights reserved.
           </p>
           <div className="flex items-center mt-4 space-x-4 sm:mt-0">
             <a
