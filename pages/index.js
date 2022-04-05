@@ -13,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Loading from "../components/Loading";
 import Router from "next/router";
 import Initiatives from "../components/Initiatives";
+import Who from "../components/Who";
+import Benefits from "../components/Benefits";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -46,6 +48,8 @@ export default function Home() {
             <Feature />
             <Initiatives />
             <Featured />
+            <Who />
+            <Benefits />
             <Scroller />
             <Footer />
           </div>

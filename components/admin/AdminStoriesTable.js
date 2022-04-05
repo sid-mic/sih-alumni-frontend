@@ -146,7 +146,7 @@ function StoryRow({ data, setlist, setSelected, index }) {
               onClick={() => {
                 handleDisplayChange(data.id, "mentor");
               }}
-              className={"block bg-green-600 p-3 mr-4"}
+              className={"block bg-green-600 rounded-lg p-3 mr-4"}
             >
               Mentor
             </button>
@@ -156,7 +156,7 @@ function StoryRow({ data, setlist, setSelected, index }) {
               onClick={() => {
                 handleDisplayChange(data.id, "alumni");
               }}
-              className={"block bg-yellow-500 p-3 mr-4"}
+              className={"block bg-yellow-500 rounded-lg p-3 mr-4"}
             >
               Alumni
             </button>
@@ -166,7 +166,7 @@ function StoryRow({ data, setlist, setSelected, index }) {
               onClick={() => {
                 handleDisplayChange(data.id, "none");
               }}
-              className={"block bg-red-600 p-3 mr-4"}
+              className={"block bg-red-600 rounded-lg p-3 mr-4"}
             >
               None
             </button>

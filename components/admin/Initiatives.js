@@ -165,7 +165,7 @@ function InitiativeCard({ data, editform, setpage, setlist }) {
               editform(data);
               setpage(2);
             }}
-            className={"block bg-yellow-500 p-3 mr-4"}
+            className={"block bg-yellow-500 rounded-lg p-3 mr-4"}
           >
             <svg
               class="w-6 h-6"
@@ -180,7 +180,7 @@ function InitiativeCard({ data, editform, setpage, setlist }) {
             onClick={() => {
               handleDelete(data.id);
             }}
-            className={"block bg-red-600 p-3"}
+            className={"block rounded-lg bg-red-600 p-3"}
           >
             <svg
               class="w-6 h-6"

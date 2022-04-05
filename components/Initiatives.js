@@ -29,7 +29,7 @@ export default function Initiatives() {
                 The buzzword across the globe for the 21st century is
                 ‘Innovation’. In the simplest term, Innovation could be defined
                 as converting ideas into new or improved products, processes and
-                services. Undoubtedly...
+                services...
               </p>
               <div className="text-center">
                 <a
@@ -69,10 +69,10 @@ export default function Initiatives() {
               </h3>
 
               <p class="mt-1 text-sm text-black">
-                Innovation and entrepreneurship are at the peak in India. In
-                order to make development a comprehensive mass movement and
-                innovate on all fronts, MoE, AICTE, i4C, and Persistent Systems
-                have come together to organize..
+                Smart India Hackathon 2020 is a nationwide initiative to provide
+                students a platform to solve some of the pressing problems we
+                face in our daily lives, and thus inculcate a culture of product
+                innovation and a mindset of problem solving...
               </p>
               <div className="text-center">
                 <a
@@ -118,7 +118,7 @@ export default function Initiatives() {
                 Ministry of Education (MoE), Govt. of India has established
                 ‘MoE’s Innovation Cell (MIC)’ to systematically foster the
                 culture of Innovation amongst all Higher Education Institutions
-                (HEIs). The primary mandate of MI...
+                (HEIs)...
               </p>
               <div className="text-center">
                 <a
@@ -163,7 +163,7 @@ export default function Initiatives() {
               <p class="mt-1 text-sm text-black">
                 To overcome the current limitations in our innovation ecosystem
                 especially in our HEIs, a systematic holistic effort ‘KAPILA:
-                Kalam Program for IP Literacy and...
+                Kalam Program for IP Literacy and Awareness...
               </p>
               <div className="text-center">
                 <a
@@ -207,7 +207,8 @@ export default function Initiatives() {
                 YUKTI 2.0 is an initiative of MoE's innovation cell and All
                 India Council for Technical Education. It is focused on creating
                 a national database of technologies and innovations...
-              </p><br/>
+              </p>
+              <br />
 
               <div className="text-center">
                 <a
