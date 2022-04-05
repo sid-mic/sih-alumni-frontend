@@ -3,10 +3,10 @@ import Marquee from "react-fast-marquee";
 
 export default function Scroller() {
   return (
-    <div className="md:mx-20 items-center">
+    <div className="md:mx-20 items-center mt-14">
       <h1
         style={{ fontFamily: "Montserrat" }}
-        className="font-bold text-center items-center max-w-xl mb-14 sm:text-xl text-2xl md:text-4xl xl:max-w-full "
+        className="font-bold text-center items-center max-w-xl mb-6 sm:text-xl text-2xl md:text-4xl xl:max-w-full "
       >
         PARTNERED COMPETITIONS
       </h1>
