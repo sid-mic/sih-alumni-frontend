@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@headlessui/react": "^1.4.2",
+    "@react-buddy/ide-toolbox": "^2.0.0",
     "@tailwindcss/forms": "^0.3.4",
     "axios": "^0.24.0",
     "chart.js": "^3.6.0",
@@ -22,6 +23,7 @@
     "magic": "^2.3.5-alpha.1",
     "next": "latest",
     "ng2-charts": "^2.4.3",
+    "rc-pagination": "^3.1.15",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.3.0",
     "react-dom": "^17.0.2",
@@ -31,8 +33,7 @@
     "react-text-loop": "^2.3.0",
     "react-toastify": "^8.1.0",
     "simple-react-validator": "^1.6.1",
-    "styled-components": "^5.3.3",
-    "@react-buddy/ide-toolbox": "^2.0.0"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

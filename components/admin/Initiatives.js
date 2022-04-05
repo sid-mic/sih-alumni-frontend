@@ -32,13 +32,13 @@ export default function Initiatives(props) {
     // Main list page
     return (
       <>
-        <div className={"flex justify-end"}>
+        <div className={"flex justify-end mr-16"}>
           <button
             style={{ fontFamily: "Montserrat" }}
             className="button-active bg-indblue p-4 mr-3 text-white rounded-lg"
             onClick={() => setpage(1)}
           >
-            <span>Create New Initiative</span>
+            <span>Add Initiative</span>
           </button>
         </div>
 
@@ -83,7 +83,7 @@ function InitiativesList({ data, editform, setpage, setlist }) {
     );
   } else {
     return (
-      <div className="pt-10 p-20">
+      <div className="pt-6 p-20 ml-10">
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
             <thead className="block md:table-header-group rounded-2xl">

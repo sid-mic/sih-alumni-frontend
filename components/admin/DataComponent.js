@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "../../utils/axios";
 import FormLoader from "../FormLoader";
+import download from "js-file-download";
 
 export default function DataComponent(props) {
   const [data, setData] = useState([]);
@@ -58,13 +59,46 @@ export default function DataComponent(props) {
   }
 
   function handleReset() {
-    setRegistered(false)
-    setUnregistered(false)
-    setBootstrapped(false)
-    setFunding(false)
+    setRegistered(false);
+    setUnregistered(false);
+    setBootstrapped(false);
+    setFunding(false);
     setInitiatives([]);
 
     setIsInitialized(false);
+  }
+
+  function handleDownload() {
+    axios()
+      .post(
+        "users/export",
+        {
+          registered:
+            registered && unregistered
+              ? null
+              : registered
+              ? true
+              : unregistered
+              ? false
+              : null,
+          bootstrapped,
+          funding,
+          initiatives,
+        },
+        {
+          responseType: "blob",
+          headers: {
+            "Accept":
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          },
+        }
+      )
+      .then((response) => {
+        download(response.data, "users.xlsx");
+      })
+      .catch((error) => {
+        alert("The file couldn't be downloaded");
+      });
   }
 
   if (isLoading) {
@@ -73,6 +107,14 @@ export default function DataComponent(props) {
 
   return (
     <div>
+      <div className={"flex justify-end mb-3 mr-9"}>
+        <button
+            onClick={() => handleDownload()}
+            className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+        >
+          Export as Excel
+        </button>
+      </div>
       <section className="mb-20">
         <div className="px-4 mx-auto grid grid-cols-1 gap-4 max-w-screen-2xl sm:px-6 lg:px-8 lg:grid-cols-4 lg:items-start">
           <div>

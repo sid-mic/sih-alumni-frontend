@@ -45,7 +45,7 @@ export default function ImportsTable(props) {
         {
           responseType: "blob",
           headers: {
-            "Content-Type":
+            "Accept":
               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           },
         }

@@ -50,7 +50,7 @@ class ProjectComponent extends Component {
               {Object.entries(this.props.projects).map(([id, project]) => {
                 return (
                   <button
-                    className="block bg-indblue text-white p-5 rounded-xl"
+                    className="block bg-indblue text-white p-5 rounded-xl ml-5"
                     key={id}
                     onClick={() => {
                       this.setProject(id);

@@ -29,12 +29,12 @@ export default function Scroller() {
             src="https://toycathon.mic.gov.in/assets/extra/toycathon-final-logo.jpg"
           ></img>
         </div>
-        {/*<div className="pr-12 md:pr-20">*/}
-        {/*  <img*/}
-        {/*    className="max-h-20"*/}
-        {/*    src="https://manthan.mic.gov.in/assets/new_logo.png"*/}
-        {/*  ></img>*/}
-        {/*</div>*/}
+        <div className="pr-12 md:pr-20">
+          <img
+            className="max-h-20"
+            src="https://www.mic.gov.in/assets/img/ariia-logo.png"
+          ></img>
+        </div>
         <div className="pr-12 md:pr-20">
           <img
             className="max-h-20"

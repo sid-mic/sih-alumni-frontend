@@ -27,7 +27,7 @@ export default function Featured() {
   }
 
   return (
-    <div>
+    <div className={"mt-8"}>
       <section>
         <div class="mb-12 px-4 md:mt-0 py-0 mx-auto max-w-screen-xl sm:px-6 lg:px-8 pt-20">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-16 lg:items-center">
@@ -36,7 +36,7 @@ export default function Featured() {
                 {" "}
                 <h1
                   style={{ fontFamily: "Montserrat" }}
-                  className="font-bold text-center items-center max-w-xl mb-14 sm:text-xl text-2xl md:text-4xl xl:max-w-full "
+                  className="font-bold text-center items-center max-w-xl mb-8 sm:text-xl text-2xl md:text-4xl xl:max-w-full "
                 >
                   FEATURED MENTORS
                 </h1>
@@ -48,7 +48,7 @@ export default function Featured() {
                     >
                       <a
                         class="relative block bg-black group rounded-xl"
-                        href={`/stories/${index + 1}`}
+                        href={`/stories/${index + 4}`}
                       >
                         <img
                           className="rounded-t-xl"
@@ -74,7 +74,7 @@ export default function Featured() {
                 {" "}
                 <h1
                   style={{ fontFamily: "Montserrat" }}
-                  className="font-bold text-center items-center max-w-xl mb-14 sm:text-xl text-2xl md:text-4xl xl:max-w-full  "
+                  className="font-bold text-center items-center max-w-xl mb-8 sm:text-xl text-2xl md:text-4xl xl:max-w-full  "
                 >
                   FEATURED ALUMNI
                 </h1>

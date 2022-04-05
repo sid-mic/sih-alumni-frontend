@@ -5,7 +5,7 @@ import AdminAnnouncements from "../../components/admin/AdminAnnouncements";
 import DataComponent from "../../components/admin/DataComponent";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import { AdminStats } from "../../components/admin/AdminStats";
-import { ChartStats } from "../../components/ChartStats";
+import { ChartStats } from "../../components/admin/ChartStats";
 import { WelcomeHero } from "../../components/WelcomeHero";
 import {
   faFolderPlus,

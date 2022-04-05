@@ -1,5 +1,5 @@
-import Pie from "../components/charts/pie";
-import Line from "../components/charts/line";
+import Pie from "../charts/pie";
+import Line from "../charts/line";
 
 export const ChartStats = ({gender_stats, signups_count}) => {
   const piedata = {
@@ -14,7 +14,7 @@ export const ChartStats = ({gender_stats, signups_count}) => {
   };
 
   const linedata = {
-    labels: Object.keys(signups_count).reverse(),
+    labels: Object.keys(signups_count),
     datasets: [
       {
         label: "Registrations",
@@ -35,7 +35,7 @@ export const ChartStats = ({gender_stats, signups_count}) => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: Object.values(signups_count).reverse(),
+        data: Object.values(signups_count),
       },
     ],
   };
@@ -52,7 +52,7 @@ export const ChartStats = ({gender_stats, signups_count}) => {
   return (
     <div
       style={{ fontFamily: "Montserrat" }}
-      className="px-10 min-h-screen mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0"
+      className="px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0"
     >
       <div className="grid items-center grid-cols-1 row-gap-8 md:grid-cols-2">
         <div className=" mr-7 text-center mb-5">

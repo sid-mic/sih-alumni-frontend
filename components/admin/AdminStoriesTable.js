@@ -121,14 +121,7 @@ function StoryRow({ data, setlist, setSelected, index }) {
       key={data.id}
     >
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-        <a
-          onClick={(e) => {
-            e.preventDefault();
-            setSelected(index);
-          }}
-        >
-          {data.title}
-        </a>
+        {data.title}
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         {data.user.name}
@@ -156,7 +149,7 @@ function StoryRow({ data, setlist, setSelected, index }) {
               onClick={() => {
                 handleDisplayChange(data.id, "alumni");
               }}
-              className={"block bg-yellow-500 rounded-lg p-3 mr-4"}
+              className={"block bg-yellow-500 rounded-lg p-3 mr-4 col-span-2"}
             >
               Alumni
             </button>
@@ -166,11 +159,22 @@ function StoryRow({ data, setlist, setSelected, index }) {
               onClick={() => {
                 handleDisplayChange(data.id, "none");
               }}
-              className={"block bg-red-600 rounded-lg p-3 mr-4"}
+              className={"block bg-red-600 rounded-lg p-3 mr-4 col-span-2"}
             >
               None
             </button>
           )}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setSelected(index);
+            }}
+            className={
+              "block bg-blue-600 rounded-lg p-3 mr-4 col-span-2 align-middle"
+            }
+          >
+            View
+          </button>
         </div>
       </td>
     </tr>

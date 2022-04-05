@@ -54,9 +54,8 @@ export default function Stories() {
           </svg>{" "}
           <span className="ml-6">Back</span>
         </a>
-        <div className={"flex justify-between mr-20"}>
-          <div>
-            {" "}
+        <div className={"flex justify-center mr-20"}>
+          <div className="mx-16">
             <h1
               style={{ fontFamily: "Montserrat" }}
               className="text-indblue text-3xl"
@@ -64,15 +63,17 @@ export default function Stories() {
               {story.title}
             </h1>
             <br />
-            <div className="mt-4 ">
-              <p>{story.description}</p>
+            <div className="mt-4">
+              {story.description
+                .replace(/(?:\r\n|\r|\n)/g, "<br/>")
+                .split("<br/>")
+                .map((para, index) => (
+                    <p key={index}>{para} {para ? <div><br/></div> : ""} </p>
+                ))}
             </div>
           </div>
-          <div>
-            <img
-              className="rounded-2xl w-40 h-40"
-              src={story.user.picture}
-            />
+          <div className={"col-span-10"}>
+            <img className="rounded-2xl w-80 h-80" src={story.user.picture} />
             <h3
               style={{ fontFamily: "Montserrat" }}
               className="text-black text-xl mt-10"

@@ -46,10 +46,10 @@ export default function Home() {
           <Hero user={user} isAuth={isAuth} auth={auth} />
           <div class="bg-lightblue">
             <Feature />
-            <Initiatives />
-            <Featured />
             <Who />
             <Benefits />
+            <Initiatives />
+            <Featured />
             <Scroller />
             <Footer />
           </div>
