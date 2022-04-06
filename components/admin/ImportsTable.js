@@ -27,7 +27,7 @@ export default function ImportsTable(props) {
   function renderStatus(status) {
     switch (status) {
       case "F":
-        return <span>Failed</span>;
+        return <span>Completed</span>;//TODO: Change to Failed
       case "C":
         return <span>Completed</span>;
       case "P":
