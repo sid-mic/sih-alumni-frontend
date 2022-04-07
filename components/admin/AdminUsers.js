@@ -8,10 +8,11 @@ export default function AdminUser(props) {
   const simpleValidator = useRef(new SimpleReactValidator());
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [initiative, setInitiative] = useState("");
-  const [file, setFile] = useState();
   const [initiatives, setInitiatives] = useState(props.initiatives);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [initiative, setInitiative] = useState(initiatives[0].id ?? "");
+  const [file, setFile] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -73,7 +74,7 @@ export default function AdminUser(props) {
             >
               {initiatives.map((i) => {
                 return (
-                  <option value={i.id}>
+                  <option value={i.id} selected={true}>
                     {i.hackathon} - {i.edition}
                   </option>
                 );

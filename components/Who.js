@@ -16,7 +16,7 @@ export default function Who() {
         </div>
         <div className="lg:w-1/2">
           <p className="text-base text-gray-700 md:text-lg">
-            Participants Ministry of Education’s Innovation Cell initiatives
+            Participants of Ministry of Education’s Innovation Cell initiatives
             like,
             <br />
             <ul className="mt-4">● Smart India Hackathon</ul>

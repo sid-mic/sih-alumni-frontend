@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Initiatives() {
   return (
-    <div>
+    <div id={"initiatives"}>
       <section class="text-black">
         <div class="max-w-screen-xl px-4 py-15 mx-auto sm:px-6 lg:px-8">
           <div class="max-w-lg mx-auto text-center">
