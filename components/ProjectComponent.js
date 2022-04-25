@@ -13,7 +13,7 @@ class ProjectComponent extends Component {
     categorytypes: [
       {
         id: 1,
-        type: "Team Questions",
+        type: "Status of the Idea",
       },
       {
         id: 2,
@@ -41,7 +41,7 @@ class ProjectComponent extends Component {
           <div className="min-h-screen ml-20 mr-20">
             <div className="flex -mx-3 justify-center mt-10 ">
               {" "}
-              <h3>Please choose the Hackathon to enter:</h3>
+              <h3>Please select the Hackathon to enter: </h3>
               <br />
               <br />
             </div>
@@ -56,8 +56,13 @@ class ProjectComponent extends Component {
                       this.setProject(id);
                     }}
                   >
-                    {project.initiative.hackathon} -{" "}
+                    Initiative: {project.initiative.hackathon} -{" "}
                     {project.initiative.edition}
+                    <br />
+                    {project.ps_title !== "NA" ? `PS: ${project.ps_title}` : ""}
+                    <br />
+                    {`Title: ${project.title}`}
+                    <br />
                   </button>
                 );
               })}
@@ -73,7 +78,7 @@ class ProjectComponent extends Component {
           <div className="flex justify-between">
             <button
               style={{ fontFamily: "Montserrat" }}
-              className="button-active bg-indblue p-5 m-3 text-white rounded-lg w-40 flex"
+              className="button-active bg-indblue p-5 m-3 mb-16 text-white rounded-lg w-40 flex"
               onClick={() => this.setProject(null)}
             >
               <svg
@@ -92,21 +97,30 @@ class ProjectComponent extends Component {
             </button>
             <div
               style={{ fontFamily: "Montserrat" }}
-              className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
+              className="bg-gray-200 p-3 rounded-xl m-3 -ml-20 mr-20 rounded-xl"
             >
-              {
-                this.props.projects[this.state.selected_project].initiative
-                  .hackathon
-              }{" "}
-              -{" "}
-              {
-                this.props.projects[this.state.selected_project].initiative
-                  .edition
-              }
+              {`Team: ${
+                this.props.projects[this.state.selected_project].team_name
+              }`}
+              <br />
+              {`Title: ${
+                this.props.projects[this.state.selected_project].title
+              }`}
+              <br />
+              {`College: ${
+                this.props.projects[this.state.selected_project].college
+              }`}
+              <br />
+              {`Role: ${
+                this.props.projects[this.state.selected_project].leader_id ==
+                this.props.user.id
+                  ? "Leader"
+                  : "Member"
+              }`}
+              <br />
             </div>
-            <div className="col-span-4" />
+            <div className="col-span-6"></div>
           </div>
-
           <ProjectComponentTabs
             categorytypes={this.state.categorytypes}
             selectedtype={this.setCategoryType}
@@ -146,8 +160,9 @@ class ProjectComponent extends Component {
             </button>
             <div
               style={{ fontFamily: "Montserrat" }}
-              className="bg-indblue text-white p-5 m-3 mr-14 -ml-10 rounded-xl"
+              className="bg-gray-200 p-3 rounded-xl m-3 ml-32 rounded-xl"
             >
+              Initiative:{" "}
               {
                 this.props.projects[this.state.selected_project].initiative
                   .hackathon
@@ -157,8 +172,41 @@ class ProjectComponent extends Component {
                 this.props.projects[this.state.selected_project].initiative
                   .edition
               }
+              <br />
+              {this.props.projects[this.state.selected_project].ps_title !==
+              "NA"
+                ? `PS: ${
+                    this.props.projects[this.state.selected_project].ps_title
+                  }`
+                : ""}
+              <br />
+              <br />
             </div>
-            <div className="col-span-4" />
+
+            <div
+              style={{ fontFamily: "Montserrat" }}
+              className="bg-gray-200 p-3 rounded-xl m-3 -ml-20 mr-20 rounded-xl"
+            >
+              {`Team: ${
+                this.props.projects[this.state.selected_project].team_name
+              }`}
+              <br />
+              {`Title: ${
+                this.props.projects[this.state.selected_project].title
+              }`}
+              <br />
+              {`College: ${
+                this.props.projects[this.state.selected_project].college
+              }`}
+              <br />
+              {`Role: ${
+                this.props.projects[this.state.selected_project].leader_id ==
+                this.props.user.id
+                  ? "Leader"
+                  : "Member"
+              }`}
+              <br />
+            </div>
           </div>
 
           <ProjectComponentTabs

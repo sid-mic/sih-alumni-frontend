@@ -24,6 +24,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.setModuleType = this.setModuleType.bind(this);
+    this.setOwnProjects = this.setOwnProjects.bind(this);
   }
 
   state = {
@@ -35,17 +36,17 @@ class Dashboard extends Component {
       },
       {
         id: 2,
-        type: "Project",
+        type: "Hackathon Ideas",
         icon: faBars,
       },
       {
         id: 3,
-        type: "Participant",
+        type: "MY IDEAS",
         icon: faUser,
       },
       {
         id: 4,
-        type: "Story",
+        type: "My success story",
         icon: faPen,
       },
       {
@@ -58,6 +59,7 @@ class Dashboard extends Component {
     user: null,
     isAuth: false,
     projects: [],
+    own_projects: [],
     userId: 0,
     isLoading: true,
   };
@@ -75,6 +77,7 @@ class Dashboard extends Component {
         isAuth: data.isAuth,
         userId: data.user.id,
         projects: data.projects,
+        own_projects: data.own_projects,
         logout: auth().logout,
       });
     }
@@ -84,6 +87,10 @@ class Dashboard extends Component {
 
   setModuleType(selectedtype) {
     this.setState({ selectedmoduletype: selectedtype });
+  }
+
+  setOwnProjects(new_projects) {
+    this.setState({ own_projects: new_projects });
   }
 
   render() {
@@ -162,11 +169,17 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+          <div
+            style={{ fontFamily: "Montserrat" }}
+            className="flex flex-col bg-indblue min-h-full min-w-full"
+          >
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="Participant Status" />
-                <IndividualQuestions user={this.state.user} />
+                <IndividualQuestions
+                  user={this.state.user}
+                  own_projects={this.state.own_projects}
+                  setOwnProjects={this.setOwnProjects}
+                />
               </div>
             </div>
           </div>
@@ -198,7 +211,7 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="Participant Story" />
+                <WelcomeHero h1="My success story" />
                 <ParticipantStory user={this.state.user} />
               </div>
             </div>

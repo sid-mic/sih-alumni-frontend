@@ -4,23 +4,30 @@ import axios from "../../utils/axios";
 import { toast } from "react-toastify";
 import Loading from "../Loading";
 import FormLoader from "../FormLoader";
+import Pagination from "rc-pagination";
 
-export default function AdminAnnouncements() {
+export default function AdminAnnouncements(props) {
   const [page, setpage] = useState(0);
   const [editpage, seteditform] = useState({});
+
   const [announcement_list_data, setlistdata] = useState(false);
+  const [meta, setMeta] = useState({});
 
   useEffect(() => {
-    if (!announcement_list_data) {
-      axios()
-        .get("/announcements")
-        .then(function (response) {
-          if (response.status == 200) {
-            setlistdata(response.data);
-          }
-        });
-    }
-  }, [announcement_list_data]);
+    handleRequest();
+  }, [props.user]);
+
+  function handleRequest(page = 1) {
+    setlistdata(false);
+    axios()
+      .get(`announcements?page=${page}`)
+      .then(function (response) {
+        if (response.status == 200) {
+          setlistdata(response.data.data);
+          setMeta(response.data);
+        }
+      });
+  }
 
   if (page === 0) {
     // Main list page
@@ -41,6 +48,8 @@ export default function AdminAnnouncements() {
           editform={seteditform}
           setpage={setpage}
           setlist={setlistdata}
+          meta={meta}
+          handleRequest={handleRequest}
         />
       </>
     );
@@ -66,7 +75,14 @@ export default function AdminAnnouncements() {
   }
 }
 
-function AdminAnnouncementList({ data, editform, setpage, setlist }) {
+function AdminAnnouncementList({
+  data,
+  editform,
+  setpage,
+  setlist,
+  meta,
+  handleRequest,
+}) {
   if (!data) {
     return <FormLoader></FormLoader>;
   } else if (data.length === 0) {
@@ -101,17 +117,7 @@ function AdminAnnouncementList({ data, editform, setpage, setlist }) {
             </thead>
 
             <tbody className="block md:table-row-group">
-              {data.live?.map((row) => {
-                return (
-                  <AnnouncementCard
-                    data={row}
-                    editform={editform}
-                    setpage={setpage}
-                    setlist={setlist}
-                  />
-                );
-              })}
-              {data.archived?.map((row) => {
+              {data?.map((row) => {
                 return (
                   <AnnouncementCard
                     data={row}
@@ -123,6 +129,15 @@ function AdminAnnouncementList({ data, editform, setpage, setlist }) {
               })}
             </tbody>
           </table>
+          <div className={"mt-10 text-center mr-16"}>
+            <Pagination
+              total={meta.total}
+              pageSize={15}
+              onChange={(page) => handleRequest(page)}
+              current={meta.current_page}
+              hideOnSinglePage={false}
+            ></Pagination>
+          </div>
         </div>
       </div>
     );

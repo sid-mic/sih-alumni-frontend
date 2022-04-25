@@ -3,22 +3,30 @@ import axios from "../../utils/axios";
 import FormLoader from "../FormLoader";
 import { toast } from "react-toastify";
 import StoryCard from "../StoryCard";
+import Pagination from "rc-pagination";
 
-export default function AdminStoriesTable() {
+export default function AdminStoriesTable(props) {
   const [list_data, setlistdata] = useState(false);
+  const [meta, setMeta] = useState({});
+
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    if (!list_data) {
-      axios()
-        .get("/stories")
-        .then(function (response) {
-          if (response.status == 200) {
-            setlistdata(response.data);
-          }
-        });
-    }
-  }, [list_data]);
+    handleRequest();
+  }, [props.user]);
+
+  function handleRequest(page = 1) {
+    setlistdata(false);
+
+    axios()
+      .get(`stories?page=${page}`)
+      .then(function (response) {
+        if (response.status == 200) {
+          setlistdata(response.data.data);
+          setMeta(response.data);
+        }
+      });
+  }
 
   // Main list page
   return (
@@ -27,6 +35,8 @@ export default function AdminStoriesTable() {
         data={list_data}
         setlist={setlistdata}
         setSelected={setSelected}
+        handleRequest={handleRequest}
+        meta={meta}
       />
       {selected !== null && (
         <StoryCard item={list_data[selected]} setSelected={setSelected} />
@@ -35,7 +45,13 @@ export default function AdminStoriesTable() {
   );
 }
 
-function AdminAnnouncementList({ data, setlist, setSelected }) {
+function AdminAnnouncementList({
+  data,
+  setlist,
+  setSelected,
+  meta,
+  handleRequest,
+}) {
   if (!data) {
     return <FormLoader></FormLoader>;
   } else if (data.length == 0) {
@@ -82,6 +98,15 @@ function AdminAnnouncementList({ data, setlist, setSelected }) {
               })}
             </tbody>
           </table>
+          <div className={"mt-10 text-center mr-16"}>
+            <Pagination
+              total={meta.total}
+              pageSize={15}
+              onChange={(page) => handleRequest(page)}
+              current={meta.current_page}
+              hideOnSinglePage={false}
+            ></Pagination>
+          </div>
         </div>
       </div>
     );

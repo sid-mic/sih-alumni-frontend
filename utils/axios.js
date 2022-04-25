@@ -12,7 +12,7 @@ export default function axios() {
   axiosLib.interceptors.response.use(
     (response) => response,
     async (error) => {
-      if (error.response.status === 401) {
+      if (error?.response?.status === 401) {
         await auth().logout("/", true);
       } else {
         throw error;

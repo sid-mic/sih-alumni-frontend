@@ -129,7 +129,7 @@ class Home extends Component {
                 <div className="flex  flex-wrap">
                   <div className="container md:rounded-tl-2xl bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="Welcome, " h2="Admin." />
-                    <AdminStats stats={this.state.stats.top_counts} />
+                    <AdminStats stats={this.state.stats.top_counts} initiatives_count={this.state.initiatives.length} />
                     <ChartStats
                       gender_stats={this.state.stats.users_gender_count}
                       signups_count={this.state.stats.signup_count}

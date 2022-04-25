@@ -15,6 +15,7 @@ import Router from "next/router";
 import Initiatives from "../components/Initiatives";
 import Who from "../components/Who";
 import Benefits from "../components/Benefits";
+import News from "../components/News";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -48,6 +49,7 @@ export default function Home() {
             <Feature />
             <Who />
             <Benefits />
+            <News/>
             <Initiatives />
             <Featured />
             <Scroller />

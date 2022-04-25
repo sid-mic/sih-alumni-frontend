@@ -76,7 +76,7 @@ export default function Featured() {
                   style={{ fontFamily: "Montserrat" }}
                   className="font-bold text-center items-center max-w-xl mb-8 sm:text-xl text-2xl md:text-4xl xl:max-w-full  "
                 >
-                  FEATURED ALUMNI
+                  FEATURED SUCCESS STORIES
                 </h1>
                 <div class="flex flex-wrap -mx-3 overflow-hidden bg-indblue bg-opacity-20 rounded-xl">
                   {stories.alumni.map((alumni, index) => (

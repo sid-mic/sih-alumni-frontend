@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "../../utils/axios";
 import FormLoader from "../FormLoader";
 import download from "js-file-download";
+import Pagination from "rc-pagination";
+import "rc-pagination/assets/index.css";
 
 export default function DataComponent(props) {
   const [data, setData] = useState([]);
+  const [meta, setMeta] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -36,10 +39,10 @@ export default function DataComponent(props) {
     setInitiatives(i);
   }
 
-  async function handleRequest() {
+  async function handleRequest(page = 1) {
     setIsLoading(true);
 
-    let response = await axios().post("users", {
+    let response = await axios().post(`users?page=${page}`, {
       registered:
         registered && unregistered
           ? null
@@ -54,6 +57,7 @@ export default function DataComponent(props) {
     });
 
     setData(response.data.data);
+    setMeta(response.data);
 
     setIsLoading(false);
   }
@@ -88,7 +92,7 @@ export default function DataComponent(props) {
         {
           responseType: "blob",
           headers: {
-            "Accept":
+            Accept:
               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           },
         }
@@ -109,8 +113,8 @@ export default function DataComponent(props) {
     <div>
       <div className={"flex justify-end mb-3 mr-9"}>
         <button
-            onClick={() => handleDownload()}
-            className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+          onClick={() => handleDownload()}
+          className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
         >
           Export as Excel
         </button>
@@ -326,6 +330,16 @@ export default function DataComponent(props) {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className={"mt-10 text-center mr-16"}>
+          <Pagination
+            total={meta.total}
+            pageSize={meta.per_page}
+            current={meta.current_page}
+            hideOnSinglePage={false}
+            onChange={(page) => handleRequest(page)}
+          ></Pagination>
         </div>
       </section>
     </div>

@@ -2,32 +2,41 @@ import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import FormLoader from "../FormLoader";
 import download from "js-file-download";
+import Pagination from "rc-pagination";
 
 export default function ImportsTable(props) {
   const [imports, setImports] = useState();
+  const [meta, setMeta] = useState({});
+
   const [isInitialising, setIsInitialising] = useState(true);
 
   useEffect(() => {
     if (props.user?.id != null) {
-      axios()
-        .get("/imports")
-        .then((response) => {
-          if (response?.status == 200) {
-            setImports(response.data.data);
-          }
-
-          setIsInitialising(false);
-        })
-        .catch(() => {
-          return;
-        });
+      handleRequest();
     }
   }, [props.user]);
+
+  async function handleRequest(page = 1) {
+    setIsInitialising(true);
+    await axios()
+      .get(`imports?page=${page}`)
+      .then((response) => {
+        if (response?.status == 200) {
+          setImports(response.data.data);
+          setMeta(response.data.meta);
+        }
+
+        setIsInitialising(false);
+      })
+      .catch(() => {
+        return;
+      });
+  }
 
   function renderStatus(status) {
     switch (status) {
       case "F":
-        return <span>Completed</span>;//TODO: Change to Failed
+        return <span>Completed</span>; //TODO: Change to Failed
       case "C":
         return <span>Completed</span>;
       case "P":
@@ -45,7 +54,7 @@ export default function ImportsTable(props) {
         {
           responseType: "blob",
           headers: {
-            "Accept":
+            Accept:
               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           },
         }
@@ -167,7 +176,15 @@ export default function ImportsTable(props) {
             </tbody>
           </table>
 
-          {/*//TODO: ADD PAGINATION*/}
+          <div className={"mt-10 text-center mr-16"}>
+            <Pagination
+              total={meta.total}
+              pageSize={meta.per_page}
+              onChange={(page) => handleRequest(page)}
+              current={meta.current_page}
+              hideOnSinglePage={false}
+            ></Pagination>
+          </div>
         </div>
       )}
     </>

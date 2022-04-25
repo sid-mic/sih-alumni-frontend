@@ -12,20 +12,23 @@ export default function auth() {
   const fetchUser = async (id = null) => {
     let user;
     let projects = [];
+    let own_projects = [];
 
     try {
-      let data = await (await axios().get("/user" + (id ? `s/${id}` : ""))).data;
+      let data = await (await axios().get("/user" + (id ? `s/${id}` : "")))
+        .data;
       user = data.user;
       projects = data.projects;
+      own_projects = data.own_projects;
       isAuth = true;
 
-      return { isAuth: isAuth, user, projects };
+      return { isAuth: isAuth, user, projects, own_projects };
     } catch (error) {
       store(api_token_store_name(), "");
       isAuth = false;
       user = null;
 
-      return { isAuth, user, projects };
+      return { isAuth, user, projects, own_projects };
     }
   };
 

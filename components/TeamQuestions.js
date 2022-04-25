@@ -13,34 +13,42 @@ export default function TeamQuestions(props) {
   const disabled = props.disabled;
   const [isFormFilled, setIsFormFilled] = useState(null);
 
-  const [developmentStatus, setDevelopmentStatus] = useState();
-  const [description, setDescription] = useState();
-  const [micSupport, setMicSupport] = useState();
-  const [fundStatus, setFundStatus] = useState();
-  const [fundOrganisation, setFundOrganisation] = useState();
-  const [fundAmount, setFundAmount] = useState();
-  const [fundingDate, setFundingDate] = useState();
-  const [fundingSupportNeeded, setFundingSupportNeeded] = useState();
-  const [projectDeliveryStatus, setProjectDeliveryStatus] = useState();
-  const [projectDeliveredStatus, setProjectDeliveredStatus] = useState();
-  const [projectImplementedByMinistry, setProjectImplementedByMinistry] =
-    useState();
-  const [micSupportDeploy, setMicSupportDeploy] = useState();
-  const [incubatorStatus, setIncubatorStatus] = useState();
-  const [nameOfIncubator, setNameOfIncubator] = useState();
-  const [trlLevel, setTrlLevel] = useState();
-  const [videoUrl, setVideoUrl] = useState();
-  const [ipStatus, setIpStatus] = useState();
-  const [ipType, setIpType] = useState();
-  const [isPatentRegistered, setIsPatentRegistered] = useState();
-  const [ipNumber, setIpNumber] = useState();
-  const [dateOfIpReg, setDateOfIpReg] = useState();
-  const [noOfIpFiledTillDate, setNoOfIpFiledTillDate] = useState();
-  const [startupStatus, setStartupStatus] = useState();
-  const [startupName, setStartupName] = useState();
-  const [companyRegistrationStatus, setCompanyRegistrationStatus] = useState();
-  const [companyName, setCompanyName] = useState();
-  const [companyCin, setCompanyCin] = useState();
+  const [developmentStatus, setDevelopmentStatus] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [micSupport, setMicSupport] = useState(null);
+  const [fundStatus, setFundStatus] = useState(null);
+  const [fundOrganisation, setFundOrganisation] = useState(null);
+  const [fundAmount, setFundAmount] = useState(null);
+  const [fundingDate, setFundingDate] = useState(null);
+  const [fundingSupportNeeded, setFundingSupportNeeded] = useState(null);
+  const [projectDeliveryStatus, setProjectDeliveryStatus] = useState(null);
+  const [projectDeliveredStatus, setProjectDeliveredStatus] = useState(null);
+  const [
+    projectImplementedByMinistry,
+    setProjectImplementedByMinistry,
+  ] = useState(null);
+  const [micSupportDeploy, setMicSupportDeploy] = useState(null);
+  const [incubatorStatus, setIncubatorStatus] = useState(null);
+  const [nameOfIncubator, setNameOfIncubator] = useState(null);
+  const [trlLevel, setTrlLevel] = useState(null);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [ipStatus, setIpStatus] = useState(null);
+  const [ipType, setIpType] = useState(null);
+  const [isPatentRegistered, setIsPatentRegistered] = useState(null);
+  const [ipNumber, setIpNumber] = useState(null);
+  const [dateOfIpReg, setDateOfIpReg] = useState(null);
+  const [noOfIpFiledTillDate, setNoOfIpFiledTillDate] = useState(null);
+  const [startupStatus, setStartupStatus] = useState(null);
+  const [startupName, setStartupName] = useState(null);
+  const [companyRegistrationStatus, setCompanyRegistrationStatus] = useState(
+    null
+  );
+  const [companyName, setCompanyName] = useState(null);
+  const [companyRegistrationType, setCompanyRegistrationType] = useState(null);
+  const [companyRegistrationDpiit, setCompanyRegistrationDpiit] = useState(
+    null
+  );
+  const [companyLogo, setCompanyLogo] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isInitialising, setIsInitialising] = useState(true);
@@ -71,7 +79,7 @@ export default function TeamQuestions(props) {
               setProjectDeliveryStatus(data.project_delivery_status);
               setProjectDeliveredStatus(data.project_delivered_status);
               setProjectImplementedByMinistry(
-                  data.project_implemented_by_ministry
+                data.project_implemented_by_ministry
               );
               setMicSupportDeploy(data.mic_support_deploy);
               setIncubatorStatus(data.incubator_status);
@@ -88,7 +96,8 @@ export default function TeamQuestions(props) {
               setStartupName(data.startup_name);
               setCompanyRegistrationStatus(data.company_registration_status);
               setCompanyName(data.company_name);
-              setCompanyCin(data.company_cin);
+              setCompanyRegistrationType(data.company_registration_type);
+              setCompanyRegistrationDpiit(data.company_registration_dpiit);
             }
           }
 
@@ -107,40 +116,48 @@ export default function TeamQuestions(props) {
       return;
     }
 
+    let form_data = new FormData();
+    form_data.append("development_status", developmentStatus);
+    form_data.append("description", description);
+    form_data.append("mic_support", micSupport);
+    form_data.append("fund_status", fundStatus);
+    form_data.append("fund_organisation", fundOrganisation);
+    form_data.append("fund_amount", fundAmount);
+    form_data.append("funding_date", fundingDate);
+    form_data.append("funding_support_needed", fundingSupportNeeded);
+    form_data.append("project_delivery_status", projectDeliveryStatus);
+    form_data.append("project_delivered_status", projectDeliveredStatus);
+    form_data.append(
+      "project_implemented_by_ministry",
+      projectImplementedByMinistry
+    );
+    form_data.append("mic_support_deploy", micSupportDeploy);
+    form_data.append("incubator_status", incubatorStatus);
+    form_data.append("name_of_incubator", nameOfIncubator);
+    form_data.append("trl_level", trlLevel);
+    form_data.append("video_url", videoUrl);
+    form_data.append("ip_status", ipStatus);
+    form_data.append("ip_type", ipType);
+    form_data.append("is_patent_registered", isPatentRegistered);
+    form_data.append("ip_number", ipNumber);
+    form_data.append("date_of_ip_reg", dateOfIpReg);
+    form_data.append("number_of_ip_filed_till_date", noOfIpFiledTillDate);
+    form_data.append("startup_status", startupStatus);
+    form_data.append("startup_name", startupName);
+    form_data.append("company_registration_status", companyRegistrationStatus);
+    form_data.append("company_name", companyName);
+    form_data.append("company_registration_type", companyRegistrationType);
+    form_data.append("company_registration_dpiit", companyRegistrationDpiit);
+    if (companyLogo) {
+      form_data.append("company_logo", companyLogo);
+    }
+
     // if (simpleValidator.current.allValid() && props.user != null) {
     toast.promise(
       axios().post(
         process.env.NEXT_PUBLIC_BACKEND_DOMAIN +
           `/projects/${props?.project.id}/status`,
-        {
-          development_status: developmentStatus,
-          description: description,
-          mic_support: micSupport,
-          fund_status: fundStatus,
-          fund_organisation: fundOrganisation,
-          fund_amount: fundAmount,
-          funding_date: fundingDate,
-          funding_support_needed: fundingSupportNeeded,
-          project_delivery_status: projectDeliveryStatus,
-          project_delivered_status: projectDeliveredStatus,
-          project_implemented_by_ministry: projectImplementedByMinistry,
-          mic_support_deploy: micSupportDeploy,
-          incubator_status: incubatorStatus,
-          name_of_incubator: nameOfIncubator,
-          trl_level: trlLevel,
-          video_url: videoUrl,
-          ip_status: ipStatus,
-          ip_type: ipType,
-          is_patent_registered: isPatentRegistered,
-          ip_number: ipNumber,
-          date_of_ip_reg: dateOfIpReg,
-          number_of_ip_filed_till_date: noOfIpFiledTillDate,
-          startup_status: startupStatus,
-          startup_name: startupName,
-          company_registration_status: companyRegistrationStatus,
-          company_name: companyName,
-          company_cin: companyCin,
-        }
+        form_data
       ),
       {
         pending: {
@@ -190,9 +207,9 @@ export default function TeamQuestions(props) {
   return (
     <>
       {isInitialising ? (
-          <FormLoader></FormLoader>
+        <FormLoader></FormLoader>
       ) : disabled && !isFormFilled ? (
-          <FormNotFilled/>
+        <FormNotFilled />
       ) : (
         <div className="mb-20 min-h-screen  ml-20 mr-20">
           <div className="flex -mx-3 ">
@@ -926,7 +943,7 @@ export default function TeamQuestions(props) {
           <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
-                Have you Registered Your Company ?
+                Have you Registered Your Startup ?
               </label>
               <div className="main flex overflow-hidden m-2 select-none">
                 <label className="flex radio p-2 cursor-pointer">
@@ -982,18 +999,93 @@ export default function TeamQuestions(props) {
               <div className="flex mb-5 -mx-3">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
-                    Company Identification Number:
+                    Type of Registration:
                   </label>
+                  <div className="flex">
+                    <select
+                      disabled={disabled}
+                      className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      id="grid-state"
+                      onChange={(e) => {
+                        setCompanyRegistrationType(e.target.value);
+                      }}
+                    >
+                      <option
+                        value="Section 8 Company"
+                        selected={
+                          companyRegistrationType === "Section 8 Company"
+                        }
+                      >
+                        Section 8 Company
+                      </option>
+                      <option
+                        value="Private entity"
+                        selected={companyRegistrationType === "Private entity"}
+                      >
+                        Private entity
+                      </option>
+                      <option
+                        value="As Society (Registration Act 1860)"
+                        selected={
+                          companyRegistrationType ===
+                          "As Society (Registration Act 1860)"
+                        }
+                      >
+                        As Society (Registration Act 1860)
+                      </option>
+                      <option
+                        value="As Trust"
+                        selected={companyRegistrationType === "As Trust"}
+                      >
+                        As Trust
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="flex mb-5 -mx-3">
+                <div className="w-full px-3 mb-5">
+                  <label className="text-md font-semibold">
+                    Registered as Firm/Startup as per DPIIT Norm (including
+                    section 25):
+                  </label>
+                  <div className="flex">
+                    <select
+                      disabled={disabled}
+                      className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      id="grid-state"
+                      onChange={(e) => {
+                        setCompanyRegistrationDpiit(e.target.value);
+                      }}
+                    >
+                      <option
+                        value="1"
+                        selected={companyRegistrationDpiit === "1"}
+                      >
+                        Yes
+                      </option>
+                      <option
+                        value="0"
+                        selected={companyRegistrationDpiit === "0"}
+                      >
+                        No
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="flex mb-5 -mx-3">
+                <div className="w-full px-3 mb-5">
+                  <label className="text-md font-semibold">Company Logo:</label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
                     <input
                       disabled={disabled}
-                      type="text"
+                      type="file"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                      value={companyCin}
-                      onChange={(e) => setCompanyCin(e.target.value)}
+                      onChange={(e) => setCompanyLogo(e.target.files[0])}
                     />
                   </div>
                 </div>
@@ -1002,17 +1094,19 @@ export default function TeamQuestions(props) {
           )}
 
           <br />
-          {!disabled && <div className="flex -mx-3">
-            <div className="w-full px-3 mb-5">
-              <button
-                  style={{fontFamily: "Montserrat"}}
+          {!disabled && (
+            <div className="flex -mx-3">
+              <div className="w-full px-3 mb-5">
+                <button
+                  style={{ fontFamily: "Montserrat" }}
                   onClick={handleSubmit}
                   className="block w-full max-w-xs mx-auto bg-indblue hover:bg-indblue focus:bg-indblue text-white rounded-lg px-3 py-3 font-semibold"
-              >
-                {isLoading ? "Saving...." : "SAVE CHANGES"}
-              </button>
+                >
+                  {isLoading ? "Saving...." : "SAVE CHANGES"}
+                </button>
+              </div>
             </div>
-          </div>}
+          )}
         </div>
       )}
     </>

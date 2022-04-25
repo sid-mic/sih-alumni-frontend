@@ -3,11 +3,13 @@ import { useState } from "react";
 import axios from "../../utils/axios";
 import { toast } from "react-toastify";
 import FormLoader from "../FormLoader";
-
+import InitiativePopup from "./InitiativeCard";
 export default function Initiatives(props) {
   const [page, setpage] = useState(0);
   const [editpage, seteditform] = useState({});
   const [list_data, setList_data] = useState(props.data);
+
+  const [selected, setSelected] = useState(null);
 
   function setlistdata(data) {
     if (data != list_data) {
@@ -47,7 +49,15 @@ export default function Initiatives(props) {
           editform={seteditform}
           setpage={setpage}
           setlist={setlistdata}
+          setSelected={setSelected}
         />
+
+        {selected !== null && (
+          <InitiativePopup
+            item={list_data[selected]}
+            setSelected={setSelected}
+          />
+        )}
       </>
     );
   }
@@ -72,7 +82,7 @@ export default function Initiatives(props) {
   }
 }
 
-function InitiativesList({ data, editform, setpage, setlist }) {
+function InitiativesList({ data, editform, setpage, setlist, setSelected }) {
   if (!data) {
     return <FormLoader></FormLoader>;
   } else if (data.length === 0) {
@@ -104,13 +114,15 @@ function InitiativesList({ data, editform, setpage, setlist }) {
             </thead>
 
             <tbody className="block md:table-row-group">
-              {data.map((row) => {
+              {data.map((row, index) => {
                 return (
                   <InitiativeCard
                     data={row}
                     editform={editform}
                     setpage={setpage}
                     setlist={setlist}
+                    setSelected={setSelected}
+                    index={index}
                   />
                 );
               })}
@@ -122,7 +134,14 @@ function InitiativesList({ data, editform, setpage, setlist }) {
   }
 }
 
-function InitiativeCard({ data, editform, setpage, setlist }) {
+function InitiativeCard({
+  data,
+  editform,
+  setpage,
+  setlist,
+  setSelected,
+  index,
+}) {
   function handleDelete(id) {
     toast.promise(axios().post(`initiatives/${id}`, { _method: "delete" }), {
       pending: {
@@ -194,6 +213,17 @@ function InitiativeCard({ data, editform, setpage, setlist }) {
                 clip-rule="evenodd"
               ></path>
             </svg>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setSelected(index);
+            }}
+            className={
+              "block bg-blue-600 rounded-lg p-3 mr-4 col-span-2 ml-4 align-middle"
+            }
+          >
+            Stats
           </button>
         </div>
       </td>
