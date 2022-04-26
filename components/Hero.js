@@ -26,7 +26,7 @@ export const Hero = (props) => {
         success: {
           render() {
             setIsLoading(false);
-            return "Email sent successfully!";
+            return "Email sent successfully! Check your email for the link to log in";
           },
         },
         error: {

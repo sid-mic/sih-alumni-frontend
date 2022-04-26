@@ -315,8 +315,8 @@ export default function SetupProfile(props) {
                       <option value="Self employed" selected={true}>
                         Self employed
                       </option>
-                      <option value="Salarised Individual">
-                        Salarised Individual
+                      <option value="Salaried Individual">
+                        Salaried Individual
                       </option>
                     </select>
                   </div>

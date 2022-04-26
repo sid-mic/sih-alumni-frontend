@@ -337,9 +337,9 @@ class EditProfile extends Component {
                   Self employed
                 </option>
                 <option
-                  value="Salarised Individual"
+                  value="Salaried Individual"
                 >
-                  Salarised Individual
+                  Salaried Individual
                 </option>
               </select>
             </div>
