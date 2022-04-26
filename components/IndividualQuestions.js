@@ -98,7 +98,7 @@ export default function IndividualQuestions(props) {
     if (projectImage) {
       form_data.append("project_image", projectImage);
     }
-    toast.promise(axios().post(`status/${project ? project : ""}`, form_data), {
+    toast.promise(axios().post(`status${project ? '/' + project : ""}`, form_data), {
       pending: {
         render() {
           setIsLoading(true);
