@@ -53,6 +53,7 @@ export default function Participant1() {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(null);
   const [projects, setProjects] = useState([]);
+  const [ownProjects, setOwnProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(async () => {
@@ -70,7 +71,7 @@ export default function Participant1() {
           setIsAuth(user_data.isAuth);
           setUser(user_data.user);
           setProjects(user_data.projects);
-
+          setOwnProjects(user_data.own_projects);
           setIsLoading(false);
         }
       }
@@ -92,7 +93,11 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
+        <SidebarMobile
+          moduletypes={moduleTypes}
+          selectedtype={setModuleType}
+          view_only_mode={true}
+        />
         <div
           style={{ fontFamily: "Montserrat" }}
           className="flex flex-col bg-indblue rounded-xl min-h-full min-w-full"
@@ -128,12 +133,23 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
-        <div className="flex flex-col bg-indblue min-h-full min-w-full">
+        <SidebarMobile
+          moduletypes={moduleTypes}
+          selectedtype={setModuleType}
+          view_only_mode={true}
+        />
+        <div
+          className="flex flex-col bg-indblue min-h-full min-w-full"
+          style={{ fontFamily: "Montserrat" }}
+        >
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-              <WelcomeHero h1="Participant Status" />
-              <IndividualQuestions user={user} view_only_mode={true} />
+              <IndividualQuestions
+                user={user}
+                view_only_mode={true}
+                own_projects={ownProjects}
+                setOwnProjects={setOwnProjects}
+              />
             </div>
           </div>
         </div>
@@ -158,11 +174,17 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
-        <div className="flex flex-col bg-indblue min-h-full min-w-full">
+        <SidebarMobile
+          moduletypes={moduleTypes}
+          selectedtype={setModuleType}
+          view_only_mode={true}
+        />
+        <div
+          className="flex flex-col bg-indblue min-h-full min-w-full"
+          style={{ fontFamily: "Montserrat" }}
+        >
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-              <WelcomeHero h1="Participant Story" />
               <ParticipantStory user={user} view_only_mode={true} />
             </div>
           </div>
@@ -188,7 +210,11 @@ export default function Participant1() {
           <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
-        <SidebarMobile moduletypes={moduleTypes} selectedtype={setModuleType} view_only_mode={true} />
+        <SidebarMobile
+          moduletypes={moduleTypes}
+          selectedtype={setModuleType}
+          view_only_mode={true}
+        />
         <div className="flex flex-col bg-indblue min-h-full min-w-full">
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">

@@ -208,10 +208,12 @@ class Dashboard extends Component {
             moduletypes={this.state.moduletypes}
             selectedtype={this.setModuleType}
           />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+          <div
+            style={{ fontFamily: "Montserrat" }}
+            className="flex flex-col bg-indblue min-h-full min-w-full"
+          >
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <WelcomeHero h1="My success story" />
                 <ParticipantStory user={this.state.user} />
               </div>
             </div>

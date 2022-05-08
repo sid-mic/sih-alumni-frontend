@@ -8,6 +8,9 @@ export default function ParticipantStory(props) {
   const disabled = props.view_only_mode ?? false;
   const [isFormFilled, setIsFormFilled] = useState(null);
 
+  const [stories, setStories] = useState({});
+  const [story, setStory] = useState(null);
+
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
 
@@ -17,7 +20,7 @@ export default function ParticipantStory(props) {
   useEffect(() => {
     if (props.user?.id != null) {
       axios()
-        .get(disabled ? `/users/${props.user?.id}/story` : 'user/story')
+        .get(disabled ? `/users/${props.user?.id}/stories` : "user/stories")
         .then((response) => {
           if (response?.status == 200) {
             let data = response.data;
@@ -26,8 +29,7 @@ export default function ParticipantStory(props) {
               setIsFormFilled(false);
             } else {
               setIsFormFilled(true);
-              setTitle(data.title);
-              setDescription(data.description);
+              setStories(data);
             }
           }
 
@@ -39,6 +41,21 @@ export default function ParticipantStory(props) {
     }
   }, [props.user]);
 
+  function handleStoryChange(story_id) {
+    let data;
+
+    if (story_id) {
+      data = stories[story_id];
+    } else {
+      data = {};
+    }
+
+    setTitle(data?.title);
+    setDescription(data?.description);
+
+    setStory(story_id);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (disabled) {
@@ -47,7 +64,7 @@ export default function ParticipantStory(props) {
 
     // if (simpleValidator.current.allValid() && props.user != null) {
     toast.promise(
-      axios().post(`/user/story`, {
+      axios().post(`/user/stories${story ? "/" + story : ""}`, {
         title,
         description,
       }),
@@ -61,7 +78,13 @@ export default function ParticipantStory(props) {
         success: {
           render() {
             setIsLoading(false);
-            return "Story updated successfully!";
+            axios()
+                .get("user/stories")
+                .then((resp) => {
+                  setStories(resp.data);
+                  setStory(null);
+                });
+            return "Your story updated successfully!";
           },
         },
         error: {
@@ -96,6 +119,45 @@ export default function ParticipantStory(props) {
     // }
   }
 
+  if (story === null && Object.keys(stories).length > 0) {
+    return (
+      <div>
+        <div className="ml-20 mr-20">
+          <div className="grid grid-cols-3 mt-10 space-x-20">
+            <div className="col-span-1"></div>
+            <h3 className={"font-bold col-span-1 text-left mt-3"}>
+              Please select the Story to enter:{" "}
+            </h3>
+            <div className={"pl-28"}>
+              <button
+                className={"bg-indblue p-4 rounded-xl text-white"}
+                onClick={() => handleStoryChange(false)}
+              >
+                Add New Story
+              </button>
+            </div>
+          </div>
+
+          <div className="flex -mx-3 justify-center my-5">
+            {Object.entries(stories).map(([id, story]) => {
+              return (
+                <button
+                  className="block bg-indblue text-white p-5 rounded-xl ml-5 font-semibold"
+                  key={id}
+                  onClick={() => {
+                    handleStoryChange(id);
+                  }}
+                >
+                  {story.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       {isInitialising ? (
@@ -104,6 +166,20 @@ export default function ParticipantStory(props) {
         <FormNotFilled />
       ) : (
         <div className="mb-20 min-h-screen  ml-20 mr-20">
+          <div className="flex justify-between mb-7 mt-10">
+            {Object.keys(stories).length > 0 ? (
+                <button
+                    className={"bg-indblue p-4 rounded-xl text-white"}
+                    onClick={() => handleStoryChange(null)}
+                >
+                  Back
+                </button>
+            ) : (
+                <div></div>
+            )}
+            <h1 className={"text-center text-3xl -ml-4"}>{title}</h1>
+            <div className="col-span-6"></div>
+          </div>
           <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">

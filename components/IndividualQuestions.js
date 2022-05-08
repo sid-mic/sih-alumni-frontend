@@ -98,50 +98,53 @@ export default function IndividualQuestions(props) {
     if (projectImage) {
       form_data.append("project_image", projectImage);
     }
-    toast.promise(axios().post(`status${project ? '/' + project : ""}`, form_data), {
-      pending: {
-        render() {
-          setIsLoading(true);
-          return "Updating....";
+    toast.promise(
+      axios().post(`status${project ? "/" + project : ""}`, form_data),
+      {
+        pending: {
+          render() {
+            setIsLoading(true);
+            return "Updating....";
+          },
         },
-      },
-      success: {
-        render() {
-          setIsLoading(false);
-          axios()
-            .get("status")
-            .then((resp) => {
-              props.setOwnProjects(resp.data);
-              setProject(null);
-            });
-          return "Your status updated successfully!";
-        },
-      },
-      error: {
-        render({ data }) {
-          setIsLoading(false);
-          let status = data.response.status;
-          data = data.response.data;
-          if (status == 422) {
-            Object.entries(data.errors).forEach(([key, value]) => {
-              toast.error(value.toString(), {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
+        success: {
+          render() {
+            setIsLoading(false);
+            axios()
+              .get("status")
+              .then((resp) => {
+                props.setOwnProjects(resp.data);
+                setProject(null);
               });
-            });
-
-            return "There were errors in some fields";
-          } else {
-            return "Something went wrong!";
-          }
+            return "Your status updated successfully!";
+          },
         },
-      },
-    });
+        error: {
+          render({ data }) {
+            setIsLoading(false);
+            let status = data.response.status;
+            data = data.response.data;
+            if (status == 422) {
+              Object.entries(data.errors).forEach(([key, value]) => {
+                toast.error(value.toString(), {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              });
+
+              return "There were errors in some fields";
+            } else {
+              return "Something went wrong!";
+            }
+          },
+        },
+      }
+    );
   }
 
   if (project === null && Object.keys(props.own_projects).length > 0) {

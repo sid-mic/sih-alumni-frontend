@@ -42,7 +42,7 @@ export default function StoryCard({ item, setSelected }) {
                     .split("<br/>")
                     .map((para, index) => (
                       <p key={index}>
-                        {para}{" "}
+                        {para}
                         {para ? (
                           <div>
                             <br />
