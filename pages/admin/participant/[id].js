@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import {
   faBars,
+  faBook,
   faHome,
   faPen,
   faUser,
@@ -22,6 +23,7 @@ import { WelcomeHero } from "../../../components/WelcomeHero";
 import IndividualQuestions from "../../../components/IndividualQuestions";
 import ParticipantStory from "../../../components/ParticipantStory";
 import EditProfile from "../../../components/EditProfile";
+import FeedbackQuestions from "../../../components/FeedbackQuestions";
 
 export default function Participant1() {
   const { id } = useRouter().query;
@@ -29,23 +31,28 @@ export default function Participant1() {
   const moduleTypes = [
     {
       id: 1,
-      type: "Project",
+      type: "Hackathon Ideas",
       icon: faBars,
     },
     {
       id: 2,
-      type: "Participant",
+      type: "Individual Ideas",
       icon: faUser,
     },
     {
       id: 3,
-      type: "Story",
+      type: "Success stories",
       icon: faPen,
     },
     {
       id: 4,
+      type: "Feedback",
+      icon: faBook,
+    },
+    {
+      id: 5,
       type: "Profile",
-      icon: faUserCog,
+      icon: faUserEdit,
     },
   ];
 
@@ -204,6 +211,43 @@ export default function Participant1() {
     );
   }
   if (selectedModule === 4) {
+    return (
+      <>
+        <Head>
+          <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+          <link key={"link"} rel="icon" href="/favicon.ico" />
+        </Head>
+        <SidebarMobile
+          moduletypes={moduleTypes}
+          selectedtype={setModuleType}
+          view_only_mode={true}
+        />
+        <div
+          style={{ fontFamily: "Montserrat" }}
+          className="flex flex-col bg-indblue min-h-full min-w-full"
+        >
+          <div className="flex  flex-wrap">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <WelcomeHero h1="Feedback" />
+              <FeedbackQuestions user={user} view_only_mode={true} />
+            </div>
+          </div>
+        </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </>
+    );
+  }
+  if (selectedModule === 5) {
     return (
       <>
         <Head>

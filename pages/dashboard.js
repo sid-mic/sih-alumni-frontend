@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import EditProfile from "../components/EditProfile";
-import News from "../components/News";
 import SidebarMobile from "../components/SidebarMobile";
 import { WelcomeHero } from "../components/WelcomeHero";
 import ProjectComponent from "../components/ProjectComponent";
 import HomeHero from "../components/HomeHero";
-import Resources from "../components/Resources";
-import { faHome, faPen, faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBook,
+  faHome,
+  faPen,
+  faUserEdit,
+} from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import requireAuth from "../utils/requireAuth";
@@ -19,6 +22,7 @@ import Loading from "../components/Loading";
 import Head from "next/head";
 import IndividualQuestions from "../components/IndividualQuestions";
 import ParticipantStory from "../components/ParticipantStory";
+import FeedbackQuestions from "../components/FeedbackQuestions";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -46,11 +50,16 @@ class Dashboard extends Component {
       },
       {
         id: 4,
-        type: "My success story",
+        type: "My success stories",
         icon: faPen,
       },
       {
         id: 5,
+        type: "Feedback",
+        icon: faBook,
+      },
+      {
+        id: 6,
         type: "Profile",
         icon: faUserEdit,
       },
@@ -197,7 +206,42 @@ class Dashboard extends Component {
         </>
       );
     }
-    if (this.state.selectedmoduletype === 4) {
+      if (this.state.selectedmoduletype === 4) {
+          return (
+              <>
+                  <Head>
+                      <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+                      <link key={"link"} rel="icon" href="/favicon.ico" />
+                  </Head>
+                  <SidebarMobile
+                      moduletypes={this.state.moduletypes}
+                      selectedtype={this.setModuleType}
+                  />
+                  <div
+                      style={{ fontFamily: "Montserrat" }}
+                      className="flex flex-col bg-indblue min-h-full min-w-full"
+                  >
+                      <div className="flex  flex-wrap">
+                          <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                              <ParticipantStory user={this.state.user} />
+                          </div>
+                      </div>
+                  </div>
+                  <ToastContainer
+                      position="top-right"
+                      autoClose={5000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                  />
+              </>
+          );
+      }
+    if (this.state.selectedmoduletype === 5) {
       return (
         <>
           <Head>
@@ -214,7 +258,8 @@ class Dashboard extends Component {
           >
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
-                <ParticipantStory user={this.state.user} />
+                  <WelcomeHero h1="Feedback" />
+                  <FeedbackQuestions user={this.state.user} />
               </div>
             </div>
           </div>
@@ -232,7 +277,7 @@ class Dashboard extends Component {
         </>
       );
     }
-    if (this.state.selectedmoduletype === 5) {
+    if (this.state.selectedmoduletype === 6) {
       return (
         <>
           <Head>

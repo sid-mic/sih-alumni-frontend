@@ -158,6 +158,7 @@ export default function IndividualQuestions(props) {
             </h3>
             <div className={"pl-28"}>
               <button
+                hidden={disabled}
                 className={"bg-indblue p-4 rounded-xl text-white"}
                 onClick={() => handleProjectChange(false)}
               >

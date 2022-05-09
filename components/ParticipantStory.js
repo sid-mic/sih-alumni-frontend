@@ -132,6 +132,7 @@ export default function ParticipantStory(props) {
               <button
                 className={"bg-indblue p-4 rounded-xl text-white"}
                 onClick={() => handleStoryChange(false)}
+                hidden={disabled}
               >
                 Add New Story
               </button>
