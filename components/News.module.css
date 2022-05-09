@@ -1,0 +1,56 @@
+.announcementOuter {
+	padding-right:25px;
+}
+.newsOuter,
+.annInner {
+	width: 100%;
+	height: 300px;
+	/*border: 1px solid #f59a0e;*/
+	border:1px solid rgba(57, 70, 134);
+	padding: 15px;
+	overflow-y: scroll; 
+}
+.newsInner {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+.newsDate {
+	width: 20%;
+	background:rgba(57, 70, 134);
+	text-align: center;
+}
+.newsDate .annMonth,
+.newsDate .annYear{
+	font-size: 18px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.newsDate .annDate{
+	font-size: 20px;
+	color: #f59a0e;
+	font-weight: bold;
+}
+.newsText {
+	width: 80%;
+	padding-left: 15px;
+	justify-content: left;
+    align-items: center;
+    align-self: center;
+}
+#announcements_marquee a {
+	position: relative;
+	border: 1px solid rgba(57, 70, 134);
+}
+.annoLink {
+	position: relative;
+	border: 1px solid #cccccc;
+	border-left: 5px solid rgba(57, 70, 134);
+	border-right: 5px solid rgba(57, 70, 134);
+}
+.annoLeft {
+	display: none !important;
+}

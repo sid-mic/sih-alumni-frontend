@@ -1,0 +1,14 @@
+.boxBorder {
+	border: 1px solid #cccccc !important;
+	position: relative;
+}
+
+.plusImage {
+	position: absolute;
+	content: '';
+	right: 4px;
+	top: 5px;
+	height: 50px;
+	width: 50px;
+	z-index: 99;
+}

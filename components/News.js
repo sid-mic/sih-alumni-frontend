@@ -2,6 +2,7 @@ import axios from "../utils/axios";
 import React, { useEffect, useState } from "react";
 import FormLoader from "./FormLoader";
 import AnnouncementsCard from "./AnnouncementsCard";
+import styles from './News.module.css'
 
 export default function News() {
   const [data, setData] = useState(null);
@@ -22,18 +23,77 @@ export default function News() {
   }
 
   return (
-    <div className="px-4 mb-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
-      <h2
-        style={{ fontFamily: "Montserrat" }}
-        className=" mb-6 font-sans text-center text-1xl font-bold leading-none tracking-tight text-gray-900 sm:text-3xl mb-10"
-      >
-        NEWS AND UPCOMING EVENTS
-      </h2>
+    <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
+      
+    <h1 className=" font-bold mt-2 mb-16 sm:text-xl text-2xl md:text-3xl text-center">
+         NEWS AND
+        <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+          UPCOMING EVENTS
+        </span>
+      </h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:px-6 xl:px-6 2xl:px-6">
+            <div className="grid lg:grid-cols-1 md:w-full mt-4">
+            <div className={styles.announcementOuter}>
+              
+                <div className={styles.annInner}>
+                <marquee id="announcements_marquee" 
+                 direction="up" style={{height:'100%'}}>
 
-      <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        {data.map((item, key) => {
-          return <NewsCard item={item} index={key} setSelected={setSelected} />;
-        })}
+                  {data.map((item, key) => {
+                    return <NewsCard item={item} index={key} setSelected={setSelected} />;
+                  })}
+                </marquee>
+                </div>
+                
+            </div>
+            </div>
+            <div>
+
+        <div className={styles.newsOuter +" mt-4"}>
+
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>May</p>
+                    <p className={styles.annDate}>31 </p>
+                    <p className={styles.annYear}>2021 </p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>Final Nodal center allocation is live, View Digital</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>May</p>
+                    <p className={styles.annDate}>31 </p>
+                    <p className={styles.annYear}>2021 </p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>Final Nodal center allocation is live, View Digital</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>May</p>
+                    <p className={styles.annDate}>31 </p>
+                    <p className={styles.annYear}>2021 </p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>Final Nodal center allocation is live, View Digital</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>May</p>
+                    <p className={styles.annDate}>31 </p>
+                    <p className={styles.annYear}>2021 </p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>Final Nodal center allocation is live, View Digital</p>
+                </div>
+          </div>
+        </div>
+
+      </div>
       </div>
       {selected !== null && (
         <AnnouncementsCard item={data[selected]} setSelected={setSelected} />
@@ -41,12 +101,13 @@ export default function News() {
     </div>
   );
 }
+function Start(e) {
 
+}
 function NewsCard(props) {
   let key = props.index
   let item = props.item
   let setSelected = props.setSelected
-
   return (
     <a
       href={"#"}
@@ -54,9 +115,17 @@ function NewsCard(props) {
         setSelected(key);
         e.preventDefault();
       }}
-      className="flex bg-gray-400 p-5 rounded-xl shadow-xl"
-    >
-      <div className="pt-1 mr-6 text-center">
+       onMouseOver={(e) => {
+            e.preventDefault();
+            document.getElementById("announcements_marquee").stop();
+          }}
+           onMouseOut={(e) => {
+            e.preventDefault();
+            document.getElementById("announcements_marquee").start();
+          }}
+
+      className={styles.annoLink +" flex p-3 mb-6 rounded-xl"}>
+      <div className={styles.annoLeft +" pt-1 mr-6 text-center"}>
         <div className="px-2 pb-1 mb-1 border-b border-gray-400">
           <p className="text-sm text-blue-gray-700">{item.created_month}</p>
         </div>
@@ -66,10 +135,7 @@ function NewsCard(props) {
       </div>
       <div>
         <div className="mb-2">
-          <div
-            className="font-semibold tracking-wide text-xl uppercase transition-colors text-indblue duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-            aria-label="Category"
-            title="Delevopment"
+          <div title="Delevopment"
             style={{ fontFamily: "Montserrat" }}
           >
             {item.title}

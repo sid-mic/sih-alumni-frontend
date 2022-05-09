@@ -3,7 +3,7 @@ export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 bg-indblue">
+    <div className="sticky top-0 z-50 bg-indblue" style={{zIndex:'999'}}>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-5">
         <div className="relative flex items-center justify-between">
           <a

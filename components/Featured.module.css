@@ -1,0 +1,9 @@
+.plusImage {
+	position: absolute;
+	content: '';
+	right: -4px;
+	bottom: 20px;
+	height: 50px;
+	width: 50px;
+	z-index: 99;
+}

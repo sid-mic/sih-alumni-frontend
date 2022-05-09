@@ -1,0 +1,14 @@
+.imageWidth {
+	height: 200px;
+}
+.imageWidth div{
+	min-width: auto !important;
+	height: auto !important;
+}
+.imgHeightWidth {
+	height: 100px;
+	width: auto;
+}
+.imgHeightWidth:hover {
+	transform: scale(1.3);
+}

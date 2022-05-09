@@ -53,7 +53,7 @@ export const Hero = (props) => {
       />
       <div className="relative bg-opacity-80 bg-indblue">
         <svg
-          className="absolute mb-0 inset-x-0 bottom-0 text-lightblue"
+          className="absolute mb-0 inset-x-0 bottom-0 text-white"
           viewBox="0 -1 1160 163"
         >
           <path
@@ -90,6 +90,7 @@ export const Hero = (props) => {
               </h2>
 
               <br />
+              
 
               <br />
               <br />

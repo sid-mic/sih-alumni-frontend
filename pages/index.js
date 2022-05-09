@@ -38,23 +38,26 @@ export default function Home() {
       <Head>
         <title>MIC Alumni Portal</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+        </Head>
       {isLoading ? (
         <Loading></Loading>
       ) : (
         <>
           <Nav />
           <Hero user={user} isAuth={isAuth} auth={auth} />
-          <div class="bg-lightblue">
+          <div className="main-outer" style={{width:'100%'}}>
+          <div className="container" style={{margin:'0 auto'}}>
+          
             <Feature />
             <Who />
             <Benefits />
             <News/>
-            <Initiatives />
             <Featured />
-            <Scroller />
-            <Footer />
+            <Scroller/>
+            <Initiatives />
           </div>
+          </div>
+           <Footer />
           <ToastContainer
             position="top-right"
             autoClose={5000}

@@ -3,7 +3,7 @@ import React from "react";
 export default function Banner() {
   return (
     <div>
-      <aside className="p-3 text-center bg-indblue">
+      <aside className="p-3 text-center">
         <p className="text-sm font-medium text-white">
           Smart India Hackathon 2021 is announced.
           <a href="" className="ml-5 inline-flex items-center underline">

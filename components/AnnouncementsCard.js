@@ -25,8 +25,7 @@ export default function AnnouncementsCard({ item, setSelected }) {
             {item.attachment && (
               <img
                 alt="Announcement"
-                className="max-h-60 px-10
-                    "
+                className="max-h-60 px-10"
                 src={item.attachment}
               />
             )}
