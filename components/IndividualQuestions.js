@@ -40,7 +40,7 @@ export default function IndividualQuestions(props) {
       data = {};
     }
 
-    if (props.own_projects.length > 0) {
+    if (props.own_projects.length > 0 && disabled == true) {
       setIsFormFilled(false);
     } else {
       setIsFormFilled(true);
@@ -49,9 +49,9 @@ export default function IndividualQuestions(props) {
       setProjectStatus(data?.project_status);
       setProjectIpGenerated(data?.project_ip_generated);
       if (
-          data?.project_ip_type === "Patent" ||
-          data?.project_ip_type === "Copyright" ||
-          data?.project_ip_type === "Trademark"
+        data?.project_ip_type === "Patent" ||
+        data?.project_ip_type === "Copyright" ||
+        data?.project_ip_type === "Trademark"
       ) {
         setProjectIpType(data?.project_ip_type);
       } else {
@@ -64,7 +64,7 @@ export default function IndividualQuestions(props) {
       setProjectIncubatorCity(data?.project_incubator_city);
       setProjectHackathonRelated(data?.project_hackathon_related);
       setProjectFundingSupport(data?.project_funding_support);
-      setProjectTrlLevel(data?.project_trl_level);
+      setProjectTrlLevel(data?.project_trl_level ?? "TRL 0 : Idea. Unproven concept, no testing has been performed." );
       setProjectVideoUrl(data?.project_video_url);
     }
 
@@ -85,8 +85,8 @@ export default function IndividualQuestions(props) {
     form_data.append("project_status", projectStatus);
     form_data.append("project_ip_generated", projectIpGenerated);
     form_data.append(
-        "project_ip_type",
-        projectIpType !== "Others" ? projectIpType : projectIpTypeOthers
+      "project_ip_type",
+      projectIpType !== "Others" ? projectIpType : projectIpTypeOthers
     );
     form_data.append("project_ip_status", projectIpStatus);
     form_data.append("project_incubated", projectIncubated);
@@ -100,153 +100,154 @@ export default function IndividualQuestions(props) {
     if (projectImage) {
       form_data.append("project_image", projectImage);
     }
-    toast.promise(axios().post(`status${project ? '/' + project : ""}`, form_data), {
-      pending: {
-        render() {
-          setIsLoading(true);
-          return "Updating....";
-        },
-      },
-      success: {
-        render() {
-          setIsLoading(false);
-          axios()
-            .get("status")
-            .then((resp) => {
-              props.setOwnProjects(resp.data);
-              setProject(null);
-            });
-          return "Your status updated successfully!";
-        },
-      },
-      error: {
-        render({ data }) {
-          setIsLoading(false);
-          let status = data.response.status;
-          data = data.response.data;
-          if (status == 422) {
-            Object.entries(data.errors).forEach(([key, value]) => {
-              toast.error(value.toString(), {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              });
-            });
-
-            return "There were errors in some fields";
-          } else {
-            return "Something went wrong!";
-          }
-        },
+    toast.promise(
+      axios().post(`status${project ? "/" + project : ""}`, form_data),
+      {
+        pending: {
+          render() {
+            setIsLoading(true);
+            return "Updating....";
           },
-        }
+        },
+        success: {
+          render() {
+            setIsLoading(false);
+            axios()
+              .get("status")
+              .then((resp) => {
+                props.setOwnProjects(resp.data);
+                setProject(null);
+              });
+            return "Your status updated successfully!";
+          },
+        },
+        error: {
+          render({ data }) {
+            setIsLoading(false);
+            let status = data.response.status;
+            data = data.response.data;
+            if (status == 422) {
+              Object.entries(data.errors).forEach(([key, value]) => {
+                toast.error(value.toString(), {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
+              });
+
+              return "There were errors in some fields";
+            } else {
+              return "Something went wrong!";
+            }
+          },
+        },
+      }
+    );
   }
 
   if (project === null && Object.keys(props.own_projects).length > 0) {
     return (
-        <div>
-          <div className="ml-20 mr-20">
-            <div className="grid grid-cols-3 mt-10 space-x-20">
-              <div className="col-span-1"></div>
-              <h3 className={"font-bold col-span-1 text-left mt-3"}>
-                Please select the Project to enter:{" "}
-              </h3>
-              <div className={"pl-28"}>
-                <button
-                    hidden={disabled}
-                    className={"bg-indblue p-4 rounded-xl text-white"}
-                    onClick={() => handleProjectChange(false)}
-                >
-                  Add New Project
-                </button>
-              </div>
+      <div>
+        <div className="ml-20 mr-20">
+          <div className="flex justify-end mt-5">
+            <div className={"pl-28"}>
+              <button
+                hidden={disabled}
+                className={"bg-indblue p-4 rounded-xl text-white"}
+                onClick={() => handleProjectChange(false)}
+              >
+                Add New Innovation
+              </button>
             </div>
-
-            <table
-                className="border-separate border border-slate-400 mt-6"
-                style={{ width: "100%" }}
-            >
-              <tr className="border-collapse" style={{ textAlign: "center" }}>
-                <td className="border-separate border border-black"> S.NO</td>
-                <td className="border-separate border border-black">
-                  Idea/innovation title
-                </td>
-                <td className="border-separate border border-black">Theme</td>
-                <td className="border-separate border border-black">
-                  EDIT button
-                </td>
-              </tr>
-              {Object.entries(props.own_projects).map(([id, project]) => {
-                s_no += 1;
-                return (
-                    <tr key={id} className={"text-center"}>
-                      <td className="border-separate border border-black">
-                        {s_no}
-                      </td>
-                      <td className="border-separate border border-black">
-                        {project.project_title}
-                      </td>
-                      <td className="border-separate border border-black">
-                        {project.project_theme}
-                      </td>
-                      <td className="border-separate border border-black text-center">
-                        <button
-                            className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
-                            key={id}
-                            onClick={() => {
-                              handleProjectChange(id);
-                            }}
-                        >
-                          Edit
-                        </button>
-                      </td>
-                    </tr>
-                );
-              })}
-            </table>
-
-            {/*<div className="flex -mx-3 justify-center my-5">*/}
-            {/*  {Object.entries(props.own_projects).map(([id, project]) => {*/}
-            {/*    return (*/}
-            {/*      <button*/}
-            {/*        className="block bg-indblue text-white p-5 rounded-xl ml-5 font-semibold"*/}
-            {/*        key={id}*/}
-            {/*        onClick={() => {*/}
-            {/*          handleProjectChange(id);*/}
-            {/*        }}*/}
-            {/*      >*/}
-            {/*        {project.project_title}*/}
-            {/*      </button>*/}
-            {/*    );*/}
-            {/*  })}*/}
-            {/*</div>*/}
           </div>
+
+          <table
+            className="border-separate border border-slate-400 mt-6"
+            style={{ width: "100%" }}
+          >
+            <tr className="border-collapse" style={{ textAlign: "center" }}>
+              <td className="border-separate border border-black"> S.NO</td>
+              <td className="border-separate border border-black">
+                Idea/innovation title
+              </td>
+              <td className="border-separate border border-black">Theme</td>
+              <td className="border-separate border border-black">
+                EDIT button
+              </td>
+            </tr>
+            {Object.entries(props.own_projects).map(([id, project]) => {
+              s_no += 1;
+              return (
+                <tr key={id} className={"text-center"}>
+                  <td className="border-separate border border-black">
+                    {s_no}
+                  </td>
+                  <td className="border-separate border border-black">
+                    {project.project_title}
+                  </td>
+                  <td className="border-separate border border-black">
+                    {project.project_theme}
+                  </td>
+                  <td className="border-separate border border-black text-center">
+                    <button
+                      className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
+                      key={id}
+                      onClick={() => {
+                        handleProjectChange(id);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </table>
+
+          {/*<div className="flex -mx-3 justify-center my-5">*/}
+          {/*  {Object.entries(props.own_projects).map(([id, project]) => {*/}
+          {/*    return (*/}
+          {/*      <button*/}
+          {/*        className="block bg-indblue text-white p-5 rounded-xl ml-5 font-semibold"*/}
+          {/*        key={id}*/}
+          {/*        onClick={() => {*/}
+          {/*          handleProjectChange(id);*/}
+          {/*        }}*/}
+          {/*      >*/}
+          {/*        {project.project_title}*/}
+          {/*      </button>*/}
+          {/*    );*/}
+          {/*  })}*/}
+          {/*</div>*/}
         </div>
+      </div>
     );
   }
 
   return (
-      <>
-        {disabled && !isFormFilled ? (
-            <FormNotFilled />
-        ) : (
-            <div className="mt-10 mb-20 ml-20 mr-20">
-              <div className="flex justify-between mb-7">
-                {Object.keys(props.own_projects).length > 0 ? (
-                    <button
-                        className={"bg-indblue p-4 rounded-xl text-white"}
-                        onClick={() => handleProjectChange(null)}
-                    >
-                      Back
-                    </button>
-                ) : (
-                    <div></div>
-                )}
-            <h1 className={"text-center text-2xl -ml-4 font-normal"}>{projectTitle}</h1>
+    <>
+      {disabled && !isFormFilled ? (
+        <FormNotFilled />
+      ) : (
+        <div className="mt-10 mb-20 ml-20 mr-20">
+          <div className="flex justify-between mb-7">
+            {Object.keys(props.own_projects).length > 0 ? (
+              <button
+                className={"bg-indblue p-4 rounded-xl text-white"}
+                onClick={() => handleProjectChange(null)}
+              >
+                Back
+              </button>
+            ) : (
+              <div></div>
+            )}
+            <h1 className={"text-center text-2xl -ml-4 font-normal"}>
+              {projectTitle}
+            </h1>
             <div className="col-span-6"></div>
           </div>
           <>
@@ -257,7 +258,8 @@ export default function IndividualQuestions(props) {
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <input
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -271,7 +273,8 @@ export default function IndividualQuestions(props) {
               <div className="w-full px-3 mb-5">
                 <label className="text-md font-semibold">Theme</label>
                 <div className="flex">
-                  <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <select
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                     id="grid-state"
@@ -463,7 +466,8 @@ export default function IndividualQuestions(props) {
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <textarea style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <textarea
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
                     onChange={(e) => setProjectStatus(e.target.value)}
@@ -481,7 +485,8 @@ export default function IndividualQuestions(props) {
                 </label>
                 <div className="main flex overflow-hidden m-2 select-none">
                   <label className="flex radio p-2 cursor-pointer">
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       className="my-auto transform scale-125"
                       type="radio"
@@ -489,7 +494,12 @@ export default function IndividualQuestions(props) {
                       checked={projectIpGenerated == true}
                       onChange={(e) => setProjectIpGenerated(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -501,7 +511,12 @@ export default function IndividualQuestions(props) {
                       checked={projectIpGenerated == false}
                       onChange={(e) => setProjectIpGenerated(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -511,9 +526,15 @@ export default function IndividualQuestions(props) {
               <>
                 <div className="flex mb-5 -mx-3 px-4">
                   <div className="w-full px-3 mb-5">
-                    <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>IP Type</label>
+                    <label
+                      className="text-md font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      IP Type
+                    </label>
                     <div className="flex">
-                      <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                      <select
+                        style={{ fontFamily: "Poppins, sans-serif" }}
                         disabled={disabled}
                         className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                         id="grid-state"
@@ -570,10 +591,16 @@ export default function IndividualQuestions(props) {
                 </div>
                 <div className="flex -mx-3 px-4">
                   <div className="w-full px-3 mb-5">
-                    <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>IP Status</label>
+                    <label
+                      className="text-md font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      IP Status
+                    </label>
                     <div className="main flex overflow-hidden m-2 select-none">
                       <label className="flex radio p-2 cursor-pointer">
-                        <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                        <input
+                          style={{ fontFamily: "Poppins, sans-serif" }}
                           disabled={disabled}
                           className="my-auto font-normal"
                           type="radio"
@@ -581,7 +608,12 @@ export default function IndividualQuestions(props) {
                           checked={projectIpStatus == false}
                           onChange={(e) => setProjectIpStatus(e.target.value)}
                         />
-                        <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Filed</div>
+                        <div
+                          className="title px-2 font-normal"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          Filed
+                        </div>
                       </label>
 
                       <label className="flex radio p-2 cursor-pointer">
@@ -593,7 +625,12 @@ export default function IndividualQuestions(props) {
                           checked={projectIpStatus == true}
                           onChange={(e) => setProjectIpStatus(e.target.value)}
                         />
-                        <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Granted</div>
+                        <div
+                          className="title px-2 font-normal"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          Granted
+                        </div>
                       </label>
                     </div>
                   </div>
@@ -616,7 +653,12 @@ export default function IndividualQuestions(props) {
                       checked={projectIncubated == true}
                       onChange={(e) => setProjectIncubated(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -628,7 +670,12 @@ export default function IndividualQuestions(props) {
                       checked={projectIncubated == false}
                       onChange={(e) => setProjectIncubated(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -638,14 +685,18 @@ export default function IndividualQuestions(props) {
               <>
                 <div className="flex mb-5 -mx-3 px-4">
                   <div className="w-full px-3 mb-5">
-                    <label className="text-md font-normal " style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <label
+                      className="text-md font-normal "
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
                       Name of Incubation Centre
                     </label>
                     <div className="flex">
                       <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                         <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                       </div>
-                      <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                      <input
+                        style={{ fontFamily: "Poppins, sans-serif" }}
                         disabled={disabled}
                         type="text"
                         className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -659,14 +710,18 @@ export default function IndividualQuestions(props) {
                 </div>
                 <div className="flex mb-5 -mx-3 px-4">
                   <div className="w-full px-3 mb-5">
-                    <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <label
+                      className="text-md font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
                       City of Incubation Centre
                     </label>
                     <div className="flex">
                       <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                         <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                       </div>
-                      <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                      <input
+                        style={{ fontFamily: "Poppins, sans-serif" }}
                         disabled={disabled}
                         type="text"
                         className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
@@ -690,7 +745,8 @@ export default function IndividualQuestions(props) {
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <input
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     type="file"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -706,7 +762,8 @@ export default function IndividualQuestions(props) {
                   Select Your Project's current TRL level
                 </label>
                 <div className="flex px-4">
-                  <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <select
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                     id="grid-state"
@@ -826,7 +883,8 @@ export default function IndividualQuestions(props) {
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <input
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -855,7 +913,12 @@ export default function IndividualQuestions(props) {
                         setProjectHackathonRelated(e.target.value)
                       }
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -869,7 +932,12 @@ export default function IndividualQuestions(props) {
                         setProjectHackathonRelated(e.target.value)
                       }
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -891,7 +959,13 @@ export default function IndividualQuestions(props) {
                       checked={projectFundingSupport == true}
                       onChange={(e) => setProjectFundingSupport(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}> Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      {" "}
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -903,7 +977,12 @@ export default function IndividualQuestions(props) {
                       checked={projectFundingSupport == false}
                       onChange={(e) => setProjectFundingSupport(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>

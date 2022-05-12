@@ -127,11 +127,7 @@ export default function ParticipantStory(props) {
     return (
       <div>
         <div className="ml-20 mr-20">
-          <div className="grid grid-cols-3 mt-10 space-x-20">
-            <div className="col-span-1"></div>
-            <h3 className={"font-bold col-span-1 text-left mt-3"}>
-              Please select the Story to enter:{" "}
-            </h3>
+          <div className="flex justify-end mt-5">
             <div className={"pl-28"}>
               <button
                 className={"bg-indblue p-4 rounded-xl text-white"}
@@ -171,7 +167,7 @@ export default function ParticipantStory(props) {
                     <td className="border-separate border border-black">
                       {story.status === 'none' ? 'Not published' : "Published"}
                     </td>
-                    <td className="border-separate border border-black text-center">
+                    <td className="border-separate border border-black">
                       <button
                           className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
                           key={id}

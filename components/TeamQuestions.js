@@ -64,7 +64,7 @@ export default function TeamQuestions(props) {
           if (response?.status == 200) {
             let data = response.data;
 
-            if (Object.keys(data).length === 0) {
+            if (Object.keys(data).length === 0 && disabled == true) {
               setIsFormFilled(false);
             } else {
               setIsFormFilled(true);
@@ -84,7 +84,7 @@ export default function TeamQuestions(props) {
               setMicSupportDeploy(data.mic_support_deploy);
               setIncubatorStatus(data.incubator_status);
               setNameOfIncubator(data.name_of_incubator);
-              setTrlLevel(data.trl_level);
+              setTrlLevel(data.trl_level ?? "TRL 0 : Idea. Unproven concept, no testing has been performed.");
               setVideoUrl(data.video_url);
               setIpStatus(data.ip_status);
               setIpType(data.ip_type);

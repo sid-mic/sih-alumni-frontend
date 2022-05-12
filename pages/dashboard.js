@@ -119,9 +119,9 @@ class Dashboard extends Component {
             selectedtype={this.setModuleType}
             logout={this.state.logout}
           />
-          <div className="flex flex-col bg-indblue min-h-full min-w-full">
+          <div className="flex flex-col bg-indblue min-h-full">
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
                 <HomeHero name={this.state.user?.name} />
               </div>
             </div>
@@ -145,7 +145,7 @@ class Dashboard extends Component {
             className="flex flex-col bg-indblue rounded-xl min-h-full min-w-full"
           >
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
                 <ProjectComponent
                   user={this.state.user}
                   projects={this.state.projects}
@@ -183,7 +183,7 @@ class Dashboard extends Component {
             className="flex flex-col bg-indblue min-h-full min-w-full"
           >
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
                 <IndividualQuestions
                   user={this.state.user}
                   own_projects={this.state.own_projects}
@@ -222,7 +222,7 @@ class Dashboard extends Component {
                       className="flex flex-col bg-indblue min-h-full min-w-full"
                   >
                       <div className="flex  flex-wrap">
-                          <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+                          <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
                               <ParticipantStory user={this.state.user} />
                           </div>
                       </div>
@@ -257,7 +257,7 @@ class Dashboard extends Component {
             className="flex flex-col bg-indblue min-h-full min-w-full"
           >
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
                   <WelcomeHero h1="Feedback" />
                   <FeedbackQuestions user={this.state.user} />
               </div>
@@ -290,7 +290,7 @@ class Dashboard extends Component {
           />
           <div className="flex flex-col bg-indblue min-h-full min-w-full">
             <div className="flex  flex-wrap">
-              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+              <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
                 <WelcomeHero h1="PROFILE" />
                 <EditProfile
                   user={this.state.user}
