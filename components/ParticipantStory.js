@@ -6,6 +6,9 @@ import FormNotFilled from "./FormNotFilled";
 
 export default function ParticipantStory(props) {
   const disabled = props.view_only_mode ?? false;
+
+  let s_no = 0;
+
   const [isFormFilled, setIsFormFilled] = useState(null);
 
   const [stories, setStories] = useState({});
@@ -30,6 +33,7 @@ export default function ParticipantStory(props) {
             } else {
               setIsFormFilled(true);
               setStories(data);
+              s_no = 0;
             }
           }
 
@@ -139,21 +143,65 @@ export default function ParticipantStory(props) {
             </div>
           </div>
 
-          <div className="flex -mx-3 justify-center my-5">
+
+          <table
+              className="border-separate border border-slate-400 mt-6"
+              style={{ width: "100%" }}
+          >
+            <tr className="border-collapse" style={{ textAlign: "center" }}>
+              <td className="border-separate border border-black"> S.NO</td>
+              <td className="border-separate border border-black">
+                Title
+              </td>
+              <td className="border-separate border border-black">Status</td>
+              <td className="border-separate border border-black">
+                EDIT button
+              </td>
+            </tr>
             {Object.entries(stories).map(([id, story]) => {
+              s_no += 1;
               return (
-                <button
-                  className="block bg-indblue text-white p-5 rounded-xl ml-5 font-semibold"
-                  key={id}
-                  onClick={() => {
-                    handleStoryChange(id);
-                  }}
-                >
-                  {story.title}
-                </button>
+                  <tr key={id} className={"text-center"}>
+                    <td className="border-separate border border-black">
+                      {s_no}
+                    </td>
+                    <td className="border-separate border border-black">
+                      {story.title}
+                    </td>
+                    <td className="border-separate border border-black">
+                      {story.status === 'none' ? 'Not published' : "Published"}
+                    </td>
+                    <td className="border-separate border border-black text-center">
+                      <button
+                          className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
+                          key={id}
+                          onClick={() => {
+                            handleStoryChange(id);
+                          }}
+                      >
+                        Edit
+                      </button>
+                    </td>
+                  </tr>
               );
             })}
-          </div>
+          </table>
+
+          {/*<div className="flex -mx-3 justify-center my-5">*/}
+          {/*  {Object.entries(stories).map(([id, story]) => {*/}
+          {/*    return (*/}
+          {/*      <button*/}
+          {/*        className="block bg-indblue text-white p-5 rounded-xl ml-5 font-semibold"*/}
+          {/*        key={id}*/}
+          {/*        onClick={() => {*/}
+          {/*          handleStoryChange(id);*/}
+          {/*        }}*/}
+          {/*      >*/}
+          {/*        {story.title}*/}
+          {/*      </button>*/}
+          {/*    );*/}
+          {/*  })}*/}
+          {/*</div>*/}
         </div>
       </div>
     );
