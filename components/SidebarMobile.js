@@ -4,6 +4,7 @@ import { Component } from "react";
 import "./test.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import auth from "../utils/auth";
+import styles from './SidebarMobile.module.css';
 
 class SidebarMobile extends Component {
   constructor(props) {
@@ -18,17 +19,17 @@ class SidebarMobile extends Component {
   }
   render() {
     return (
-      <div class="bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
+      <div class="px-0.5 py-0.5 bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen w-80 fixed bottom-0 items-left">
         <img
           className="hidden h-10 md:block"
-          src="https://mic.gov.in/assets/img/logo.png"
+          src="/assets/logo-all.png"
         ></img>
         {this.props.moduletypes.map((moduletype, selectedtype) => (
           <div
             className={
               moduletype.id === this.state.ClickedButton
-                ? "bg-white md:p-5  md:flex md:flex-wrap md:p-5 p-3 delay-75 duration-500 ease-in-out transform hover:scale-125 items-center text-indblue rounded-xl"
-                : "transparent md:flex md:flex-wrap md:p-5 p-3 delay-75 duration-500 ease-in-out transform hover:scale-125 items-center text-white"
+                ? "bg-white md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-indblue rounded-xl"
+                : "transparent md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-white"
             }
             id={moduletype.id}
             key={moduletype.id}
@@ -47,7 +48,7 @@ class SidebarMobile extends Component {
         {!this.props.view_only_mode && (
           <div
             onClick={() => auth().logout()}
-            class="hidden md:flex md:flex-wrap hover:shadow-md p-4 rounded-xl duration-1000 ease-in-out transform hover:scale-125 delay-200  text-3xl font-bold text-white text-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 md:p-5 "
+            class="hidden md:flex md:flex-wrap hover:shadow-md p-2 rounded-xl duration-1000 ease-in-out transform delay-200  text-3xl font-bold text-white text-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
           >
             <svg
               class="w-6 h-6 mr-3"

@@ -2,13 +2,62 @@
 	border: 1px solid #cccccc !important;
 	position: relative;
 }
+.boxBorder:hover::before {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	content: '';
+	background: transparent;
+	border-top: 5px solid #ef4444;
+	border-left: 5px solid #ef4444;
+	border-radius: 5px;
+	left: 0;
+	top: 0;
+}
+.boxBorder:hover::after {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	content: '';
+	background: transparent;
+	border-bottom: 5px solid #ef4444;
+	border-right: 5px solid #ef4444;
+	border-radius: 5px;
+	right: 0;
+	bottom: 0px;
+}
 
 .plusImage {
 	position: absolute;
 	content: '';
-	right: 4px;
-	top: 5px;
-	height: 50px;
-	width: 50px;
+	right: 0;
+	top: 0;
 	z-index: 99;
+	background: #fcbc40;
+	border-bottom-left-radius: 60px;
+	border-top-right-radius: 13px;
+}
+.plusImage:hover{
+	background-color: #ef4444;
+}
+.plusImage a {
+	color: #ffffff;
+	padding: 13px 10px 13px 23px;
+	display: inline-block;
+}
+.mainHeading {
+	position:relative;
+}
+.bottomLine {
+	position: absolute;
+	content: '';
+    bottom: -9px;
+    width: 150px;
+    height: 4px;
+    margin: 0 auto;
+    background-color: #fcbc40;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+
 }

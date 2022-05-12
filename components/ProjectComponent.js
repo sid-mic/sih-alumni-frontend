@@ -41,27 +41,27 @@ class ProjectComponent extends Component {
           <div className="min-h-screen ml-20 mr-20">
             <div className="flex -mx-3 justify-center mt-10 ">
               {" "}
-              <h3>Please select the Hackathon to enter: </h3>
+              <h2 style={{ fontFamily: "Montserrat" }} className="max-w-lg mb-1 font-sans text-2xl font-bold leading-none tracking-tight text-gray-900 md:mx-auto">Please select the Hackathon to enter: </h2>
               <br />
               <br />
             </div>
 
-            <div className="flex -mx-3 justify-center my-5">
+            <div className="flex -mx-3 justify-center my-5" style={{ fontFamily: "Montserrat" }}>
               {Object.entries(this.props.projects).map(([id, project]) => {
                 return (
-                  <button
+                  <button style={{ fontFamily: "Montserrat" }}
                     className="block bg-indblue text-white p-5 rounded-xl ml-5"
                     key={id}
                     onClick={() => {
                       this.setProject(id);
                     }}
                   >
-                    Initiative: {project.initiative.hackathon} -{" "}
-                    {project.initiative.edition}
+                    Initiative : <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">{project.initiative.hackathon} -{" "}
+                    {project.initiative.edition}</span>
                     <br />
-                    {project.ps_title !== "NA" ? `PS: ${project.ps_title}` : ""}
-                    <br />
-                    {`Title: ${project.title}`}
+                    PS : <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">{project.ps_title !== "NA" ? `${project.ps_title}` : ""}
+                    </span><br />
+                    Title : <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">{`${project.title}`}</span>
                     <br />
                   </button>
                 );
@@ -75,7 +75,7 @@ class ProjectComponent extends Component {
     if (this.state.selectedcategorytype === 1) {
       return (
         <>
-          <div className="flex justify-between mb-10">
+          <div className="flex justify-between">
             <button
               style={{ fontFamily: "Montserrat" }}
               className="button-active bg-indblue p-5 m-3 mb-16 text-white rounded-lg w-40 flex"
@@ -97,27 +97,36 @@ class ProjectComponent extends Component {
             </button>
             <div
               style={{ fontFamily: "Montserrat" }}
-              className="bg-gray-200 p-3 rounded-xl m-3 -ml-20 mr-20 rounded-xl"
+              className="p-3 rounded-xl m-3 -ml-20 mr-20 rounded-xl"
             >
-              {`Team: ${
+              Team : 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+              {` ${
                 this.props.projects[this.state.selected_project].team_name
               }`}
-              <br />
-              {`Title: ${
+              </span><br />
+              Title :
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+              {` ${
                 this.props.projects[this.state.selected_project].title
               }`}
-              <br />
-              {`College: ${
+              </span><br />
+
+              College :
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+              {` ${
                 this.props.projects[this.state.selected_project].college
               }`}
-              <br />
-              {`Role: ${
+              </span><br />
+              Role :
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+              {` ${
                 this.props.projects[this.state.selected_project].leader_id ==
                 this.props.user.id
                   ? "Leader"
                   : "Member"
               }`}
-              <br />
+              </span> <br />
             </div>
             <div className="col-span-6"></div>
           </div>
@@ -128,80 +137,16 @@ class ProjectComponent extends Component {
           />
         </>
       );
+    } else {
+      return (
+        <>
+          <ProjectComponentTabs
+            categorytypes={this.state.categorytypes}
+            selectedtype={this.setCategoryType}
+          />
+        </>
+      );
     }
-
-    // if (this.state.selectedcategorytype === 2) {
-    //   return (
-    //     <>
-    //       <div className="flex justify-between">
-    //         <button
-    //             style={{fontFamily: "Montserrat"}}
-    //             className="button-active bg-indblue p-5 m-3 mb-16 text-white rounded-lg w-40 flex"
-    //             onClick={() => this.setProject(null)}
-    //         >
-    //           <svg
-    //               className="w-6 h-6"
-    //               fill="currentColor"
-    //               viewBox="0 0 20 20"
-    //               xmlns="http://www.w3.org/2000/svg"
-    //           >
-    //             <path
-    //                 fill-rule="evenodd"
-    //                 d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
-    //                 clip-rule="evenodd"
-    //             ></path>
-    //           </svg>
-    //           {" "}
-    //           <span className="ml-6">Back</span>
-    //         </button>
-    //         <div
-    //             style={{fontFamily: "Montserrat"}}
-    //             className="bg-gray-200 p-3 rounded-xl m-3 -ml-20 mr-20 rounded-xl"
-    //         >
-    //           {`Team: ${
-    //               this.props.projects[this.state.selected_project].team_name
-    //           }`}
-    //           <br/>
-    //           {`Title: ${
-    //               this.props.projects[this.state.selected_project].title
-    //           }`}
-    //           <br/>
-    //           {`College: ${
-    //               this.props.projects[this.state.selected_project].college
-    //           }`}
-    //           <br/>
-    //           {`Role: ${
-    //               this.props.projects[this.state.selected_project].leader_id ==
-    //               this.props.user.id
-    //                   ? "Leader"
-    //                   : "Member"
-    //           }`}
-    //           <br/>
-    //         </div>
-    //         <div className="col-span-6"></div>
-    //       </div>
-    //
-    //       <ProjectComponentTabs
-    //         categorytypes={this.state.categorytypes}
-    //         selectedtype={this.setCategoryType}
-    //       />
-    //       <FeedbackQuestions
-    //         user={this.props.user}
-    //         project={this.props.projects[this.state.selected_project]}
-    //         disabled={disabled}
-    //       />
-    //     </>
-    //   );
-    // } else {
-    //   return (
-    //     <>
-    //       <ProjectComponentTabs
-    //         categorytypes={this.state.categorytypes}
-    //         selectedtype={this.setCategoryType}
-    //       />
-    //     </>
-    //   );
-    // }
   }
 }
 

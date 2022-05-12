@@ -12,3 +12,18 @@
 .imgHeightWidth:hover {
 	transform: scale(1.3);
 }
+.mainHeading {
+	position:relative;
+}
+.bottomLine {
+	position: absolute;
+	content: '';
+    bottom: -9px;
+    width: 150px;
+    height: 4px;
+    margin: 0 auto;
+    background-color: #fcbc40;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}

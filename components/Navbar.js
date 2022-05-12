@@ -14,7 +14,7 @@ export const Nav = () => {
           >
             <img
               className="h-16"
-              src="https://mic.gov.in/assets/img/logo.png"
+              src="/assets/logo-all.png"
             ></img>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">

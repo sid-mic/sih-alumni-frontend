@@ -7,11 +7,12 @@ export default function Scroller() {
   return (
     <div className="md:mx-20 items-center mt-12">
       
-      <h1 className=" font-bold mt-14 mb-6 pt-2 sm:text-xl text-2xl md:text-3xl text-center">
+      <h1 className={styles.mainHeading+" font-bold mt-14 mb-6 pt-2 pb-2 sm:text-xl text-2xl md:text-3xl text-center"}>
         HACKATHONS
         <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
           ORGANISED BY MIC
         </span>
+        <div className={styles.bottomLine}></div>
       </h1>
       <Marquee gradient="true" gradientColor="[224, 236, 255]" className={styles.imageWidth}>
         <div className="pr-12 md:pr-20">

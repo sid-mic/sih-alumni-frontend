@@ -36,13 +36,14 @@ export default function Featured() {
               <div class="relative">
                 {" "}
                 
-                <h1 className=" font-bold pb-4 mt-14 mb-14 sm:text-xl text-2xl md:text-3xl text-center">
+                <h1 className={styles.mainHeading+" font-bold pb-2 mt-14 mb-14 sm:text-xl text-2xl md:text-3xl text-center"}>
                   FEATURED 
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                     MENTORS
                   </span>
+                  <div className={styles.bottomLine}></div>
                 </h1>
-                <div class="flex flex-wrap -mx-3 overflow-hidden border-solid border border-blue-600 rounded-xl">
+                <div class={styles.boxMentors+" flex flex-wrap -mx-3 overflow-hidden"}>
                
                   {stories.mentor.map((alumni, index) => (
 
@@ -81,13 +82,14 @@ export default function Featured() {
               <div class="relative">
                 {" "}
                 
-                <h1 className=" font-bold pb-4 mt-14 mb-14 sm:text-xl text-2xl md:text-3xl text-center">
+                <h1 className={styles.mainHeading+" font-bold pb-4 mt-14 mb-14 sm:text-xl text-2xl md:text-3xl text-center"}>
                   SUCCESS 
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                     STORIES
                   </span>
+                  <div className={styles.bottomLine}></div>
                 </h1>
-                <div class="flex flex-wrap -mx-3 overflow-hidden border-solid border border-blue-600 rounded-xl">
+                <div class={styles.boxMentors+" flex flex-wrap -mx-3 overflow-hidden"}>
   
                   {stories.alumni.map((alumni, index) => (
                     <div

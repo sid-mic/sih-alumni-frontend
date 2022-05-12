@@ -25,32 +25,30 @@ export default function News() {
   return (
     <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-0">
       
-    <h1 className=" font-bold mt-2 mb-16 sm:text-xl text-2xl md:text-3xl text-center">
+    <h1 className={styles.mainHeading+" font-bold mt-2 pb-2 mb-16 sm:text-xl text-2xl md:text-3xl text-center"}>
          NEWS AND
         <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
           UPCOMING EVENTS
         </span>
+        <div className={styles.bottomLine}></div>
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:px-6 xl:px-6 2xl:px-6">
-            <div className="grid lg:grid-cols-1 md:w-full mt-4">
+            <div className="grid lg:grid-cols-1 md:w-full">
             <div className={styles.announcementOuter}>
               
                 <div className={styles.annInner}>
-                <marquee id="announcements_marquee" 
-                 direction="up" style={{height:'100%'}}>
 
                   {data.map((item, key) => {
                     return <NewsCard item={item} index={key} setSelected={setSelected} />;
                   })}
-                </marquee>
                 </div>
                 
             </div>
             </div>
             <div>
-
-        <div className={styles.newsOuter +" mt-4"}>
-
+        <div className={styles.announcementNewsOuter}>
+        <div className={styles.newsOuter}>
+        
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
                     <p className={styles.annMonth}>May</p>
@@ -92,6 +90,7 @@ export default function News() {
                 </div>
           </div>
         </div>
+        </div>
 
       </div>
       </div>
@@ -115,14 +114,6 @@ function NewsCard(props) {
         setSelected(key);
         e.preventDefault();
       }}
-       onMouseOver={(e) => {
-            e.preventDefault();
-            document.getElementById("announcements_marquee").stop();
-          }}
-           onMouseOut={(e) => {
-            e.preventDefault();
-            document.getElementById("announcements_marquee").start();
-          }}
 
       className={styles.annoLink +" flex p-3 mb-6 rounded-xl"}>
       <div className={styles.annoLeft +" pt-1 mr-6 text-center"}>

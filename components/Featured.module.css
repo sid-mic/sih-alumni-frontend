@@ -7,3 +7,45 @@
 	width: 50px;
 	z-index: 99;
 }
+.mainHeading {
+	position:relative;
+}
+.bottomLine {
+	position: absolute;
+	content: '';
+    bottom: -9px;
+    width: 150px;
+    height: 4px;
+    margin: 0 auto;
+    background-color: #fcbc40;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+.boxMentors {
+	position: relative;
+}
+.boxMentors::before {
+	position: absolute;
+	content: '';
+	width: 120px;
+	height: 120px;	
+	background: transparent;
+	border-top: 4px solid #fcbc40;
+	border-left: 4px solid #fcbc40;
+	border-radius:3px;
+	left: 0;
+	top: 0;
+}
+.boxMentors::after {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	content: '';
+	background: transparent;
+	border-bottom: 4px solid #fcbc40;
+	border-right: 4px solid #fcbc40;
+	border-radius:3px;
+	right: 0;
+	bottom: 0;
+}
