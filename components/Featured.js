@@ -43,6 +43,11 @@ export default function Featured() {
                   </span>
                   <div className={styles.bottomLine}></div>
                 </h1>
+                 <h3 className={styles.smallHeading}>Notable 
+                  <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                  Alumni 
+                  </span>
+                </h3>
                 <div class={styles.boxMentors+" flex flex-wrap -mx-3 overflow-hidden"}>
                
                   {stories.mentor.map((alumni, index) => (
@@ -55,7 +60,7 @@ export default function Featured() {
                         class="relative block bg-black group rounded-xl"
                         href={`/stories/${index + 4}`}
                       >
-                      <img className={styles.plusImage} src="/assets/add.png" alt="img" />
+                      <img className={styles.plusImageLeft} src="/assets/add.png" alt="img" />
                         <img
                           className="rounded-t-xl"
                           src={alumni.user.picture}
@@ -67,6 +72,12 @@ export default function Featured() {
                            
                           <p class="text-sm text-left w-full font-bold text-white">
                             {alumni.user.name}
+                          </p>
+                          <p class="text-sm text-left w-full font-bold text-white">
+                            Startup Name
+                          </p>
+                          <p class="text-sm text-left w-full font-bold text-white">
+                            Designation
                           </p>
                         </div>
                         {/*TODO: FIX IMAGE HEIGHTS*/}
@@ -82,13 +93,18 @@ export default function Featured() {
               <div class="relative">
                 {" "}
                 
-                <h1 className={styles.mainHeading+" font-bold pb-4 mt-14 mb-14 sm:text-xl text-2xl md:text-3xl text-center"}>
+                <h1 className={styles.mainHeading+" font-bold pb-2 mt-4 mb-14 sm:text-xl text-2xl md:text-3xl text-center"}>
                   SUCCESS 
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                     STORIES
                   </span>
                   <div className={styles.bottomLine}></div>
                 </h1>
+                <h3 className={styles.smallHeading}>
+                  <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
+                  &nbsp;
+                  </span>
+                </h3>
                 <div class={styles.boxMentors+" flex flex-wrap -mx-3 overflow-hidden"}>
   
                   {stories.alumni.map((alumni, index) => (

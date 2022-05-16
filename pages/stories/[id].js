@@ -34,11 +34,11 @@ export default function Stories() {
   return (
     <div>
       <Nav />
-      <div className="mx-10 my-10">
+      <div className="mx-10 my-10  px-4 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
         <a
           href={"/"}
           style={{ fontFamily: "Montserrat" }}
-          className="button-active bg-indblue p-5 m-3 text-white rounded-lg w-40 flex mb-10"
+          className="button-active bg-indblue p-3 text-white rounded-lg w-40 flex mb-10"
         >
           <svg
             class="w-6 h-6"
@@ -54,16 +54,54 @@ export default function Stories() {
           </svg>{" "}
           <span className="ml-6">Back</span>
         </a>
-        <div className={"flex justify-center mr-20"}>
-          <div className="mx-16">
+        <div className={"flex justify-center"}>
+          <div className="max-w-full">
             <h1
               style={{ fontFamily: "Montserrat" }}
-              className="text-indblue text-3xl"
+              className="text-indblue text-2xl"
             >
               {story.title}
             </h1>
             <br />
             <div className="mt-4">
+            <div className="profile-img-outer" style={{float:'right',width:'250px'}}>
+              <figure className="float-right pl-5 text-center">
+                <img className="rounded-lg" src={story.user.picture}  />
+                {/*<figcaption style={{ boxShadow : '0 5px 3px #3c3c3c', paddingTop: '5px', paddingBottom:'5px' }}>
+                  <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                    by {story.user.name} </h3>
+                    <h4 style={{fontWeight:'noraml',textTransform:'uppercase',fontSize:'1rem'}}>Java Developer</h4>
+                    <h5 style={{fontWeight:'noraml',textTransform:'capitalize',fontSize:'1rem'}}>AICTE</h5>
+                </figcaption>*/}
+              </figure>
+            </div>
+              <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                  {story.user.name}
+              </h3>
+               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                  Participated in : <span style={{fontWeight:'bolder'}}> SIH2018 Software</span>
+              </h3>
+               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                  Startup Name : 
+              </h3>
+               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                  <span style={{fontWeight:'bolder'}}>Achievements :</span>
+              </h3>
+              <p> 
+                    Currently spearheading the growth operations at Finolet, my family business. 
+                    Bringing in true financial inclusivity to the unserved and the underserved 
+                    segment of the Indian society through an unique Phygital model. Previously 
+                    handled digital promotion for a suite of 14 B2B SaaS products in the global
+                     market under the ManageEngine IT security team of Zoho Corporation Pvt Ltd 
+                     for 2 years 7 months. I am running a community for engineering students, 
+                      where I mentor them on a regular basis. Through my community I have 
+                    facilitated jobs to 150+ students so far. During my under graduation, 
+                    I spearheaded the entrepreneurship development cell at my college as the Chief 
+                    Executive Officer, where I mentored 11 start-ups and facilitated funding of 2.5 crores 
+                    to 2 start-ups. Personally, I have participated in 42 hackathons and B school events, 
+                    creating solutions to real time problems. I had won the best Innovation and Inspiration 
+                    award at Smart India hackathon 2018. Apart from which, I have won 13 other hackathons.
+              </p>
               {story.description
                 .replace(/(?:\r\n|\r|\n)/g, "<br/>")
                 .split("<br/>")
@@ -72,15 +110,7 @@ export default function Stories() {
                 ))}
             </div>
           </div>
-          <div className={"col-span-10"}>
-            <img className="rounded-2xl w-80 h-80" src={story.user.picture} />
-            <h3
-              style={{ fontFamily: "Montserrat" }}
-              className="text-black text-xl mt-10"
-            >
-              by {story.user.name}
-            </h3>
-          </div>
+         
         </div>
       </div>
     </div>
