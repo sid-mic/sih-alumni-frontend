@@ -154,7 +154,7 @@ export const Hero = (props) => {
                     </button>
                   </div>
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
-                    Only accessible for Winners of MIC Hackathons
+                    Only accessible for Participants/Winners of MIC Hackathons
                   </p>
                 </form>
                 <br />
