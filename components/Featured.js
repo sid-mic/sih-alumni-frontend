@@ -9,15 +9,14 @@ export default function Featured() {
 
   useEffect(() => {
     if (isLoading) {
-      // axios()
-      //   .get("/stories/public")
-      //   .then((response) => {
-      //     setStories(response.data);
-      //     setIsLoading(false);
-      //   })
-      //   .catch(() => setIsLoading(false));
+      axios()
+        .get("/stories/public")
+        .then((response) => {
+          setStories(response.data);
+          setIsLoading(false);
+        })
+        .catch(() => setIsLoading(false));
 
-      setStories({"alumni":[{"title":"Test Story","description":"Test Story Description","user_id":1,"user":{"id":1,"name":"Bhuvi 100","picture":"http:\/\/qa-micapi.aicte-india.org\/storage\/images\/users\/gJTSX7OhqLb12jXHnxBafYZrouk97vbwSlIjK2KA.jpg"}},{"title":"Test Story","description":"Test Story Test Story Test Story Test Story\nTest Story Test Story Test Story Test Story\nTest Story Test Story Test Story Test Story","user_id":2,"user":{"id":2,"name":"Selvarani","picture":"http:\/\/qa-micapi.aicte-india.org\/assets\/profile.png"}},{"title":"Test Story","description":"Test Story Test Story Test Story Test Story","user_id":3,"user":{"id":3,"name":"Priya A","picture":"http:\/\/qa-micapi.aicte-india.org\/assets\/profile.png"}}],"mentor":[{"title":"Test Story","description":"Test Story Test Story Test Story Test Story","user_id":4,"user":{"id":4,"name":"Mayur","picture":"http:\/\/qa-micapi.aicte-india.org\/assets\/profile.png"}},{"title":"Test Story","description":"Test Story Test Story Test Story Test Story","user_id":5,"user":{"id":5,"name":"Shametha KG","picture":"http:\/\/qa-micapi.aicte-india.org\/assets\/profile.png"}},{"title":"Test Story","description":"Test Story Test Story Test Story Test Story","user_id":6,"user":{"id":6,"name":"Bhuvi100","picture":"http:\/\/qa-micapi.aicte-india.org\/assets\/profile.png"}}]})
       setIsLoading(false)
     }
   });
@@ -80,10 +79,10 @@ export default function Featured() {
                             {alumni.user.name}
                           </p>
                           <p class="text-sm text-left w-full font-bold text-white">
-                            Startup Name
+                            {alumni.user.organization_name}
                           </p>
                           <p class="text-sm text-left w-full font-bold text-white">
-                            Designation
+                            {alumni.user.designation}
                           </p>
                         </div>
                         {/*TODO: FIX IMAGE HEIGHTS*/}
@@ -130,10 +129,10 @@ export default function Featured() {
                             {alumni.user.name}
                           </p>
                           <p class="text-sm text-left w-full font-bold text-white">
-                            Org. Name
+                            {alumni.user.organization_name}
                           </p>
                           <p class="text-sm text-left w-full font-bold text-white">
-                            Designation
+                            {alumni.user.designation}
                           </p>
                         </div>
                         {/*TODO: FIX IMAGE HEIGHTS*/}

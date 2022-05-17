@@ -10,13 +10,11 @@ export default function News() {
 
   useEffect(() => {
     if (!data) {
-      // axios()
-      //   .get("announcements/public")
-      //   .then((resp) => {
-      //     setData(resp.data);
-      //   });
-
-       setData([{"id":2,"title":"Announcement 2","description":"Some Description Some Description Some Description Some Description Some Description Some Description","url":"http:\/\/google.com","attachment":"","created_month":"May","created_date":"06"},{"id":1,"title":"Announcement 1","description":null,"url":null,"attachment":"","created_month":"April","created_date":"19"}]);
+      axios()
+        .get("announcements/public")
+        .then((resp) => {
+          setData(resp.data);
+        });
     }
   }, [data, selected]);
 

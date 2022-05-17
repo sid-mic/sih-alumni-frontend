@@ -79,29 +79,29 @@ export default function Stories() {
                   {story.user.name}
               </h3>
                <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  Participated in : <span style={{fontWeight:'bolder'}}> SIH2018 Software</span>
+                  Participated in : <span style={{fontWeight:'bolder'}}> {story.hackathons}</span>
               </h3>
                <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  Startup Name : 
+                  Startup Name : {story.user.organization_name}
               </h3>
-               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  <span style={{fontWeight:'bolder'}}>Achievements :</span>
-              </h3>
-              <p> 
-                    Currently spearheading the growth operations at Finolet, my family business. 
-                    Bringing in true financial inclusivity to the unserved and the underserved 
-                    segment of the Indian society through an unique Phygital model. Previously 
-                    handled digital promotion for a suite of 14 B2B SaaS products in the global
-                     market under the ManageEngine IT security team of Zoho Corporation Pvt Ltd 
-                     for 2 years 7 months. I am running a community for engineering students, 
-                      where I mentor them on a regular basis. Through my community I have 
-                    facilitated jobs to 150+ students so far. During my under graduation, 
-                    I spearheaded the entrepreneurship development cell at my college as the Chief 
-                    Executive Officer, where I mentored 11 start-ups and facilitated funding of 2.5 crores 
-                    to 2 start-ups. Personally, I have participated in 42 hackathons and B school events, 
-                    creating solutions to real time problems. I had won the best Innovation and Inspiration 
-                    award at Smart India hackathon 2018. Apart from which, I have won 13 other hackathons.
-              </p>
+              {/* <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">*/}
+              {/*    <span style={{fontWeight:'bolder'}}>Achievements :</span>*/}
+              {/*</h3>*/}
+              {/*<p> */}
+              {/*      Currently spearheading the growth operations at Finolet, my family business. */}
+              {/*      Bringing in true financial inclusivity to the unserved and the underserved */}
+              {/*      segment of the Indian society through an unique Phygital model. Previously */}
+              {/*      handled digital promotion for a suite of 14 B2B SaaS products in the global*/}
+              {/*       market under the ManageEngine IT security team of Zoho Corporation Pvt Ltd */}
+              {/*       for 2 years 7 months. I am running a community for engineering students, */}
+              {/*        where I mentor them on a regular basis. Through my community I have */}
+              {/*      facilitated jobs to 150+ students so far. During my under graduation, */}
+              {/*      I spearheaded the entrepreneurship development cell at my college as the Chief */}
+              {/*      Executive Officer, where I mentored 11 start-ups and facilitated funding of 2.5 crores */}
+              {/*      to 2 start-ups. Personally, I have participated in 42 hackathons and B school events, */}
+              {/*      creating solutions to real time problems. I had won the best Innovation and Inspiration */}
+              {/*      award at Smart India hackathon 2018. Apart from which, I have won 13 other hackathons.*/}
+              {/*</p>*/}
               {story.description
                 .replace(/(?:\r\n|\r|\n)/g, "<br/>")
                 .split("<br/>")
