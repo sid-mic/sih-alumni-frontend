@@ -26,7 +26,7 @@ export default function Featured() {
     return <FormLoader className="mb-10"></FormLoader>;
   }
 
-  if (stories?.alumni.length < 3 && !stories?.mentor.length < 3) {
+  if (stories?.alumni?.length < 3 && !stories?.mentor?.length < 3) {
     return <div></div>;
   }
 
@@ -95,7 +95,7 @@ export default function Featured() {
               </div>
             )}
 
-            {stories.alumni.length > 2 && (
+            {stories?.alumni?.length > 2 && (
               <div class="relative">
                 {" "}
                 
