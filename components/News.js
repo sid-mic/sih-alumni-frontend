@@ -51,9 +51,9 @@ export default function News() {
         
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming</p>
+                    <p className={styles.annYear}>&nbsp;</p>
                 </div>
                 <div className={styles.newsText}>
                   <p>Launch of School Innovation Council</p>
@@ -61,9 +61,29 @@ export default function News() {
           </div>
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}>&nbsp;</p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>Grand Final of Toycathon Physical Edition</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}>&nbsp;</p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>SIH 2022</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}>&nbsp;</p>
                 </div>
                 <div className={styles.newsText}>
                   <p>National Innovation and Entrepreneurship Promotion Policy for Schools</p>
@@ -71,15 +91,26 @@ export default function News() {
           </div>
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}>&nbsp; </p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>UNESCO-India-Africa Hackathon 2022</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>&nbsp;</p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}>&nbsp; </p>
                 </div>
                 <div className={styles.newsText}>
                   <p>Design Thinking & Innovation as skill modules in schools</p>
                 </div>
           </div>
           
+
         </div>
         </div>
 

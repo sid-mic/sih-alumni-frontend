@@ -110,9 +110,10 @@
 	font-weight: bold;
 }
 .newsDate .annDate{
-	font-size: 20px;
-	color: #f59a0e;
-	font-weight: bold;
+	font-size: 16px;
+	color: #ffffff;
+	font-weight: normal;
+	text-transform: capitalize;
 }
 .newsText {
 	width: 80%;
