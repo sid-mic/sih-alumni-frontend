@@ -14,8 +14,10 @@ export default function AdminAnnouncements(props) {
   const [meta, setMeta] = useState({});
 
   useEffect(() => {
-    handleRequest();
-  }, [props.user]);
+    if (!announcement_list_data) {
+      handleRequest();
+    }
+  }, [props.user, announcement_list_data]);
 
   function handleRequest(page = 1) {
     setlistdata(false);
