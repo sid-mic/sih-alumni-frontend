@@ -52,43 +52,35 @@ export default function News() {
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
                     <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annDate}>24-25 </p>
+                    <p className={styles.annYear}>2022 </p>
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                  <p>Grand Final of Toycathon Physical Edition</p>
                 </div>
           </div>
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annMonth}><br/></p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}><br/> </p>
+
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                  <p>SIH 2022</p>
                 </div>
           </div>
-          <div className={styles.newsInner}>
+            <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
+                    <p className={styles.annMonth}><br/></p>
+                    <p className={styles.annDate}>Upcoming </p>
+                    <p className={styles.annYear}><br/> </p>
+
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                    <p>UNESCO-India-Africa Hackathon 2022</p>
                 </div>
-          </div>
-          <div className={styles.newsInner}>
-                <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
-                </div>
-                <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
-                </div>
-          </div>
+            </div>
         </div>
         </div>
 
