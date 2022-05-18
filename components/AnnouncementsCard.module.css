@@ -1,0 +1,11 @@
+.addScroll::-webkit-scrollbar {
+    width: 5px;
+}
+.addScroll::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px #f59e0b; 
+	border-radius: 10px;
+}
+.addScroll::-webkit-scrollbar-thumb {
+	background: #f59e0b; 
+	border-radius: 10px;
+}

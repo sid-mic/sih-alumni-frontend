@@ -1,12 +1,19 @@
+import styles from './AnnouncementsCard.module.css';
+
 export default function AnnouncementsCard({ item, setSelected }) {
   return (
     <>
-      <div className="justify-center ml-10 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+      <div className="justify-center ml-10 items-center flex overflow-x-hidden fixed inset-0 z-50 outline-none focus:outline-none">
         <div className="relative w-auto my-6 mx-auto max-w-3xl">
           {/*content*/}
-          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+          <div 
+            style={{
+                  height: "400px",
+                  overflowY: "scroll",
+                }}
+            className={styles.addScroll +" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"}>
             {/*header*/}
-            <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+            <div className="flex items-start justify-between mb-4 p-5 border-b border-solid border-blueGray-200 rounded-t">
               <h3
                 style={{ fontFamily: "Montserrat" }}
                 className="text-3xl font-semibold"
