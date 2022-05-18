@@ -40,7 +40,11 @@ export default function AnnouncementsCard({ item, setSelected }) {
             {item.description && (
               <div className="relative p-1 px-5 flex-auto">
                 <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                  {item.description}
+                  {item.description.replace(/(?:\r\n\r\n|\r\n|\r|\n)/g, "<br/>")
+                      .split("<br/>")
+                      .map((para, index) => (
+                          <p key={index}>{para} {para ? <br/> : <br/>} </p>
+                      ))}
                 </p>
               </div>
             )}
