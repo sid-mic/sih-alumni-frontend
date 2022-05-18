@@ -51,9 +51,9 @@ export default function News() {
         
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>&nbsp;</p>
-                    <p className={styles.annDate}>Upcoming</p>
-                    <p className={styles.annYear}>&nbsp;</p>
+                    <p className={styles.annMonth}>18th</p>
+                    <p className={styles.annDate}>May</p>
+                    <p className={styles.annYear}>2022</p>
                 </div>
                 <div className={styles.newsText}>
                   <p>Launch of School Innovation Council</p>
@@ -61,9 +61,19 @@ export default function News() {
           </div>
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>&nbsp;</p>
-                    <p className={styles.annDate}>Upcoming </p>
-                    <p className={styles.annYear}>&nbsp;</p>
+                    <p className={styles.annMonth}>18th</p>
+                    <p className={styles.annDate}>May</p>
+                    <p className={styles.annYear}>2022</p>
+                </div>
+                <div className={styles.newsText}>
+                  <p>SIH Alumni Connect: Interaction with Dr. Abhay Jere</p>
+                </div>
+          </div>
+          <div className={styles.newsInner}>
+                <div className={styles.newsDate}>
+                    <p className={styles.annMonth}>24th, 25th</p>
+                    <p className={styles.annDate}>May</p>
+                    <p className={styles.annYear}>2022</p>
                 </div>
                 <div className={styles.newsText}>
                   <p>Grand Final of Toycathon Physical Edition</p>
@@ -76,7 +86,7 @@ export default function News() {
                     <p className={styles.annYear}>&nbsp;</p>
                 </div>
                 <div className={styles.newsText}>
-                  <p>SIH 2022</p>
+                  <p>Smart India Hackathon 2022</p>
                 </div>
           </div>
           <div className={styles.newsInner}>

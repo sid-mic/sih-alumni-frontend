@@ -108,12 +108,20 @@ export const Hero = (props) => {
                   style={{
                     fontFamily: "Montserrat",
                     lineHeight: "1.3",
+                    marginBottom: '0px'
                   }}
-                  className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
+                  className="mb-4 text-lg font-semibold sm:text-center sm:mb-6 text-2xl"
                 >
-                  HAVE YOU PARTICIPATED IN MIC HAKCATHON/CONTESTS? <br />
-                  SIGN IN TO GET STARTED
-                </h3>
+                  HAVE YOU PARTICIPATED IN MIC HAKCATHON/CONTESTS?</h3>
+                  <h2
+                  style={{
+                    fontFamily: "Montserrat",
+                    lineHeight: "1.3",
+                    marginBottom: '0px'
+                  }}
+                  className="mb-4 text-md font-semibold sm:text-center sm:mb-6 text-1xl">
+                    SIGN IN TO GET STARTED
+                  </h2>
                 <form>
                   <div className="mb-1 sm:mb-2">
                     <label
@@ -154,7 +162,7 @@ export const Hero = (props) => {
                     </button>
                   </div>
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
-                    Only accessible for Participants/Winners of MIC Hackathons/Contests.
+                    Only accessible for Participants/Winners <br/>of MIC Hackathons/Contests.
                   </p>
                 </form>
                 <br />
