@@ -10,13 +10,11 @@ export default function News() {
 
   useEffect(() => {
     if (!data) {
-      // axios()
-      //   .get("announcements/public")
-      //   .then((resp) => {
-      //     setData(resp.data);
-      //   });
-
-        setData([{"id":3,"title":"Grand SIH Alumni interaction with Dr. Abhay Jere, CIO, Ministry of Education\u2019s Innovation Cell","description":"Greetings from the Ministry of Educations Innovation Cell!\r\nThe Ministry of Education\u2019s Innovation Cell and All India Council for Technical Education (AICTE) successfully organized four editions of the massive scale nationwide Smart India Hackathon.\r\nAs you are one of the grand finale participants of past editions of the nationwide hackathon therefore you are cordially invited to the Grand SIH Alumni interaction with Dr. Abhay Jere, CIO, Ministry of Education\u2019s Innovation Cell!\r\nDate:18th May 2022\r\nTime: 4.00 PM\r\nMode: Online\r\nAlumni are an institution\u2019s brand ambassadors, carrying their core values of excellence, lifelong learning of inclusiveness, and diversity all around the world.\r\n\r\nThe purposes of the alumni association of Smart India Hackathon are:\r\n\u2022 To share your experience with Dr. Abhay Jere, CIO Ministry of Education\u2019s Innovation Cell.\r\n\u2022 To introduce a platform to identify the distinguished alumni and share their success stories with the budding innovators.\r\n\u2022 To get support from MIC for your entrepreneurship journey.\r\nNote: Selected success stories will be published on the MIC official website and if approved will also be published in various national\/international entrepreneurial\/Business magazines and broadcasted on national TV channels.\r\nPlease fill out the google form to confirm your participation.\r\nhttps:\/\/forms.gle\/Z7vqMB4Qephyy7pJ8\r\nSpread the word around. Do forward this invite to all your students who have participated in the grand finale of any SIH Edition.\r\nGoogle Docs\r\nSmart India Hackathon Alumni Connect\r\nDear SIH Participant\/Winner,\r\nAs you are one of the grand finale participants of past editions of nationwide hackathon therefore you are cordially in...","url":"https:\/\/forms.gle\/Z7vqMB4Qephyy7pJ8","attachment":"https:\/\/alumniapi.mic.gov.in\/storage\/images\/announcements\/\/jAErEkc9Dqn6g9HauZicYSU3Z29vFCo3yfd8jxvb.jpg","created_month":"May","created_date":"18"}])
+      axios()
+        .get("announcements/public")
+        .then((resp) => {
+          setData(resp.data);
+        });
     }
   }, [data, selected]);
 
