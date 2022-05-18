@@ -79,16 +79,7 @@ export default function News() {
                   <p>Grand Final of Toycathon Physical Edition</p>
                 </div>
           </div>
-          <div className={styles.newsInner}>
-                <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>&nbsp;</p>
-                    <p className={styles.annDate}>Upcoming </p>
-                    <p className={styles.annYear}>&nbsp;</p>
-                </div>
-                <div className={styles.newsText}>
-                  <p>Smart India Hackathon 2022</p>
-                </div>
-          </div>
+          
           <div className={styles.newsInner}>
                 <div className={styles.newsDate}>
                     <p className={styles.annMonth}>&nbsp;</p>
@@ -97,16 +88,6 @@ export default function News() {
                 </div>
                 <div className={styles.newsText}>
                   <p>National Innovation and Entrepreneurship Promotion Policy for Schools</p>
-                </div>
-          </div>
-          <div className={styles.newsInner}>
-                <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>&nbsp;</p>
-                    <p className={styles.annDate}>Upcoming </p>
-                    <p className={styles.annYear}>&nbsp; </p>
-                </div>
-                <div className={styles.newsText}>
-                  <p>UNESCO-India-Africa Hackathon 2022</p>
                 </div>
           </div>
           <div className={styles.newsInner}>
