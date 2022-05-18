@@ -64,10 +64,11 @@ export default function Initiatives() {
             </div>
 
             <div className={styles.boxBorder+" block p-8 transition shadow-xl rounded-xl hover:shadow-pink-500/10 hover:border-pink-500/10"}>
-              <img src="/assets/yukti-logo.png" alt="img" />
-              <h3 className="mt-4 text-xl font-bold text-center text-indblue">YUKTI</h3>
+              <img src="/assets/siatp-logo.png" alt="img" />
+              {/*<h3 className="mt-4 text-xl font-bold text-center text-indblue">YUKTI</h3>*/}
+              <h3 className="mt-4 text-xl font-bold text-center text-indblue">SIATP</h3>
               <div className={styles.plusImage}>
-               <a href="#" target="_blank">Read More</a>
+               <a href="https://sia.mic.gov.in" target="_blank">Read More</a>
               </div>
             </div>
 

@@ -16,14 +16,27 @@ export default function Scroller() {
       </h1>
       <Marquee gradient="true" gradientColor="[224, 236, 255]" className={styles.imageWidth}>
         <div className="pr-12 md:pr-20">
-          <img src="https://www.sih.gov.in/img/logo.png" alt="img" className={styles.imgHeightWidth}/>
+          <a href="https://www.sih.gov.in" target="_blank">
+          <img src="https://www.sih.gov.in/img/logo.png" alt="img" className={styles.imgHeightWidth +" img-fluid"} />
+          </a>
         </div>
         <div className="pr-12 md:pr-20">
-          <img src="https://india-asean.mic.gov.in/img/ASEAN-India-Logo.png" className={styles.imgHeightWidth} />
+        <a href="https://india-asean.mic.gov.in" target="_blank">
+          <img src="https://india-asean.mic.gov.in/img/ASEAN-India-Logo.png" className={styles.imgHeightWidth +" img-fluid"} />
+        </a>
+        </div>
+         <div className="pr-12 md:pr-20">
+        <a href="https://uia.mic.gov.in" target="_blank">
+          <img src="assets/uia-logo.png" className={styles.imgHeightWidth +" img-fluid"} style={{width:'250px'}} />
+          </a>
         </div>
         <div className="pr-12 md:pr-20">
-          <img src="https://toycathon.mic.gov.in/assets/extra/toycathon-final-logo.jpg" className={styles.imgHeightWidth} />
+        <a href="https://toycathon.mic.gov.in" target="_blank">
+          <img src="https://toycathon.mic.gov.in/assets/extra/toycathon-final-logo.jpg" className={styles.imgHeightWidth +" img-fluid"} />
+        </a>
         </div>
+
+        
       </Marquee>
     </div>
   );

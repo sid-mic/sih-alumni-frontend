@@ -56,7 +56,7 @@ export default function News() {
                     <p className={styles.annYear}>2021 </p>
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                  <p>Launch of School Innovation Council</p>
                 </div>
           </div>
           <div className={styles.newsInner}>
@@ -66,7 +66,7 @@ export default function News() {
                     <p className={styles.annYear}>2021 </p>
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                  <p>National Innovation and Entrepreneurship Promotion Policy for Schools</p>
                 </div>
           </div>
           <div className={styles.newsInner}>
@@ -76,19 +76,10 @@ export default function News() {
                     <p className={styles.annYear}>2021 </p>
                 </div>
                 <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
+                  <p>Design Thinking & Innovation as skill modules in schools</p>
                 </div>
           </div>
-          <div className={styles.newsInner}>
-                <div className={styles.newsDate}>
-                    <p className={styles.annMonth}>May</p>
-                    <p className={styles.annDate}>31 </p>
-                    <p className={styles.annYear}>2021 </p>
-                </div>
-                <div className={styles.newsText}>
-                  <p>Final Nodal center allocation is live, View Digital</p>
-                </div>
-          </div>
+          
         </div>
         </div>
 

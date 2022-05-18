@@ -9,7 +9,7 @@ export default function Benefits() {
         <div className="text-center">
           <div className="bg-hero-pattern mt-0 pt-4 font-bold mb-0 sm:text-xl text-xl bg-cover bg-center">
             <h1 className={styles.mainHeading+ " font-bold mt-6 mb-14 pb-2 sm:text-xl text-2xl md:text-3xl"}>
-              BENEFITS OF
+              BENEFITS OF BEING 
               <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                 MIC ALUMNI
               </span>

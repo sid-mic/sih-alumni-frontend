@@ -33,7 +33,7 @@ export const Hero = (props) => {
           render({ data }) {
             setIsLoading(false);
             return data.message === "Request failed with status code 404"
-              ? "Email not found!"
+              ? "Email entered is not registered with MIC hackathon/contest.Please enter your hackathon/contest email"
               : "Something went wrong!";
           },
         },
@@ -111,7 +111,7 @@ export const Hero = (props) => {
                   }}
                   className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl"
                 >
-                  ARE YOU AN SIH WINNER? <br />
+                  HAVE YOU PARTICIPATED IN MIC HAKCATHON/CONTESTS? <br />
                   SIGN IN TO GET STARTED
                 </h3>
                 <form>
@@ -123,7 +123,7 @@ export const Hero = (props) => {
                       E-mail
                     </label>
                     <input
-                      placeholder="example@example.com"
+                      placeholder="Enter your hackathon/contest email"
                       required
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -154,7 +154,7 @@ export const Hero = (props) => {
                     </button>
                   </div>
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
-                    Only accessible for Participants/Winners of MIC Hackathons
+                    Only accessible for Participants/Winners of MIC Hackathons/Contests.
                   </p>
                 </form>
                 <br />

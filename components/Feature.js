@@ -7,21 +7,20 @@ export const Feature = () => {
         <div className="text-center">
           <div className="bg-hero-pattern font-bold mb-6 sm:text-xl text-xl bg-cover bg-center">
             <h1 className={styles.mainHeading+" font-bold mt-6 mb-14 pb-2 sm:text-xl text-2xl md:text-3xl"}>
-              REVOLUTIONIZING STARTUPS FOR
+              CREATING A PIPELINE OF INNOVATORS 
               <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                A SELF-RELIANT INDIA.
+                FOR GENERATING STARTUPS 
               </span>
               <div className={styles.bottomLine}></div>
             </h1>
           </div>
         </div>
         <div className="">
-          <p className="text-base text-gray-700 md:text-lg">
-            MoE's Innovation Cell aims to support and nurture startups by
-            providing funding, mentorship and collaboration opportunities.
-            Through a number of hackathons and other innovation contests, we
-            identify the nation's best ideas and help the young entrepreneurs in
-            scaling their ideas into products.
+          <p className="text-base text-gray-700 md:text-lg text-center">
+            MoE's Innovation Cell aims to support and nurture startups by providing funding, 
+            mentorship and industrial collaboration opportunities. Through a number of hackathons 
+            and other innovation contests, we identify the nation's best ideators and help the young 
+            innovators in scaling their ideas into products and commercialisation.
           </p>
         </div>
       </div>
