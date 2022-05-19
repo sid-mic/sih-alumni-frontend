@@ -25,7 +25,7 @@ export default function Who() {
             <ul>● Smart India Hackathon</ul>
             <ul>● Ideathon</ul>
             <ul>● Samadhan</ul>
-            <ul>● Asia India Hackathon</ul>
+            <ul>● ASEAN India Hackathon</ul>
             </div>
             <div>
             <ul>● Toycathon</ul>
