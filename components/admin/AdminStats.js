@@ -16,12 +16,18 @@ export const AdminStats = ({stats, initiatives_count}) => {
         </div>
         <div className="p-7 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
           <h6 className="text-3xl font-bold text-deep-purple-accent-400">
+            {stats.users_registered}
+          </h6>
+          <p className="font-bold">REGISTERED USERS</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 row-gap-8 md:grid-cols-3 mx-40">
+        <div className="p-7 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
+          <h6 className="text-3xl font-bold text-deep-purple-accent-400">
             {initiatives_count}
           </h6>
           <p className="font-bold">INITIATIVES</p>
         </div>
-      </div>
-      <div className="grid grid-cols-2 mx-80 row-gap-8 md:grid-cols-2">
         <div className="p-7 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
           <h6 className="text-3xl font-bold text-deep-purple-accent-400">
             {stats.startups}
