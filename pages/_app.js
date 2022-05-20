@@ -1,25 +1,46 @@
 import "tailwindcss/tailwind.css";
 import "@fontsource/montserrat/800.css";
-import ReactGA from "react-ga";
+import Script from 'next/script'
 import { useEffect } from "react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
+import * as gtag from "../utils/gtag"
 
 function MyApp({ Component, pageProps }) {
-  ReactGA.initialize(process.env.NEXT_PUBLIC_GA_ID);
-
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      ReactGA.pageview(url);
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+        gtag.pageview(url)
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
