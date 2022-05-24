@@ -112,7 +112,7 @@ export const Hero = (props) => {
                   }}
                   className="mb-4 text-lg font-semibold sm:text-center sm:mb-6 text-2xl"
                 >
-                  HAVE YOU PARTICIPATED IN MIC HAKCATHON/CONTESTS?</h3>
+                  HAVE YOU PARTICIPATED IN MIC HACKATHON/CONTESTS?</h3>
                   <h2
                   style={{
                     fontFamily: "Montserrat",
