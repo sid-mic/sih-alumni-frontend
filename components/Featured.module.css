@@ -35,7 +35,7 @@
 .boxMentors {
 	position: relative;
 }
-.boxMentors::before {
+/*.boxMentors::before {
 	position: absolute;
 	content: '';
 	width: 120px;
@@ -58,7 +58,7 @@
 	border-radius:3px;
 	right: 0;
 	bottom: 0;
-}
+}*/
 .smallHeading {
 	text-align: center;
 	margin-bottom: 15px;
@@ -66,3 +66,47 @@
     font-weight: bold;
     text-transform: uppercase;
 }
+.design {
+	position: relative;
+	padding-top: 30px;
+	border-radius: 10px;
+	min-height: 120px;
+}
+.design p:nth-of-type(1) {
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: capitalize;
+	text-align: center;
+	display: block;
+	margin-bottom: 5px;
+}
+.design p:nth-of-type(2),
+.design p:nth-of-type(3) {
+	font-size: 14px;
+	font-weight: normal;
+	text-align: center;
+	display: block;
+}
+.outerImage {
+	text-align: center;
+	position: relative;
+	background-image: linear-gradient(to bottom, #3c3c3c, rgba(57, 70, 134) );
+	padding-top: 50px;
+	border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.roundedImage {
+	height: 130px !important;
+    width: 130px !important;
+    border-radius: 50%;
+    padding: 5px;
+    background: #ffffff;
+    border: 4px solid #fcbc40;
+    margin: 0 auto;
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: -66px;
+    transform: translateX(-50%);
+}
+
