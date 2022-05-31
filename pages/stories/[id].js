@@ -3,6 +3,8 @@ import { Nav } from "../../components/Navbar";
 import Router, { useRouter } from "next/router";
 import axios from "../../utils/axios";
 import Loading from "../../components/Loading";
+import styles from "../../styles/Feature.module.css";
+
 
 export default function Stories() {
   const { id } = useRouter().query;
@@ -63,29 +65,33 @@ export default function Stories() {
               {story.title}
             </h1>
             <br />
-            <div className="mt-4">
-            <div className="profile-img-outer" style={{float:'right',width:'250px'}}>
+            <div className={styles.profileDetail +" mt-4"}>
+            <div className={styles.profileImgouter}>
               <figure className="float-right pl-5 text-center">
                 <img className="rounded-lg" src={story.user.picture}  />
                 {/*<figcaption style={{ boxShadow : '0 5px 3px #3c3c3c', paddingTop: '5px', paddingBottom:'5px' }}>
-                  <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
+                  <h3 className="text-black text-md mt-2">
                     by {story.user.name} </h3>
                     <h4 style={{fontWeight:'noraml',textTransform:'uppercase',fontSize:'1rem'}}>Java Developer</h4>
                     <h5 style={{fontWeight:'noraml',textTransform:'capitalize',fontSize:'1rem'}}>AICTE</h5>
                 </figcaption>*/}
               </figure>
             </div>
-              <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  {story.user.name}
+
+            <div className={styles.headingTitle}>
+              <div className={styles.headingFirst}>
+                  {story.user.name}<span>&nbsp;</span>
+              </div>
+               <h3 className="text-black mt-2">
+                  Participated in : <span> {story.hackathons}</span>
               </h3>
-               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  Participated in : <span style={{fontWeight:'bolder'}}> {story.hackathons}</span>
+               <h3 className="text-black text-md mt-2">
+                  Startup Name : <span>{story.user.organization_name}</span>
               </h3>
-               <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">
-                  Startup Name : {story.user.organization_name}
-              </h3>
+            </div>
+
               {/* <h3 style={{ fontFamily: "Montserrat",textTransform:'uppercase'}} className="text-black text-md mt-2">*/}
-              {/*    <span style={{fontWeight:'bolder'}}>Achievements :</span>*/}
+              {/*    <span style={{fontWeight:'normal'}}>Achievements :</span>*/}
               {/*</h3>*/}
               {/*<p> */}
               {/*      Currently spearheading the growth operations at Finolet, my family business. */}
@@ -102,8 +108,9 @@ export default function Stories() {
               {/*      creating solutions to real time problems. I had won the best Innovation and Inspiration */}
               {/*      award at Smart India hackathon 2018. Apart from which, I have won 13 other hackathons.*/}
               {/*</p>*/}
+              <br/>
               {story.description
-                .replace(/(?:\r\n|\r|\n)/g, "<br/>")
+                .replace(/(?:\r\n|\r|\n)/g, "")
                 .split("<br/>")
                 .map((para, index) => (
                     <p key={index}>{para} {para ? <div><br/></div> : ""} </p>

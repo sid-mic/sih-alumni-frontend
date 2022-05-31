@@ -37,7 +37,7 @@ export default function Featured() {
             {stories?.mentor?.length > 2 && (
               <div class="relative">
                 {" "}
-                <h1 className={styles.mainHeading+" font-bold mb-16 mt-6 sm:text-xl text-2xl md:text-3xl text-center"}>
+                <h1 className={styles.mainHeading+" font-bold mb-16 mt-6 pb-2 sm:text-xl text-2xl md:text-3xl text-center"}>
                   NOTABLE
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                     ALUMNI
@@ -45,7 +45,7 @@ export default function Featured() {
                   <div className={styles.bottomLine}></div>
                 </h1>
                 
-                <div class={styles.boxMentors+" flex flex-wrap -mx-3 mt-10 pt-10"}>
+                <div class={styles.boxMentors+" flex flex-wrap -mx-3 mt-0 pt-0"}>
                
                   {stories.mentor.map((alumni, index) => (
 
@@ -53,6 +53,7 @@ export default function Featured() {
                       class="my-3 px-3 w-1/2 lg:w-1/3"
                       key={index}
                     >
+                    <div className={styles.profileTop}></div>
                       <a
                         className={styles.outerImage+" relative block group"}
                         href={`/stories/${index + 4}`}
@@ -87,6 +88,9 @@ export default function Featured() {
             )}
           
           </div>
+        </div>
+        <div class="px-4 md:mt-0 py-0 mx-auto max-w-screen-xl pt-2">
+          <a href="javascript:void(0);" className={styles.buttonLink} >View All </a>
         </div>
       </section>
     </div>
