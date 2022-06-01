@@ -22,9 +22,6 @@
     float:right;
 
 }
-.profileDetail {
-    /*border: 2px solid red;*/
-}
 .profileDetail h3 {
     font-family: 'Montserrat';
     text-transform: capitalize;
@@ -33,9 +30,6 @@
 .profileDetail h3 span {
     font-weight: normal !important;
     color: #3c3c3c !important;
-}
-.headingTitle {
-    /*height: 230px;*/
 }
 .headingFirst {
     font-weight: 600;

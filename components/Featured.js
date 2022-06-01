@@ -38,9 +38,9 @@ export default function Featured() {
               <div class="relative">
                 {" "}
                 <h1 className={styles.mainHeading+" font-bold mb-16 mt-6 pb-2 sm:text-xl text-2xl md:text-3xl text-center"}>
-                  NOTABLE
+                  SUCCESS
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                    ALUMNI
+                    STORIES
                   </span>
                   <div className={styles.bottomLine}></div>
                 </h1>
@@ -90,9 +90,10 @@ export default function Featured() {
           </div>
         </div>
         <div class="px-4 md:mt-0 py-0 mx-auto max-w-screen-xl pt-2">
-          <a href="javascript:void(0);" className={styles.buttonLink} >View All </a>
+          <a href="/stories" className={styles.buttonLink} >View All </a>
         </div>
       </section>
     </div>
+
   );
 }
