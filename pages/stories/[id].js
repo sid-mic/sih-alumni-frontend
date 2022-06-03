@@ -14,11 +14,6 @@ export default function Stories() {
 
   useEffect(async () => {
     if (isLoading && id) {
-      if (id < 1 || id > 6) {
-        await Router.push("/");
-        return;
-      }
-
       axios()
         .get(`stories/public/${id}`)
         .then((response) => {
