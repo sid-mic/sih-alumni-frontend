@@ -2,14 +2,9 @@ import React, { Component, useEffect, useState } from "react";
 import {
   faBars,
   faBook,
-  faHome,
   faPen,
   faUser,
-  faUserAlt,
-  faUserCircle,
-  faUserCog,
   faUserEdit,
-  faUserTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import requireAuth from "../../../utils/requireAuth";
 import Router, { useRouter } from "next/router";
@@ -110,7 +105,7 @@ export default function Participant1() {
           className="flex flex-col bg-indblue rounded-xl min-h-full min-w-full"
         >
           <div className="flex  flex-wrap">
-            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
               <ProjectComponent
                 view_only_mode={true}
                 user={user}
@@ -150,7 +145,7 @@ export default function Participant1() {
           style={{ fontFamily: "Montserrat" }}
         >
           <div className="flex  flex-wrap">
-            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
               <IndividualQuestions
                 user={user}
                 view_only_mode={true}
@@ -191,7 +186,7 @@ export default function Participant1() {
           style={{ fontFamily: "Montserrat" }}
         >
           <div className="flex  flex-wrap">
-            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
               <ParticipantStory user={user} view_only_mode={true} />
             </div>
           </div>
@@ -227,7 +222,7 @@ export default function Participant1() {
           className="flex flex-col bg-indblue min-h-full min-w-full"
         >
           <div className="flex  flex-wrap">
-            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
               <WelcomeHero h1="Feedback" />
               <FeedbackQuestions user={user} view_only_mode={true} />
             </div>
@@ -259,9 +254,9 @@ export default function Participant1() {
           selectedtype={setModuleType}
           view_only_mode={true}
         />
-        <div className="flex flex-col bg-indblue min-h-full min-w-full">
+        <div className="flex flex-col bg-indblue min-h-full min-w-full ">
           <div className="flex  flex-wrap">
-            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 mt-14">
+            <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
               <WelcomeHero h1="PROFILE" />
               <EditProfile
                 user={user}

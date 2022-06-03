@@ -8,6 +8,7 @@ import Pagination from "rc-pagination";
 export default function AdminStoriesTable(props) {
   const [list_data, setlistdata] = useState(false);
   const [meta, setMeta] = useState({});
+  const [counts, setCounts] = useState({});
 
   const [selected, setSelected] = useState(null);
 
@@ -22,8 +23,9 @@ export default function AdminStoriesTable(props) {
       .get(`stories?page=${page}`)
       .then(function (response) {
         if (response.status == 200) {
-          setlistdata(response.data.data);
-          setMeta(response.data);
+          setlistdata(response.data.stories.data);
+          setMeta(response.data.stories);
+          setCounts(response.data.counts);
         }
       });
   }
@@ -31,6 +33,28 @@ export default function AdminStoriesTable(props) {
   // Main list page
   return (
     <>
+      <div className="px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0">
+        <div className="grid grid-cols-2 row-gap-8 md:grid-cols-3 mx-40">
+          <div className="p-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
+            <h6 className="text-3xl font-bold text-deep-purple-accent-400">
+              {counts?.total}
+            </h6>
+            <p className="font-bold">TOTAL</p>
+          </div>
+          <div className="p-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
+            <h6 className="text-3xl font-bold text-deep-purple-accent-400">
+              {counts?.published}
+            </h6>
+            <p className="font-bold">PUBLISHED</p>
+          </div>
+          <div className="p-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
+            <h6 className="text-3xl font-bold text-deep-purple-accent-400">
+              {counts?.unpublished}
+            </h6>
+            <p className="font-bold">UNPUBLISHED</p>
+          </div>
+        </div>
+      </div>
       <AdminAnnouncementList
         data={list_data}
         setlist={setlistdata}

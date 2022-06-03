@@ -37,9 +37,9 @@ export default function MentorStories() {
                         " font-bold mb-16 mt-6 pb-2 sm:text-xl text-2xl md:text-3xl text-center"
                     }
                 >
-                  SUCCESS
+                  NOTABLE
                   <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                  STORIES
+                  ALUMNI
                 </span>
                   <div className={styles.bottomLine}></div>
                 </h1>

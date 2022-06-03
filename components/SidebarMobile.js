@@ -1,10 +1,8 @@
-import { Button } from "@chakra-ui/button";
 import React from "react";
 import { Component } from "react";
 import "./test.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import auth from "../utils/auth";
-import styles from './SidebarMobile.module.css';
 
 class SidebarMobile extends Component {
   constructor(props) {
@@ -28,8 +26,8 @@ class SidebarMobile extends Component {
           <div
             className={
               moduletype.id === this.state.ClickedButton
-                ? "bg-white md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-indblue rounded-xl"
-                : "transparent md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-white"
+                ? "bg-white mx-2 md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-indblue rounded-xl"
+                : "transparent mx-2 md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-white"
             }
             id={moduletype.id}
             key={moduletype.id}
