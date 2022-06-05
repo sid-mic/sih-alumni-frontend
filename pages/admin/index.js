@@ -26,6 +26,7 @@ import ImportsTable from "../../components/admin/ImportsTable";
 import Initiatives from "../../components/admin/Initiatives";
 import AdminStoriesTable from "../../components/admin/AdminStoriesTable";
 import axios from "../../utils/axios";
+import AdminFeedbacksTable from "../../components/admin/AdminFeedbacksTable";
 
 class Home extends Component {
   constructor(props) {
@@ -59,6 +60,11 @@ class Home extends Component {
       {
         id: 7,
         type: "Stories",
+        icon: faPenAlt,
+      },
+      {
+        id: 8,
+        type: "Feedbacks",
         icon: faPenAlt,
       },
       {
@@ -264,6 +270,39 @@ class Home extends Component {
             pauseOnHover
           />
         </>
+      );
+    }
+    if (this.state.selectedmoduletype === 8) {
+      return (
+          <>
+            <div className="flex flex-col min-h-screen">
+              <div className="flex  flex-wrap">
+                <AdminSidebar
+                    moduletypes={this.state.moduletypes}
+                    selectedtype={this.setModuleType}
+                />
+                <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                  <div className="flex  flex-wrap">
+                    <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                      <WelcomeHero h1="Feedbacks" />
+                    <AdminFeedbacksTable/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+              />
+            </div>
+          </>
       );
     }
     if (this.state.selectedmoduletype === 5) {
