@@ -15,7 +15,7 @@ export default function AdminHackathonIdeasTable(props) {
     setlistdata(false);
 
     axios()
-      .get(`other-ideas?page=${page}`)
+      .get(`hackathon-ideas?page=${page}`)
       .then(function (response) {
         if (response.status == 200) {
           setlistdata(response.data.data);
@@ -35,8 +35,8 @@ export default function AdminHackathonIdeasTable(props) {
   } else {
     return (
       <>
-        <div className="mx-10 mb-10">
-          <div className="relative overflow-x-auto shadow-lg w-full mr-20 mt-10">
+        <div className="mx-10 mb-10 ml-48">
+          <div className="relative overflow-x-auto shadow-lg w-5/6 mr-20 mt-10">
             <table className="w-full  text-left text-gray-700 dark:text-gray-400">
               <thead className="font-sans uppercase bg-indblue opacity dark:bg-gray-700 dark:text-gray-400">
                 <tr className="border border-1 border-gray-900 text-gray-200 opacity-100">
@@ -45,6 +45,9 @@ export default function AdminHackathonIdeasTable(props) {
                   </th>
                   <th scope="col" className="text-center py-4">
                     Theme
+                  </th>
+                  <th scope="col" className="text-center py-4">
+                   Leader Email
                   </th>
                   <th scope="col" className="text-center py-4">
                     IP Generated 
@@ -70,23 +73,24 @@ export default function AdminHackathonIdeasTable(props) {
                       scope="row"
                       className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white whitespace-nowrap"
                     >
-                      {row.project_title}
+                      {row.project.title}
                     </th>
-                    <td className="text-center py-4">{row.project_theme}</td>
+                    <td className="text-center py-4">{row.project.theme}</td>
+                    <td className="text-center py-4">{row.project.leader.email}</td>
                     <td className="text-center py-4">
-                      {row.project_ip_registration ? "Yes" : "No"}
+                      {row.ip_status ? "Yes" : "No"}
                     </td>
                     <td className="text-center py-4">
-                      {row.project_incubated ? "Yes" : "No"}
+                      {row.incubator_status ? "Yes" : "No"}
                     </td>
                     <td className="text-center py-4">
-                      {row.project_funding_support ? "Yes" : "No"}
+                      {row.funding_support_needed ? "Yes" : "No"}
                     </td>
                     <td className="py-4 text-center">
                       <a
-                        href={`/admin/participant/${row.user.id}?tab=my_ideas`}
+                        href={`/admin/participant/${row.project.leader.id}?tab=my_ideas`}
                         target={"_blank"}
-                        className="p-10 py-2 box-content rounded-xl w-44 h-10 text-lg font-normal text-white bg-indblue"
+                        className="p-5 mr-2 py-2 box-content rounded-xl w-44 h-10 text-lg font-normal text-white bg-indblue"
                       >
                         View
                       </a>

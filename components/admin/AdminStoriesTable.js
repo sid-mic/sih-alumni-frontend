@@ -9,7 +9,7 @@ export default function AdminStoriesTable(props) {
   const [list_data, setlistdata] = useState(false);
   const [meta, setMeta] = useState({});
   const [counts, setCounts] = useState({});
-
+  const [displayArchived, setDisplayArchived] = useState(false);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -61,6 +61,8 @@ export default function AdminStoriesTable(props) {
         setSelected={setSelected}
         handleRequest={handleRequest}
         meta={meta}
+        displayArchived={displayArchived}
+        setDisplayArchived={setDisplayArchived}
       />
       {selected !== null && (
         <StoryCard item={list_data[selected]} setSelected={setSelected} />
@@ -75,6 +77,8 @@ function AdminAnnouncementList({
   setSelected,
   meta,
   handleRequest,
+  displayArchived,
+  setDisplayArchived
 }) {
   if (!data) {
     return <FormLoader></FormLoader>;
@@ -86,7 +90,11 @@ function AdminAnnouncementList({
     );
   } else {
     return (
-      <div className="pt-10 p-20">
+      <div className="pt-6 p-20">
+        <div className="text-right">
+
+          <button className="p-3 mb-2 mr-1 bg-indblue text-white text-xl rounded-lg" onClick={()=>setDisplayArchived(!displayArchived)}>{displayArchived?"Display all":"Archived"}</button>
+        </div>
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
             <thead className="block md:table-header-group rounded-2xl">
@@ -117,6 +125,7 @@ function AdminAnnouncementList({
                     setlist={setlist}
                     index={index}
                     setSelected={setSelected}
+                    displayArchived={displayArchived}
                   />
                 );
               })}
@@ -137,7 +146,7 @@ function AdminAnnouncementList({
   }
 }
 
-function StoryRow({ data, setlist, setSelected, index }) {
+function StoryRow({ data, setlist, setSelected, index, displayArchived }) {
   function handleDisplayChange(id, display) {
     toast.promise(
       axios().post(`stories/${id}/update_display`, {
@@ -163,7 +172,12 @@ function StoryRow({ data, setlist, setSelected, index }) {
       }
     );
   }
-
+  if (displayArchived==true && data.display!="archived"){
+    return <div></div>
+  }
+  if(displayArchived==false && data.display=="archived"){
+    return <div></div>
+  }
   return (
     <tr
       className="bg-gray-300 border border-grey-500 md:border-none block md:table-row sm:mt-10"
@@ -213,6 +227,19 @@ function StoryRow({ data, setlist, setSelected, index }) {
               None
             </button>
           )}
+          {data.display !== "archived" && (
+          <button
+            onClick={(e) => {
+              handleDisplayChange(data.id, "archived");
+            }}
+            className={
+              "block bg-gray-400 rounded-lg p-3 mr-4 col-span-2 align-middle"
+            }
+          >
+            Archive
+          </button>
+          )}
+
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -224,6 +251,8 @@ function StoryRow({ data, setlist, setSelected, index }) {
           >
             View
           </button>
+
+          
         </div>
       </td>
     </tr>

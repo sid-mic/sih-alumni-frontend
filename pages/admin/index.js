@@ -9,6 +9,7 @@ import { ChartStats } from "../../components/admin/ChartStats";
 import { WelcomeHero } from "../../components/WelcomeHero";
 import {
   faCogs,
+  faCommentDots,
   faFolderPlus,
   faHome,
   faLightbulb,
@@ -79,7 +80,7 @@ class Home extends Component {
       {
         id: 8,
         type: "Feedbacks",
-        icon: faPenAlt,
+        icon: faCommentDots,
       },
       {
         id: 5,
@@ -333,7 +334,7 @@ class Home extends Component {
                   <div className="flex  flex-wrap">
                     <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                       <WelcomeHero h1="Other Ideas" />
-                    <AdminOtherIdeasTable test2={"hello2"}/>
+                    <AdminOtherIdeasTable />
                     </div>
                   </div>
                 </div>
@@ -365,8 +366,8 @@ class Home extends Component {
                 <div className="flex flex-col bg-indblue min-h-full min-w-full">
                   <div className="flex  flex-wrap">
                     <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
-                      <WelcomeHero h1="Other Ideas" />
-                    <AdminHackathonIdeasTable test3={"hello3"}/>
+                      <WelcomeHero h1="Hackathon Ideas" />
+                    <AdminHackathonIdeasTable/>
                     </div>
                   </div>
                 </div>

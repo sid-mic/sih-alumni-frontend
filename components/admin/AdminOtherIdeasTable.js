@@ -35,16 +35,22 @@ export default function AdminOtherIdeasTable(props) {
   } else {
     return (
       <>
-        <div className="mx-10 mb-10">
-          <div className="relative overflow-x-auto shadow-lg w-full mr-20 mt-10">
-            <table className="w-full  text-left text-gray-700 dark:text-gray-400">
+        <div className="mx-10 mb-10 ml-48">
+          <div className="relative overflow-x-auto shadow-lg w-5/6 mr-20 mt-10 ml-30">
+            <table className="w-full text-left text-gray-700 dark:text-gray-400">
               <thead className="font-sans uppercase bg-indblue opacity dark:bg-gray-700 dark:text-gray-400">
                 <tr className="border border-1 border-gray-900 text-gray-200 opacity-100">
                   <th scope="col" className="text-center">
+                    UserName
+                  </th>
+                  <th scope="col" className="text-center py-4">
                     Title
                   </th>
                   <th scope="col" className="text-center py-4">
                     Theme
+                  </th>
+                  <th scope="col" className="text-center py-4">
+                    Email Id
                   </th>
                   <th scope="col" className="text-center py-4">
                     IP Generated 
@@ -55,7 +61,7 @@ export default function AdminOtherIdeasTable(props) {
                   <th scope="col" className="text-center py-4">
                     Funding Support
                   </th>
-                  <th scope="col" className="text-center py-4">
+                  <th scope="col" className="text-center py-4 mr-2">
                     Action
                   </th>
                 </tr>
@@ -66,13 +72,16 @@ export default function AdminOtherIdeasTable(props) {
                     key={row.id}
                     className="border border-1 border-gray-900 text-sm dark:bg-gray-900 font-medium dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
                   >
+                    
                     <th
                       scope="row"
                       className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white whitespace-nowrap"
                     >
-                      {row.project_title}
+                      {row.user.name}
                     </th>
+                    <td className="text-center py-4">{row.project_title}</td>
                     <td className="text-center py-4">{row.project_theme}</td>
+                    <td className="text-center py-4">{row.user.email}</td>
                     <td className="text-center py-4">
                       {row.project_ip_registration ? "Yes" : "No"}
                     </td>
@@ -86,7 +95,7 @@ export default function AdminOtherIdeasTable(props) {
                       <a
                         href={`/admin/participant/${row.user.id}?tab=2`}
                         target={"_blank"}
-                        className="p-10 py-2 box-content rounded-xl w-44 h-10 text-lg font-normal text-white bg-indblue"
+                        className="p-5 py-2 mr-2 box-content rounded-xl w-20 h-10 text-lg font-normal text-white bg-indblue"
                       >
                         View
                       </a>
