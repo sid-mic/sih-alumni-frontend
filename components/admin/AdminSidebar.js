@@ -26,14 +26,14 @@ class AdminSidebar extends Component {
             <div
               className={
                 moduletype.id === this.state.ClickedButton
-                  ? "bg-white md:p-5  md:flex md:flex-wrap md:p-5 p-3 delay-75 duration-500 ease-in-out transform hover:scale-125 items-center text-indblue rounded-xl"
+                  ? "bg-white mt-6 md:p-3  md:flex md:flex-wrap md:p-5 p-3 delay-75 duration-500 ease-in-out transform hover:scale-125 items-center text-indblue rounded-xl"
                   : "transparent md:flex md:flex-wrap md:p-5 p-3 delay-75 duration-500 ease-in-out transform hover:scale-125 items-center text-white"
               }
               id={moduletype.id}
               key={moduletype.id}
               onClick={() => this.handleChange(moduletype.id)}
             >
-              <FontAwesomeIcon  icon={ moduletype.icon } className="m-2"/>
+              <FontAwesomeIcon  icon={ moduletype.icon } className="mr-3"/>
               <span
                 style={{ fontFamily: "Montserrat" }}
                 className="hidden  md:block text-sm"
@@ -47,7 +47,7 @@ class AdminSidebar extends Component {
          <div className="hidden md:block md:h-20"></div>
       <div
           onClick={() => auth().logout()}
-          class="hidden md:flex md:flex-wrap hover:shadow-md p-4 rounded-xl duration-1000 ease-in-out transform hover:scale-125 delay-200  text-3xl font-bold text-center bg-red-500 md:p-5 ">
+          class="hidden md:flex md:flex-wrap hover:shadow-md p-3 rounded-xl duration-1000 ease-in-out transform hover:scale-125 delay-200  text-3xl font-bold text-center bg-red-500 md:p-4 mb-6 ">
       <svg
           class="w-6 h-6 mr-3"
           fill="none"

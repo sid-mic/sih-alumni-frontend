@@ -8,8 +8,10 @@ import { AdminStats } from "../../components/admin/AdminStats";
 import { ChartStats } from "../../components/admin/ChartStats";
 import { WelcomeHero } from "../../components/WelcomeHero";
 import {
+  faCogs,
   faFolderPlus,
   faHome,
+  faLightbulb,
   faPenAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +29,8 @@ import Initiatives from "../../components/admin/Initiatives";
 import AdminStoriesTable from "../../components/admin/AdminStoriesTable";
 import axios from "../../utils/axios";
 import AdminFeedbacksTable from "../../components/admin/AdminFeedbacksTable";
+import AdminOtherIdeasTable from "../../components/admin/AdminOtherIdeasTable";
+import AdminHackathonIdeasTable from "../../components/admin/AdminHackathonIdeasTable";
 
 class Home extends Component {
   constructor(props) {
@@ -58,6 +62,16 @@ class Home extends Component {
         icon: faBullhorn,
       },
       {
+        id: 9,
+        type: "Other Ideas",
+        icon: faLightbulb,
+      },
+      {
+        id: 10,
+        type: "Hackathon Ideas",
+        icon: faCogs,
+      },
+      {
         id: 7,
         type: "Stories",
         icon: faPenAlt,
@@ -77,6 +91,7 @@ class Home extends Component {
         type: "New Import",
         icon: faFileImport,
       },
+      
     ],
     selectedmoduletype: 1,
     user: null,
@@ -285,7 +300,73 @@ class Home extends Component {
                   <div className="flex  flex-wrap">
                     <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                       <WelcomeHero h1="Feedbacks" />
-                    <AdminFeedbacksTable/>
+                    <AdminFeedbacksTable test2={"hello2"}/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+              />
+            </div>
+          </>
+      );
+    }
+    if (this.state.selectedmoduletype === 9) {
+      return (
+          <>
+            <div className="flex flex-col min-h-screen">
+              <div className="flex  flex-wrap">
+                <AdminSidebar
+                    moduletypes={this.state.moduletypes}
+                    selectedtype={this.setModuleType}
+                />
+                <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                  <div className="flex  flex-wrap">
+                    <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                      <WelcomeHero h1="Other Ideas" />
+                    <AdminOtherIdeasTable test2={"hello2"}/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+              />
+            </div>
+          </>
+      );
+    }
+    if (this.state.selectedmoduletype === 10) {
+      return (
+          <>
+            <div className="flex flex-col min-h-screen">
+              <div className="flex  flex-wrap">
+                <AdminSidebar
+                    moduletypes={this.state.moduletypes}
+                    selectedtype={this.setModuleType}
+                />
+                <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                  <div className="flex  flex-wrap">
+                    <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                      <WelcomeHero h1="Other Ideas" />
+                    <AdminHackathonIdeasTable test3={"hello3"}/>
                     </div>
                   </div>
                 </div>
