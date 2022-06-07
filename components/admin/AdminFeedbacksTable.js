@@ -84,7 +84,7 @@ export default function AdminFeedbacksTable(props) {
                     </td>
                     <td className="py-4 text-center">
                       <a
-                        href={`/admin/participant/${row.user.id}?tab=feedback`}
+                        href={`/admin/participant/${row.user.id}?tab=4`}
                         target={"_blank"}
                         className="p-10 py-2 box-content rounded-xl w-44 h-10 text-lg font-normal text-white bg-indblue"
                       >
@@ -193,7 +193,7 @@ function StoryRow({ data, index }) {
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         <div className={"ml-3 flex content-center"}>
           <a
-            href={`/admin/participant/${data.user.id}?tab=feedback`}
+            href={`/admin/participant/${data.user.id}?tab=4`}
             className={
               "block bg-blue-600 rounded-lg p-3 mr-4 col-span-2 align-middle"
             }

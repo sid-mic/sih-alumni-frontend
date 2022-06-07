@@ -21,7 +21,7 @@ import EditProfile from "../../../components/EditProfile";
 import FeedbackQuestions from "../../../components/FeedbackQuestions";
 
 export default function Participant1() {
-  const { id } = useRouter().query;
+  const { id, tab } = useRouter().query;
 
   const moduleTypes = [
     {
@@ -60,6 +60,8 @@ export default function Participant1() {
 
   useEffect(async () => {
     if (isLoading && id) {
+      setSelectedModule(parseInt(tab ?? "1"));
+      console.log(parseInt(tab ?? "1"))
       let data = await requireAuth("/");
 
       if (data.isAuth) {
@@ -99,6 +101,7 @@ export default function Participant1() {
           moduletypes={moduleTypes}
           selectedtype={setModuleType}
           view_only_mode={true}
+          selectedModule={selectedModule}
         />
         <div
           style={{ fontFamily: "Montserrat" }}
@@ -139,6 +142,7 @@ export default function Participant1() {
           moduletypes={moduleTypes}
           selectedtype={setModuleType}
           view_only_mode={true}
+          selectedModule={selectedModule}
         />
         <div
           className="flex flex-col bg-indblue min-h-full min-w-full"
@@ -180,6 +184,7 @@ export default function Participant1() {
           moduletypes={moduleTypes}
           selectedtype={setModuleType}
           view_only_mode={true}
+          selectedModule={selectedModule}
         />
         <div
           className="flex flex-col bg-indblue min-h-full min-w-full"
@@ -216,6 +221,7 @@ export default function Participant1() {
           moduletypes={moduleTypes}
           selectedtype={setModuleType}
           view_only_mode={true}
+          selectedModule={selectedModule}
         />
         <div
           style={{ fontFamily: "Montserrat" }}
@@ -253,6 +259,7 @@ export default function Participant1() {
           moduletypes={moduleTypes}
           selectedtype={setModuleType}
           view_only_mode={true}
+          selectedModule={selectedModule}
         />
         <div className="flex flex-col bg-indblue min-h-full min-w-full ">
           <div className="flex  flex-wrap">

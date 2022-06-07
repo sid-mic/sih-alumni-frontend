@@ -7,7 +7,7 @@ import auth from "../utils/auth";
 class SidebarMobile extends Component {
   constructor(props) {
     super(props);
-    this.state = { ClickedButton: 1 };
+    this.state = { ClickedButton: this.props.selectedModule ?? 1 };
     this.handleChange = this.handleChange.bind(this);
   }
 
