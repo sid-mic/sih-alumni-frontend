@@ -35,8 +35,8 @@ export default function AdminFeedbacksTable(props) {
   } else {
     return (
       <>
-        <div className="mx-10 mb-10">
-          <div className="relative overflow-x-auto shadow-lg w-full mr-20 sm:rounded-lg mt-10">
+        <div className="mx-28 mb-10">
+          <div className="relative shadow-lg mx-auto mt-10">
             <table className="w-full text-left text-gray-700 dark:text-gray-400">
               <thead className="font-sans uppercase bg-indblue opacity dark:bg-gray-700 dark:text-gray-400">
                 <tr className="border border-1 border-gray-900 text-gray-200 opacity-100">
@@ -64,11 +64,11 @@ export default function AdminFeedbacksTable(props) {
                 {list_data.map((row, index) => (
                   <tr
                     key={row.id}
-                    className="border border-1 border-gray-900 text-lg dark:bg-gray-900 font-medium dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
+                    className="border border-1 border-gray-900 dark:bg-gray-900 font-medium dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
                   >
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-lg text-gray-900 dark:text-white whitespace-nowrap"
+                      className="px-6 py-4"
                     >
                       {row.user.name}
                     </th>
