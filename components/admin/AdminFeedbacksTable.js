@@ -46,6 +46,15 @@ export default function AdminFeedbacksTable(props) {
                   <th scope="col" className="text-center py-4">
                     Email
                   </th>
+                  {/*<th scope="col" className="text-center py-4">*/}
+                  {/*  Phone*/}
+                  {/*</th>*/}
+                  <th scope="col" className="text-center py-4">
+                    Recommend others
+                  </th>
+                  <th scope="col" className="text-center py-4">
+                    Received award
+                  </th>
                   <th scope="col" className="text-center py-4">
                     Registered IP
                   </th>
@@ -73,6 +82,13 @@ export default function AdminFeedbacksTable(props) {
                       {row.user.name}
                     </th>
                     <td className="text-center py-4">{row.user.email}</td>
+                    {/*<td className="text-center py-4">{row.user.phone}</td>*/}
+                    <td className="text-center py-4">
+                      {row.recommend_others ? "Yes" : "No"}
+                    </td>
+                    <td className="text-center py-4">
+                      {row.received_award ? "Yes" : "No"}
+                    </td>
                     <td className="text-center py-4">
                       {row.ip_registration ? "Yes" : "No"}
                     </td>
