@@ -75,7 +75,7 @@ export default function AdminOtherIdeasTable(props) {
                     
                     <th
                       scope="row"
-                      className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white whitespace-nowrap"
+                      className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white"
                     >
                       {row.user.name}
                     </th>
