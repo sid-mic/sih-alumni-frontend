@@ -141,6 +141,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 1) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -167,6 +171,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 2) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -189,6 +197,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 3) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -225,6 +237,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 4) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -258,6 +274,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 7) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -291,6 +311,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 8) {
       return (
           <>
+            <Head>
+              <title key={"title"}>Admin | MIC Alumni Portal</title>
+              <link key={"link"} rel="icon" href="/favicon.ico" />
+            </Head>
             <div className="flex flex-col min-h-screen">
               <div className="flex  flex-wrap">
                 <AdminSidebar
@@ -324,6 +348,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 9) {
       return (
           <>
+            <Head>
+              <title key={"title"}>Admin | MIC Alumni Portal</title>
+              <link key={"link"} rel="icon" href="/favicon.ico" />
+            </Head>
             <div className="flex flex-col min-h-screen">
               <div className="flex  flex-wrap">
                 <AdminSidebar
@@ -357,6 +385,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 10) {
       return (
           <>
+            <Head>
+              <title key={"title"}>Admin | MIC Alumni Portal</title>
+              <link key={"link"} rel="icon" href="/favicon.ico" />
+            </Head>
             <div className="flex flex-col min-h-screen">
               <div className="flex  flex-wrap">
                 <AdminSidebar
@@ -390,6 +422,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 5) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar
@@ -423,6 +459,10 @@ class Home extends Component {
     if (this.state.selectedmoduletype === 6) {
       return (
         <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
           <div className="flex flex-col min-h-screen">
             <div className="flex  flex-wrap">
               <AdminSidebar

@@ -35,8 +35,8 @@ export default function AdminOtherIdeasTable(props) {
   } else {
     return (
       <>
-        <div className="mx-10 mb-10 ml-48">
-          <div className="relative overflow-x-auto shadow-lg w-5/6 mr-20 mt-10 ml-30">
+        <div className="mb-10 mx-28">
+          <div className="relative shadow-lg mt-10 mx-auto">
             <table className="w-full text-left text-gray-700 dark:text-gray-400">
               <thead className="font-sans uppercase bg-indblue opacity dark:bg-gray-700 dark:text-gray-400">
                 <tr className="border border-1 border-gray-900 text-gray-200 opacity-100">
@@ -75,7 +75,7 @@ export default function AdminOtherIdeasTable(props) {
                     
                     <th
                       scope="row"
-                      className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white whitespace-nowrap"
+                      className="px-6 py-4 text-center font-medium text-sm text-gray-900 dark:text-white"
                     >
                       {row.user.name}
                     </th>
