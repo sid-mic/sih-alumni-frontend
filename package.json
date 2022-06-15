@@ -32,8 +32,10 @@
     "react-easy-swipe": "^0.0.22",
     "react-fast-marquee": "^1.2.1",
     "react-icons": "^4.3.1",
+    "react-simple-image-slider": "^2.4.1",
     "react-text-loop": "^2.3.0",
     "react-toastify": "^8.1.0",
+    "react-video-seek-slider": "^4.0.17",
     "simple-react-validator": "^1.6.1",
     "styled-components": "^5.3.3"
   },
