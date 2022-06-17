@@ -88,7 +88,7 @@ export default function AdminHackathonIdeasTable(props) {
                     </td>
                     <td className="py-4 text-center">
                       <a
-                        href={`/admin/participant/${row.project.leader.id}?tab=my_ideas`}
+                        href={`/admin/participant/${row.project.leader.id}?tab=1`}
                         target={"_blank"}
                         className="p-5 mr-2 py-2 box-content rounded-xl w-44 h-10 text-lg font-normal text-white bg-indblue"
                       >
