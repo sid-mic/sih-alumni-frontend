@@ -79,7 +79,10 @@ export default function TeamQuestions(props) {
               setFundingDate(data.funding_date);
               setFundingSupportNeeded(data.funding_support_needed);
               setProjectDeliveryStatus(data.project_delivery_status);
-              setProjectDeliveredStatus(data.project_delivered_status ?? "Delivered and Implemented by Department/Ministry/Organisation");
+              setProjectDeliveredStatus(
+                data.project_delivered_status ??
+                  "Delivered and Implemented by Department/Ministry/Organisation"
+              );
               setProjectImplementedByMinistry(
                 data.project_implemented_by_ministry ?? "1"
               );
@@ -101,8 +104,12 @@ export default function TeamQuestions(props) {
               setStartupName(data.startup_name);
               setCompanyRegistrationStatus(data.company_registration_status);
               setCompanyName(data.company_name);
-              setCompanyRegistrationType(data.company_registration_type);
-              setCompanyRegistrationDpiit(data.company_registration_dpiit);
+              setCompanyRegistrationType(
+                data.company_registration_type ?? "Section 8 Company"
+              );
+              setCompanyRegistrationDpiit(
+                data.company_registration_dpiit ?? "1"
+              );
             }
           }
 
