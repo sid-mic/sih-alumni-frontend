@@ -79,9 +79,9 @@ export default function TeamQuestions(props) {
               setFundingDate(data.funding_date);
               setFundingSupportNeeded(data.funding_support_needed);
               setProjectDeliveryStatus(data.project_delivery_status);
-              setProjectDeliveredStatus(data.project_delivered_status);
+              setProjectDeliveredStatus(data.project_delivered_status ?? "Delivered and Implemented by Department/Ministry/Organisation");
               setProjectImplementedByMinistry(
-                data.project_implemented_by_ministry
+                data.project_implemented_by_ministry ?? true
               );
               setMicSupportDeploy(data.mic_support_deploy);
               setIncubatorStatus(data.incubator_status);
