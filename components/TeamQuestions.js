@@ -28,7 +28,7 @@ export default function TeamQuestions(props) {
   const [
     projectImplementedByMinistry,
     setProjectImplementedByMinistry,
-  ] = useState(false);
+  ] = useState("1");
   const [micSupportDeploy, setMicSupportDeploy] = useState(null);
   const [incubatorStatus, setIncubatorStatus] = useState(null);
   const [nameOfIncubator, setNameOfIncubator] = useState(null);
@@ -81,7 +81,7 @@ export default function TeamQuestions(props) {
               setProjectDeliveryStatus(data.project_delivery_status);
               setProjectDeliveredStatus(data.project_delivered_status ?? "Delivered and Implemented by Department/Ministry/Organisation");
               setProjectImplementedByMinistry(
-                data.project_implemented_by_ministry ?? true
+                data.project_implemented_by_ministry ?? "1"
               );
               setMicSupportDeploy(data.mic_support_deploy);
               setIncubatorStatus(data.incubator_status);
