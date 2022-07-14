@@ -80,8 +80,11 @@ export default function Stories() {
                <h3 className="text-black mt-2">
                   Participated in : <span> {story.hackathons}</span>
               </h3>
+              <h3 className="text-black text-md mt-2">
+              Designation : <span>{story.user.designation}</span>
+              </h3>
                <h3 className="text-black text-md mt-2">
-                  Startup Name : <span>{story.user.organization_name}</span>
+                 {story.display === 'mentor' ? 'Startup Name' : 'Working in'} : <span>{story.user.organization_name}</span>
               </h3>
             </div>
 

@@ -22,11 +22,13 @@ export default function TeamQuestions(props) {
   const [fundingDate, setFundingDate] = useState(null);
   const [fundingSupportNeeded, setFundingSupportNeeded] = useState(null);
   const [projectDeliveryStatus, setProjectDeliveryStatus] = useState(null);
-  const [projectDeliveredStatus, setProjectDeliveredStatus] = useState(null);
+  const [projectDeliveredStatus, setProjectDeliveredStatus] = useState(
+    "Delivered and Implemented by Department/Ministry/Organisation"
+  );
   const [
     projectImplementedByMinistry,
     setProjectImplementedByMinistry,
-  ] = useState(null);
+  ] = useState("1");
   const [micSupportDeploy, setMicSupportDeploy] = useState(null);
   const [incubatorStatus, setIncubatorStatus] = useState(null);
   const [nameOfIncubator, setNameOfIncubator] = useState(null);
@@ -44,10 +46,10 @@ export default function TeamQuestions(props) {
     null
   );
   const [companyName, setCompanyName] = useState(null);
-  const [companyRegistrationType, setCompanyRegistrationType] = useState(null);
-  const [companyRegistrationDpiit, setCompanyRegistrationDpiit] = useState(
-    null
+  const [companyRegistrationType, setCompanyRegistrationType] = useState(
+    "Section 8 Company"
   );
+  const [companyRegistrationDpiit, setCompanyRegistrationDpiit] = useState("1");
   const [companyLogo, setCompanyLogo] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -77,14 +79,20 @@ export default function TeamQuestions(props) {
               setFundingDate(data.funding_date);
               setFundingSupportNeeded(data.funding_support_needed);
               setProjectDeliveryStatus(data.project_delivery_status);
-              setProjectDeliveredStatus(data.project_delivered_status);
+              setProjectDeliveredStatus(
+                data.project_delivered_status ??
+                  "Delivered and Implemented by Department/Ministry/Organisation"
+              );
               setProjectImplementedByMinistry(
-                data.project_implemented_by_ministry
+                data.project_implemented_by_ministry ?? "1"
               );
               setMicSupportDeploy(data.mic_support_deploy);
               setIncubatorStatus(data.incubator_status);
               setNameOfIncubator(data.name_of_incubator);
-              setTrlLevel(data.trl_level ?? "TRL 0 : Idea. Unproven concept, no testing has been performed.");
+              setTrlLevel(
+                data.trl_level ??
+                  "TRL 0 : Idea. Unproven concept, no testing has been performed."
+              );
               setVideoUrl(data.video_url);
               setIpStatus(data.ip_status);
               setIpType(data.ip_type);
@@ -96,8 +104,12 @@ export default function TeamQuestions(props) {
               setStartupName(data.startup_name);
               setCompanyRegistrationStatus(data.company_registration_status);
               setCompanyName(data.company_name);
-              setCompanyRegistrationType(data.company_registration_type);
-              setCompanyRegistrationDpiit(data.company_registration_dpiit);
+              setCompanyRegistrationType(
+                data.company_registration_type ?? "Section 8 Company"
+              );
+              setCompanyRegistrationDpiit(
+                data.company_registration_dpiit ?? "1"
+              );
             }
           }
 
@@ -230,7 +242,12 @@ export default function TeamQuestions(props) {
                       setDevelopmentStatus(e.target.value);
                     }}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label class="flex radio p-2 cursor-pointer">
@@ -244,7 +261,12 @@ export default function TeamQuestions(props) {
                       setDevelopmentStatus(e.target.value);
                     }}
                   />
-                  <div class="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    class="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -252,7 +274,10 @@ export default function TeamQuestions(props) {
           {developmentStatus == true && (
             <div className="flex -mx-3 px-4">
               <div className="w-full px-3 mb-5">
-                <label className="text-md font-noraml" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <label
+                  className="text-md font-noraml"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
                   If Yes, please elaborate a little with details. (Please also
                   include the product details of your SIH project, the current
                   status of it, if it has been implemented anywhere etc.)
@@ -261,7 +286,8 @@ export default function TeamQuestions(props) {
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <textarea style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <textarea
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     rows={5}
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -288,7 +314,12 @@ export default function TeamQuestions(props) {
                       checked={micSupport == true}
                       onChange={(e) => setMicSupport(e.target.value)}
                     />
-                    <div className="title px-2 font-weight: normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-weight: normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -300,7 +331,12 @@ export default function TeamQuestions(props) {
                       checked={micSupport == false}
                       onChange={(e) => setMicSupport(e.target.value)}
                     />
-                    <div className="title px-2 font-weight: normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-weight: normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -309,7 +345,10 @@ export default function TeamQuestions(props) {
 
           <div className="flex -mx-3">
             <div className="w-full px-3 mb-5">
-              <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <label
+                className="text-md font-normal"
+                style={{ fontFamily: "Poppins, sans-serif" }}
+              >
                 Whether this SIH project development activity was
                 supported/funded by any Ministry or AICTE or any Private
                 Organization?
@@ -324,7 +363,12 @@ export default function TeamQuestions(props) {
                     checked={fundStatus == true}
                     onChange={(e) => setFundStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -336,7 +380,12 @@ export default function TeamQuestions(props) {
                     checked={fundStatus == false}
                     onChange={(e) => setFundStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -345,7 +394,12 @@ export default function TeamQuestions(props) {
             <>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Organization</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Organization
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
@@ -362,12 +416,18 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Amount</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Amount
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       type="text"
                       disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
@@ -379,14 +439,18 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Date of funding
                   </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       type="date"
                       disabled={disabled}
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -416,7 +480,12 @@ export default function TeamQuestions(props) {
                       checked={fundingSupportNeeded == true}
                       onChange={(e) => setFundingSupportNeeded(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -428,7 +497,12 @@ export default function TeamQuestions(props) {
                       checked={fundingSupportNeeded == false}
                       onChange={(e) => setFundingSupportNeeded(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -451,7 +525,12 @@ export default function TeamQuestions(props) {
                     checked={projectDeliveryStatus == true}
                     onChange={(e) => setProjectDeliveryStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -463,7 +542,12 @@ export default function TeamQuestions(props) {
                     checked={projectDeliveryStatus == false}
                     onChange={(e) => setProjectDeliveryStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -472,14 +556,18 @@ export default function TeamQuestions(props) {
           {projectDeliveryStatus == true && (
             <div className="flex mb-5 -mx-3 px-4">
               <div className="w-full px-3 mb-5">
-                <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <label
+                  className="text-md font-normal"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
                   Select an option
                 </label>
                 <div className="flex">
                   <select
                     disabled={disabled}
                     className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-state font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}
+                    id="grid-state font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     onChange={(e) => {
                       setProjectDeliveredStatus(e.target.value);
                       setProjectImplementedByMinistry(
@@ -530,7 +618,12 @@ export default function TeamQuestions(props) {
                       checked={micSupportDeploy == true}
                       onChange={(e) => setMicSupportDeploy(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Yes
+                    </div>
                   </label>
 
                   <label className="flex radio p-2 cursor-pointer">
@@ -542,7 +635,12 @@ export default function TeamQuestions(props) {
                       checked={micSupportDeploy == false}
                       onChange={(e) => setMicSupportDeploy(e.target.value)}
                     />
-                    <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                    <div
+                      className="title px-2 font-normal"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      No
+                    </div>
                   </label>
                 </div>
               </div>
@@ -564,7 +662,12 @@ export default function TeamQuestions(props) {
                     checked={incubatorStatus == true}
                     onChange={(e) => setIncubatorStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -576,7 +679,12 @@ export default function TeamQuestions(props) {
                     checked={incubatorStatus == false}
                     onChange={(e) => setIncubatorStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -585,14 +693,18 @@ export default function TeamQuestions(props) {
           {incubatorStatus == true && (
             <div className="flex mb-5 -mx-3 px-4">
               <div className="w-full px-3 mb-5">
-                <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <label
+                  className="text-md font-normal"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
                   Name of the Incubator
                 </label>
                 <div className="flex">
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <input
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -610,7 +722,8 @@ export default function TeamQuestions(props) {
                 Select Your Project's current TRL level
               </label>
               <div className="flex">
-                <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                <select
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                   disabled={disabled}
                   className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                   id="grid-state"
@@ -730,7 +843,8 @@ export default function TeamQuestions(props) {
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                   <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                 </div>
-                <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                <input
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                   disabled={disabled}
                   type="text"
                   className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -757,7 +871,12 @@ export default function TeamQuestions(props) {
                     checked={ipStatus == true}
                     onChange={(e) => setIpStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -769,7 +888,12 @@ export default function TeamQuestions(props) {
                     checked={ipStatus == false}
                     onChange={(e) => setIpStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -779,12 +903,18 @@ export default function TeamQuestions(props) {
             <>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>IP type:</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    IP type:
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -796,7 +926,10 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Is Patent Registered?
                   </label>
                   <div className="main flex overflow-hidden m-2 select-none">
@@ -809,7 +942,12 @@ export default function TeamQuestions(props) {
                         checked={isPatentRegistered == true}
                         onChange={(e) => setIsPatentRegistered(e.target.value)}
                       />
-                      <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                      <div
+                        className="title px-2 font-normal"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
+                        Yes
+                      </div>
                     </label>
 
                     <label className="flex radio p-2 cursor-pointer">
@@ -821,19 +959,30 @@ export default function TeamQuestions(props) {
                         checked={isPatentRegistered == false}
                         onChange={(e) => setIsPatentRegistered(e.target.value)}
                       />
-                      <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                      <div
+                        className="title px-2 font-normal"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
+                        No
+                      </div>
                     </label>
                   </div>
                 </div>
               </div>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>IP Number:</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    IP Number:
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -845,14 +994,18 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Date of IP Reg:
                   </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="date"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -864,14 +1017,18 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3 px-4">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Number of IP Filed Till Date:
                   </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -900,7 +1057,12 @@ export default function TeamQuestions(props) {
                     checked={startupStatus == true}
                     onChange={(e) => setStartupStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -912,7 +1074,12 @@ export default function TeamQuestions(props) {
                     checked={startupStatus == false}
                     onChange={(e) => setStartupStatus(e.target.value)}
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -921,14 +1088,18 @@ export default function TeamQuestions(props) {
           {startupStatus == true && (
             <div className="flex mb-5 -mx-3 px-4">
               <div className="w-full px-3 mb-5">
-                <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <label
+                  className="text-md font-normal"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
                   Give the name of your start-up:
                 </label>
                 <div className="flex">
                   <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                     <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                   </div>
-                  <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                  <input
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                     disabled={disabled}
                     type="text"
                     className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -957,7 +1128,12 @@ export default function TeamQuestions(props) {
                       setCompanyRegistrationStatus(e.target.value)
                     }
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Yes</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Yes
+                  </div>
                 </label>
 
                 <label className="flex radio p-2 cursor-pointer">
@@ -971,7 +1147,12 @@ export default function TeamQuestions(props) {
                       setCompanyRegistrationStatus(e.target.value)
                     }
                   />
-                  <div className="title px-2 font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>No</div>
+                  <div
+                    className="title px-2 font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    No
+                  </div>
                 </label>
               </div>
             </div>
@@ -981,12 +1162,18 @@ export default function TeamQuestions(props) {
             <>
               <div className="flex mb-5 -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Company Name:</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Company Name:
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="text"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
@@ -998,11 +1185,15 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Type of Registration:
                   </label>
                   <div className="flex">
-                    <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <select
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                       id="grid-state"
@@ -1045,12 +1236,16 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     Registered as Firm/Startup as per DPIIT Norm (including
                     section 25):
                   </label>
                   <div className="flex">
-                    <select style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <select
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       className="mt-5 block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 font-normal"
                       id="grid-state"
@@ -1076,12 +1271,18 @@ export default function TeamQuestions(props) {
               </div>
               <div className="flex mb-5 -mx-3">
                 <div className="w-full px-3 mb-5">
-                  <label className="text-md font-normal" style={{ fontFamily: 'Poppins, sans-serif' }}>Company Logo:</label>
+                  <label
+                    className="text-md font-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Company Logo:
+                  </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
                       <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                     </div>
-                    <input style={{ fontFamily: 'Poppins, sans-serif' }}
+                    <input
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                       disabled={disabled}
                       type="file"
                       className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
