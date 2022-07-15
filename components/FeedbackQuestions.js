@@ -208,13 +208,13 @@ export default function FeedbackQuestions(props) {
         <FormNotFilled />
       ) : (
         <>
-          <div className="mb-20 min-h-screen  ml-20 mr-20">
+          <div className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20">
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
                 <label className="text-md font-semibold">
                   1] Whether SIH helped in building your confidence ?
                 </label>
-                <div className="main flex overflow-hidden m-2 select-none">
+                <div className="main xl:flex m-2 select-none">
                   <label className="flex radio p-2 cursor-pointer">
                     <input
                       disabled={disabled}

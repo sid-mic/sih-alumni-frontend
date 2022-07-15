@@ -212,9 +212,9 @@ export default function Participant1() {
   }
   if (selectedModule === 4) {
     return (
-      <>
-        <Head>
-          <title key={"title"}>Dashboard | MIC Alumni Portal</title>
+    <>
+     <Head>
+          <title key={"title"}>Participant Dashboard | MIC Alumni Portal</title>
           <link key={"link"} rel="icon" href="/favicon.ico" />
         </Head>
         <SidebarMobile
@@ -224,13 +224,13 @@ export default function Participant1() {
           selectedModule={selectedModule}
         />
         <div
-          style={{ fontFamily: "Montserrat" }}
           className="flex flex-col bg-indblue min-h-full min-w-full"
+          style={{ fontFamily: "Montserrat" }}
         >
           <div className="flex  flex-wrap">
             <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-72 mt-14">
-              <WelcomeHero h1="Feedback" />
-              <FeedbackQuestions user={user} view_only_mode={true} />
+             <div> <WelcomeHero h1="Feedback" />
+              <FeedbackQuestions user={user} view_only_mode={true} /></div>
             </div>
           </div>
         </div>
