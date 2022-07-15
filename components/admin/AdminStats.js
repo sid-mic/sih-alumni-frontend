@@ -1,7 +1,9 @@
+
+import styles from "./AdminStats.module.css";
 export const AdminStats = ({stats, initiatives_count}) => {
   return (
     <div className="px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0">
-      <div className="grid grid-cols-2 row-gap-8 md:grid-cols-4 mx-40">
+      <div className="grid grid-cols-1 row-gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mx-1 lg:mx-20 xl:mx-40">
         <div className="p-7 py-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
           <h6 className="text-3xl font-bold text-deep-purple-accent-400">
             {stats.users}
@@ -27,7 +29,7 @@ export const AdminStats = ({stats, initiatives_count}) => {
           <p className="font-bold">INITIATIVES</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 row-gap-8 md:grid-cols-4 mx-40">
+      <div className="grid grid-cols-1 row-gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mx-1 lg:mx-20 xl:mx-40">
         <div className="p-7 py-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
           <h6 className="text-3xl font-bold text-deep-purple-accent-400">
             {stats.startups}

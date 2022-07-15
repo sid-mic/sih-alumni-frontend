@@ -264,72 +264,74 @@ export default function DataComponent(props) {
               </div>
             </form>
           </div>
-          <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
-            <thead className="block md:table-header-group rounded-2xl">
-              <tr className="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-                <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Name
-                </th>
-                <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Email Address
-                </th>
-                <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Mobile
-                </th>
-                <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Registered
-                </th>
-                <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
-                  Detailed info
-                </th>
-              </tr>
-            </thead>
-            <tbody className="block md:table-row-group">
-              {data.map((item, index) => (
-                <tr
-                  className="bg-gray-300 border border-grey-500 md:border-none block md:table-row"
-                  key={index}
-                >
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                    <span className="inline-block w-1/3 md:hidden font-bold">
-                      Name
-                    </span>
-                    {item.name}
-                  </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                    <span className="inline-block w-1/3 md:hidden font-bold">
-                      Team Leader
-                    </span>
-                    {item.email}
-                  </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                    <span className="inline-block w-1/3 md:hidden font-bold">
-                      Mobile
-                    </span>
-                    {item.phone}
-                  </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                    <span className="inline-block w-1/3 md:hidden font-bold">
-                      Signed_up
-                    </span>
-                    {item.signed_up_at ? "Yes" : "No"}
-                  </td>
-                  <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                    <span className="inline-block w-1/3 md:hidden font-bold">
-                      Detailed info
-                    </span>
-                    <a
-                      href={"/admin/participant/" + item.id}
-                      target={"_blank"}
-                      className="bg-indblue hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
-                    >
-                      View Response
-                    </a>
-                  </td>
+          <div className="overflow-x-scroll lg:overflow-x-visible">
+            <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
+              <thead className="block md:table-header-group rounded-2xl">
+                <tr className="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+                  <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                    Name
+                  </th>
+                  <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                    Email Address
+                  </th>
+                  <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                    Mobile
+                  </th>
+                  <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                    Registered
+                  </th>
+                  <th className="bg-indblue  p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                    Detailed info
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="block md:table-row-group">
+                {data.map((item, index) => (
+                  <tr
+                    className="bg-gray-300 border border-grey-500 md:border-none block md:table-row"
+                    key={index}
+                  >
+                    <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                      <span className="inline-block w-1/3 md:hidden font-bold">
+                        Name
+                      </span>
+                      {item.name}
+                    </td>
+                    <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                      <span className="inline-block w-1/3 md:hidden font-bold">
+                        Team Leader
+                      </span>
+                      {item.email}
+                    </td>
+                    <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                      <span className="inline-block w-1/3 md:hidden font-bold">
+                        Mobile
+                      </span>
+                      {item.phone}
+                    </td>
+                    <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                      <span className="inline-block w-1/3 md:hidden font-bold">
+                        Signed_up
+                      </span>
+                      {item.signed_up_at ? "Yes" : "No"}
+                    </td>
+                    <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                      <span className="inline-block w-1/3 md:hidden font-bold">
+                        Detailed info
+                      </span>
+                      <a
+                        href={"/admin/participant/" + item.id}
+                        target={"_blank"}
+                        className="bg-indblue hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"
+                      >
+                        View Response
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className={"mt-10 text-center mr-16"}>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import auth from "../../utils/auth";
-
+import styles from "./AdminSidebar.module.css";
 class AdminSidebar extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ class AdminSidebar extends Component {
     return (
       <div class="bg-indblue static uppercase font-semibold  flex h-16 md:flex-col  shadow-lg  justify-around md:h-screen md:w-60 fixed w-screen bottom-0 items-center">
         <img
-          className="hidden h-10 md:block"
+          className={styles.adminLogo+" hidden h-10 md:block "}
           src="https://mic.gov.in/assets/img/logo.png"
         ></img>
         {this.props.moduletypes.map(

@@ -38,19 +38,19 @@ class ProjectComponent extends Component {
     if (!this.state.selected_project) {
       return (
         <div>
-          <div className="min-h-screen ml-20 mr-20">
+          <div className="min-h-screen ml-4 md:ml-20 mr-4 md:mr-20">
             <div className="flex -mx-3 justify-center mt-10 ">
               {" "}
-              <h2 style={{ fontFamily: "Montserrat" }} className="max-w-lg mb-1 font-sans text-2xl font-bold leading-none tracking-tight text-gray-900 md:mx-auto">Please select the Hackathon to enter: </h2>
+              <h2 style={{ fontFamily: "Montserrat", paddingLeft: "20px" }} className="max-w-lg mb-1 font-sans text-2xl font-bold leading-none tracking-tight text-gray-900 md:mx-auto">Please select the Hackathon to enter: </h2>
               <br />
               <br />
             </div>
 
-            <div className="flex -mx-3 justify-center my-5" style={{ fontFamily: "Montserrat" }}>
+            <div className="block lg:flex -mx-3 justify-center my-5" style={{ fontFamily: "Montserrat" }}>
               {Object.entries(this.props.projects).map(([id, project]) => {
                 return (
                   <button style={{ fontFamily: "Montserrat" }}
-                    className="block bg-indblue text-white p-5 rounded-xl ml-5"
+                    className="block bg-indblue text-white p-5 rounded-xl ml-5 mb-4 lg:mb-0"
                     key={id}
                     onClick={() => {
                       this.setProject(id);

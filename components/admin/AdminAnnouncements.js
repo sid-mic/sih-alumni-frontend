@@ -95,8 +95,9 @@ function AdminAnnouncementList({
     );
   } else {
     return (
-      <div className="pt-6 p-20 ml-10">
+      <div className="pt-6 p-5 lg:p-20 ml-5 lg:ml-10">
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
+          <div className="overflow-x-scroll lg:overflow-x-visible">
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
             <thead className="block md:table-header-group rounded-2xl">
               <tr className="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
@@ -131,6 +132,7 @@ function AdminAnnouncementList({
               })}
             </tbody>
           </table>
+          </div>
           <div className={"mt-10 text-center mr-16"}>
             <Pagination
               total={meta.total}
@@ -302,7 +304,7 @@ function AdminAnnouncementForm(props) {
   }
 
   return (
-    <div className=" min-h-screen  ml-20 mr-20">
+    <div className=" min-h-screen  ml-5 lg:ml-20 mr-5 lg:mr-20">
       <div className={"flex justify-start"}>
         <button
           style={{ fontFamily: "Montserrat" }}
