@@ -33,9 +33,9 @@ export default function Stories() {
       <Nav />
       <div className="mx-10 my-10  px-4 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
         <a
-          href={"/"}
+          href={"/stories/mentor"}
           style={{ fontFamily: "Montserrat" }}
-          className="button-active bg-indblue p-3 text-white rounded-lg w-40 flex mb-10"
+          className={styles.buttonLink1 +" button-active bg-indblue p-3 text-white rounded-lg w-40 flex mb-10"}
         >
           <svg
             class="w-6 h-6"
@@ -63,7 +63,7 @@ export default function Stories() {
             <div className={styles.profileDetail +" mt-4"}>
             <div className={styles.profileImgouter}>
               <figure className="float-right pl-5 text-center">
-                <img className="rounded-lg" src={story.user.picture}  />
+                <img className="border border-indigo-600" src={story.user.picture}  />
                 {/*<figcaption style={{ boxShadow : '0 5px 3px #3c3c3c', paddingTop: '5px', paddingBottom:'5px' }}>
                   <h3 className="text-black text-md mt-2">
                     by {story.user.name} </h3>

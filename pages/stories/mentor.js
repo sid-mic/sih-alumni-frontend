@@ -43,6 +43,27 @@ export default function MentorStories() {
                 </span>
                 <div className={styles.bottomLine}></div>
               </h1>
+              <div className="">
+                <a
+                  href={"/"}
+                  style={{ fontFamily: "Montserrat" }}
+                  className={styles.buttonLink1 +" button-active bg-indblue p-3 text-white w-40 flex mb-10"}
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>{" "}
+                  <span className="ml-6">Back</span>
+                </a>
+                </div>
               <div
                 class={styles.boxMentors + " flex flex-wrap -mx-3 mt-0 pt-0"}
               >
