@@ -136,5 +136,23 @@
     border: 1px solid rgba(57, 70, 134);
     color: #ffffff;
 }
+.buttonLink1 {
+	margin:0 auto;
+    font-weight: 600;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    padding:10px 25px;
+    background-color: rgba(57, 70, 134);
+    border: 1px solid rgba(57, 70, 134);
+    border-radius: 50px;
+    display: inline-flex;
+    color: #ffffff;
+}
+.buttonLink1:hover {
+	color: rgba(57, 70, 134);
+	background-color: rgba(57, 70, 134);
+    border: 1px solid rgba(57, 70, 134);
+    color: #ffffff;
+}
 
 
