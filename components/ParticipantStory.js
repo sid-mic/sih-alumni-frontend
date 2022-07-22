@@ -126,7 +126,7 @@ export default function ParticipantStory(props) {
   if (story === null && Object.keys(stories).length > 0) {
     return (
       <div>
-        <div className="ml-20 mr-20">
+        <div className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20">
           <div className="flex justify-end mt-5">
             <div className={"pl-28"}>
               <button
@@ -139,7 +139,7 @@ export default function ParticipantStory(props) {
             </div>
           </div>
 
-
+          <div className="overflow-x-scroll lg:overflow-x-visible">
           <table
               className="border-separate border border-slate-400 mt-6"
               style={{ width: "100%" }}
@@ -182,6 +182,7 @@ export default function ParticipantStory(props) {
               );
             })}
           </table>
+          </div>
 
           {/*<div className="flex -mx-3 justify-center my-5">*/}
           {/*  {Object.entries(stories).map(([id, story]) => {*/}
@@ -210,7 +211,8 @@ export default function ParticipantStory(props) {
       ) : disabled && !isFormFilled ? (
         <FormNotFilled />
       ) : (
-        <div className="mb-20 min-h-screen  ml-20 mr-20">
+        <div className="mt-10 mb-20 ml-0 md:ml-20 mr-0 md:mr-10 lg:mr-20 pl-5 md:pl-10 lg:pl-0 pr-5">
+        
           <div className="flex justify-between mb-7 mt-10">
             {Object.keys(stories).length > 0 ? (
                 <button

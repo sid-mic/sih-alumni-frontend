@@ -152,7 +152,7 @@ export default function IndividualQuestions(props) {
   if (project === null && Object.keys(props.own_projects).length > 0) {
     return (
       <div>
-        <div className="ml-20 mr-20">
+        <div className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20">
           <div className="flex justify-end mt-5">
             <div className={"pl-28"}>
               <button
@@ -164,7 +164,7 @@ export default function IndividualQuestions(props) {
               </button>
             </div>
           </div>
-
+          <div className="overflow-x-scroll lg:overflow-x-visible">
           <table
             className="border-separate border border-slate-400 mt-6"
             style={{ width: "100%" }}
@@ -207,6 +207,7 @@ export default function IndividualQuestions(props) {
               );
             })}
           </table>
+          </div>
 
           {/*<div className="flex -mx-3 justify-center my-5">*/}
           {/*  {Object.entries(props.own_projects).map(([id, project]) => {*/}
@@ -233,7 +234,7 @@ export default function IndividualQuestions(props) {
       {disabled && !isFormFilled ? (
         <FormNotFilled />
       ) : (
-        <div className="mt-10 mb-20 ml-20 mr-20">
+        <div className="mt-10 mb-20 ml-0 md:ml-20 mr-0 md:mr-10 lg:mr-20 pl-5 md:pl-10 lg:pl-0 pr-5">
           <div className="flex justify-between mb-7">
             {Object.keys(props.own_projects).length > 0 ? (
               <button
