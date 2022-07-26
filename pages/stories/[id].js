@@ -33,7 +33,7 @@ export default function Stories() {
       <Nav />
       <div className="mx-10 my-10  px-4 pb-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
         <a
-          href={"/stories/alumni"}
+          href={"/stories/" + story.display}
           style={{ fontFamily: "Montserrat" }}
           className={styles.buttonLink2 +" button-active bg-indblue p-3 text-white rounded-lg w-40 flex mb-10"}
         >
