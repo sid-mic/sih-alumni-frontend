@@ -16,6 +16,7 @@ import Initiatives from "../components/Initiatives";
 import Who from "../components/Who";
 import Benefits from "../components/Benefits";
 import News from "../components/News";
+import Graph from "./admin/graph";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -49,7 +50,9 @@ export default function Home() {
           <div className="container" style={{margin:'0 auto'}}>
           
             <Feature />
+            
             <Who />
+            <Graph />
             <Benefits />
             <News/>
             <Featured />
