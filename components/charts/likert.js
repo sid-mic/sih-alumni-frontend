@@ -152,6 +152,8 @@ import React from 'react';
 
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import axios from "../../utils/axios";
+import { useEffect, useState } from "react";
 
 export const options = {
   indexAxis: 'y',
@@ -185,40 +187,70 @@ export const options = {
   },
 };
 
-const labels = ["Product is easy to use","Product speed is fast","Add text holders","Add text holders","Add text holders"];
+const labels = ["Product is easy to use","Product speed is fast","Add text holders","Add text holders"];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Poor',
-      data: [-23,-12,-11,-43,-13],
-      backgroundColor: 'rgb(255, 0, 0)',
-    },
-    {
-      label: 'Fair',
-      data: [-11,-13,-43,-54,-23],
-      backgroundColor: 'rgb(255, 99, 132)',
-    },
-    {
-      label: 'Neutral',
-      data: [-22,-13,-23,-12,-31],
-      backgroundColor: 'rgb(255, 165, 0)',
-    },
-    {
-      label: 'Very Good',
-      data: [22,12,23,43,12],
-      backgroundColor: 'rgb(0, 0, 139)',
-    },
-    {
-      label: 'Excellent',
-      data: [22,6,23,12,32],
-      backgroundColor: '#3CCF4E',
-    },
-  ],
-};
 
 const Likert  = () => {
+  const [dat,setDat] = useState([])
+  const [agree,setAgree] = useState([])
+  const [disagree,setDisAgree] = useState([])
+  const [sagree,setsAgree] = useState([])
+  const [sdisagree,setsDisAgree] = useState([])
+  const [mayBe,setMayBe] = useState([])
+
+
+  useEffect(() => {
+    axios()
+      .get("chartData")
+      .then((response) => {
+        console.log(response.data);
+        setDat(response.data)
+         Object.entries(dat).map(([type, val]) => type === "Agree" && setAgree(val))
+       // setSubmissions(response.data.data);
+       Object.entries(dat).map(([type, val]) => type === "Strongly Agree" && setsAgree(val))
+       Object.entries(dat).map(([type, val]) => type === "Strongly DisAgree" && setsDisAgree(val))
+       Object.entries(dat).map(([type, val]) => type === "Disagree" && setDisAgree(val))
+       Object.entries(dat).map(([type, val]) => type === "Maybe" && setMayBe(val))
+       
+       // setIsLoading(false);
+       console.log(dat)
+      });
+  }, []);
+
+  const data = {
+    labels,
+    
+    datasets: [
+      {
+        label: 'Poor',
+        data:  labels.map((index , val) => agree[val]),
+        
+        backgroundColor: 'rgb(255, 0, 0)',
+      },
+      {
+        label: 'Fair',
+        data:  labels.map((index , val) => disagree[val]),
+        backgroundColor: 'rgb(255, 99, 132)',
+      },
+      {
+        label: 'Neutral',
+        data:  labels.map((index , val) => mayBe[0]),
+        backgroundColor: 'rgb(255, 165, 0)',
+      },
+      {
+        label: 'Very Good',
+        data:  labels.map((index , val) => sagree[val]),
+        backgroundColor: 'rgb(0, 0, 139)',
+      },
+      {
+        label: 'Excellent',
+        data:  labels.map((index , val) => sdisagree[val]),
+        backgroundColor: '#3CCF4E',
+      },
+    ],
+  };
+  
+
   return <Bar options={options} data={data} plugins = {[ChartDataLabels]}/>;
 }
 
