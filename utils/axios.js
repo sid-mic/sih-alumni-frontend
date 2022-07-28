@@ -4,7 +4,7 @@ import auth from "./auth";
 
 export default function axios() {
 
-  axiosLib.defaults.baseURL = "http://127.0.0.1:8000/api";
+  axiosLib.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_DOMAIN;
   axiosLib.defaults.headers.common = {
     Authorization: `Bearer ${retrieve(api_token_store_name())}`,
     Accept: "application/json",
