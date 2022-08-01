@@ -4,6 +4,7 @@ import FormLoader from "../FormLoader";
 import { toast } from "react-toastify";
 import StoryCard from "../StoryCard";
 import Pagination from "rc-pagination";
+import download from "js-file-download";
 
 export default function AdminStoriesTable(props) {
   const [list_data, setlistdata] = useState(false);
@@ -30,9 +31,39 @@ export default function AdminStoriesTable(props) {
       });
   }
 
+  function handleDownload() {
+    axios()
+        .post(
+            "stories/export",
+            {
+            },
+            {
+              responseType: "blob",
+              headers: {
+                Accept:
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              },
+            }
+        )
+        .then((response) => {
+          download(response.data, "stories_mic_alumni_portal.xlsx");
+        })
+        .catch((error) => {
+          alert("The file couldn't be downloaded");
+        });
+  }
+
   // Main list page
   return (
     <>
+      <div className={"flex justify-end mb-3 mr-9"}>
+        <button
+            onClick={() => handleDownload()}
+            className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+        >
+          Export as Excel
+        </button>
+      </div>
       <div className="px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0">
         <div className="grid grid-cols-2 row-gap-8 md:grid-cols-3 mx-40">
           <div className="p-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
@@ -93,7 +124,7 @@ function AdminAnnouncementList({
       <div className="pt-6 p-20">
         <div className="text-right">
 
-          <button className="p-3 mb-2 mr-1 bg-indblue text-white text-xl rounded-lg" onClick={()=>setDisplayArchived(!displayArchived)}>{displayArchived?"Display all":"Archived"}</button>
+          <button className="p-3 py-1 mb-2 mr-1 bg-indblue text-white text-xl rounded-md" onClick={()=>setDisplayArchived(!displayArchived)}>{displayArchived?"Display all":"Archived"}</button>
         </div>
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
