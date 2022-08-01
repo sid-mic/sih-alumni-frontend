@@ -53,6 +53,7 @@ export default function AdminStoriesTable(props) {
         });
   }
 
+  console.log('main', list_data)
   // Main list page
   return (
     <>
@@ -111,6 +112,7 @@ function AdminAnnouncementList({
   displayArchived,
   setDisplayArchived
 }) {
+  console.log(data)
   if (!data) {
     return <FormLoader></FormLoader>;
   } else if (data.length == 0) {
