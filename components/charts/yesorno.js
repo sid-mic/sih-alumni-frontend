@@ -33,8 +33,7 @@ export const options = {
     },
   },
 };
-
-const labels = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5", "Question 6","Question 7","Question 8","Question 9"];
+const labels = ["Were you ever hired by your Problem Statement creator Ministry/Company", "Hackathon experience helped you in getting placed within in India or abroad?", "Were you ever hired for internship by your Problem Statement creator Ministry/Company?", "Hackathon experience helped you in getting internship within India or Abroad", "Have you perceived higher studies after your bachelor degree?" , "Have you received any award at State/National level/International level?" , "Have you registered Intellectual Property (IP)?", "Have you registered any startup/company?","Have you received any investment?"];
 
 
 
