@@ -296,7 +296,7 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ["Whether SIH helped in building your confidence?","Did your success in SIH helped for admission in higher studies","Would you recommend other students to participate in such future initiatives?","Did Participating in this hackathon make you more aware of your social?"];
 
 export const data = {
   labels,
