@@ -4,6 +4,7 @@ import FormLoader from "../FormLoader";
 import download from "js-file-download";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
+import { toast } from "react-toastify";
 
 export default function DataComponent(props) {
   const [data, setData] = useState([]);
@@ -73,36 +74,38 @@ export default function DataComponent(props) {
   }
 
   function handleDownload() {
-    axios()
-      .post(
-        "users/export",
-        {
-          registered:
-            registered && unregistered
-              ? null
-              : registered
-              ? true
-              : unregistered
-              ? false
-              : null,
-          bootstrapped,
-          funding,
-          initiatives,
-        },
-        {
-          responseType: "blob",
-          headers: {
-            Accept:
-              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    toast.promise(
+      axios().post("users/export", {
+        registered:
+          registered && unregistered
+            ? null
+            : registered
+            ? true
+            : unregistered
+            ? false
+            : null,
+        bootstrapped,
+        funding,
+        initiatives,
+      }),
+      {
+        pending: {
+          render() {
+            return "Sending Request....";
           },
-        }
-      )
-      .then((response) => {
-        download(response.data, "users.xlsx");
-      })
-      .catch((error) => {
-        alert("The file couldn't be downloaded");
-      });
+        },
+        success: {
+          render() {
+            return "Request sent successfully. Data will be mailed to your email in 10 minutes!";
+          },
+        },
+        error: {
+          render() {
+            return "Something went wrong!";
+          },
+        },
+      }
+    );
   }
 
   if (isLoading) {
