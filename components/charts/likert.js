@@ -154,6 +154,7 @@ import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import axios from "../../utils/axios";
 import { useEffect, useState } from "react";
+import FormLoader from "../FormLoader";
 
 export const options = {
   indexAxis: 'y',
@@ -187,7 +188,7 @@ export const options = {
   },
 };
 
-const labels = ["Product is easy to use","Product speed is fast","Add text holders","Add text holders"];
+const labels = ["Strongly Disagree", "Disagree", "Maybe", "Agree"];
 
 
 const Likert  = () => {
@@ -197,6 +198,7 @@ const Likert  = () => {
   const [sagree,setsAgree] = useState([])
   const [sdisagree,setsDisAgree] = useState([])
   const [mayBe,setMayBe] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
 
   useEffect(() => {
@@ -205,17 +207,21 @@ const Likert  = () => {
       .then((response) => {
         console.log(response.data);
         setDat(response.data)
-         Object.entries(dat).map(([type, val]) => type === "Agree" && setAgree(val))
-       // setSubmissions(response.data.data);
-       Object.entries(dat).map(([type, val]) => type === "Strongly Agree" && setsAgree(val))
-       Object.entries(dat).map(([type, val]) => type === "Strongly DisAgree" && setsDisAgree(val))
-       Object.entries(dat).map(([type, val]) => type === "Disagree" && setDisAgree(val))
-       Object.entries(dat).map(([type, val]) => type === "Maybe" && setMayBe(val))
+       //   Object.entries(dat).map(([type, val]) => type === "Agree" && setAgree(val))
+       // // setSubmissions(response.data.data);
+       // Object.entries(dat).map(([type, val]) => type === "Strongly Agree" && setsAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Strongly DisAgree" && setsDisAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Disagree" && setDisAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Maybe" && setMayBe(val))
        
-       // setIsLoading(false);
-       console.log(dat)
+       setIsLoading(false);
       });
   }, []);
+
+
+  if (isLoading) {
+    return <FormLoader/>
+  }
 
   const data = {
     labels,
@@ -223,28 +229,28 @@ const Likert  = () => {
     datasets: [
       {
         label: 'Poor',
-        data:  labels.map((index , val) => agree[val]),
+        data: dat['Strongly Disagree'],
         
         backgroundColor: 'rgb(255, 0, 0)',
       },
       {
         label: 'Fair',
-        data:  labels.map((index , val) => disagree[val]),
+        data:  dat['Disagree'],
         backgroundColor: 'rgb(255, 99, 132)',
       },
       {
         label: 'Neutral',
-        data:  labels.map((index , val) => mayBe[0]),
+        data:  dat['Maybe'],
         backgroundColor: 'rgb(255, 165, 0)',
       },
       {
         label: 'Very Good',
-        data:  labels.map((index , val) => sagree[val]),
+        data:  dat['Agree'],
         backgroundColor: 'rgb(0, 0, 139)',
       },
       {
         label: 'Excellent',
-        data:  labels.map((index , val) => sdisagree[val]),
+        data:  dat['Strongly Agree'],
         backgroundColor: '#3CCF4E',
       },
     ],
