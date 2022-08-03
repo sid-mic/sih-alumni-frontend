@@ -6,7 +6,7 @@ const Graph = () => {
   return (
     <div>
       <Likert />
-      <HorizontalBar />
+      {/*<HorizontalBar />*/}
       <YesOrNo />
     </div>
   )
