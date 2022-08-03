@@ -228,13 +228,13 @@ const Likert  = () => {
     
     datasets: [
       {
-        label: 'Poor',
+        label: 'Strongly Disagree',
         data: dat['Strongly Disagree'],
         
         backgroundColor: 'rgb(255, 0, 0)',
       },
       {
-        label: 'Fair',
+        label: 'Disagree',
         data:  dat['Disagree'],
         backgroundColor: 'rgb(255, 99, 132)',
       },
@@ -244,12 +244,12 @@ const Likert  = () => {
         backgroundColor: 'rgb(255, 165, 0)',
       },
       {
-        label: 'Very Good',
+        label: 'Agree',
         data:  dat['Agree'],
         backgroundColor: 'rgb(0, 0, 139)',
       },
       {
-        label: 'Excellent',
+        label: 'Strongly Agree',
         data:  dat['Strongly Agree'],
         backgroundColor: '#3CCF4E',
       },
