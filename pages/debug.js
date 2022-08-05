@@ -1,3 +1,4 @@
+
 import {
   Modal,
   ModalOverlay,
@@ -31,6 +32,7 @@ export default function Debug() {
 
   const sizes = ["xs", "sm", "md", "lg", "xl", "full"];
   const images = [
+    "https://www.youtube.com/embed/sMt2uhhwh1g",
     "https://www.youtube.com/embed/sMt2uhhwh1g",
     "https://www.youtube.com/embed/sMt2uhhwh1g",
     "https://www.youtube.com/embed/sMt2uhhwh1g",
@@ -71,7 +73,6 @@ export default function Debug() {
                     position: "relative",
                     width: "500px",
                     height: "315px",
-                    zIndex: "9999",
                     background: "transparent",
                   }}
                   onClick={(e) => handleSizeClick(src)}
@@ -100,16 +101,16 @@ export default function Debug() {
             <h1></h1>
 
             <iframe
-              width="560"
-              height="315"
+              width="500px"
+              height="315px"
               src={img}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowfullscreen = "allowfullscreen"
             ></iframe>
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter style = {{ position : "absolute", top : '7rem' , right : '0'}}>
             <Button
               color="white"
               style={{ background: "blue", padding: "1rem", margin: "1rem" }}
