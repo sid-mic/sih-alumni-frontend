@@ -3,34 +3,8 @@ import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import axios from "../../utils/axios";
 import { useEffect, useState } from "react";
+import FormLoader from "../FormLoader";
 
-export const options = {
-  plugins: {
-    datalabels: {
-      color: "#ffffff",
-      font: {
-        weight: "bold",
-        size: 20,
-      },
-    },
-
-    title: {
-      display: true,
-      text: "Yes/No",
-    },
-  },
-  responsive: true,
-  scales: {
-    x: {
-      stacked: true,
-      beginAtZero: true,
-    },
-    y: {
-      stacked: true,
-      beginAtZero: true,
-    },
-  },
-};
 const labels = [
   "Were you ever hired by your Problem Statement creator Ministry/Company",
   "Hackathon experience helped you in getting placed within in India or abroad?",
@@ -45,22 +19,21 @@ const labels = [
 
 const YesOrNo = () => {
   const [dat, setDat] = useState([]);
-  const [yes, setYes] = useState([]);
-  const [no, setNo] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // chartYesOrNoData
   useEffect(() => {
     axios()
       .get("chartYesOrNoData")
       .then((response) => {
-        console.log(response);
         setDat(response.data);
-        console.log(dat);
-        // setSubmissions(response.data.data);
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
+  if (isLoading) {
+    return <FormLoader />;
+  }
   const data = {
     labels,
     datasets: [
@@ -77,7 +50,41 @@ const YesOrNo = () => {
     ],
   };
 
+  const options = {
+    plugins: {
+      datalabels: {
+        color: "#ffffff",
+        font: {
+          weight: "bold",
+          size: 20,
+        },
+      },
+
+      title: {
+        display: true,
+        text: "Yes/No",
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+        beginAtZero: true,
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        min:
+          Math.min.apply(
+            null,
+            dat["No"].map((n) => -n)
+          ) - 3,
+        max: Math.max.apply(null, dat["Yes"]) + 3,
+      },
+    },
+  };
+
   return <Bar options={options} data={data} plugins={[ChartDataLabels]} />;
 };
 
-export default YesOrNo
+export default YesOrNo;
