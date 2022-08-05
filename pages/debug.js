@@ -55,7 +55,7 @@ export default function Debug() {
           fontWeight="bold"
         >
           {images.map((src, index) => (
-            <GridItem key={index} bg="orange.300" area={"header"}>
+            <GridItem key={index} bg="orange.300">
               <div>
                 <iframe
                   width="500"
@@ -107,10 +107,12 @@ export default function Debug() {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen = "allowfullscreen"
+              allowfullscreen="allowfullscreen"
             ></iframe>
           </ModalBody>
-          <ModalFooter style = {{ position : "absolute", top : '7rem' , right : '0'}}>
+          <ModalFooter
+            style={{ position: "absolute", top: "7rem", right: "0" }}
+          >
             <Button
               color="white"
               style={{ background: "blue", padding: "1rem", margin: "1rem" }}
