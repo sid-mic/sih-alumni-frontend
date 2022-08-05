@@ -161,7 +161,7 @@ export default function Debug() {
              
           </ModalBody>
           <ModalFooter>
-            <Button color ='blue' variant = 'solid' onClick={onClose}>Close</Button>
+            <Button color ='white' style = {{background : "blue", padding : "1rem" , margin : "1rem"}} variant = 'solid' onClick={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
