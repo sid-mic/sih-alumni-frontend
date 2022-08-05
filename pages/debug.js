@@ -25,7 +25,8 @@ export default function Debug() {
   const handleSizeClick = (e) => {
     setSize('full')
     onOpen()
-    //setImg(e.target.src)
+    setImg(e.target.src)
+
     console.log(img)
   }
 
@@ -48,60 +49,95 @@ export default function Debug() {
   fontWeight='bold'
 >
   <GridItem  bg='orange.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <div >
           
-          <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
           
          
           </div>
   </GridItem>
-  <GridItem pl='1' bg='pink.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-        <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
-        
-       
-        </div>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
+          
+         
+          </div>
   </GridItem>
-  <GridItem pl='1' bg='green.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-        <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
-        
-       
-        </div>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
+          
+         
+          </div>
   </GridItem>
 
-  <GridItem pl='2' bg='green.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-        <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
-        
-       
-        </div>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
+          
+         
+          </div>
   </GridItem>
 
-  <GridItem pl='2' bg='green.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-        <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
-        
-       
-        </div>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
+          
+         
+          </div>
   </GridItem>
 
-  <GridItem pl='2' bg='green.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-        <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
-        
-       
-        </div>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
+          
+         
+          </div>
   </GridItem>
-  <GridItem pl='2' bg='blue.300' area={'header'}>
-  <div onClick={() => handleSizeClick()}>
+  <GridItem  bg='orange.300' area={'header'}>
+  <div >
           
-          <iframe onClick={(e) => setImg(e.target.src)}  width="500" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allowfullscreen ></iframe>
+          <iframe  width="500" height="315" style = {{position : "absolute"}} src= "https://www.youtube.com/embed/sMt2uhhwh1g" allowtransparency = "true"  title="YouTube video player" frameborder="0" allowfullscreen >
+
+
+          </iframe>
+
+          <div style = {{position : "relative" , width : "500px" , height : "315px" , zIndex : "9999" , background : "transparent"}} onClick={(e) => handleSizeClick(e)} src = "https://www.youtube.com/embed/sMt2uhhwh1g"> </div>
           
          
           </div>
@@ -120,7 +156,7 @@ export default function Debug() {
           <ModalBody style = {{display : 'flex', alignItems : 'center', justifyContent : 'center' , height : '100vh'}}>
             <h1></h1>
            
-          <iframe width="560" height="315" src= "https://www.youtube.com/embed/sMt2uhhwh1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+          <iframe width="560" height="315" src= {img} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
           
              
           </ModalBody>
@@ -132,5 +168,3 @@ export default function Debug() {
     </>
   )
 }
-
-
