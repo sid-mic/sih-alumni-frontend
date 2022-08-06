@@ -7,7 +7,7 @@ import auth from "../utils/auth";
 class SidebarMobile extends Component {
   constructor(props) {
     super(props);
-    this.state = { ClickedButton: this.props.selectedModule ?? 1 };
+    this.state = { ClickedButton: this.props.selectedModule ?? 8 };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -15,6 +15,7 @@ class SidebarMobile extends Component {
     this.setState({ ClickedButton: id });
     this.props.selectedtype.bind(this, id)();
   }
+
   render() {
     return (
       <div class="px-0.5 py-0.5 bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen w-80 fixed bottom-0 items-left">
