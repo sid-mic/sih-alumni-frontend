@@ -7,69 +7,15 @@ export default function MentorWillingnessForm(props) {
   let disabled = props.disabled ?? false;
 
   let sw_nodal_centers = [
-    "ACS College of Engineering Karnataka Bangalore",
-    "ANAND INSTITUTE OF HIGHER TECHNOLOGY Tamil Nadu CHENNAI",
-    "Anurag Group of Institutions Telangana Hyderabad",
     "Birla Institute of Technology Mesra Ranchi Jharkhand Ranchi",
-    "Cambridge Institute of Technology, K R Puram,Bangalore Karnataka Bangalore",
-    "Chandigarh University Punjab Mohali",
-    "DR B C ROY ENGINEERING COLLEGE West Bengal DURGAPUR",
-    "D. Y. Patil College of Engineering, Akurdi, Pune Maharashtra Pune",
-    "Excel Engineering College Tamil Nadu Komarapalayam",
-    "G H Raisoni College of Engineering, Nagpur Maharashtra Nagpur",
-    "GIET University Odisha Gunupur",
-    "GMR Institute of Technology Andhra Pradesh Rajam",
-    "Gujarat Technological University Gujarat Ahmedabad",
-    "G.PULLAIAH COLLEGE OF ENGINEERING AND TECHNOLOGY Andhra Pradesh KURNOOL",
     "IES College of Technology Madhya Pradesh Bhopal",
-    "IIT GUWAHATI Assam Guwahati",
-    "IIT KANPUR Uttar Pradesh KANPUR",
-    "IT-BHU Uttar Pradesh BANARAS",
-    "Jai Bharath College of Management and Engineering Technology Kerala Perumbavoor",
-    "JSS TECHNOLOGICAL UNIVERSITY Karnataka Mysore",
-    "Karnavati University Gujarat Gandhinagar",
-    "KIT'S College of Engineering Kolhapur Maharashtra Kolhapur",
-    "KLE Technological University Karnataka Hubballi",
-    "Koneru Lakshmaiah Education Foundation Andhra Pradesh Vijayawada",
-    "Kongu Engineering College Tamil Nadu Erode",
-    "Lovely Professional University Punjab Phagwara",
-    "Malaviya National Institute of Technology Jaipur Rajasthan Jaipur",
-    "National Institute of Technology Silchar Assam Silchar",
-    "Noida Institute of Engineering and Technology, Greater Noida Uttar Pradesh Greater Noida",
-    "Paavai Engineering College Tamil Nadu Namakkal",
-    "Parul University Gujarat Vadodara",
-    "Presidency University, Bengaluru Karnataka Bengaluru",
-    "Prin. L.N. Welingkar Institute of Management Development and Research (PGDM) Maharashtra Mumbai",
-    "PSR ENGINEERING COLLEGE Tamil Nadu Sivakasi",
-    "SAGE University Indore Madhya Pradesh Indore",
-    "Sahyadri College of Engineering & Management Karnataka Mangalore",
-    "Sathyabama Institute of Science and Tehcnology Tamil Nadu Chennai",
-    "SCMS School of Technology and Management Kerala Ernakulam",
-    "Shri Ramdeobaba College of Engineering and Management, Nagpur Maharashtra Nagpur",
-    "Sona College of Technology Tamil Nadu Salem",
-    "SRI ESHWAR COLLEGE OF ENGINEERING Tamil Nadu COIMBATORE",
-    "Sri Venkateswara College of Engineering and Technology Andhra Pradesh Chittoor",
-    "Techno International New Town West Bengal Kolkata",
-    "Vaageswari College of Engineering Telangana Karimnagar",
-    "VIGNANA BHARATHI INSTITUTE OF TECHNOLOGY Telangana HYDERABAD",
-    "VNR VIGNANA JYOTHI INSTITUTE OF ENGINEERING & TECHNOLOGY Telangana HYDERABAD",
+    "Maharastra Institute of Technology, (MIT Aurangabad) Maharashtra Aurangabad",
   ];
 
   let hw_nodal_centers = [
-    "B. S. Abdur Rahman Crescent Institute of Science & Technology Tamil Nadu Chennai",
-    "Chitkara University Punjab Rajpura",
-    "Forge Accelarator Tamil Nadu Coimbatore",
-    "Galgotias University Uttar Pradesh Greater Noida",
+    "Bhilai Institute of Technology Chhattisgarh Durg",
     "Indian Institute of Technology Roorkee Uttarakhand Roorkee",
-    "JAIN (Deemed-to-be University)Faculty of Engineering and Technology Karnataka Bengaluru",
-    "Kalasalingam Academy of Research and Education Tamil Nadu Srivilliputtur",
-    "KIET Group of Institutions Ghaziabad Uttar Pradesh Ghaziabad",
-    "Manav Rachna International Institute of Research and Studies Haryana Faridabad",
-    "Manipal University Jaipur Rajasthan Jaipur",
     "MIT PUNE Maharashtra PUNE",
-    "QIS COLLEGE OF ENGINEERING AND TECHNOLOGY Andhra Pradesh ONGOLE",
-    "REVA University Karnataka Bengaluru",
-    "SRM Institute of Science & Technology Tamil Nadu Chennai",
   ];
 
   const [mentor, setMentor] = useState({});
@@ -110,8 +56,8 @@ export default function MentorWillingnessForm(props) {
         },
       },
       success: {
-        render({data}) {
-          setMentor(data.data)
+        render({ data }) {
+          setMentor(data.data);
           setIsLoading(false);
           return "Willingness updated successfully!";
         },
@@ -152,7 +98,6 @@ export default function MentorWillingnessForm(props) {
       onSubmit={handleSubmit}
       className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20 mt-3"
     >
-
       <div className="flex -mx-3">
         <div className="w-full px-3 mb-5">
           <label className="text-md font-semibold">
