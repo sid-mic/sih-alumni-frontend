@@ -16,6 +16,7 @@ import Initiatives from "../components/Initiatives";
 import Who from "../components/Who";
 import Benefits from "../components/Benefits";
 import News from "../components/News";
+import Gallery from "../components/gallery"
 import Graph from "./admin/graph";
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
             <Feature />
             
             <Who />
+            <Gallery />
              {/*<Graph />*/}
             <Benefits />
             <News/>
