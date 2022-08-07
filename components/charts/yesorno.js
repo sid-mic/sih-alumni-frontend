@@ -44,7 +44,7 @@ const YesOrNo = () => {
       },
       {
         label: "No",
-        data: dat["No"],
+        data: dat["No"].map((n) => -n),
         backgroundColor: "rgb(255, 99, 132)",
       },
     ],
