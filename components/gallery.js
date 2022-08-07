@@ -96,7 +96,7 @@ export default function Gallery() {
 
 <Button style={{ display : "flex" , justifyContent : "center"}}>
           <a
-            href="/debug"
+            href="/videoGallery"
             target = "blank"
             aria-label="Gallery"
             title="Gallery"
