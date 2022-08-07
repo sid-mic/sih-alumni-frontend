@@ -47,9 +47,9 @@ export default function Gallery() {
       <div className="text-center">
           <div className="bg-hero-pattern mt-0 pt-4 font-bold mb-0 sm:text-xl text-xl bg-cover bg-center">
             <h1 className={styles.mainHeading+ " font-bold mt-6 mb-14 pb-2 sm:text-xl text-2xl md:text-3xl"}>
-              Success 
+              Video 
               <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
-                Videos
+                Gallery
               </span>
               <div className={styles.bottomLine}></div>
             </h1>
@@ -103,7 +103,7 @@ export default function Gallery() {
             className="flex items-center"
             style={{ background: "blue", color : "white", padding: "1rem", margin: "1rem" }}
           >
-            Videos
+            View More
           </a>
           </Button>
   
