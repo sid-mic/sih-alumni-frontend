@@ -53,13 +53,13 @@ export default function Home() {
             <Feature />
             
             <Who />
-            <Gallery />
              {/*<Graph />*/}
             <Benefits />
             <News/>
             <Featured />
             <Scroller/>
             <Initiatives />
+            <Gallery />
           </div>
           </div>
            <Footer />

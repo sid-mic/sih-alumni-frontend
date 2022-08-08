@@ -13,9 +13,8 @@ import {
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Nav } from "../components/Navbar";
 import React from "react";
-import styles from "./Benefits.module.css"
+import styles from "./Benefits.module.css";
 //import styles from ".module.css"
-
 
 //import { useDisclosure } from '@chakra-ui/react/dist/declarations/src';
 
@@ -37,17 +36,20 @@ export default function Gallery() {
     "https://www.youtube.com/embed/sMt2uhhwh1g",
     "https://www.youtube.com/embed/sMt2uhhwh1g",
     "https://www.youtube.com/embed/sMt2uhhwh1g",
-   
   ];
 
   return (
-    <div style = {{height : "80vh"}}>
-      
+    <div className="max-w-screen-xl py-15 mx-auto sm:px-6 lg:px-8">
       <div>
-      <div className="text-center">
+        <div className="text-center">
           <div className="bg-hero-pattern mt-0 pt-4 font-bold mb-0 sm:text-xl text-xl bg-cover bg-center">
-            <h1 className={styles.mainHeading+ " font-bold mt-6 mb-14 pb-2 sm:text-xl text-2xl md:text-3xl"}>
-              Video 
+            <h1
+              className={
+                styles.mainHeading +
+                " font-bold mt-6 mb-14 pb-2 sm:text-xl text-2xl md:text-3xl"
+              }
+            >
+              Video
               <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                 Gallery
               </span>
@@ -55,21 +57,13 @@ export default function Gallery() {
             </h1>
           </div>
         </div>
-        <Grid
-          templateAreas={`"header header header"`}
-          gridTemplateRows={"1fr 1fr 1fr"}
-          gridTemplateColumns={"1fr 1fr 1fr"}
-          h="200px"
-          gap="1"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
+        <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
           {images.map((src, index) => (
-            <GridItem key={index} bg="orange.300">
+            <div key={index} bg="orange.300">
               <div>
                 <iframe
-                  width="500"
-                  height="315"
+                  width="400"
+                  height="265"
                   style={{ position: "absolute" }}
                   src={src}
                   allowtransparency="true"
@@ -81,8 +75,8 @@ export default function Gallery() {
                 <div
                   style={{
                     position: "relative",
-                    width: "500px",
-                    height: "315px",
+                    width: "400px",
+                    height: "265px",
                     background: "transparent",
                   }}
                   onClick={(e) => handleSizeClick(src)}
@@ -90,26 +84,28 @@ export default function Gallery() {
                   {" "}
                 </div>
               </div>
-            </GridItem>
+            </div>
           ))}
           <span></span>
 
-<Button style={{ display : "flex" , justifyContent : "center"}}>
-          <a
-            href="/videoGallery"
-            target = "blank"
-            aria-label="Gallery"
-            title="Gallery"
-            className="flex items-center"
-            style={{ background: "blue", color : "white", padding: "1rem", margin: "1rem" }}
-          >
-            View More
-          </a>
+          <Button style={{ display: "flex", justifyContent: "center" }}>
+            <a
+              href="/videoGallery"
+              target="blank"
+              aria-label="Gallery"
+              title="Gallery"
+              className="flex items-center"
+              style={{
+                background: "blue",
+                color: "white",
+                padding: "1rem",
+                margin: "1rem",
+              }}
+            >
+              View More
+            </a>
           </Button>
-  
-        </Grid>
-       
-
+        </div>
       </div>
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
@@ -134,10 +130,12 @@ export default function Gallery() {
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen = "allowfullscreen"
+              allowfullscreen="allowfullscreen"
             ></iframe>
           </ModalBody>
-          <ModalFooter style = {{ position : "absolute", top : '7rem' , right : '0'}}>
+          <ModalFooter
+            style={{ position: "absolute", top: "7rem", right: "0" }}
+          >
             <Button
               color="white"
               style={{ background: "blue", padding: "1rem", margin: "1rem" }}
