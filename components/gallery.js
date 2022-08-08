@@ -65,7 +65,7 @@ export default function Gallery() {
           fontWeight="bold"
         >
           {images.map((src, index) => (
-            <GridItem key={index} bg="orange.300" area={"header"}>
+            <GridItem key={index} bg="orange.300">
               <div>
                 <iframe
                   width="500"
