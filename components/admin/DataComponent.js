@@ -15,6 +15,7 @@ export default function DataComponent(props) {
   const [registered, setRegistered] = useState(false);
   const [unregistered, setUnregistered] = useState(false);
   const [bootstrapped, setBootstrapped] = useState(false);
+  const [mentorWillingness, setMentorWillingness] = useState(false);
   const [funding, setFunding] = useState(false);
   const [initiatives, setInitiatives] = useState([]);
 
@@ -55,6 +56,7 @@ export default function DataComponent(props) {
       bootstrapped,
       funding,
       initiatives,
+      mentor_willingness: mentorWillingness,
     });
 
     setData(response.data.data);
@@ -68,10 +70,12 @@ export default function DataComponent(props) {
     setUnregistered(false);
     setBootstrapped(false);
     setFunding(false);
+    setMentorWillingness(false);
     setInitiatives([]);
 
     setIsInitialized(false);
   }
+  ``;
 
   function handleDownload() {
     toast.promise(
@@ -87,6 +91,7 @@ export default function DataComponent(props) {
         bootstrapped,
         funding,
         initiatives,
+        mentor_willingness: mentorWillingness,
       }),
       {
         pending: {
@@ -209,6 +214,22 @@ export default function DataComponent(props) {
                         className="ml-3 text-sm font-medium"
                       >
                         Looking for investment
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="mentor_willingness"
+                        className="w-6 h-6 border-gray-300"
+                        defaultChecked={mentorWillingness}
+                        onChange={(e) => setMentorWillingness(e.target.checked)}
+                      />
+                      <label
+                        htmlFor="mentor_willingness"
+                        className="ml-3 text-sm font-medium"
+                      >
+                        Mentor Willingness Filled
                       </label>
                     </div>
                   </div>
