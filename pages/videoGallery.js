@@ -30,13 +30,9 @@ export default function Debug() {
 
   const sizes = ["xs", "sm", "md", "lg", "xl", "full"];
   const images = [
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
-    "https://www.youtube.com/embed/sMt2uhhwh1g",
+    "https://www.youtube.com/embed/h0b3XpiR5LE",
+    "https://www.youtube.com/embed/JHu2YuadxKg",
+    "https://www.youtube.com/embed/bQBnNLKJvd0",
   ];
 
   return (
@@ -96,7 +92,7 @@ export default function Debug() {
             }}
           >
             <h1></h1>
-
+            <div style={{'position':'relative'}}>
             <iframe
               width="500px"
               height="315px"
@@ -105,20 +101,25 @@ export default function Debug() {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen="allowfullscreen"
-            ></iframe>
-          </ModalBody>
-          <ModalFooter
-            style={{ position: "absolute", top: "7rem", right: "0" }}
-          >
+            >
+             </iframe>
+            <div style={{'position':'absolute','content':'','right':'-85px','top':'-16px'}}>
             <Button
               color="white"
-              style={{ background: "blue", padding: "1rem", margin: "1rem" }}
+              style={{ background: "red", padding: "1rem", margin: "1rem" }}
               variant="solid"
               onClick={onClose}
             >
               Close
             </Button>
-          </ModalFooter>
+            </div>
+            </div>
+          </ModalBody>
+          {/*<ModalFooter
+            style={{ position: "absolute", top: "7rem", right: "0" }}
+          >
+           
+          </ModalFooter>*/}
         </ModalContent>
       </Modal>
     </>
