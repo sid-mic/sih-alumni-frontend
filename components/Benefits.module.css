@@ -50,3 +50,7 @@
     background-color: rgba(57, 70, 134);
     color: #ffffff;
 }
+.mainModal {
+    background-color: #000000;
+    opacity: 0.6 !important;
+}
