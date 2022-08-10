@@ -78,7 +78,15 @@ const YesOrNo = () => {
     },
   };
 
-  return <Bar width={200} height={200} options={options} data={data} plugins={[ChartDataLabels]} />;
+   return (
+    
+  <div >
+
+  <Bar style = {{width :'70%',height : '100vh', margin : 'auto'}}  width={85} height={60} options={options} data={data} plugins={[ChartDataLabels]} />
+ 
+  </div>
+  
+  );
 };
 
 export default YesOrNo;
