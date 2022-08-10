@@ -13,6 +13,7 @@ import {
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Nav } from "../components/Navbar";
 import React from "react";
+import styles from "../components/Benefits.module.css";
 
 //import { useDisclosure } from '@chakra-ui/react/dist/declarations/src';
 
@@ -41,6 +42,13 @@ export default function Debug() {
   return (
     <>
       <Nav />
+      <div className="max-w-screen-xl py-15 mx-auto sm:px-6 lg:px-8 pt-4 pb-4">
+        <div className="grid-cols-12">
+          <div className={styles.fillWidthBack}>
+            <a href="/" className={styles.buttonLinkBlue}>Back</a>
+          </div>
+        </div>
+      </div>
       <div className="max-w-screen-xl py-15 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 mt-12 md:grid-cols-2 lg:grid-cols-3">
           {images.map((src, index) => (

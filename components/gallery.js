@@ -86,7 +86,7 @@ export default function Gallery() {
           ))}
           <span></span>
 
-          <Button style={{ display: "flex", justifyContent: "center" }}>
+          {/*<Button style={{ display: "flex", justifyContent: "center" }}>
             <a
               href="/videoGallery"
               target="blank"
@@ -102,8 +102,15 @@ export default function Gallery() {
             >
               View More
             </a>
-          </Button>
+          </Button>*/}
+          
+
         </div>
+        <div className="grid-cols-12">
+          <div className={styles.fillWidth}>
+            <a target="_blank" href="/videoGallery" className={styles.buttonLink}>View All </a>
+          </div>
+         </div>
       </div>
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
