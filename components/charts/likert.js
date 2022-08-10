@@ -35,14 +35,14 @@ const Likert = () => {
 
     datasets: [
       {
-        label: "Disagree",
-        data: dat["Disagree"],
-        backgroundColor: "rgb(255, 99, 132)",
-      },
-      {
         label: "Strongly Disagree",
         data: dat["Strongly Disagree"],
         backgroundColor: "rgb(255, 0, 0)",
+      },
+      {
+        label: "Disagree",
+        data: dat["Disagree"],
+        backgroundColor: "rgb(255, 99, 132)",
       },
       {
         label: "Neutral",
@@ -75,7 +75,7 @@ const Likert = () => {
       },
       title: {
         display: true,
-        text: "5 point Likert Graph",
+        text: "Alumni Feedback",
         font: {
           weight: "bold",
           size: 25,
@@ -92,7 +92,7 @@ const Likert = () => {
             dat["Strongly Disagree"].map(
               (st_dis, index) => st_dis + dat["Disagree"][index]
             )
-          ) - 3,
+          ) - 30,
         max:
           Math.max.apply(
             null,
@@ -100,7 +100,7 @@ const Likert = () => {
               (maybe, index) =>
                 maybe + dat["Agree"][index] + dat["Strongly Agree"][index]
             )
-          ) + 3,
+          ) + 30,
       },
       y: {
         stacked: true,
