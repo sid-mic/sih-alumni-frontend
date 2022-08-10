@@ -27,8 +27,6 @@ export default function Gallery() {
     setSize("full");
     onOpen();
     setImg(src);
-
-    console.log(img);
   };
 
   const sizes = ["xs", "sm", "md", "lg", "xl", "full"];

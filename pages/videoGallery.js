@@ -1,4 +1,3 @@
-
 import {
   Modal,
   ModalOverlay,
@@ -26,8 +25,6 @@ export default function Debug() {
     setSize("full");
     onOpen();
     setImg(src);
-
-    console.log(img);
   };
 
   const sizes = ["xs", "sm", "md", "lg", "xl", "full"];
@@ -44,22 +41,14 @@ export default function Debug() {
   return (
     <>
       <Nav />
-      <>
-        <Grid
-          templateAreas={`"header header header"`}
-          gridTemplateRows={"1fr 1fr 1fr"}
-          gridTemplateColumns={"1fr 1fr 1fr"}
-          h="200px"
-          gap="1"
-          color="blackAlpha.700"
-          fontWeight="bold"
-        >
+      <div className="max-w-screen-xl py-15 mx-auto sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-4 mt-12 md:grid-cols-2 lg:grid-cols-3">
           {images.map((src, index) => (
-            <GridItem key={index} bg="orange.300">
+            <div key={index} bg="orange.300">
               <div>
                 <iframe
-                  width="500"
-                  height="315"
+                  width="400"
+                  height="265"
                   style={{ position: "absolute" }}
                   src={src}
                   allowtransparency="true"
@@ -71,8 +60,8 @@ export default function Debug() {
                 <div
                   style={{
                     position: "relative",
-                    width: "500px",
-                    height: "315px",
+                    width: "400px",
+                    height: "265px",
                     background: "transparent",
                   }}
                   onClick={(e) => handleSizeClick(src)}
@@ -80,10 +69,10 @@ export default function Debug() {
                   {" "}
                 </div>
               </div>
-            </GridItem>
+            </div>
           ))}
-        </Grid>
-      </>
+        </div>
+      </div>
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
         <ModalOverlay />

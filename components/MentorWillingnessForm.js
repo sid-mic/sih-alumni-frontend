@@ -87,8 +87,6 @@ export default function MentorWillingnessForm(props) {
     "SRM Institute of Science & Technology Tamil Nadu Chennai",
   ];
 
-  console.log('HW: ', hw_nodal_centers.length, 'SW: ', sw_nodal_centers.length)
-
   const [mentor, setMentor] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
