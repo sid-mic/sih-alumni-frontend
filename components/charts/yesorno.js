@@ -6,15 +6,9 @@ import { useEffect, useState } from "react";
 import FormLoader from "../FormLoader";
 
 const labels = [
-  "Were you ever hired by your Problem Statement creator Ministry/Company",
   "Hackathon experience helped you in getting placed within in India or abroad?",
   "Were you ever hired for internship by your Problem Statement creator Ministry/Company?",
   "Hackathon experience helped you in getting internship within India or Abroad",
-  "Have you perceived higher studies after your bachelor degree?",
-  "Have you received any award at State/National level/International level?",
-  "Have you registered Intellectual Property (IP)?",
-  "Have you registered any startup/company?",
-  "Have you received any investment?",
 ];
 
 const YesOrNo = () => {
@@ -78,13 +72,21 @@ const YesOrNo = () => {
           Math.min.apply(
             null,
             dat["No"].map((n) => -n)
-          ) - 3,
-        max: Math.max.apply(null, dat["Yes"]) + 3,
+          ) - 30,
+        max: Math.max.apply(null, dat["Yes"]) + 30,
       },
     },
   };
 
-  return <Bar options={options} data={data} plugins={[ChartDataLabels]} />;
+   return (
+    
+  <div >
+
+  <Bar style = {{width :'70%',height : '100vh', margin : 'auto'}}  width={85} height={60} options={options} data={data} plugins={[ChartDataLabels]} />
+ 
+  </div>
+  
+  );
 };
 
 export default YesOrNo;
