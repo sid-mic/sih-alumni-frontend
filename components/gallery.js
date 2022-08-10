@@ -114,7 +114,7 @@ export default function Gallery() {
       </div>
 
       <Modal onClose={onClose} size={size} isOpen={isOpen}>
-        <ModalOverlay />
+        <ModalOverlay className={styles.mainModal} />
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
