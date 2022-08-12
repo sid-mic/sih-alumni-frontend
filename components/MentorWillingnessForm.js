@@ -294,7 +294,8 @@ export default function MentorWillingnessForm(props) {
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
-                5] Current Residing City:
+                5] Current residing city (From where your will travel to the SIH
+                2022 nodal centre):
               </label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
@@ -315,7 +316,8 @@ export default function MentorWillingnessForm(props) {
           <div className="flex mb-5 -mx-3">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
-                5] Current Residing State:
+                6] Current residing state (From where your will travel to the
+                SIH2022 nodal centre):
               </label>
               <div className="flex">
                 <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
