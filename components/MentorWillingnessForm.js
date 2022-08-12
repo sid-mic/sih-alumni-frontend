@@ -290,6 +290,50 @@ export default function MentorWillingnessForm(props) {
               </div>
             </div>
           </div>
+
+          <div className="flex mb-5 -mx-3">
+            <div className="w-full px-3 mb-5">
+              <label className="text-md font-semibold">
+                5] Current residing city (From where your will travel to the SIH
+                2022 nodal centre):
+              </label>
+              <div className="flex">
+                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
+                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                </div>
+                <input
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                  disabled={disabled}
+                  type="text"
+                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
+                  defaultValue={mentor?.city}
+                  name={"city"}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex mb-5 -mx-3">
+            <div className="w-full px-3 mb-5">
+              <label className="text-md font-semibold">
+                6] Current residing state (From where your will travel to the
+                SIH2022 nodal centre):
+              </label>
+              <div className="flex">
+                <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
+                  <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                </div>
+                <input
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                  disabled={disabled}
+                  type="text"
+                  className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
+                  defaultValue={mentor?.state}
+                  name={"state"}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
