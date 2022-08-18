@@ -85,7 +85,7 @@ export default function MentorWillingnessForm(props) {
       {!mentor.is_selected ? (
         <h5 className="mt-12 text-center">
           Thanks for your interest in participating SIH 2022. <br/> But unfortunately,
-          due to limited vacancies, you are not selected.
+          due to limited vacancies, your application is not selected.
         </h5>
       ) : (
         <div>
