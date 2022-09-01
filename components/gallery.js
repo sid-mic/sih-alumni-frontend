@@ -31,9 +31,12 @@ export default function Gallery() {
 
   const sizes = ["xs", "sm", "md", "lg", "xl", "full"];
   const images = [
-    "https://www.youtube.com/embed/h0b3XpiR5LE",
-    "https://www.youtube.com/embed/JHu2YuadxKg",
-    "https://www.youtube.com/embed/bQBnNLKJvd0",
+    "https://www.youtube.com/embed/h0b3XpiR5LE?autoplay=0",
+    "https://www.youtube.com/embed/JHu2YuadxKg?autoplay=0",
+    "https://www.youtube.com/embed/bQBnNLKJvd0?autoplay=0",
+    "https://www.youtube.com/embed/h0b3XpiR5LE?autoplay=0",
+    "https://www.youtube.com/embed/JHu2YuadxKg?autoplay=0",
+    "https://www.youtube.com/embed/bQBnNLKJvd0?autoplay=0",
   ];
 
   return (
@@ -55,9 +58,16 @@ export default function Gallery() {
             </h1>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
+
+        <div className="">
+        <marquee id="mq-scroll" behavior="scroll" direction="rtl" onMouseOver={() => {
+          document.getElementById("mq-scroll").stop();
+        }} onMouseOut={() => {
+          document.getElementById("mq-scroll").start();
+        }} >
+        <div style={{display:'flex'}}>
           {images.map((src, index) => (
-            <div key={index} bg="orange.300">
+            <div key={index} bg="orange.300" style={{border:'1px solid #fcbc40', padding:'10px', marginRight:'15px'}}>
               <div>
                 <iframe
                   width="400"
@@ -103,9 +113,10 @@ export default function Gallery() {
               View More
             </a>
           </Button>*/}
-          
-
-        </div>
+          </div>
+          </marquee>
+          </div>
+     
         <div className="grid-cols-12">
           <div className={styles.fillWidth}>
             <a target="_blank" href="/videoGallery" className={styles.buttonLink}>View All </a>
