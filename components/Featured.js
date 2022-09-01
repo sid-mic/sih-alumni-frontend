@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "../utils/axios";
 import FormLoader from "./FormLoader";
 import styles from "./Featured.module.css";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import dynamic from "next/dynamic";
+const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 export default function Featured() {
   const [stories, setStories] = useState([]);
@@ -25,10 +29,6 @@ export default function Featured() {
     return <FormLoader className="mb-10"></FormLoader>;
   }
 
-  if (stories?.alumni?.length < 3 && !stories?.mentor?.length < 3) {
-    return <div></div>;
-  }
-
   return (
     <div>
       <div>
@@ -37,7 +37,6 @@ export default function Featured() {
             <div class="grid grid-cols-1">
               {stories?.mentor?.length > 2 && (
                 <div class="relative">
-                  {" "}
                   <h1
                     className={
                       styles.mainHeading +
@@ -55,41 +54,42 @@ export default function Featured() {
                       styles.boxMentors + " flex flex-wrap -mx-3 mt-0 pt-0"
                     }
                   >
-                    {stories.mentor.map((alumni, index) => (
-                      <div class="my-3 px-3 w-1/2 lg:w-1/3" key={index}>
-                        <div className={styles.profileTop}></div>
-                        <a
-                          className={
-                            styles.outerImage + " relative block group"
-                          }
-                          href={`/stories/${alumni.id}`}
-                        >
-                          <img
-                            className={styles.roundedImage}
-                            src={alumni.user.picture}
-                            alt={alumni.user.name}
-                            style={{ height: 176, width: 176 }}
-                          />
-                          <div
+                    <OwlCarousel className="owl-theme" loop margin={10} nav>
+                      {stories.mentor.map((alumni, index) => (
+                        <div class="my-3 px-3  item" key={index}>
+                          <div className={styles.profileTop}></div>
+                          <a
                             className={
-                              styles.design +
-                              " relative rounded-b-xl overflow-hidden p-3 "
+                              styles.outerImage + " relative block group"
                             }
-                            style={{ position: "relative" }}
+                            href={`/stories/${alumni.id}`}
                           >
-                            <p class="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.name}
-                            </p>
-                            <p class="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.organization_name}
-                            </p>
-                            <p class="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.designation}
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-                    ))}
+                            <img
+                              className={styles.roundedImage}
+                              src={alumni.user.picture}
+                              alt={alumni.user.name}
+                            />
+                            <div
+                              className={
+                                styles.design +
+                                " relative rounded-b-xl overflow-hidden p-3 "
+                              }
+                              style={{ position: "relative" }}
+                            >
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.name}
+                              </p>
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.organization_name}
+                              </p>
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.designation}
+                              </p>
+                            </div>
+                          </a>
+                        </div>
+                      ))}
+                    </OwlCarousel>
                   </div>
                 </div>
               )}
@@ -126,41 +126,42 @@ export default function Featured() {
                       styles.boxMentors + " flex flex-wrap -mx-3 mt-0 pt-0"
                     }
                   >
-                    {stories.alumni.map((alumni, index) => (
-                      <div className="my-3 px-3 w-1/2 lg:w-1/3" key={index}>
-                        <div className={styles.profileTop}></div>
-                        <a
-                          className={
-                            styles.outerImage + " relative block group"
-                          }
-                          href={`/stories/${alumni.id}`}
-                        >
-                          <img
-                            className={styles.roundedImage}
-                            src={alumni.user.picture}
-                            alt={alumni.user.name}
-                            style={{ height: 176, width: 176 }}
-                          />
-                          <div
+                    <OwlCarousel className="owl-theme" loop margin={10} nav>
+                      {stories.alumni.map((alumni, index) => (
+                        <div class="my-3 px-3  item" key={index}>
+                          <div className={styles.profileTop}></div>
+                          <a
                             className={
-                              styles.design +
-                              " relative rounded-b-xl overflow-hidden p-3 "
+                              styles.outerImage + " relative block group"
                             }
-                            style={{ position: "relative" }}
+                            href={`/stories/${alumni.id}`}
                           >
-                            <p className="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.name}
-                            </p>
-                            <p className="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.organization_name}
-                            </p>
-                            <p className="text-sm text-left w-full font-bold text-white">
-                              {alumni.user.designation}
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-                    ))}
+                            <img
+                              className={styles.roundedImage}
+                              src={alumni.user.picture}
+                              alt={alumni.user.name}
+                            />
+                            <div
+                              className={
+                                styles.design +
+                                " relative rounded-b-xl overflow-hidden p-3 "
+                              }
+                              style={{ position: "relative" }}
+                            >
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.name}
+                              </p>
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.organization_name}
+                              </p>
+                              <p class="text-sm text-left w-full font-bold text-white">
+                                {alumni.user.designation}
+                              </p>
+                            </div>
+                          </a>
+                        </div>
+                      ))}
+                    </OwlCarousel>
                   </div>
                 </div>
               )}
@@ -168,7 +169,7 @@ export default function Featured() {
           </div>
           <div className="px-4 md:mt-0 py-0 mx-auto max-w-screen-xl pt-2">
             <a href="/stories/alumni" className={styles.buttonLink}>
-              View All{" "}
+              View All
             </a>
           </div>
         </section>
