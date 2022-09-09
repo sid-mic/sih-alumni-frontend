@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import FormLoader from "../FormLoader";
 
 const labels = [
-  "Hackathon experience helped you in getting placed within in India or abroad?",
-  "Were you ever hired for internship by your Problem Statement creator Ministry/Company?",
-  "Hackathon experience helped you in getting internship within India or Abroad",
+  "Q1",
+  "Q2",
+  "Q3",
 ];
 
 const YesOrNo = () => {
@@ -54,9 +54,19 @@ const YesOrNo = () => {
         },
       },
 
-      title: {
+       title: {
         display: true,
-        text: "Yes/No",
+        font : {
+          size : 20,
+          padding : 40,
+        },
+        
+        text : ['Q1 : Hackathon experience helped you in getting placed within in India or abroad? ', 'Q2 :Were you ever hired for internship by your Problem Statement creator Ministry/Company?', " Q3 :Hackathon experience helped you in getting internship within India or Abroad" ],
+
+        padding : {
+          top : 10,
+          bottom : 10,
+        }
       },
     },
     responsive: true,
