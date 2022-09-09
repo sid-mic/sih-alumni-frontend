@@ -29,6 +29,12 @@ const Likert = () => {
   if (isLoading) {
     return <FormLoader />;
   }
+  
+  const dsum = dat["Disagree"].reduce((sum,n) => sum+n,0)
+  const sdsum = dat["Strongly Disagree"].reduce((sum,n) => sum+n,0)
+  const nsum = dat["Maybe"].reduce((sum,n) => sum+n,0)
+  const agrsum = dat["Agree"].reduce((sum,n) => sum+n,0)
+  const sagrsum = dat["Strongly Agree"].reduce((sum,n) => sum+n,0)
 
   const data = {
     labels,
@@ -36,27 +42,27 @@ const Likert = () => {
     datasets: [
       {
         label: "Strongly Disagree",
-        data: dat["Strongly Disagree"],
+        data: dat["Strongly Disagree"].map((n) => Math.round((n/sdsum)*100)),
         backgroundColor: "rgb(255, 0, 0)",
       },
       {
         label: "Disagree",
-        data: dat["Disagree"],
+        data: dat["Disagree"].map((n) => Math.round((n/dsum)*100)),
         backgroundColor: "rgb(255, 99, 132)",
       },
       {
         label: "Neutral",
-        data: dat["Maybe"],
+        data: dat["Maybe"].map((n) => Math.round((n/nsum)*100)),
         backgroundColor: "rgb(255, 165, 0)",
       },
       {
         label: "Agree",
-        data: dat["Agree"],
+        data: dat["Agree"].map((n) => Math.round((n/agrsum)*100)),
         backgroundColor: "rgb(0, 0, 139)",
       },
       {
         label: "Strongly Agree",
-        data: dat["Strongly Agree"],
+        data: dat["Strongly Agree"].map((n) => Math.round((n/sagrsum)*100)),
         backgroundColor: "#3CCF4E",
       },
     ],
