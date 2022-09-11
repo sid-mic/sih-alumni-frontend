@@ -172,9 +172,9 @@ export default function MentorWillingnessForm(props) {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20 mt-3"
+          className="ml:0 md:ml-20 mr-0 md:mr-18 lg:mr-20 mt-3 mx-4"
         >
-          <div className="flex -mx-3">
+          <div className="flex">
             <div className="w-full px-3 mb-5">
               <label className="text-md font-semibold">
                 1] Have you attended Smart India Hackathon 2022?
@@ -221,7 +221,7 @@ export default function MentorWillingnessForm(props) {
 
           {participated === 1 && (
             <div>
-              <div className="flex mb-5 -mx-3">
+              <div className="flex mb-5">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
                     2] Select the nodal center you have attended:
@@ -248,7 +248,7 @@ export default function MentorWillingnessForm(props) {
                 </div>
               </div>
 
-              <div className="flex mb-5 -mx-3">
+              <div className="flex mb-5 ">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
                     3] Number of days attended:
@@ -271,7 +271,7 @@ export default function MentorWillingnessForm(props) {
                 </div>
               </div>
 
-              <div className="flex mb-5 -mx-3">
+              <div className="flex mb-5 ">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
                     4] Attended as:
@@ -291,7 +291,7 @@ export default function MentorWillingnessForm(props) {
                 </div>
               </div>
 
-              <div className="flex mb-5 -mx-3">
+              <div className="flex mb-5 ">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
                     5] Video bytes recorded in the SIH 2022 and Media coverage
@@ -313,7 +313,7 @@ export default function MentorWillingnessForm(props) {
                 </div>
               </div>
 
-              <div className="flex mb-5 -mx-3">
+              <div className="flex mb-5 ">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
                     6] Your feedback:
@@ -337,7 +337,7 @@ export default function MentorWillingnessForm(props) {
           )}
 
           {!disabled && (
-            <div className="flex -mx-3">
+            <div className="flex  mb-16 md:mb-2">
               <div className="w-full px-3 mb-5">
                 <button
                   style={{ fontFamily: "Montserrat" }}

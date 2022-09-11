@@ -18,17 +18,14 @@ class SidebarMobile extends Component {
 
   render() {
     return (
-      <div class="px-0.5 py-0.5 bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col   justify-around md:h-screen w-80 fixed bottom-0 items-left">
-        <img
-          className="hidden h-10 md:block"
-          src="/assets/logo-all.png"
-        ></img>
+      <div class="px-0.5 py-0.5 bg-indblue z-50 static uppercase font-semibold  flex h-16 md:flex-col w-full justify-around md:h-screen md:w-80 fixed bottom-0 items-left">
+        <img className="hidden h-10 md:block" src="/assets/logo-all.png"></img>
         {this.props.moduletypes.map((moduletype, selectedtype) => (
           <div
             className={
               moduletype.id === this.state.ClickedButton
-                ? "bg-white mx-2 md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-indblue rounded-xl"
-                : "transparent mx-2 md:flex md:flex-wrap p-2 delay-75 duration-500 ease-in-out transform items-center text-white"
+                ? "bg-white mx-0 md:mx-2 md:flex md:flex-wrap py-2 px-0 md:px-2 delay-75 duration-500 ease-in-out transform items-center text-indblue rounded-xl"
+                : "transparent mx-0 md:mx-2 md:flex md:flex-wrap py-2 px-0 md:px-2 delay-75 duration-500 ease-in-out transform items-center text-white"
             }
             id={moduletype.id}
             key={moduletype.id}

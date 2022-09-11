@@ -67,7 +67,7 @@ class Dashboard extends Component {
       },
       {
         id: 7,
-        type: "Participate in SIH 2022",
+        type: "SIH 2022",
         icon: faChalkboardTeacher,
       },
     ],
@@ -130,7 +130,7 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
-                  <WelcomeHero h1="Participate in Smart India Hackathon 2022"  />
+                  <WelcomeHero h1="Smart India Hackathon 2022"  />
                   <MentorWillingnessForm />
               </div>
             </div>
