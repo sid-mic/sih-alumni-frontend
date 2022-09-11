@@ -130,7 +130,7 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
-                  <WelcomeHero h1="Consent to participate in SIH 2022"       h3="Travel and honorarium will be provided as per AICTE norms"/>
+                  <WelcomeHero h1="Participate in Smart India Hackathon 2022"  />
                   <MentorWillingnessForm />
               </div>
             </div>
