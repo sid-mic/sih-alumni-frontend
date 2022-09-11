@@ -223,3 +223,42 @@
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #869791; }
 
+.owl-carousel .owl-nav .owl-prev {
+    position: absolute !important;
+    content: '';
+    left: -50px !important;
+    top: 50% !important;
+    font-size: 40px !important;
+    transform: translateY(-50%) !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    line-height: 0 !important;
+    background-color: #f4deaf !important;
+}
+.owl-carousel .owl-nav .owl-next {
+    position: absolute !important;
+    content: '';
+    right: -50px !important;
+    top: 50% !important;
+    font-size: 40px !important;
+    transform: translateY(-50%) !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    line-height: 0 !important;
+    background-color: #f4deaf !important;
+}
+.owl-carousel .owl-nav .owl-prev span,
+.owl-carousel .owl-nav .owl-next span {
+    color: #686060;
+    font-size: 41px;
+    line-height: -1;
+    margin-top: -5px !important;
+    display: inherit;
+}
+
+.owl-carousel .owl-dot {
+    display: none !important;
+}
+
