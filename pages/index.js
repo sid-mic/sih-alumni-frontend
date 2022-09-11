@@ -53,7 +53,7 @@ export default function Home() {
             <Feature />
             
             <Who />
-            <Graph />
+            {/*<Graph />*/}
             <Benefits />
             <News/>
             <Featured />
