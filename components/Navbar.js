@@ -3,7 +3,7 @@ export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 bg-indblue" style={{zIndex:'999'}}>
+    <div className="sticky top-0 z-50 bg-indblue" style={{ zIndex: "999" }}>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-5">
         <div className="relative flex items-center justify-between">
           <a
@@ -12,18 +12,15 @@ export const Nav = () => {
             title="Company"
             className="inline-flex items-center"
           >
-            <img
-              className="h-16"
-              src="/assets/logo-all.png"
-            ></img>
+            <img className="h-16" src="/assets/logo-all.png"></img>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <a
-                  href="/#about"
-                  aria-label="Our product"
-                  title="Our product"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                href="/#about"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 About
               </a>
