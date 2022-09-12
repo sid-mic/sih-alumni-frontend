@@ -316,7 +316,28 @@ export default function MentorWillingnessForm(props) {
               <div className="flex mb-5 ">
                 <div className="w-full px-3 mb-5">
                   <label className="text-md font-semibold">
-                    6] Your feedback:
+                    6] Best Moment in SIH 2022:
+                  </label>
+                  <div className="flex">
+                    <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
+                      <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+                    </div>
+                    <input
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                        disabled={disabled}
+                        type="file"
+                        accept=".jpg,.png,.jpeg"
+                        className="w-full mt-5 -ml-10 pl-4 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500 font-normal"
+                        name={"image"}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex mb-5 ">
+                <div className="w-full px-3 mb-5">
+                  <label className="text-md font-semibold">
+                    7] Your feedback:
                   </label>
                   <div className="flex">
                     <div className="w-10 z-10 pl-1  text-center pointer-events-none flex items-center justify-center">
