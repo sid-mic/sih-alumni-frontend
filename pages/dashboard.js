@@ -65,11 +65,6 @@ class Dashboard extends Component {
         type: "Profile",
         icon: faUserEdit,
       },
-      {
-        id: 7,
-        type: "SIH 2022",
-        icon: faChalkboardTeacher,
-      },
     ],
     selectedmoduletype: 1,
     user: null,
@@ -95,7 +90,17 @@ class Dashboard extends Component {
         projects: data.projects,
         own_projects: data.own_projects,
         logout: auth().logout,
-        selectedmoduletype: data.user.mentor_willingness_filled ? 1 : 7,
+        moduletypes: data.user.is_uia_willing
+          ? [
+              ...this.state.moduletypes,
+              {
+                id: 7,
+                type: "UIA 2022",
+                icon: faChalkboardTeacher,
+              },
+            ]
+          : this.state.moduletypes,
+        selectedmoduletype: (!data.user.is_uia_willing || data.user.mentor_willingness_filled) ? 1 : 7,
       });
     }
 
@@ -130,22 +135,22 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
-                  <WelcomeHero h1="Smart India Hackathon 2022"  />
-                  <MentorWillingnessForm />
+                <WelcomeHero h1="UNESCO Africa India Hackathon 2022" />
+                <MentorWillingnessForm user={this.state.user} />
               </div>
             </div>
           </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </>
       );
     }
