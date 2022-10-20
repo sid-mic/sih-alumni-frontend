@@ -11,11 +11,7 @@ export default function MentorWillingnessForm(props) {
 
   useEffect(() => {
     axios()
-      .get(
-        props.user?.id
-          ? "mentor_willingness/" + props.user?.id
-          : "/mentor_willingness"
-      )
+      .get("/mentor_willingness")
       .then((response) => {
         setMentor(response.data);
         setIsLoading(false);
