@@ -35,12 +35,12 @@ export default function AdminFeedbacksTable(props) {
           responseType: "blob",
           headers: {
             Accept:
-              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              "application/csv",
           },
         }
       )
       .then((response) => {
-        download(response.data, "feedbacks_mic_alumni_portal.xlsx");
+        download(response.data, "feedbacks_mic_alumni_portal.csv");
       })
       .catch((error) => {
         alert("The file couldn't be downloaded");
