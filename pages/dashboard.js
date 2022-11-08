@@ -100,7 +100,7 @@ class Dashboard extends Component {
               },
             ]
           : this.state.moduletypes,
-        selectedmoduletype: (!data.user.is_uia_willing || data.user.mentor_willingness_filled) ? 1 : 7,
+        selectedmoduletype: 5,
       });
     }
 
