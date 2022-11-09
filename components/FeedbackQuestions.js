@@ -1186,8 +1186,7 @@ export default function FeedbackQuestions(props) {
             <div className="flex -mx-3">
               <div className="w-full px-3 mb-5">
                 <label className="text-md font-semibold">
-                  14] Comments (May be a thank you note to Organization team or
-                  feedback on improvement)?
+                  14] Testimonial
                 </label>
               </div>
             </div>
