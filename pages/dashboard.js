@@ -100,7 +100,7 @@ class Dashboard extends Component {
               },
             ]
           : this.state.moduletypes,
-        selectedmoduletype: 5,
+        selectedmoduletype: 4,
       });
     }
 
