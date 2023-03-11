@@ -90,16 +90,18 @@ class Dashboard extends Component {
         projects: data.projects,
         own_projects: data.own_projects,
         logout: auth().logout,
-        moduletypes: data.user.is_uia_willing
-          ? [
-              ...this.state.moduletypes,
-              {
-                id: 7,
-                type: "UIA 2022",
-                icon: faChalkboardTeacher,
-              },
-            ]
-          : this.state.moduletypes,
+        moduletypes:
+          //   data.user.is_uia_willing
+          // ? [
+          //     ...this.state.moduletypes,
+          //     {
+          //       id: 7,
+          //       type: "UIA 2022",
+          //       icon: faChalkboardTeacher,
+          //     },
+          //   ]
+          // :
+          this.state.moduletypes,
         selectedmoduletype: 4,
       });
     }
