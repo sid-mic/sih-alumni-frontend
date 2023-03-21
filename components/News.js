@@ -131,7 +131,7 @@ function NewsCard(props) {
       <div className={styles.newsDate}>
         <p className={styles.annMonth}>{item.created_date}th</p>
         <p className={styles.annDate}>{item.created_month}</p>
-        <p className={styles.annYear}>2022</p>
+        <p className={styles.annYear}>{item.created_year}</p>
       </div>
       <div className={styles.newsText}>
         <p> {item.title}</p>
