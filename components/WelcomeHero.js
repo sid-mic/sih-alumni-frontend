@@ -13,6 +13,7 @@ export const WelcomeHero = (props) => {
                 {props.h2}
               </span>
             </h2>
+            <h3 className="text-center text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">{props.h3}</h3>
 
             <br />
           </div>

@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 import "@fontsource/montserrat/800.css";
+import "../styles/app.css"
 import Script from 'next/script'
 import { useEffect } from "react";
 import { useRouter } from "next/router";

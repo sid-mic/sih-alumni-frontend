@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 export default function validate() {
   const router = useRouter();
   useEffect(() => {
+    console.log(router.query)
     auth().setToken(router.query.token);
   });
 

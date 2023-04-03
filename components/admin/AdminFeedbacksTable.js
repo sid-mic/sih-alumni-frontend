@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import FormLoader from "../FormLoader";
 import Pagination from "rc-pagination";
+import download from "js-file-download";
 
 export default function AdminFeedbacksTable(props) {
   const [list_data, setlistdata] = useState(false);
@@ -24,6 +25,28 @@ export default function AdminFeedbacksTable(props) {
       });
   }
 
+  function handleDownload() {
+    axios()
+      .post(
+        "feedbacks/export",
+        {
+        },
+        {
+          responseType: "blob",
+          headers: {
+            Accept:
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          },
+        }
+      )
+      .then((response) => {
+        download(response.data, "feedbacks_mic_alumni_portal.xlsx");
+      })
+      .catch((error) => {
+        alert("The file couldn't be downloaded");
+      });
+  }
+
   if (!list_data) {
     return <FormLoader></FormLoader>;
   } else if (list_data.length == 0) {
@@ -35,8 +58,16 @@ export default function AdminFeedbacksTable(props) {
   } else {
     return (
       <>
-        <div className="mx-28 mb-10">
-          <div className="relative shadow-lg mx-auto mt-10">
+        <div className={"flex justify-end mb-3 mr-9"}>
+          <button
+              onClick={() => handleDownload()}
+              className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+          >
+            Export as Excel
+          </button>
+        </div>
+        <div className="mx-16 mb-10">
+          <div className="relative shadow-lg mx-auto">
             <table className="w-full text-left text-gray-700 dark:text-gray-400">
               <thead className="font-sans uppercase bg-indblue opacity dark:bg-gray-700 dark:text-gray-400">
                 <tr className="border border-1 border-gray-900 text-gray-200 opacity-100">
@@ -75,10 +106,7 @@ export default function AdminFeedbacksTable(props) {
                     key={row.id}
                     className="border border-1 border-gray-900 dark:bg-gray-900 font-medium dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
                   >
-                    <th
-                      scope="row"
-                      className="px-6 py-4"
-                    >
+                    <th scope="row" className="px-6 py-4">
                       {row.user.name}
                     </th>
                     <td className="text-center py-4">{row.user.email}</td>

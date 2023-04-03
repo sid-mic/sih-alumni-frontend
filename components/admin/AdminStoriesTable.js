@@ -4,6 +4,7 @@ import FormLoader from "../FormLoader";
 import { toast } from "react-toastify";
 import StoryCard from "../StoryCard";
 import Pagination from "rc-pagination";
+import download from "js-file-download";
 
 export default function AdminStoriesTable(props) {
   const [list_data, setlistdata] = useState(false);
@@ -16,11 +17,11 @@ export default function AdminStoriesTable(props) {
     handleRequest();
   }, [props.user]);
 
-  function handleRequest(page = 1) {
+  function handleRequest(page = 1, displayArchived = false) {
     setlistdata(false);
 
     axios()
-      .get(`stories?page=${page}`)
+      .get(`stories${displayArchived ? "/archived" : ""}?page=${page}`)
       .then(function (response) {
         if (response.status == 200) {
           setlistdata(response.data.stories.data);
@@ -30,9 +31,47 @@ export default function AdminStoriesTable(props) {
       });
   }
 
+  function handleDownload() {
+    axios()
+      .post(
+        "stories/export",
+        {},
+        {
+          responseType: "blob",
+          headers: {
+            Accept:
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          },
+        }
+      )
+      .then((response) => {
+        download(response.data, "stories_mic_alumni_portal.xlsx");
+      })
+      .catch((error) => {
+        alert("The file couldn't be downloaded");
+      });
+  }
+
   // Main list page
   return (
     <>
+      <div className={"flex justify-end mb-3 mr-9"}>
+        <button
+          onClick={() => handleDownload()}
+          className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded"
+        >
+          Export as Excel
+        </button>
+        <button
+          onClick={() => {
+            handleRequest(1, !displayArchived);
+            setDisplayArchived(!displayArchived);
+          }}
+          className="bg-indblue hover:bg-blue-700 text-white font-bold py-2 px-3 border border-blue-500 rounded ml-2"
+        >
+          {displayArchived ? "Display non archived" : "Display archived"}
+        </button>
+      </div>
       <div className="px-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-3 lg:py-0">
         <div className="grid grid-cols-2 row-gap-8 md:grid-cols-3 mx-40">
           <div className="p-5 mr-7 shadow-2xl rounded-xl text-white text-center bg-indblue mb-5">
@@ -78,7 +117,7 @@ function AdminAnnouncementList({
   meta,
   handleRequest,
   displayArchived,
-  setDisplayArchived
+  setDisplayArchived,
 }) {
   if (!data) {
     return <FormLoader></FormLoader>;
@@ -91,10 +130,6 @@ function AdminAnnouncementList({
   } else {
     return (
       <div className="pt-6 p-20">
-        <div className="text-right">
-
-          <button className="p-3 mb-2 mr-1 bg-indblue text-white text-xl rounded-lg" onClick={()=>setDisplayArchived(!displayArchived)}>{displayArchived?"Display all":"Archived"}</button>
-        </div>
         <div className="overflow-hidden overflow-x-auto border border-gray-100 rounded">
           <table className="min-w-full col-span-3 rounded-2xl border-collapse block md:table">
             <thead className="block md:table-header-group rounded-2xl">
@@ -125,7 +160,6 @@ function AdminAnnouncementList({
                     setlist={setlist}
                     index={index}
                     setSelected={setSelected}
-                    displayArchived={displayArchived}
                   />
                 );
               })}
@@ -172,12 +206,7 @@ function StoryRow({ data, setlist, setSelected, index, displayArchived }) {
       }
     );
   }
-  if (displayArchived==true && data.display!="archived"){
-    return <div></div>
-  }
-  if(displayArchived==false && data.display=="archived"){
-    return <div></div>
-  }
+
   return (
     <tr
       className="bg-gray-300 border border-grey-500 md:border-none block md:table-row sm:mt-10"
@@ -228,16 +257,16 @@ function StoryRow({ data, setlist, setSelected, index, displayArchived }) {
             </button>
           )}
           {data.display !== "archived" && (
-          <button
-            onClick={(e) => {
-              handleDisplayChange(data.id, "archived");
-            }}
-            className={
-              "block bg-gray-400 rounded-lg p-3 mr-4 col-span-2 align-middle"
-            }
-          >
-            Archive
-          </button>
+            <button
+              onClick={(e) => {
+                handleDisplayChange(data.id, "archived");
+              }}
+              className={
+                "block bg-gray-400 rounded-lg p-3 mr-4 col-span-2 align-middle"
+              }
+            >
+              Archive
+            </button>
           )}
 
           <button
@@ -251,8 +280,6 @@ function StoryRow({ data, setlist, setSelected, index, displayArchived }) {
           >
             View
           </button>
-
-          
         </div>
       </td>
     </tr>

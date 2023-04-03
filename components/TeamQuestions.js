@@ -141,7 +141,7 @@ export default function TeamQuestions(props) {
     form_data.append("project_delivered_status", projectDeliveredStatus);
     form_data.append(
       "project_implemented_by_ministry",
-      projectImplementedByMinistry
+      projectImplementedByMinistry === "1" ? "1" : "0"
     );
     form_data.append("mic_support_deploy", micSupportDeploy);
     form_data.append("incubator_status", incubatorStatus);
@@ -572,7 +572,7 @@ export default function TeamQuestions(props) {
                       setProjectDeliveredStatus(e.target.value);
                       setProjectImplementedByMinistry(
                         e.target.value ===
-                          "Delivered and Implemented by Department/Ministry/Organisation"
+                          "Delivered and Implemented by Department/Ministry/Organisation" ? "1" : "0"
                       );
                     }}
                   >

@@ -110,6 +110,7 @@ class Home extends Component {
         await Router.push("/dashboard");
       } else {
         let stats = await axios().get("stats");
+
         let initiatives = await axios().get("initiatives");
 
         this.setState({
@@ -157,8 +158,8 @@ class Home extends Component {
                     <WelcomeHero h1="Welcome, " h2="Admin." />
                     <AdminStats stats={this.state.stats.top_counts} initiatives_count={this.state.initiatives.length} />
                     <ChartStats
-                      gender_stats={this.state.stats.users_gender_count}
-                      signups_count={this.state.stats.signup_count}
+                        gender_stats={this.state.stats.users_gender_count}
+                        signups_count={this.state.stats.signup_count}
                     />
                   </div>
                 </div>
@@ -191,6 +192,17 @@ class Home extends Component {
               </div>
             </div>
           </div>
+          <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+          />
         </>
       );
     }

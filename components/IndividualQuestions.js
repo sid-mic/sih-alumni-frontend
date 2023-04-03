@@ -64,7 +64,10 @@ export default function IndividualQuestions(props) {
       setProjectIncubatorCity(data?.project_incubator_city);
       setProjectHackathonRelated(data?.project_hackathon_related);
       setProjectFundingSupport(data?.project_funding_support);
-      setProjectTrlLevel(data?.project_trl_level ?? "TRL 0 : Idea. Unproven concept, no testing has been performed." );
+      setProjectTrlLevel(
+        data?.project_trl_level ??
+          "TRL 0 : Idea. Unproven concept, no testing has been performed."
+      );
       setProjectVideoUrl(data?.project_video_url);
     }
 
@@ -81,7 +84,10 @@ export default function IndividualQuestions(props) {
     let form_data = new FormData();
 
     form_data.append("project_title", projectTitle);
-    form_data.append("project_theme", projectTheme);
+    form_data.append(
+      "project_theme",
+      projectTheme ?? "Healthcare & Biomedical devices"
+    );
     form_data.append("project_status", projectStatus);
     form_data.append("project_ip_generated", projectIpGenerated);
     form_data.append(
@@ -94,12 +100,17 @@ export default function IndividualQuestions(props) {
     form_data.append("project_incubator_city", projectIncubatorCity);
     form_data.append("project_hackathon_related", projectHackathonRelated);
     form_data.append("project_funding_support", projectFundingSupport);
-    form_data.append("project_trl_level", projectTrlLevel);
+    form_data.append(
+      "project_trl_level",
+      projectTrlLevel ??
+        "TRL 0 : Idea. Unproven concept, no testing has been performed."
+    );
     form_data.append("project_video_url", projectVideoUrl);
 
     if (projectImage) {
       form_data.append("project_image", projectImage);
     }
+
     toast.promise(
       axios().post(`status${project ? "/" + project : ""}`, form_data),
       {
@@ -165,48 +176,48 @@ export default function IndividualQuestions(props) {
             </div>
           </div>
           <div className="overflow-x-scroll lg:overflow-x-visible">
-          <table
-            className="border-separate border border-slate-400 mt-6"
-            style={{ width: "100%" }}
-          >
-            <tr className="border-collapse" style={{ textAlign: "center" }}>
-              <td className="border-separate border border-black"> S.NO</td>
-              <td className="border-separate border border-black">
-                Idea/innovation title
-              </td>
-              <td className="border-separate border border-black">Theme</td>
-              <td className="border-separate border border-black">
-                EDIT button
-              </td>
-            </tr>
-            {Object.entries(props.own_projects).map(([id, project]) => {
-              s_no += 1;
-              return (
-                <tr key={id} className={"text-center"}>
-                  <td className="border-separate border border-black">
-                    {s_no}
-                  </td>
-                  <td className="border-separate border border-black">
-                    {project.project_title}
-                  </td>
-                  <td className="border-separate border border-black">
-                    {project.project_theme}
-                  </td>
-                  <td className="border-separate border border-black text-center">
-                    <button
-                      className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
-                      key={id}
-                      onClick={() => {
-                        handleProjectChange(id);
-                      }}
-                    >
-                      Edit
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </table>
+            <table
+              className="border-separate border border-slate-400 mt-6"
+              style={{ width: "100%" }}
+            >
+              <tr className="border-collapse" style={{ textAlign: "center" }}>
+                <td className="border-separate border border-black"> S.NO</td>
+                <td className="border-separate border border-black">
+                  Idea/innovation title
+                </td>
+                <td className="border-separate border border-black">Theme</td>
+                <td className="border-separate border border-black">
+                  EDIT button
+                </td>
+              </tr>
+              {Object.entries(props.own_projects).map(([id, project]) => {
+                s_no += 1;
+                return (
+                  <tr key={id} className={"text-center"}>
+                    <td className="border-separate border border-black">
+                      {s_no}
+                    </td>
+                    <td className="border-separate border border-black">
+                      {project.project_title}
+                    </td>
+                    <td className="border-separate border border-black">
+                      {project.project_theme}
+                    </td>
+                    <td className="border-separate border border-black text-center">
+                      <button
+                        className="block bg-indblue text-white p-5 py-3 my-2 rounded-xl ml-5 font-semibold"
+                        key={id}
+                        onClick={() => {
+                          handleProjectChange(id);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </table>
           </div>
 
           {/*<div className="flex -mx-3 justify-center my-5">*/}

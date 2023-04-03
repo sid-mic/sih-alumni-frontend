@@ -1,418 +1,120 @@
-/*import React from 'react'
-import { Chart as ChartJS, CategoryScale, LinearScale,BarElement,Title,Tooltip,Legend, Bar } from 'react-chartjs-2'
-const Graph = () => {
+import React from "react";
 
-
-  const options = {
-    plugins : {
-      title:{
-        display : true,
-        text : "Feedback Chart"
-      }
-    },
-    responsive : true,
-    scales : {
-      x:{
-        stacked:true,
-      },
-      y: {
-        stacked : true,
-      }
-    }
-  }
-  const piedata = {
-    labels: ["Red", "Green", "Yellow"],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      },
-    ],
-  };
-  return (
-      <div class = "mx-auto">
-
-<div class="flex flex-row mx-auto items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
-		<h2 class=" m-2">Product is easy to use</h2>
-		<div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-			<div class="relative flex flex-row items-center flex-grow pb-5 group">
-				
-				<div class="relative flex justify-center  h-12 bg-red-600" style = {{width : "20%"}}>20%</div>
-				<div class="relative flex justify-center  h-12 bg-red-500" style = {{width : "30%"}}>30%</div>
-				<div class="relative flex justify-center  h-12 " style = {{width : "10%", backgroundColor:"orange"}}>10%</div>
-        <div class="relative flex justify-center  h-12 bg-blue-400" style = {{width : "20%"}}>20%</div>
-        <div class="relative flex justify-center  h-12 bg-green-400" style = {{width : "30%"}}>30%</div>
-				
-			</div>
-    </div>
-    
-  </div>
-
-  <div class="flex flex-row mx-auto  items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
-		<h2 class=" m-2">Product speed is fast</h2>
-		
-		<div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-			<div class="relative flex flex-row items-center flex-grow pb-5 group">
-				
-				<div class="relative flex justify-center  h-12 bg-red-600" style = {{width : "20%"}}>20%</div>
-				<div class="relative flex justify-center  h-12 bg-red-500" style = {{width : "30%"}}>30%</div>
-				<div class="relative flex justify-center  h-12 " style = {{width : "10%", backgroundColor:"orange"}}>10%</div>
-        <div class="relative flex justify-center  h-12 bg-blue-400" style = {{width : "20%"}}>20%</div>
-        <div class="relative flex justify-center  h-12 bg-green-400" style = {{width : "30%"}}>30%</div>
-				
-			</div>
-    </div>
-    
-  </div>
-
-  <div class="flex flex-row mx-auto items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
-		<h2 class=" m-2">Add text holders</h2>
-		
-		<div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-			<div class="relative flex flex-row items-center flex-grow pb-5 group">
-				
-				<div class="relative flex justify-center  h-12 bg-red-600" style = {{width : "20%"}}>20%</div>
-				<div class="relative flex justify-center  h-12 bg-red-500" style = {{width : "30%"}}>30%</div>
-				<div class="relative flex justify-center  h-12 " style = {{width : "10%", backgroundColor:"orange"}}>10%</div>
-        <div class="relative flex justify-center  h-12 bg-blue-400" style = {{width : "20%"}}>20%</div>
-        <div class="relative flex justify-center  h-12 bg-green-400" style = {{width : "30%"}}>30%</div>
-				
-			</div>
-    </div>
-    
-  </div>
-
-  <div class="flex flex-row mx-auto items-center w-full max-w-screen-md p-6 pb-6 bg-white rounded-lg shadow-xl sm:p-8">
-		<h2 class=" m-2">Add text holders </h2>
-		
-		<div class="flex items-center flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-			<div class="relative flex flex-row items-center flex-grow pb-5 group">
-				
-				<div class="relative flex justify-center  h-12 bg-red-600" style = {{width : "20%"}}>20%</div>
-				<div class="relative flex justify-center  h-12 bg-red-500" style = {{width : "30%"}}>30%</div>
-				<div class="relative flex justify-center  h-12 " style = {{width : "10%", backgroundColor:"orange"}}>10%</div>
-        <div class="relative flex justify-center  h-12 bg-blue-400" style = {{width : "20%"}}>20%</div>
-        <div class="relative flex justify-center  h-12 bg-green-400" style = {{width : "30%"}}>30%</div>
-				
-			</div>
-    </div>
-    
-  </div>
-  <div class="flex justify-center mt-3 flex-grow w-full mt-2 space-x-2 sm:space-x-3">
- <div > 
-  
-  <h1 class = "text-center">   &#128562;  </h1>
-
-  <div class="relative flex justify-center   p-3 bg-red-600" > Poor</div>
-  
- </div>
-
- <div> 
-  
-  <h1 class = "text-center">     &#128533;  </h1>
-
-  <div  class="relative flex justify-center p-3 bg-red-500" >Fair</div>
-  
- </div>
-
- <div> 
-  
-  <h1 class = "text-center">   &#128528;  </h1>
-
-  <div class="relative flex justify-center  p-3  "style = {{backgroundColor: "orange"}}>Neutral</div>
-  
- </div>
-
- <div> 
-  
-  <h1 class = "text-center">   &#128516; </h1>
-
-  <div class="relative flex justify-center p-3  bg-blue-400">Very Good</div>
-  
- </div>
-
- <div> 
-  
-  <h1 class = "text-center " style = {{fontSize : "1rem"}}>  &#128512;    </h1>
-
-  <div class="relative flex justify-center p-3  bg-green-400" >Excellent</div>
-  
- </div>
- </div>
-     
-      </div>
-  )
-}
-
-export default Graph
-*/
-
-import React from 'react';
-
-import { Bar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import axios from "../../utils/axios";
 import { useEffect, useState } from "react";
 import FormLoader from "../FormLoader";
-/* 
-export const options = {
-  indexAxis: 'y',
-  plugins: {
-    datalabels: {
-      color: '#ffffff',
-      font: {
-        weight: 'bold',
-        size: 20,
-      },
-      
-    },
-    title: {
-      display: true,
-      text: '5 point Likert Graph',
-      font: {
-        weight: 'bold',
-        size: 25,
 
-      },
-    },
-  },
+const labels = [
+  "Whether SIH helped in building your confidence?",
+  "Did your success in SIH helped for admission in higher studies",
+  "Would you recommend other students to participate in such future initiatives?",
+  "Did Participating in this hackathon make you more aware of your social?",
+];
 
-  responsive: true,
-  scales: {
-    xAxes: [{
-        ticks: {
-            beginAtZero: true,
-            max: 100,
-            min: 0
-        }
-    }],
-    yAxes: [{
-        ticks: {
-            beginAtZero: false,
-            max: 8,
-            min: -3
-        }
-    }]
-},
-  scales: {
-    x: {
-      stacked: true,
-    },
-    y: {
-      stacked: true,
-    },
-    xAxes : [{
-      barPercentage : 0.4
-    }]
-  },
-};*/
+const Likert = () => {
+  const [dat, setDat] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-const options = {
-  minBarLength: 20,
-  indexAxis: "y",
-// barPercentage : 4,
-  layout : {
-    padding : {
-      left : 100,
-      right : 100
-    }
-  },
-  plugins: {
-    datalabels: {
-      color: "#ffffff",
-      display : "auto",
-      clamp : true,
-      font: {
-        weight: "bold",
-        size: 20,
-      },
-    },
-    title: {
-      display: true,
-      text: "5 point Likert Graph",
-      font: {
-        weight: "bold",
-        size: 25,
-      },
-    },
-  },
-  responsive: true,
-  scales: {
-    x: {
-      stacked: true,
-      
-      max : 200,
-      ticks : {   
-      min: 0,
-      stepSize : 5,
-      width : 500,
-      max: + 100,
-      }
-    },
-    y: {
-      stacked: true,
-    },
-    
-  },
-};
-
-const labels = ["Whether SIH helped in building your confidence?","Did your success in SIH helped for admission in higher studies","Would you recommend other students to participate in such future initiatives?","Did Participating in this hackathon make you more aware of your social?"];
-
-
-const Likert  = () => {
-  const [dat,setDat] = useState([])
-  const [agree,setAgree] = useState([])
-  const [disagree,setDisAgree] = useState([])
-  const [sagree,setsAgree] = useState([])
-  const [sdisagree,setsDisAgree] = useState([])
-  const [mayBe,setMayBe] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-
- /* useEffect(() => {
+  useEffect(() => {
     axios()
       .get("chartData")
       .then((response) => {
-        console.log(response.data);
-        setDat(response.data)
-       //   Object.entries(dat).map(([type, val]) => type === "Agree" && setAgree(val))
-       // // setSubmissions(response.data.data);
-       // Object.entries(dat).map(([type, val]) => type === "Strongly Agree" && setsAgree(val))
-       // Object.entries(dat).map(([type, val]) => type === "Strongly DisAgree" && setsDisAgree(val))
-       // Object.entries(dat).map(([type, val]) => type === "Disagree" && setDisAgree(val))
-       // Object.entries(dat).map(([type, val]) => type === "Maybe" && setMayBe(val))
-       
-       setIsLoading(false);
+        setDat(response.data);
+        setIsLoading(false);
       });
-  }, []);*/
+  }, []);
 
-
-  /*if (isLoading) {
-    return <FormLoader/>
-  }*/
-
-  const agr = [150,53,500,300];
-  const sagr = [10,10,50,30];
-  const neu = [1,1,1,1];
-  const disagr = [1,1,1,1];
-  const sdisagr = [1,1,1,1];
-  const dsum = disagr.reduce((sum,n) => sum+n,0)
-  const sdsum = sdisagr.reduce((sum,n) => sum+n,0)
-  const nsum = neu.reduce((sum,n) => sum+n,0)
-  const agrsum = agr.reduce((sum,n) => sum+n,0)
-  const sagrsum = sagr.reduce((sum,n) => sum+n,0)
+  if (isLoading) {
+    return <FormLoader />;
+  }
+  
+  const dsum = dat["Disagree"].reduce((sum,n) => sum+n,0)
+  const sdsum = dat["Strongly Disagree"].reduce((sum,n) => sum+n,0)
+  const nsum = dat["Maybe"].reduce((sum,n) => sum+n,0)
+  const agrsum = dat["Agree"].reduce((sum,n) => sum+n,0)
+  const sagrsum = dat["Strongly Agree"].reduce((sum,n) => sum+n,0)
 
   const data = {
     labels,
-    
+
     datasets: [
       {
-        label: 'Strongly Disagree',
-      //data: disagr.reduce((sum,n) => n/(sum+n),0),   
-       data: sdisagr.map((n) => Math.round((n/sdsum)*100)),  
-       //data : [1,2,0,0,1],
-        backgroundColor: 'rgb(255, 0, 0)'      
+        label: "Strongly Disagree",
+        data: dat["Strongly Disagree"].map((n) => Math.round((n/sdsum)*100)),
+        backgroundColor: "rgb(255, 0, 0)",
       },
       {
-        label: 'Disagree',
-        data: disagr.map((n) => Math.round((n/dsum)*100)),
-        //data : [1,2,0,0,1],
-        backgroundColor: 'rgb(255, 99, 132)',
-        padding : 5
+        label: "Disagree",
+        data: dat["Disagree"].map((n) => Math.round((n/dsum)*100)),
+        backgroundColor: "rgb(255, 99, 132)",
       },
       {
-        label: 'Neutral',
-       data: neu.map((n) => Math.round((n/nsum)*100)),
-       //data : [1,16,50,30,8],
-        backgroundColor: 'rgb(255, 165, 0)',
+        label: "Neutral",
+        data: dat["Maybe"].map((n) => Math.round((n/nsum)*100)),
+        backgroundColor: "rgb(255, 165, 0)",
       },
       {
-        label: 'Agree',
-        data: agr.map((n) => Math.round((n/agrsum)*100)),
-        //data : [1,40,30,30,40],
-        backgroundColor: 'rgb(0, 0, 139)',
+        label: "Agree",
+        data: dat["Agree"].map((n) => Math.round((n/agrsum)*100)),
+        backgroundColor: "rgb(0, 0, 139)",
       },
       {
-        label: 'Strongly Agree',
-        data: sagr.map((n) => Math.round((n/sagrsum)*100)),
-       // data : [1,40,20,40,50],
-        backgroundColor: '#3CCF4E',
+        label: "Strongly Agree",
+        data: dat["Strongly Agree"].map((n) => Math.round((n/sagrsum)*100)),
+        backgroundColor: "#3CCF4E",
       },
     ],
   };
-  
 
-  return <Bar options={options} data={data} plugins = {[ChartDataLabels]}/>;
-}
-
-export default Likert
-/*
-import React from 'react';
-import {
-Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
-  plugins: {
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart - Stacked',
+  const options = {
+    minBarLength: 20,
+    indexAxis: "y",
+    plugins: {
+      datalabels: {
+        color: "#ffffff",
+        font: {
+          weight: "bold",
+          size: 20,
+        },
+      },
+      title: {
+        display: true,
+        text: "Alumni Feedback",
+        font: {
+          weight: "bold",
+          size: 25,
+        },
+      },
     },
-  },
-  responsive: true,
-  scales: {
-    x: {
-      stacked: true,
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+        min:
+          Math.min.apply(
+            null,
+            dat["Strongly Disagree"].map(
+              (st_dis, index) => st_dis + dat["Disagree"][index]
+            )
+          ) - 30,
+        max:
+          Math.max.apply(
+            null,
+            dat["Maybe"].map(
+              (maybe, index) =>
+                maybe + dat["Agree"][index] + dat["Strongly Agree"][index]
+            )
+          ) + 30,
+      },
+      y: {
+        stacked: true,
+      },
     },
-    y: {
-      stacked: true,
-    },
-  },
+  };
+
+  return <Bar options={options} data={data} plugins={[ChartDataLabels]} />;
 };
 
-const labels = ["Whether SIH helped in building your confidence?","Did your success in SIH helped for admission in higher studies","Would you recommend other students to participate in such future initiatives?","Did Participating in this hackathon make you more aware of your social?"];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-     // data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(255, 99, 132)',
-    },
-    {
-      label: 'Dataset 2',
-      //data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(75, 192, 192)',
-    },
-    {
-      label: 'Dataset 3',
-      //data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(53, 162, 235)',
-    },
-  ],
-};
-
-export function Graph() {
-  return <Bar options={options} data={data} />;
-
-  <span class="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">$37,500</span>
-}*/
+export default Likert;

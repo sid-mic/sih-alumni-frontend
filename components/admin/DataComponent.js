@@ -4,6 +4,7 @@ import FormLoader from "../FormLoader";
 import download from "js-file-download";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
+import { toast } from "react-toastify";
 
 export default function DataComponent(props) {
   const [data, setData] = useState([]);
@@ -14,6 +15,7 @@ export default function DataComponent(props) {
   const [registered, setRegistered] = useState(false);
   const [unregistered, setUnregistered] = useState(false);
   const [bootstrapped, setBootstrapped] = useState(false);
+  const [mentorWillingness, setMentorWillingness] = useState(false);
   const [funding, setFunding] = useState(false);
   const [initiatives, setInitiatives] = useState([]);
 
@@ -54,6 +56,7 @@ export default function DataComponent(props) {
       bootstrapped,
       funding,
       initiatives,
+      mentor_willingness: mentorWillingness,
     });
 
     setData(response.data.data);
@@ -67,42 +70,47 @@ export default function DataComponent(props) {
     setUnregistered(false);
     setBootstrapped(false);
     setFunding(false);
+    setMentorWillingness(false);
     setInitiatives([]);
 
     setIsInitialized(false);
   }
+  ``;
 
   function handleDownload() {
-    axios()
-      .post(
-        "users/export",
-        {
-          registered:
-            registered && unregistered
-              ? null
-              : registered
-              ? true
-              : unregistered
-              ? false
-              : null,
-          bootstrapped,
-          funding,
-          initiatives,
-        },
-        {
-          responseType: "blob",
-          headers: {
-            Accept:
-              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    toast.promise(
+      axios().post("users/export", {
+        registered:
+          registered && unregistered
+            ? null
+            : registered
+            ? true
+            : unregistered
+            ? false
+            : null,
+        bootstrapped,
+        funding,
+        initiatives,
+        mentor_willingness: mentorWillingness,
+      }),
+      {
+        pending: {
+          render() {
+            return "Sending Request....";
           },
-        }
-      )
-      .then((response) => {
-        download(response.data, "users.xlsx");
-      })
-      .catch((error) => {
-        alert("The file couldn't be downloaded");
-      });
+        },
+        success: {
+          render() {
+            return "Request sent successfully. Data will be mailed to your email in 10 minutes!";
+          },
+        },
+        error: {
+          render() {
+            return "Something went wrong!";
+          },
+        },
+      }
+    );
   }
 
   if (isLoading) {
@@ -206,6 +214,22 @@ export default function DataComponent(props) {
                         className="ml-3 text-sm font-medium"
                       >
                         Looking for investment
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="mentor_willingness"
+                        className="w-6 h-6 border-gray-300"
+                        defaultChecked={mentorWillingness}
+                        onChange={(e) => setMentorWillingness(e.target.checked)}
+                      />
+                      <label
+                        htmlFor="mentor_willingness"
+                        className="ml-3 text-sm font-medium"
+                      >
+                        Mentor Willingness Filled
                       </label>
                     </div>
                   </div>
