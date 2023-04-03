@@ -246,7 +246,6 @@ function AdminChangemakerForm(props) {
     form_data.append("title", title);
     form_data.append("url", url);
     form_data.append("status", status);
-
     const post_url = id == null ? "changemakers" : `changemakers/${id}`;
     if (id != null) {
       form_data.append("_method", "PUT");
@@ -321,6 +320,7 @@ function AdminChangemakerForm(props) {
             </div>
             <input
               type="text"
+              name = "title"
               defaultValue={data?.title}
               className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
               onChange={(e) => setTitle(e.target.value)}
@@ -339,6 +339,7 @@ function AdminChangemakerForm(props) {
             </div>
             <input
               type="text"
+              name = "url"
               defaultValue={data?.url}
               className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
               onChange={(e) => setUrl(e.target.value)}
@@ -360,6 +361,7 @@ function AdminChangemakerForm(props) {
               onChange={(e) => {
                 setStatus(e.target.value);
               }}
+              name = "status"
               className="w-full pl-5 -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
             >
               <option value={"live"}>Live</option>

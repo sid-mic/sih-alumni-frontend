@@ -13,7 +13,7 @@ export default function News() {
       axios()
         .get("announcements/public")
         .then((resp) => {
-          setData(resp.data);
+          setData(resp.data.announcements);
         });
     }
   }, [data, selected]);
