@@ -152,7 +152,10 @@ import React from 'react';
 
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-
+import axios from "../../utils/axios";
+import { useEffect, useState } from "react";
+import FormLoader from "../FormLoader";
+/* 
 export const options = {
   indexAxis: 'y',
   plugins: {
@@ -174,7 +177,24 @@ export const options = {
       },
     },
   },
+
   responsive: true,
+  scales: {
+    xAxes: [{
+        ticks: {
+            beginAtZero: true,
+            max: 100,
+            min: 0
+        }
+    }],
+    yAxes: [{
+        ticks: {
+            beginAtZero: false,
+            max: 8,
+            min: -3
+        }
+    }]
+},
   scales: {
     x: {
       stacked: true,
@@ -182,43 +202,147 @@ export const options = {
     y: {
       stacked: true,
     },
+    xAxes : [{
+      barPercentage : 0.4
+    }]
+  },
+};*/
+
+const options = {
+  minBarLength: 20,
+  indexAxis: "y",
+// barPercentage : 4,
+  layout : {
+    padding : {
+      left : 100,
+      right : 100
+    }
+  },
+  plugins: {
+    datalabels: {
+      color: "#ffffff",
+      display : "auto",
+      clamp : true,
+      font: {
+        weight: "bold",
+        size: 20,
+      },
+    },
+    title: {
+      display: true,
+      text: "5 point Likert Graph",
+      font: {
+        weight: "bold",
+        size: 25,
+      },
+    },
+  },
+  responsive: true,
+  scales: {
+    x: {
+      stacked: true,
+      
+      max : 200,
+      ticks : {   
+      min: 0,
+      stepSize : 5,
+      width : 500,
+      max: + 100,
+      }
+    },
+    y: {
+      stacked: true,
+    },
+    
   },
 };
 
-const labels = ["Product is easy to use","Product speed is fast","Add text holders","Add text holders","Add text holders"];
+const labels = ["Whether SIH helped in building your confidence?","Did your success in SIH helped for admission in higher studies","Would you recommend other students to participate in such future initiatives?","Did Participating in this hackathon make you more aware of your social?"];
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Poor',
-      data: [-23,-12,-11,-43,-13],
-      backgroundColor: 'rgb(255, 0, 0)',
-    },
-    {
-      label: 'Fair',
-      data: [-11,-13,-43,-54,-23],
-      backgroundColor: 'rgb(255, 99, 132)',
-    },
-    {
-      label: 'Neutral',
-      data: [-22,-13,-23,-12,-31],
-      backgroundColor: 'rgb(255, 165, 0)',
-    },
-    {
-      label: 'Very Good',
-      data: [22,12,23,43,12],
-      backgroundColor: 'rgb(0, 0, 139)',
-    },
-    {
-      label: 'Excellent',
-      data: [22,6,23,12,32],
-      backgroundColor: '#3CCF4E',
-    },
-  ],
-};
 
 const Likert  = () => {
+  const [dat,setDat] = useState([])
+  const [agree,setAgree] = useState([])
+  const [disagree,setDisAgree] = useState([])
+  const [sagree,setsAgree] = useState([])
+  const [sdisagree,setsDisAgree] = useState([])
+  const [mayBe,setMayBe] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+
+ /* useEffect(() => {
+    axios()
+      .get("chartData")
+      .then((response) => {
+        console.log(response.data);
+        setDat(response.data)
+       //   Object.entries(dat).map(([type, val]) => type === "Agree" && setAgree(val))
+       // // setSubmissions(response.data.data);
+       // Object.entries(dat).map(([type, val]) => type === "Strongly Agree" && setsAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Strongly DisAgree" && setsDisAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Disagree" && setDisAgree(val))
+       // Object.entries(dat).map(([type, val]) => type === "Maybe" && setMayBe(val))
+       
+       setIsLoading(false);
+      });
+  }, []);*/
+
+
+  /*if (isLoading) {
+    return <FormLoader/>
+  }*/
+
+  const agr = [150,53,500,300];
+  const sagr = [10,10,50,30];
+  const neu = [1,1,1,1];
+  const disagr = [1,1,1,1];
+  const sdisagr = [1,1,1,1];
+  const dsum = disagr.reduce((sum,n) => sum+n,0)
+  const sdsum = sdisagr.reduce((sum,n) => sum+n,0)
+  const nsum = neu.reduce((sum,n) => sum+n,0)
+  const agrsum = agr.reduce((sum,n) => sum+n,0)
+  const sagrsum = sagr.reduce((sum,n) => sum+n,0)
+
+  const data = {
+    labels,
+    
+    datasets: [
+      {
+        label: 'Strongly Disagree',
+      //data: disagr.reduce((sum,n) => n/(sum+n),0),   
+       data: sdisagr.map((n) => Math.round((n/sdsum)*100)),  
+       //data : [1,2,0,0,1],
+        backgroundColor: 'rgb(255, 0, 0)'      
+      },
+      {
+        label: 'Disagree',
+        data: disagr.map((n) => Math.round((n/dsum)*100)),
+        //data : [1,2,0,0,1],
+        backgroundColor: 'rgb(255, 99, 132)',
+        padding : 5
+      },
+      {
+        label: 'Neutral',
+       data: neu.map((n) => Math.round((n/nsum)*100)),
+       //data : [1,16,50,30,8],
+        backgroundColor: 'rgb(255, 165, 0)',
+      },
+      {
+        label: 'Agree',
+        data: agr.map((n) => Math.round((n/agrsum)*100)),
+        //data : [1,40,30,30,40],
+        backgroundColor: 'rgb(0, 0, 139)',
+      },
+      {
+        label: 'Strongly Agree',
+        data: sagr.map((n) => Math.round((n/sagrsum)*100)),
+       // data : [1,40,20,40,50],
+        backgroundColor: '#3CCF4E',
+      },
+    ],
+  };
+  
+
   return <Bar options={options} data={data} plugins = {[ChartDataLabels]}/>;
 }
 
@@ -264,7 +388,7 @@ export const options = {
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ["Whether SIH helped in building your confidence?","Did your success in SIH helped for admission in higher studies","Would you recommend other students to participate in such future initiatives?","Did Participating in this hackathon make you more aware of your social?"];
 
 export const data = {
   labels,

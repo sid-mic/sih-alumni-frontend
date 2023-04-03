@@ -3,7 +3,8 @@ import "@fontsource/montserrat/800.css";
 import Script from 'next/script'
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import * as gtag from "../utils/gtag"
+import * as gtag from "../utils/gtag";
+import '../styles/style.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

@@ -17,7 +17,9 @@ import Who from "../components/Who";
 import Benefits from "../components/Benefits";
 import News from "../components/News";
 import Graph from "./admin/graph";
-
+//import videoGallery from "./videoGallery";
+import Gallery from "../components/gallery"
+import Carousel from "../components/Carousel";
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
@@ -45,13 +47,15 @@ export default function Home() {
       ) : (
         <>
           <Nav />
+          
           <Hero user={user} isAuth={isAuth} auth={auth} />
           <div className="main-outer" style={{width:'100%'}}>
           <div className="container" style={{margin:'0 auto'}}>
           
             <Feature />
-            
+            <Carousel />
             <Who />
+            <Gallery />
             <Graph />
             <Benefits />
             <News/>
