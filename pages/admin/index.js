@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Component } from "react";
 import AdminUser from "../../components/admin/AdminUsers";
 import AdminAnnouncements from "../../components/admin/AdminAnnouncements";
+import AdminChangemakers from "../../components/admin/AdminChangemakers";
 import DataComponent from "../../components/admin/DataComponent";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import { AdminStats } from "../../components/admin/AdminStats";
@@ -10,6 +11,7 @@ import { WelcomeHero } from "../../components/WelcomeHero";
 import {
   faCogs,
   faCommentDots,
+  faCrown,
   faFolderPlus,
   faHome,
   faLightbulb,
@@ -39,7 +41,7 @@ class Home extends Component {
     this.setModuleType = this.setModuleType.bind(this);
     this.setInitiativesData = this.setInitiativesData.bind(this);
   }
-
+ 
   state = {
     moduletypes: [
       {
@@ -61,6 +63,11 @@ class Home extends Component {
         id: 4,
         type: "ANNOUNCEMENTS",
         icon: faBullhorn,
+      },
+      {
+        id: 11,
+        type: "CHANGEMAKERS",
+        icon: faCrown,
       },
       {
         id: 9,
@@ -264,6 +271,43 @@ class Home extends Component {
                   <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
                     <WelcomeHero h1="ANNOUNCEMENTS" />
                     <AdminAnnouncements />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </>
+      );
+    }
+    if (this.state.selectedmoduletype === 11) {
+      return (
+        <>
+          <Head>
+            <title key={"title"}>Admin | MIC Alumni Portal</title>
+            <link key={"link"} rel="icon" href="/favicon.ico" />
+          </Head>
+          <div className="flex flex-col min-h-screen">
+            <div className="flex  flex-wrap">
+              <AdminSidebar
+                moduletypes={this.state.moduletypes}
+                selectedtype={this.setModuleType}
+              />
+              <div className="flex flex-col bg-indblue min-h-full min-w-full">
+                <div className="flex  flex-wrap">
+                  <div className="container md:rounded-tl-2xl min-h-screen bg-gray-100 md:ml-60 mt-14">
+                    <WelcomeHero h1="Changemakers" />
+                    <AdminChangemakers />
                   </div>
                 </div>
               </div>
