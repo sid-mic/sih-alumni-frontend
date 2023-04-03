@@ -3,8 +3,6 @@ import { useReducer, useRef, useState } from "react";
 import SimpleReactValidator from "simple-react-validator";
 import { toast } from "react-toastify";
 
-// import Register from "../pages/register"
-
 export const Hero = (props) => {
   const simpleValidator = useRef(new SimpleReactValidator());
   const [, forceUpdate] = useReducer((x) => x + 1, 0);

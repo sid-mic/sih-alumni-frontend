@@ -9,7 +9,7 @@ import React, { SetStateAction, useEffect, useRef, useState } from "react";
 import { skills } from "./src/program_data.js";
 
 // import Page2 from "../components/registration/page2.jsx";
-import Page2 from "../components/registration/page2"
+import Page2 from "../components/registration/page2";
 import LostEmail from "../components/registration/lost_email";
 
 function Register() {
@@ -50,13 +50,12 @@ function Register() {
   );
 
   if (menu === 5) {
-    return <LostEmail menu = {menu} setMenu={setMenu} />;
+    return <LostEmail menu={menu} setMenu={setMenu} />;
   }
 
   if (menu === 1) {
-    return <Page2 menu = {menu} setMenu={setMenu} />;
+    return <Page2 menu={menu} setMenu={setMenu} />;
   }
-  
 
   console.log(editMode);
 
@@ -84,7 +83,7 @@ function Register() {
                     type="text"
                     name="username"
                     placeholder="Enter your Full Name*"
-                    className="bg-gray-100 outline-none text-sm flex-1 box-content"
+                    className="bg-gray-100 border-transparent focus:border-transparent focus:ring-0 text-sm flex-1 box-content"
                     required
                   />
                 </div>
@@ -146,35 +145,9 @@ function Register() {
                     type="text"
                     name="usercollege"
                     placeholder="Select your College*"
-                    className="bg-gray-100 outline-none text-sm flex-1"
+                    className="bg-gray-100 border-transparent focus:border-transparent focus:ring-0 text-sm flex-1"
                   />
                 </div>
-                <div className="bg-gray-100 w-72 p-2 flex items-center mb-3">
-                  <FaCode className="text-gray-400 m-2" />
-                  <select
-                    name="hackname"
-                    id="hack-name"
-                    required
-                    className="w-64 bg-gray-100 text-sm outline-none"
-                    // data-te-select-init
-                    // multiple
-                  >
-                    <option value="" disabled selected>
-                      Participated in :*
-                    </option>
-                    <option value="sih17">SIH 2017</option>
-                    <option value="sih18">SIH 2018</option>
-                    <option value="sih19">SIH 2019</option>
-                    <option value="sih20">SIH 2020</option>
-                    <option value="sih22">SIH 2022</option>
-                    <option value="singapore19">
-                      SINGAPORE HACKATHON 2019
-                    </option>
-                    <option value="asean21">ASEAN HACKATHON 2021</option>
-                    <option value="uia22">UNESCO HACKATHON 2022</option>
-                  </select>
-                </div>
-
                 <div className="flex w-64 mb-5 justify-between">
                   <label className="flex items-center text-xs"></label>
                   <a
@@ -204,7 +177,7 @@ function Register() {
               Now you know your Email Address! Login Here
             </p>
             <a
-              href="#"
+              href="/"
               className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-indblue "
             >
               Sign in

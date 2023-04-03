@@ -38,7 +38,7 @@ export default function LostEmail(props) {
                     type="text"
                     name="username"
                     placeholder="Enter your Full Name*"
-                    className="bg-gray-100 outline-none text-sm flex-1 box-content"
+                    className="bg-gray-100 border-transparent focus:border-transparent focus:ring-0 text-sm flex-1 box-content"
                     required
                   />
                 </div>
@@ -49,7 +49,7 @@ export default function LostEmail(props) {
                     type="email"
                     name="oldemail"
                     placeholder="Enter Your Old SIH Email*"
-                    className="bg-gray-100 outline-none text-sm flex-1"
+                    className="bg-gray-100 text-sm flex-1 border-transparent focus:border-transparent focus:ring-0"
                     required
                   />
                 </div>
@@ -60,7 +60,7 @@ export default function LostEmail(props) {
                     type="email"
                     name="newemail"
                     placeholder="Enter Your New Curent Email*"
-                    className="bg-gray-100 outline-none text-sm flex-1"
+                    className="bg-gray-100 border-transparent focus:border-transparent focus:ring-0 text-sm flex-1"
                     required
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function LostEmail(props) {
                     name="hackname"
                     id="hack-name"
                     required
-                    className="w-64 bg-gray-100 text-sm outline-none"
+                    className="w-64 bg-gray-100 text-sm border-transparent focus:border-transparent focus:ring-0"
                   >
                     <option value="" disabled selected>
                       Participated in :*
@@ -88,7 +88,7 @@ export default function LostEmail(props) {
                     <option value="uia22">UNESCO HACKATHON 2022</option>
                   </select>
                 </div>
-                <label className= "z-10 text-xs -mb-8 text-gray-400">
+                <label className="z-10 text-xs -mb-8 text-gray-400">
                   Upload Your SIH Certificate*
                 </label>
 
@@ -99,7 +99,7 @@ export default function LostEmail(props) {
                     type="file"
                     name="newemail"
                     placeholder="Upload Your SIH Certificate*"
-                    className="custom-file-upload mt-3 bg-gray-100 outline-none text-sm flex-1 file:mr-4 file:py-2 file:px-4
+                    className="custom-file-upload mt-3 bg-gray-100 text-sm flex-1 file:mr-4 file:py-2 file:px-4
                                         file:rounded-full file:border-0
                                         file:text-sm file:font-semibold
                                         file:bg-blue-100 file:text-indblue
@@ -137,7 +137,7 @@ export default function LostEmail(props) {
               Now you know your Email Address! Login Here
             </p>
             <a
-              href="#"
+              href="/"
               className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-indblue "
             >
               Sign in
