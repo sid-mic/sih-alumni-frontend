@@ -149,7 +149,7 @@ class ProjectComponent extends Component {
               className="button-active bg-indblue p-3 m-3 mb-16 text-white rounded-lg w-40 flex"
               href={`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/certificates/${
                 this.props.projects[this.state.selected_project].id
-              }/${this.props.user.id}`}
+              }/${this.props.user.id}/download`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
