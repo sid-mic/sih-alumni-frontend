@@ -1,4 +1,4 @@
-import TextLoop from "react-text-loop";
+import { TextLoop } from "react-text-loop-next";
 import { useReducer, useRef, useState } from "react";
 import SimpleReactValidator from "simple-react-validator";
 import { toast } from "react-toastify";
@@ -163,6 +163,10 @@ export const Hero = (props) => {
                   </div>
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
                     Only accessible for Participants/Winners <br/>of MIC Hackathons/Contests.
+                  </p>
+                  <br />
+                  <p className="text-xs text-center text-gray-600 sm:text-sm">
+                    Forgot/Lost your SIH Email address ? <a href="/register" style={{ fontFamily: "Montserrat"}} className="text-indblue">Click Here</a>
                   </p>
                 </form>
                 <br />
