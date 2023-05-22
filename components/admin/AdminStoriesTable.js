@@ -141,6 +141,12 @@ function AdminAnnouncementList({
                   By
                 </th>
                 <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                  Created on
+                </th>
+                <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
+                  Updated on
+                </th>
+                <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
                   Email
                 </th>
                 <th className="bg-indblue p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">
@@ -217,6 +223,12 @@ function StoryRow({ data, setlist, setSelected, index, displayArchived }) {
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         {data.user.name}
+      </td>
+      <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+        {data.created_at.slice(0,10)}
+      </td>
+      <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+        {data.updated_at.slice(0,10)}
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         {data.user.email}

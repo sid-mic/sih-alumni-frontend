@@ -1,4 +1,4 @@
-import TextLoop from "react-text-loop";
+import { TextLoop } from "react-text-loop-next";
 import { useReducer, useRef, useState } from "react";
 import SimpleReactValidator from "simple-react-validator";
 import { toast } from "react-toastify";
