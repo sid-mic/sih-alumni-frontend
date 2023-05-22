@@ -18,6 +18,7 @@ import Benefits from "../components/Benefits";
 import News from "../components/News";
 import Gallery from "../components/gallery"
 import Graph from "./admin/graph";
+import ChangeMakers from "../components/ChangeMakers";
 //import videoGallery from "./videoGallery";
 import Carousel from "../components/Carousel";
 export default function Home() {
@@ -56,6 +57,7 @@ export default function Home() {
             <Carousel />
             <Who />
             <Gallery />
+            <ChangeMakers />
             <Graph />
             <Benefits />
             <News/>
