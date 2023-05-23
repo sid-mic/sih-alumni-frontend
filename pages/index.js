@@ -55,7 +55,7 @@ export default function Home() {
             <div className="container" style={{ margin: "0 auto" }}>
               <Feature />
               <Who />
-              {data?.changemakers && <ChangeMakers changemakers={data.changemakers}/>}
+              {data?.changemakers?.length ?  <ChangeMakers changemakers={data.changemakers}/> : ''}
               <Benefits />
               <News announcements={data.announcements} />
               <Featured />
