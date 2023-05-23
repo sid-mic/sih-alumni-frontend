@@ -1,24 +1,13 @@
-import axios from "../utils/axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FormLoader from "./FormLoader";
 import AnnouncementsCard from "./AnnouncementsCard";
 import styles from "./News.module.css";
 
-export default function News() {
-  const [data, setData] = useState(null);
+export default function News({announcements}) {
   const [selected, setSelected] = useState(null);
 
-  useEffect(() => {
-    if (!data) {
-      axios()
-        .get("announcements/public")
-        .then((resp) => {
-          setData(resp.data.announcements);
-        });
-    }
-  }, [data, selected]);
 
-  if (data == null) {
+  if (announcements == null) {
     return <FormLoader></FormLoader>;
   }
 
@@ -39,7 +28,7 @@ export default function News() {
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:px-6 xl:px-6 2xl:px-6">
         <div className={styles.announcementNewsOuter}>
           <div className={styles.newsOuter}>
-            {data.map((item, key) => {
+            {announcements.map((item, key) => {
               return (
                 <NewsCard item={item} index={key} setSelected={setSelected} />
               );
@@ -110,7 +99,7 @@ export default function News() {
         </div>
       </div>
       {selected !== null && (
-        <AnnouncementsCard item={data[selected]} setSelected={setSelected} />
+        <AnnouncementsCard item={announcements[selected]} setSelected={setSelected} />
       )}
     </div>
   );

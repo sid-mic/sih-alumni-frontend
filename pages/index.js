@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Banner from "../components/Banner";
 import { Feature } from "../components/Feature";
 import Featured from "../components/Featured";
 import { Footer } from "../components/Footer";
-import { Hero } from "../components/Hero";
+import {Hero} from "../components/Hero";
 import Scroller from "../components/Marquee";
 import { Nav } from "../components/Navbar";
 import { useEffect, useState } from "react";
@@ -16,14 +15,15 @@ import Initiatives from "../components/Initiatives";
 import Who from "../components/Who";
 import Benefits from "../components/Benefits";
 import News from "../components/News";
-import Gallery from "../components/gallery"
-import Graph from "./admin/graph";
-
+import Gallery from "../components/gallery";
+import ChangeMakers from "../components/ChangeMakers";
+import axios from "../utils/axios";
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
   const [auth, setAuth] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({ announcements: null, changemakers: null });
 
   useEffect(async () => {
     setAuth(authImport());
@@ -31,38 +31,40 @@ export default function Home() {
       await Router.push("/dashboard");
     }
 
+    axios()
+      .get("announcements/public")
+      .then((resp) => {
+        setData(resp.data);
+      });
+
     setIsLoading(false);
   }, [""]);
   return (
-    //Add svg with parallax scroll
-
     <div className="flex flex-col min-h-screen">
       <Head>
         <title>MIC Alumni Portal</title>
         <link rel="icon" href="/favicon.ico" />
-        </Head>
+      </Head>
       {isLoading ? (
         <Loading></Loading>
       ) : (
         <>
           <Nav />
           <Hero user={user} isAuth={isAuth} auth={auth} />
-          <div className="main-outer" style={{width:'100%'}}>
-          <div className="container" style={{margin:'0 auto'}}>
-          
-            <Feature />
-            
-            <Who />
-            {/*<Graph />*/}
-            <Benefits />
-            <News/>
-            <Featured />
-            <Scroller/>
-            <Initiatives />
-            <Gallery />
+          <div className="main-outer" style={{ width: "100%" }}>
+            <div className="container" style={{ margin: "0 auto" }}>
+              <Feature />
+              <Who />
+              {data?.changemakers && <ChangeMakers changemakers={data.changemakers}/>}
+              <Benefits />
+              <News announcements={data.announcements} />
+              <Featured />
+              <Scroller />
+              <Initiatives />
+              <Gallery />
+            </div>
           </div>
-          </div>
-           <Footer />
+          <Footer />
           <ToastContainer
             position="top-right"
             autoClose={5000}
