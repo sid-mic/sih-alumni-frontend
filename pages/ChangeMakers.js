@@ -13,7 +13,8 @@ import {
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Nav } from "../components/Navbar";
 import React from "react";
-import styles from "./Benefits.module.css";
+import styles from "../components/Benefits.module.css";
+
 //import styles from ".module.css"
 
 //import { useDisclosure } from '@chakra-ui/react/dist/declarations/src';
@@ -57,7 +58,10 @@ export default function ChangeMakers() {
     
 
   return (
+    <>
+    <Nav />
     <div className="max-w-screen-xl py-15 mx-auto sm:px-6 lg:px-8">
+     
       <div>
         <div className="text-center">
           <div className="bg-hero-pattern mt-0 pt-4 font-bold mb-0 sm:text-xl text-xl bg-cover bg-center">
@@ -155,7 +159,7 @@ export default function ChangeMakers() {
      
         <div className="grid-cols-12">
           <div className={styles.fillWidth}>
-            <a target="_blank" href="/videoGallery" className={styles.buttonLink}>View All </a>
+            <a target="_blank" href="" className={styles.buttonLink}> Videos </a>
           </div>
          </div>
       </div>
@@ -217,5 +221,6 @@ export default function ChangeMakers() {
         </ModalContent>
       </Modal>
     </div>
+    </>
   );
 }

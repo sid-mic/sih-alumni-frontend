@@ -36,6 +36,17 @@ export const Nav = () => {
               </a>
             </li>
             <li>
+                        <a
+                          href="/ChangeMakers"
+                          aria-label="About us"
+                          title="About us"
+                          className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                        >
+                          Change Makers
+                        </a>
+                      </li>
+                      
+            <li>
               <a
                 href="/#contact"
                 aria-label="Product pricing"
@@ -45,6 +56,7 @@ export const Nav = () => {
                 Contact
               </a>
             </li>
+            
           </ul>
           <div className="lg:hidden">
             <button
@@ -143,6 +155,16 @@ export const Nav = () => {
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Contact
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/ChangeMakers"
+                          aria-label="About us"
+                          title="About us"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                        >
+                          Change Makers
                         </a>
                       </li>
                       <li>
