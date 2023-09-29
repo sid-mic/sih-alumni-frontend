@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Activities from "../pages/activities";
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -43,6 +44,20 @@ export const Nav = () => {
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Contact
+              </a>
+            </li>
+            <li>
+              <a
+                type="button"
+                href="/activities"
+                aria-label="Product pricing"
+                title="Product pricing"
+                className="relative pl-3 pr-7 py-2.5 ml-4 overflow-hidden font-medium rounded bg-indigo-300 text-gray-900"
+              >
+                Activities
+                <span className="absolute top-0 right-0 px-5 py-1 text-xs tracki text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 text-red-800 bg-purple-300">
+                  New
+                </span>
               </a>
             </li>
           </ul>

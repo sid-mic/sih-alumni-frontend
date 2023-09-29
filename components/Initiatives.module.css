@@ -26,6 +26,34 @@
 	right: 0;
 	bottom: 0px;
 }
+.boxBorder1 {
+	border: 1px solid #cccccc !important;
+	position: relative;
+}
+.boxBorder1:hover::before {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	content: '';
+	background: transparent;
+	border-top: 15px solid #ef4444;
+	border-left: 15px solid #ef4444;
+	border-radius: 5px;
+	left: 0;
+	top: 0;
+}
+.boxBorder1:hover::after {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	content: '';
+	background: transparent;
+	border-bottom: 15px solid #ef4444;
+	border-right: 15px solid #ef4444;
+	border-radius: 5px;
+	right: 0;
+	bottom: 0px;
+}
 
 .plusImage {
 	position: absolute;
