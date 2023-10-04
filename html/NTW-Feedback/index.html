@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>National Technology Week Feedback 2023</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      /* Starts Owl Carousel */
+      .owl-prev {
+        background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-left.png")
+          left center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        left: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .owl-next {
+        background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-right.png")
+          right center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        right: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .owl-prev:hover,
+      .owl-next:hover {
+        opacity: 0.5;
+      }
+      /* Ends Owl Carousel */
+
+      .carousel-item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      .cardBodyShadow {
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      p.mb-0 {
+        font-weight: 500;
+        font-size: 18px;
+        color: #061976;
+      }
+
+      p.feedbackpara {
+        font-size: 20;
+        font-weight: 500;
+        color: #000 !important;
+      }
+
+      p.mb-0.committedclass {
+        font-size: 24px;
+      }
+
+      p.mb-0.committedclass2 {
+        font-size: 22px;
+      }
+
+      .ntwImg img {
+        border: 2px solid #061976;
+        padding: 8px;
+        margin: 0;
+        height: auto;
+        width: 100%;
+      }
+
+      .ntwImg {
+        text-align: center;
+      }
+
+      i.bi.bi-quote {
+        font-size: 36px;
+        color: #d75b00;
+      }
+
+      p.feedbackpara2 {
+        font-size: 16px;
+        /* font-weight: normal; */
+        color: #000 !important;
+      }
+
+      p.feedbackpara3 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #000 !important;
+      }
+
+      .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        border-radius: 2.25rem;
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      .col-md-12.nWidth .card {
+        width: 90%;
+        float: left;
+      }
+
+      .col-md-12.nWidth2 .card {
+        width: 90%;
+        float: right;
+      }
+
+      section.ntwMain {
+        background-image: url(img/bgPattern.png);
+        background-repeat: repeat;
+        padding: 0;
+        background-size: 50%;
+      }
+      .heading {
+        font-weight: 700;
+        font-size: 3rem;
+      }
+
+      @media screen and (max-width: 800px) {
+        .content {
+          font-size: 13px;
+        }
+        .heading {
+          font-size: 1.8rem;
+          font-weight: 700;
+        }
+        p.mb-0 {
+          font-size: 13px;
+        }
+        p.subheading {
+          font-weight: 500;
+        }
+        .foot {
+          font-size: 12px;
+        }
+      }
+
+      .logoimg {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 580px) {
+        .logoimg {
+        width: calc(100vw - 30px) !important;
+        }
+      }
+
+      /* footer CSS */
+      footer {
+        padding-top: 20px;
+      }
+
+      .footer-01 {
+        background: #0d1824;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .footer-01:after {
+        position: absolute;
+        top: -300px;
+        left: -100px;
+        width: 800px;
+        height: 800px;
+        content: "";
+        background: url("https://preview.colorlib.com/theme/bft/bootstrap-footer-11/images/blob-shape.svg");
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.05;
+      }
+      .footer-01 a {
+        color: #7f72e4;
+      }
+      .footer-01 p {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .copyright {
+        color: rgba(255, 255, 255, 0.3);
+        color: #999999;
+      }
+      .footer-01 .footer-heading {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+        position: relative;
+      }
+      .footer-01 .footer-heading:after {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: "";
+        width: 40px;
+        height: 2px;
+        background: #7f72e4;
+      }
+      .footer-01 ul.list-unstyled li a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .text .heading a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .meta > div a {
+        color: #7f72e4;
+      }
+      .footer-01 .block-23 ul li {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li a {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li .icon {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-01 .ftco-footer-social li a {
+        background: #7f72e4;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="img/bg.png"
+            alt="National Technology Week"
+          />
+          <h2 class="text-center pt-2 heading">
+            National Technology Week 2023
+          </h2>
+          <p class="text-center mb-0 subheading px-3">
+            Held from 11th May to 14th May, 2023 at Pragati Maidan, New Delhi.
+          </p>
+          <p class="px-3 pt-4 feedbackpara text-center content">
+            The Govt. of India celebrated National Technology Week 2023 with
+            involvement of 11 different ministries and Government departments,
+            including Office of Principal Scientific Advisor, Ministry of
+            Education's Innovation Cell/AICTE where different startups
+            exhibited. During this event, a dedicated pavilion on a theme of
+            Making India Global Innovation Hub was set up by the AICTE/Ministry
+            of Education's Innovation Cell. This event provided a good
+            opportunity for the MIC/AICTE supported innovation team to showcase
+            their innovations and efforts, and connect with the ecosystem
+            enablers. The Event was a Grand Success and it showcased a Brilliant
+            Startup Ecosystem of our Nation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="ntwMain" style="background-color: #e3bc5717">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12 nWidth">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Prerna-Singh1.jpg"
+                        alt="avatar"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Bhu Rakshak</p>
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Prerna Singh
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i> It was an awesome
+                          experience provided by the Ministry of AICTE. Thank
+                          you for all for all of your efforts and coordination.
+                          It would have not been possible without you all.
+                          Please keep organising and calling us for such events.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Myself Prerna Singh, I am from Don Bosco Institute of
+                          Technology and a winner from SIH 2018. I am developer
+                          by profession and working on my startup
+                          simultaneously.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Bhu Rakshak is my startup which focuses on monitoring
+                          and reporting real time water quality analysis.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth2">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Fluwid</p>
+                        <p class="text-muted mb-0 feedbackpara3">Hitik Saini</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i> Great experience overall.
+                          10/10
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Hitik-Saini2.jpg"
+                        alt="avatar"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          I'm a software developer (hitiksaini.com) I make the
+                          process of developing apps and website a lot easier
+                          for our clients. I've been into developing journey
+                          since SIH'20. Build a software development company
+                          (Fluwid Technologies LLP) now we are making
+                          applications that actually solves real day to day
+                          problems.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Fluwid(fluwid.in) makes quality applications with
+                          extra ordinary UI/UX and robust backend. We are team
+                          of SIH winners collaborating on projects and also
+                          building our own products like frently(frently.in).
+                          Our aim is to make quality apps for our clients and
+                          further expand our company as the best software
+                          development company.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Manoj-kumar2.jpg"
+                        alt="avatar"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Ignite Skylabs
+                        </p>
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Manoj Kumar K
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i>It was really a great event
+                          and an amazing platform to showcase my startup. Thanks
+                          to the whole AICTE Team for organising such an amazing
+                          event.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Hello! I am Manoj Kumar Co-Founder of "Ignite Skylabs"
+                          and also working on Health Care Innovations. In the
+                          past I have been an SIH 2019 Finalist from Pondicherry
+                          University. I have also been awarded with IISF 2021 &
+                          Vishwakarma-AICTE 2020.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Ignite Skylabs focuses on building tracking devices
+                          for schools and parents for the safety of their kids.
+                          We provide personalized learning experience, Kick
+                          start ideas to product and develop entrepreneurial
+                          leaders.We are also creating an ecosystem that
+                          provides demand-based and industry-relevant skills to
+                          the youth and to faciliate, Idea generation to
+                          pre-incubation and successful startups.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth2">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Jesso</p>
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Joel Andrews D
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i> Really a well organised
+                          event.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Joel-Andrews2.jpg"
+                        alt="avatar"
+                        class="img-fluid"
+                        style="width: 60%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Experienced Director with a demonstrated history of
+                          working experience in the Edu Tech industry. Skilled
+                          in Innovation Management, Startup, IPR, Development,
+                          Communication, Leadership, and Customer Service.
+                          Strong business development professional with Master
+                          of Business Administration focused on Innovation
+                          Entrepreneurship and Venture development and
+                          Bachelor's in Electronics and Communication
+                          Engineering. Running my Startup and Mentoring 3
+                          Successful startups.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Digital learning especially for all educational
+                          institutions is identified to be onerous and
+                          demanding, while we tried and tested so we bring you
+                          the solution – Jesso! Jesso is an education tech
+                          companionship aiming to make educational activities
+                          smart, easy, error-free, accessible at any time, and
+                          monitor them at any time. We started this venture to
+                          upgrade education in the path we wished for things to
+                          happen in reality when we were students. We have
+                          something more intriguing than other platforms, for
+                          you to have a try on our inventive product. We intend
+                          to make digital solutions for institutional activities
+                          and education in the best way possible. Beginning
+                          right from the Front office of an institute to the
+                          Parents of a student we cover them all. Yes, you read
+                          it right! Jesso software and application will be your
+                          choice to have a platform or service that manages
+                          every activity of your management altogether in one
+                          go. Not to worry Jesso won’t stop students from taking
+                          up a traditional form of education rather Jesso helps
+                          you to streamline the traditional learning process
+                          digitally and induce more interest in the set
+                          curriculum adding all the factors a student seeks in
+                          his daily classroom education.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Dinesh-lal2.jpeg"
+                        alt="avatar"
+                        class="img-fluid"
+                        style="width: 60%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Unicorniz</p>
+                        <p class="text-muted mb-0 feedbackpara3">Dinesh Lal</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i> Great event with amazing
+                          exposure.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          I'm a co-founder of Unicorniz Innovations, a leading
+                          XR technology company. With a focus on immersive
+                          experiences and a strong background in XR technology,
+                          I have played a key role in driving the growth and
+                          success of the company. My expertise lies in
+                          developing cutting-edge XR solutions tailored for
+                          various sectors, including education, tourism,
+                          defense, gaming, and disaster management. I am
+                          passionate about pushing the boundaries of immersive
+                          experiences and harnessing the power of XR to
+                          transform industries. As a co-founder, I actively
+                          shape the strategic direction of Unicorniz
+                          Innovations, working towards our mission of
+                          revolutionizing how people interact with information
+                          and the world around them. With a proven track record,
+                          including winning the 2018 Smart India Hackathon, I am
+                          dedicated to leveraging XR technology to bridge
+                          educational gaps, enhance training programs, and
+                          contribute to disaster management efforts.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Unicorniz Innovations is a cutting-edge XR technology
+                          company that creates immersive experiences for various
+                          sectors including education, tourism, defense, and
+                          games. Our innovative approach combines virtual and
+                          augmented reality to deliver unparalleled experiences
+                          that captivate and engage users. Whether it's
+                          exploring a historical site, learning complex
+                          concepts, or training for a mission, our solutions
+                          enhance the way people interact with information and
+                          the world around them. We're committed to pushing the
+                          boundaries of what's possible and empowering our
+                          clients to stay ahead of the curve with our
+                          state-of-the-art XR solutions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth2">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Black B</p>
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Shreya S Vittal
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i>Yet another wonderful
+                          initiative by Ministry of Education's Innovation Cell,
+                          AICTE. Just the right platform that provided me with a
+                          great opportunity to showcase my startup.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/SHREYA-S2.jpeg"
+                        alt="avatar"
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          I am Shreya S Vittal, one of the co-founders of our
+                          product "Alvina". I am based out of Chennai and I am a
+                          2nd year student in Saveetha School of Engineering,
+                          Chennai. I have always wanted to become an
+                          entrepreneur and start my own business.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Our start-up "Black B" started a few months ago, in
+                          our college incubation cell. It was founded by one of
+                          our classmates.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 nWidth">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="ntwImg">
+                      <img
+                        src="img/Ekarshi-Chatterjee2.jpg"
+                        alt="avatar"
+                        class="img-fluid"
+                        style="width: 60%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-auto">
+                        <p class="mb-0">Start-up:</p>
+                        <p class="mb-0">Full Name:</p>
+                      </div>
+                      <div class="col-auto">
+                        <p class="text-muted mb-0 feedbackpara3">Rail Rovers</p>
+                        <p class="text-muted mb-0 feedbackpara3">
+                          Ekarshi Chatterjee
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i>Amazing Event and it
+                          provided a great platform to pitch and get the right
+                          people around.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Myself Ekarshi Chatterjee, SIH Winner ( 2nd Runner Up)
+                          @ 2022. Special Prize Winner Science & Engineering
+                          Fair ( Ministry of Culture, Govt. of India). Currently
+                          pursuing by Btech Final year in Electrical
+                          Engineering.
+                        </p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization.
+                        </p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara2">
+                          Working on the Project & Problem Statement from
+                          Eastern Railways & SIH- An Automated Collision
+                          Avoidance & Detection Technology in Railways.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- images -->
+        <div class="owl-carousel pt-5">
+          <div class="item">
+            <img src="img/NTW/1.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/2.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/3.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/4.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/5.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/6.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/7.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/8.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/9.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/10.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/11.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/12.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/13.png" />
+          </div>
+          <div class="item">
+            <img src="img/NTW/14.png" />
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer-01">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-0 mb-md-0">
+              <img src="img/logo.png" class="logoimg" alt="" />
+              <br /><br />
+              <p class="foot">
+                All India Council for Technical Education (AICTE), Nelson
+                Mandela Marg, VasantKunj, New Delhi-110070.
+              </p>
+              <ul class="p-0">
+                <i
+                  class="bi bi-envelope"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">micalumni@aicte-india.org</p>
+                <i
+                  class="bi bi-telephone"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">011-29581316</p>
+              </ul>
+            </div>
+
+            <div class="col pl-lg-5 mb-0 mb-md-0">
+              <h2 class="footer-heading">Hackathons:</h2>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://sih.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Smart India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://kavach.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >KAVACH</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://singaporeindiahackathon.com/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Singapore India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://uia.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >UNESCO India Africa Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/samadhan"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Samadhan</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/Hackathon/ddh2020"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Drug Discovery Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/india-asean-hackathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >ASEAN - India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/toycathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Toycathon</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col col-lg-3 mb-0 mb-md-0">
+              <h2 class="footer-heading">Quick Links:</h2>
+              <div class="block-23 mb-3">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="https://mic.gov.in/innovation-council/iic"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Innovation Council</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://ariia.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >ARIIA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://yukti.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Yukti 2.0</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://kapila.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >KAPILA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >MoE’s Innovation Cell</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.aicte-india.org/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >All India Council for Technical Education</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.education.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Ministry of Education</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr width="100%" align="center" color="white" />
+          <div class="row mt-2">
+            <div class="col-md-6 text-left">
+              <p class="copyright foot">
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved
+              </p>
+            </div>
+            <div class="col-md-6 text-right">
+              <p>
+                <a
+                  href="https://www.youtube.com/@MoEInnovationCell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-youtube"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/mhrd.innovationcell/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-instagram"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://twitter.com/mhrd_innovation"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-twitter"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/mhrdInnovation/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-facebook"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/company/moe-innovation-cell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-linkedin"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.3.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.js"></script>
+    <script>
+      $(".owl-carousel").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 1800,
+        autoplayHoverPause: false,
+        loop: true,
+        margin: 50,
+        responsiveClass: true,
+        nav: true,
+        loop: true,
+        stagePadding: 100,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          568: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

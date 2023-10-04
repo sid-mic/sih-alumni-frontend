@@ -164,6 +164,10 @@ export const Hero = (props) => {
                   <p className="text-xs text-center text-gray-600 sm:text-sm">
                     Only accessible for Participants/Winners <br/>of MIC Hackathons/Contests.
                   </p>
+                  <br />
+                  <p className="text-xs text-center text-gray-600 sm:text-sm">
+                    Forgot your SIH Email address ? <a href="https://forms.gle/XNuBTM2zMzb1zFR96" target="_blank" style={{ fontFamily: "Montserrat"}} className="text-indblue">Click Here</a>
+                  </p>
                 </form>
                 <br />
               </div>

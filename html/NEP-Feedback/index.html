@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>National Education Policy 2020 Feedback</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      /* Starts Owl Carousel */
+      .owl-prev {
+        background: url("https://img.icons8.com/ios-filled/50/ee686c/chevron-left.png")
+          left center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        left: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .owl-next {
+        background: url("https://img.icons8.com/ios-filled/50/f39063/chevron-right.png")
+          right center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        right: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .owl-prev:hover,
+      .owl-next:hover {
+        opacity: 0.5;
+      }
+      /* Ends Owl Carousel */
+
+      .carousel-item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      .user-card-full {
+        overflow: hidden;
+      }
+
+      .card {
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+        border: none;
+        margin-bottom: 30px;
+      }
+
+      .m-r-0 {
+        margin-right: 0px;
+      }
+
+      .m-l-0 {
+        margin-left: 0px;
+      }
+
+      .user-card-full .user-profile {
+        border-radius: 5px 0 0 5px;
+      }
+
+      .bg-c-lite-green {
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(#f29263),
+          to(#ee5a6f)
+        );
+        background: linear-gradient(to right, #ee5a6f, #f29263);
+      }
+
+      .feedbackpara {
+        font-size: 16px;
+        font-weight: 500;
+        color: #000 !important;
+      }
+
+      p.mb-0 {
+        font-weight: 500;
+        font-size: 18px;
+        color: #f34248;
+      }
+
+      .user-profile {
+        padding: 20px 0;
+      }
+
+      .card-block {
+        padding: 1.25rem;
+      }
+
+      .m-b-25 {
+        margin-bottom: 25px;
+      }
+
+      .img-radius {
+        border-radius: 5px;
+      }
+
+      h6 {
+        font-size: 14px;
+      }
+
+      .card .card-block p {
+        line-height: 25px;
+      }
+
+      .heading {
+        font-weight: 700;
+        font-size: 3rem;
+      }
+      
+      /* @media only screen and (min-width: 1400px) {
+        p {
+          font-size: 14px;
+        }
+      } */
+
+      @media screen and (max-width: 800px) {
+        .content {
+          font-size: 13px;
+        }
+        .heading {
+          font-size: 1.8rem;
+          font-weight: 700;
+        }
+        p.mb-0 {
+          font-size: 13px;
+        }
+        p.subheading {
+          font-weight: 500;
+        }
+        .foot {
+          font-size: 12px;
+        }
+      }
+
+      .logoimg {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 580px) {
+        .logoimg {
+        width: calc(100vw - 30px) !important;
+        }
+      }
+
+      .card-block {
+        padding: 1.25rem;
+      }
+
+      .b-b-default {
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .m-b-20 {
+        margin-bottom: 20px;
+      }
+
+      .p-b-5 {
+        padding-bottom: 5px !important;
+      }
+
+      .card .card-block p {
+        line-height: 25px;
+        font-size: 18px;
+      }
+
+      .m-b-10 {
+        margin-bottom: 10px;
+      }
+
+      .text-muted {
+        color: #42484e !important;
+        font-weight: normal;
+        font-size: 16px;
+      }
+
+      .b-b-default {
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .f-w-600 {
+        font-weight: 600;
+      }
+
+      .m-b-20 {
+        margin-bottom: 20px;
+      }
+
+      .m-t-40 {
+        margin-top: 20px;
+      }
+
+      .p-b-5 {
+        padding-bottom: 5px !important;
+      }
+
+      .m-b-10 {
+        margin-bottom: 10px;
+      }
+
+      .m-t-40 {
+        margin-top: 20px;
+      }
+
+      .user-card-full .social-link li {
+        display: inline-block;
+      }
+
+      .user-card-full .social-link li a {
+        font-size: 20px;
+        margin: 0 10px 0 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      section.ntwMain {
+        background-image: url(img/bgPattern.png);
+        background-repeat: repeat;
+        padding: 50px 0 0 0;
+        background-size: 50%;
+      }
+      .m-b-25 img {
+        width: 100%;
+      }
+      h6.f-w-600.startupPara {
+        font-size: 18px;
+      }
+      /* footer CSS */
+      footer {
+        padding-top: 20px;
+      }
+
+      .footer-01 {
+        background: #0d1824;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .footer-01:after {
+        position: absolute;
+        top: -300px;
+        left: -100px;
+        width: 800px;
+        height: 800px;
+        content: "";
+        background: url("https://preview.colorlib.com/theme/bft/bootstrap-footer-11/images/blob-shape.svg");
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.05;
+      }
+      .footer-01 a {
+        color: #7f72e4;
+      }
+      .footer-01 p {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .copyright {
+        color: rgba(255, 255, 255, 0.3);
+        color: #999999;
+      }
+      .footer-01 .footer-heading {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+        position: relative;
+      }
+      .footer-01 .footer-heading:after {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: "";
+        width: 40px;
+        height: 2px;
+        background: #7f72e4;
+      }
+      .footer-01 ul.list-unstyled li a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .text .heading a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .meta > div a {
+        color: #7f72e4;
+      }
+      .footer-01 .block-23 ul li {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li a {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li .icon {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-01 .ftco-footer-social li a {
+        background: #7f72e4;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="img/bg.png"
+            alt="National Technology Week"
+          />
+          <h2 class="text-center pt-2 heading">National Education Policy Exibition 2023</h2>
+          <p class="text-center mb-0 px-3">
+            Held from 29th July to 30th July, 2023 at Pragati Maidan, New Delhi.
+          </p>
+          <p class="px-3 pt-4 feedbackpara text-center content">
+            The prestigious National Education Policy (NEP) 2023 inaugurated by the Hon'ble Prime Minister of India was held from July 29th to July 30th, 2023, at Pragati Maidan, New Delhi. The mega event witnessed the presence of ministers from different ministries of the Central and State Governments, Foreign Embassies in India, industry leaders, and other esteemed guests. It featured over 12 thematic sessions, exhibitions, and cultural programs, providing an exceptional platform for networking, visibility, and recognition. The event attracted more than 40,000 viewers, ensuring a vibrant and enriching experience. This event celebrated the 3rd Anniversary of the National Education Policy (NEP) 2020 and the 2nd edition of the Akhil Bhartiya Shiksha Samagam.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="ntwMain" style="background-color: #e3bc5717">
+      <div class="container py-5" id="page-content">
+        <div class="row container d-flex justify-content-center">
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/darshan c.jpeg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Jagruth Tech</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Darshan C</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          I have a background in engineering and sustainability, and I bring a wealth of knowledge and experience to Jagruth Tech. I also a skilled communicator and has a knack for building relationships with people. These qualities have made me an effective leader at Jagruth Tech and have helped the company to grow and succeed. My invention makes a difference in the fight against climate change and environmental degradation by developing sustainable products. I believe that my invention "Method And System For Manufacturing Construction Products And Hydrogen Gas From Landfill Waste" of Patent Application No.: 202341034197 can make a real difference in the world and play a role in making a positive impact on the planet.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Jagruth Tech is a very promising company that is doing important work to address the plastic waste crisis. Jagruth Tech a pioneer for Gray Carbon: carbon absorbed by building materials and By manufacturing just 1 Eco Interlock Pavers & Green Hydrogen from landfill waste like Low Value Materials (LVM) waste are non-recyclable like Refuse Derived Fuel (RDF), Single Use Plastic (SUP), Multi Layer Plastic (MLP), Thermacool, RDF from papermill, polyester textile, Ready Mix Concrete Sludge, Sludge & flyash from mines, sewage sludge, dust, Construction & Demolition waste (C&D) and diverting them from landfill, we prevent approximately 22.5 kg of CO2-equivalent emissions from entering the atmosphere thereby reducing global warming.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Dinesh Lal</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          I'm a dynamic B.Tech Computer Science and Engineering graduate with a proven track record in technology and innovation. I clinched victory in the Smart India Hackathon 2018 and secured runner-up positions in the Pitch 2021 and Police Hackathon 2019, showcasing my exceptional problem-solving and entrepreneurial skills. My startup was among the top 50 recognized by AICTE, earning me an invitation to exhibit at the esteemed National Technology Day event in 2023. With a passion for leveraging technology to drive social impact, I continue to make waves in various sectors through my innovative ventures.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Unicorniz Innovations is a pioneering startup dedicated to empowering rural communities through cutting-edge XR (Extended Reality) technology solutions. Leveraging virtual and augmented reality, the company aims to drive positive change across various sectors and industries. By providing immersive experiences, Unicorniz Innovations bridges gaps, generates economic growth, and enhances disaster preparedness in rural areas. This write-up highlights the startup's innovations, technologies, sectors it deals with, service offerings, business operations, and recent achievements.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Dinesh lal.jpeg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Unicorniz Innovations</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Santo Sunny.jpg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>GDA (Game developers and Animators)</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Santo Sunny</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Santo Sunny, Founder and CEO of GDA (Game developers and Animators). Currently in the 4th year of Engineering at Fr.CRCE Bandra, Mumbai. Eager to make educational games for students so that they could learn and fun while playing games
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          At GDA, we are a dynamic start-up focused on creating a transformative impact in the gaming and animation industry. As a team of passionate game developers and animators, we are committed to crafting innovative experiences that entertain, educate, and inspire. Our primary mission is to design and develop engaging educational games that make learning an enjoyable journey.
+With a strong emphasis on merging education and entertainment, we are pioneering the creation of games that not only captivate but also enrich young minds. 
+As we move forward, we envision ourselves as a pivotal player in shaping the future of India's gaming and animation landscape. We believe that our focus on educational games aligns with the evolving needs of our country's educational ecosystem. Through our dedication and innovation, we aim to contribute to a generation of empowered learners who find joy in expanding their horizons while having a blast.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Dishant Shah</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          I am an electronics and telecom engineer who has won many national and international hackathons, including the SIH HW 2020 and SIH SW 2019, MIT India turning the Tide and many more.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          We are a medical device startup based in mumbai that develop electrosurgical instruments and related products.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Dishant Shah.jpeg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Blue Phoenix Technologies</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Kartik K.JPG"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Bramhansh</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Kartik K</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Hi I am K Kartik a Btech graduate in Electronics and Telecommunication Engineering. I am the founder of Bramhansh Technologies Pvt Ltd and have 5years of entrepreneurial experience in the MedTech device Industry. I look after the sales, operation, marketing and regulatory compliances.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Bramhansh is a 5 year old MedTech Startup with 3 portfolio devices. Bramhansh was the winner of Smart India Hardware Hackathon 2018. Our featured product Migraelief is India's first neurostimulation wearable device for headache and Migraine treament, it is clinically proven to provide headache pain relief and deep sleep within 20 mins. The startup is supported and funded by IIT Bombay, BIRAC, IIT Delhi and many other govt Institutes.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Kunal Ambasta</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Myself Kunal Ambasta. I am an inventor and an innovator. I holds a patent and more than 10 copyrights. I am winner of Smart India Hackathon 2022 and I secured a place in top 21 of Together 2023 of Startup India & Schulich School of Business Canada, I secured a place in top 20 of ISEED Antra hackathon. I have demonstrated my award winning innovation on multiple platforms including India International Science Festival IISF2022, Akhil Bhartiya Siksha Samagam, in IGNOU Udhyami Samgam before hon’ble Speaker of Lok Sabha Shri Om Birla jee and many more. I have developed a secured voice assistant that works totally offline without any active internet connection and performs all data calculations locally onboard.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          KAYA-AI, founded by visionary innovator Kunal Ambasta, is a pioneering startup at the forefront of redefining voice assistant technology. With a mission to prioritize user security and privacy, KAYA-AI offers a unique voice assistant experience characterized by offline speech recognition, eliminating the need for constant internet connectivity. Committed to innovation, inclusivity, and user-centric design, KAYA-AI’s core values shape a range of innovative solutions designed to benefit users of all abilities. Their impressive achievements, including winning SMART INDIA HACKATHON SIH-2022 and earning positions in renowned programs like Together 2023 and India International Science Festival 2022, reflect their dedication to pushing the boundaries of voice technology. KAYA-AI envisions a future where voice technology is accessible, secure, and empowering for all users.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Kunal Ambasta.jpeg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>KAYA-AI</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/ChiragShah.jpg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Rymo</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Chirag Shah</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Chirag Shah, the founder of Rymo, is an electronics and telecommunication engineer with an unwavering passion for technology, particularly in the realm of robotics. His visionary approach and dedication to leveraging technology for the betterment of healthcare have been instrumental in Rymo's mission to revolutionize physiotherapy and rehabilitation.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Rymo is a pioneering healthcare technology company committed to transforming the field of physiotherapy and rehabilitation. Our innovative solutions leverage cutting-edge technologies like robotics, virtual reality, and biofeedback to provide personalized, engaging, and effective therapy experiences. With a mission to enhance patient outcomes and accessibility to care, Rymo is at the forefront of revolutionizing rehabilitation practices globally.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Pratiksha Rakesh Khairnar</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Hello , myself Pratiksha khairnar from nashik, Maharashtra. I am currently pursuing engineering in the field of electronics and telecommunication. I have worked on various project's including hydrogen fuel cell technology.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          My project named E hydra is Indias first fuel cell hybrid electric vehicle. Our major innovation is fuel cell which is cost effective and made from wastage of lead acid batteries. In 1 kg of hydrogen our vehicle can run upto 98kms.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Pratiksha khairnar se entc.jpg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>E Hydra</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img
+                        src="img/Anshu Gupta.jpg"
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div>
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>Edu Expression</p>
+                    <i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Ashu Gupta</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Teacher by profession, innovator by mission.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          Start up provides innovative sllolution to the topics which are considered to teach. We have many innovations.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="m-b-10 f-w-600">Full Name</p>
+                        <h6 class="text-muted f-w-400">Vishwambhar ChavanPatil</h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Brief Profile: Please provide a brief introduction
+                          about yourself
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          My self Vishwambhar, from IIT Bombay, I have been working on the research project, Process development of jaggery making process since 8-9 years ago. Before last 2 years I have registered as a PhD student. I am associated with Startup Revotech Industries Pvt Ltd as a founder and Director. The startup is formed in year 2020 to take forward the developed technology by IIT Bombay.
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row m-b-20 m-t-40">
+                      <div class="col-md-12">
+                        <p class="m-b-10 f-w-600">
+                          Start-up/ Organisation Profile: Provide a brief
+                          overview about your start-up or organization
+                        </p>
+                        <h6 class="text-muted f-w-400">
+                          RevoTech Industries Pvt. Ltd. started in September 2020 and was registered with a motive to provide end-to-end innovative solutions in the sector of jaggery manufacturing. The innovations and the technology developed are based on the scientific and technical research conducted at IIT Bombay. The jaggery manufacturing business (process as well as product) has potential in the health-friendly sweetener market. Slowly and steadily the market is moving towards healthier food options. The proposed solution will be more relevant to satisfy the consumers who are more and more getting aware of the advantages of consuming jaggery compared to refined white sugar. 
+	The automated system for producing Jaggery powder is a disruptive innovation in this domain. Its ability to produce high-quality Jaggery powder hygienically is sure to capture the attention of manufacturers and consumers alike. What's more, the Jaggery powder has a shelf life of approximately 1.5 years, making it an attractive option for easy storage and transportation. A machine is flexible to produce the product of different attributes in terms of color, and particle size as per requirement.
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <!-- <div class="m-b-25">
+                      <img
+                        src="img/
+                        class="img-radius"
+                        alt="Feedback"
+                      />
+                    </div> -->
+                    <h6 class="f-w-600 startupPara">Start-up</h6>
+                    <p>RevoTech Industries Pvt. Ltd.</p>
+                    <i
+                      class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="owl-carousel pt-5">
+          <div class="item">
+            <img src="img/NEP/2.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/3.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/1.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/4.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/5.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/6.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/7.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/8.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/9.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/10.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/11.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/12.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/13.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/14.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/15.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/16.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/17.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/18.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/19.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/20.png" />
+          </div>
+          <div class="item">
+            <img src="img/NEP/21.png" />
+          </div>
+        </div>
+      </div>
+      
+      <footer class="footer-01">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-0 mb-md-0">
+              <img src="img/logo.png" class="logoimg" alt="" />
+              <br /><br />
+              <p class="foot">
+                All India Council for Technical Education (AICTE), Nelson
+                Mandela Marg, VasantKunj, New Delhi-110070.
+              </p>
+              <ul class="p-0">
+                <i
+                  class="bi bi-envelope"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">micalumni@aicte-india.org</p>
+                <i
+                  class="bi bi-telephone"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">011-29581316</p>
+              </ul>
+            </div>
+
+            <div class="col pl-lg-5 mb-0 mb-md-0">
+              <h2 class="footer-heading">Hackathons:</h2>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://sih.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Smart India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://kavach.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >KAVACH</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://singaporeindiahackathon.com/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Singapore India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://uia.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >UNESCO India Africa Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/samadhan"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Samadhan</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/Hackathon/ddh2020"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Drug Discovery Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/india-asean-hackathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >ASEAN - India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/toycathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Toycathon</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col col-lg-3 mb-0 mb-md-0">
+              <h2 class="footer-heading">Quick Links:</h2>
+              <div class="block-23 mb-3">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="https://mic.gov.in/innovation-council/iic"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Innovation Council</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://ariia.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >ARIIA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://yukti.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Yukti 2.0</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://kapila.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >KAPILA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >MoE’s Innovation Cell</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.aicte-india.org/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >All India Council for Technical Education</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.education.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Ministry of Education</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr width="100%" align="center" color="white" />
+          <div class="row mt-2">
+            <div class="col-md-6 text-left">
+              <p class="copyright foot">
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved
+              </p>
+            </div>
+            <div class="col-md-6 text-right">
+              <p>
+                <a
+                  href="https://www.youtube.com/@MoEInnovationCell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-youtube"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/mhrd.innovationcell/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-instagram"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://twitter.com/mhrd_innovation"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-twitter"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/mhrdInnovation/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-facebook"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/company/moe-innovation-cell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-linkedin"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.3.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.js"></script>
+    <script>
+      $(".owl-carousel").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 1800,
+        autoplayHoverPause: false,
+        loop: true,
+        margin: 50,
+        responsiveClass: true,
+        nav: true,
+        loop: true,
+        stagePadding: 100,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          568: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
