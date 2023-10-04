@@ -65,7 +65,7 @@ export default function Programs() {
                                     Know more
                                 </a> */}
                                 <a
-                                    href="https://ujjwalraj.me/NEP-Feedback/"
+                                    href="/html/NEP-Feedback/index.html"
                                     target="_blank"
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ease-linear transition-all duration-150"
                                     type="button"
@@ -118,7 +118,7 @@ export default function Programs() {
                                     Know more
                                 </a>
                                 <a
-                                    href="https://ujjwalraj.me/NTW-Feedback/"
+                                    href="/html/NTW-Feedback/index.html"
                                     target="_blank"
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ml-5 ease-linear transition-all duration-150"
                                     type="button"
