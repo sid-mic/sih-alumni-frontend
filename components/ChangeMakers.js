@@ -121,7 +121,7 @@ export default function Gallery({ changemakers }) {
                   <div
                     className={
                       styles.mainHeading +
-                      " font-bold mt-6 mb-6 text-center pb-2 sm:text-xl text-2xl md:text-3xl"
+                      " font-bold mt-6 mb-6 text-center pb-2 text-2xl"
                     }
                   >
                     <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 text-center to-yellow-500">
@@ -175,7 +175,7 @@ export default function Gallery({ changemakers }) {
               <h1
                 className={
                   styles.mainHeading +
-                  " font-bold mt-6 mb-14 text-center pb-2 sm:text-xl text-2xl md:text-3xl"
+                  " font-bold mt-6 mb-14 text-center pb-2 sm:text-xl text-xl md:text-3xl"
                 }
               >
                 <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 text-center to-yellow-500">
