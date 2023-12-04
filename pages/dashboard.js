@@ -91,16 +91,16 @@ class Dashboard extends Component {
         own_projects: data.own_projects,
         logout: auth().logout,
         moduletypes:
-          //   data.user.is_uia_willing
-          // ? [
-          //     ...this.state.moduletypes,
-          //     {
-          //       id: 7,
-          //       type: "UIA 2022",
-          //       icon: faChalkboardTeacher,
-          //     },
-          //   ]
-          // :
+            data.user.mentor_eligible
+          ? [
+              ...this.state.moduletypes,
+              {
+                id: 7,
+                type: "SIH 2023 Design Mentor",
+                icon: faChalkboardTeacher,
+              },
+            ]
+          :
           this.state.moduletypes,
         selectedmoduletype: 4,
       });
@@ -137,7 +137,7 @@ class Dashboard extends Component {
           <div className="flex flex-col bg-indblue min-h-full">
             <div className="flex  flex-wrap">
               <div className="container md:rounded-tl-2xl min-h-screen bg-lightblue md:ml-60 lg:ml-80 mt-14">
-                <WelcomeHero h1="UNESCO Africa India Hackathon 2022" />
+                <WelcomeHero h1="SIH 2023 Design Mentor" />
                 <MentorWillingnessForm user={this.state.user} />
               </div>
             </div>
