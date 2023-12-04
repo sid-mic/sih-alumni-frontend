@@ -170,6 +170,9 @@ export default function MentorWillingnessForm(props) {
                   <option value="Subject Matter Expert">
                     Subject Matter Expert
                   </option>
+                  <option value="Hardware">
+                    Hardware
+                  </option>
                 </select>
               </div>
             </div>
