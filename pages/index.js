@@ -60,11 +60,11 @@ export default function Home() {
               <News announcements={data.announcements} />
               <Featured />
               <Scroller />
-              <Initiatives />
-              <Gallery />
+              {/* <Initiatives /> */}
+              {/* <Gallery /> */}
             </div>
           </div>
-          <Footer />
+          {/* <Footer /> */}
           <ToastContainer
             position="top-right"
             autoClose={5000}

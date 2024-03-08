@@ -35,14 +35,15 @@ export default function Activities() {
       ) : (
         <>
           <Nav />
-          {/* <Hero user={user} isAuth={isAuth} auth={auth} /> */}
+                       {/* <Hero user={user} isAuth={isAuth} auth={auth} /> */}
           <div className="main-outer" style={{width:'100%'}}>
           <div className="container" style={{margin:'0 auto'}}>
             
             <Programs />
           </div>
+          <Footer />
           </div>
-           <Footer />
+           
         </>
       )}
     </div>

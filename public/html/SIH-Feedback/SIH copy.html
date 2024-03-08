@@ -1,0 +1,3331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>National Technology Week Feedback 2023</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      /* image gallery css */
+
+      #imageGalleryContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(10, auto);
+        gap: 20px;
+        margin: 32px;
+      }
+      /* Starts Owl Carousel */
+      .owl-prev {
+        background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-left.png")
+          left center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        left: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .back-content-card{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+         font-style: normal;
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content-carddflip{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+         font-style: normal;
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .owl-next {
+        background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-right.png")
+          right center no-repeat;
+        height: 54px;
+        position: absolute;
+        top: 50%;
+        width: 100px;
+        z-index: 1000;
+        right: 2%;
+        cursor: pointer;
+        color: transparent;
+        margin-top: 0px;
+      }
+
+      .owl-prev:hover,
+      .owl-next:hover {
+        opacity: 0.5;
+      }
+      /* Ends Owl Carousel */
+
+      .carousel-item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      .cardBodyShadow {
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      p.mb-0 {
+        font-weight: 500;
+        font-size: 18px;
+        color: #061976;
+      }
+
+      p.feedbackpara {
+        font-size: 20;
+        font-weight: 500;
+        color: #000 !important;
+      }
+
+      p.mb-0.committedclass {
+        font-size: 24px;
+      }
+
+      p.mb-0.committedclass2 {
+        font-size: 22px;
+      }
+
+      .ntwImg img {
+        border: 2px solid #061976;
+        padding: 8px;
+        margin: 0;
+        height: auto;
+        width: 100%;
+      }
+
+      .ntwImg {
+        text-align: center;
+      }
+
+      i.bi.bi-quote {
+        font-size: 36px;
+        color: #d75b00;
+      }
+
+      p.feedbackpara2 {
+        font-size: 16px;
+        /* font-weight: normal; */
+        color: #000 !important;
+      }
+
+      p.feedbackpara3 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #000 !important;
+      }
+
+      .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      .cardTwo {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .cardThree {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .cardfour {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .cardfive {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .cardsix {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card7 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card8 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card9 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card10 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card11 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card12 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card13 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card14 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card15 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+      .card16 {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgb(224 186 75);
+        /*   */
+        box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+          0 10px 20px -2px rgba(0, 0, 0, 0.04);
+      }
+
+      .col-md-12.nWidth .card {
+        width: 90%;
+        float: left;
+      }
+
+      .col-md-12.nWidth2 .card {
+        width: 90%;
+        float: right;
+      }
+
+      section.ntwMain {
+        background-image: url(img/bgPattern.png);
+        background-repeat: repeat;
+        padding: 0;
+        background-size: 50%;
+      }
+      .heading {
+        font-weight: 700;
+        font-size: 3rem;
+      }
+
+      @media screen and (max-width: 800px) {
+        .content {
+          font-size: 13px;
+        }
+        .heading {
+          font-size: 1.8rem;
+          font-weight: 700;
+        }
+        p.mb-0 {
+          font-size: 13px;
+        }
+        p.subheading {
+          font-weight: 500;
+        }
+        .foot {
+          font-size: 12px;
+        }
+      }
+
+      .logoimg {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 580px) {
+        .logoimg {
+          width: calc(100vw - 30px) !important;
+        }
+      }
+
+      /* footer CSS */
+      footer {
+        padding-top: 20px;
+      }
+
+      .footer-01 {
+        background: #0d1824;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .footer-01:after {
+        position: absolute;
+        top: -300px;
+        left: -100px;
+        width: 800px;
+        height: 800px;
+        content: "";
+        background: url("https://preview.colorlib.com/theme/bft/bootstrap-footer-11/images/blob-shape.svg");
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.05;
+      }
+      .footer-01 a {
+        color: #7f72e4;
+      }
+      .footer-01 p {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .copyright {
+        color: rgba(255, 255, 255, 0.3);
+        color: #999999;
+      }
+      .footer-01 .footer-heading {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+        position: relative;
+      }
+      .footer-01 .footer-heading:after {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: "";
+        width: 40px;
+        height: 2px;
+        background: #7f72e4;
+      }
+      .footer-01 ul.list-unstyled li a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .text .heading a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .footer-01 .block-21 .meta > div a {
+        color: #7f72e4;
+      }
+      .footer-01 .block-23 ul li {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li a {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-01 .block-23 ul li .icon {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-01 .ftco-footer-social li a {
+        background: #7f72e4;
+        color: #fff;
+      }
+
+      /* fliper card */
+      body {
+        font-family: sans-serif;
+      }
+      .row{
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .scene {
+        width: 400px;
+        height: 460px;
+        border: 1px solid #ccc;
+        margin: 40px 0;
+        perspective: 600px;
+      }
+
+      .card {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .cardTwo {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .cardThree {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .cardfour {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .cardfive {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .cardsix {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card7 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card8 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card9 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card10 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card11 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card12 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card13 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card14 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card15 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+      .card16 {
+        /* width:  500px; */
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .card.is-flipped {
+        transform: rotateY(180deg);
+      }
+
+      .cardTwo.is-flipped {
+        transform: rotateY(180deg);
+      }
+
+      .cardThree.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .cardfour.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .cardfive.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .cardsix.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card7.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card8.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card9.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card10.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card11.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card12.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card13.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card14.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card15.is-flipped {
+        transform: rotateY(180deg);
+      }
+      .card16.is-flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card__face {
+        position: absolute;
+        width: 100%;
+  /* height: 100%;
+  line-height: 260px; */
+
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+.card__face--back {
+  transform: rotateY(180deg);
+}
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="img/bg.png"
+            alt="National Technology Week"
+          />
+          <h2 class="text-center pt-2 heading">
+            National Technology Week 2023
+          </h2>
+          <p class="text-center mb-0 subheading px-3">
+            Held from 11th May to 14th May, 2023 at Pragati Maidan, New Delhi.
+          </p>
+          <p class="px-3 pt-4 feedbackpara text-center content">
+            The Govt. of India celebrated National Technology Week 2023 with
+            involvement of 11 different ministries and Government departments,
+            including Office of Principal Scientific Advisor, Ministry of
+            Education's Innovation Cell/AICTE where different startups
+            exhibited. During this event, a dedicated pavilion on a theme of
+            Making India Global Innovation Hub was set up by the AICTE/Ministry
+            of Education's Innovation Cell. This event provided a good
+            opportunity for the MIC/AICTE supported innovation team to showcase
+            their innovations and efforts, and connect with the ecosystem
+            enablers. The Event was a Grand Success and it showcased a Brilliant
+            Startup Ecosystem of our Nation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- image gallery section start from here -->
+
+    <section class="ntwMain" style="background-color: #e3bc5717">
+      <div class="py-5">
+        <div id="imageGalleryContainer" class="mx-8">
+          <div class="scene scene--card">
+            <div class="card">
+              <div class="card__face card__face--front">
+
+                <div
+                  style="
+                    width: auto;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 8px;
+                    border-radius: 16px;
+                  ">
+                  <img
+                    style="
+                      height: 250px;
+                      width: 100%;
+                      border-radius: 10px;
+                      position: relative;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      object-fit: cover;"
+                    src="../../assets/Shammi Gupta.jpeg"
+                    alt=""
+                  />
+
+                </div>
+
+                <div class="content-carddflip">
+                  <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    padding: 20px;
+                  "
+                  class="bottom-container"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      column-gap: 8px;
+                    "
+                    class="first-wrapper flex flex-row gap-x-2"
+                  >
+                    <span
+                      style="font-size: 20px; font-weight: 400"
+                      class="text-sm font-medium"
+                      >Name:
+                    </span>
+                    <span style="font-size: 20px">Shammi Kumar Gupta </span>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      column-gap: 8px;
+                    "
+                    class="first-wrapper flex flex-row gap-x-2"
+                  >
+                    <span
+                      style="font-size: 17px; font-weight: 500"
+                      class="text-sm font-medium"
+                      >Designation:</span
+                    >
+                    <span style="font-size: 18px">Software analyst</span>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      column-gap: 8px;
+                    "
+                    class="first-wrapper flex flex-row gap-x-2"
+                  >
+                    <span
+                      style="font-size: 17px; font-weight: 500"
+                      class="text-sm font-medium"
+                      >Organization:
+                    </span>
+                    <span style="font-size: 18px">Accenture</span>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      column-gap: 8px;
+                    "
+                    class="first-wrapper flex flex-row gap-x-2"
+                  >
+                    <span
+                      style="font-size: 17px; font-weight: 500"
+                      class="text-sm font-medium"
+                      >Contributed as:</span
+                    >
+                    <span style="font-size: 18px">Design Mentor</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+          <div class="card__face card__face--back">
+                <div class="back-content-card">
+                  <div
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    column-gap: 8px;
+                  "
+                >
+                  <span
+                    style="font-size: 15px; font-weight: 500"
+                    class="text-sm font-medium px-3" 
+                    >In which SIH you were participated in :</span
+                  >
+                  <span style="font-size: 16px">SIH 2017, SIH 2018, SIH 2019, SIH 2020</span>
+                </div>  
+               </div>
+               <div class="row">
+                <div class="col-sm-12">
+                  <p class="mb-0"style="text-align: center; padding-top:60px">Any overall feedback for the event?</p>
+                </div>
+                <div class="col-sm-12"> 
+                  <p class="text-muted mb-0 feedbackpara" style="padding-left:60px; padding-top: 60px;">
+                    <i class="bi bi-quote"></i> it was a good experience.
+                  </p>
+                </div>
+              </div>                          
+              </div>
+                </div>
+            </div>  
+
+            <div class="scene scene--card">
+              <div class="cardTwo">
+                <div class="card__face card__face--front">
+  
+                  <div
+                    style="
+                      width: auto;
+                      height: auto;
+                      display: flex;
+                      flex-direction: column;
+                      row-gap: 8px;
+                      border-radius: 16px;
+                    ">
+                    <img
+                      style="
+                        height: 250px;
+                        width: 100%;
+                        border-radius: 10px;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        object-fit: full;"
+                      src="../../assets/ravikanth.jpg"
+                      alt=""
+                    />
+  
+                  </div>
+  
+                  <div class="content-carddflip">
+                    <div
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      row-gap: 10px;
+                      padding: 20px;
+                    "
+                    class="bottom-container"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 8px;
+                      "
+                      class="first-wrapper flex flex-row gap-x-2"
+                    >
+                      <span
+                        style="font-size: 20px; font-weight: 400"
+                        class="text-sm font-medium"
+                        >Name:
+                      </span>
+                      <span style="font-size: 20px; padding-left: 45px;">Er.K.Ravikanth </span>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 8px;
+                      "
+                      class="first-wrapper flex flex-row gap-x-2"
+                    >
+                      <span
+                        style="font-size: 17px; font-weight: 500"
+                        class="text-sm font-medium"
+                        >Designation:</span
+                      >
+                      <span style="font-size: 18px">Assistant Professor</span>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 8px;
+                      "
+                      class="first-wrapper flex flex-row gap-x-2"
+                    >
+                      <span
+                        style="font-size: 17px; font-weight: 500"
+                        class="text-sm font-medium"
+                        >Organization:
+                      </span>
+                      <span style="font-size: 15px">AURORA Deemed To Be University, Hyderabad.</span>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 8px;
+                      "
+                      class="first-wrapper flex flex-row gap-x-2"
+                    >
+                      <span
+                        style="font-size: 17px; font-weight: 500"
+                        class="text-sm font-medium"
+                        >Contributed as:</span
+                      >
+                      <span style="font-size: 18px">Design Mentor</span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            <div class="card__face card__face--back">
+                  <div class="back-content-card">
+                    <div
+                    style="
+                      display: flex;
+                      flex-direction: row;
+                      align-items: center;
+                      column-gap: 8px;
+                    "
+                  >
+                    <span
+                      style="font-size: 15px; font-weight: 500"
+                      class="text-sm font-medium px-3; padding-top: 10px;" 
+                      >In which SIH you were participated in :</span
+                    >
+                    <span style="font-size: 16px;">SIH 2017, SIH 2018, SIH 2019, SIH 2020, SIH 2022</span>
+                  </div>  
+                 </div>
+                 <div class="row">
+                  <div class="col-sm-12" >
+                    <p class="mb-0" style=" padding-left: 60px;">Any overall feedback for the event?</p>
+                  </div>
+                  <div class="col-sm-12">
+                    <p class="text-muted mb-0 feedbackpara" style="font-size: medium; padding: 8px;">
+                      <i class="bi bi-quote py-3"></i>"Had an incredible experience as a mentor/Judge at Smart India Hackathon 2023, hosted by Vignana Bharathi Institute of Technology Hyderabad, organized by the Ministry Of Information & Broadcasting Ministry of Education and AICTE . 
+                      Day one was filled with learning as we broke down problem statements, explored innovative solutions, and assessed feasibility.         
+                      The networking opportunities were invaluable, connecting with a motivated group of 350+ students.                      
+                      Excited to see the outcomes wait for tomorrow's post to know more updates sustainability is crazy after 48 hrs"
+                    </p>
+                  </div>
+                </div>                          
+                </div>
+                  </div>
+              </div>   
+              
+              <div class="scene scene--card">
+                <div class="cardThree">
+                  <div class="card__face card__face--front">
+    
+                    <div
+                      style="
+                        width: auto;
+                        height: auto;
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 8px;
+                        border-radius: 16px;
+                      ">
+                      <img
+                        style="
+                          height: 250px;
+                          width: 100%;
+                          border-radius: 10px;
+                          position: relative;
+                          top: 0;
+                          left: 0;
+                          right: 0;
+                          object-fit: cover;"
+                        src="../../assets/Shekhar Dahiya.jpeg"
+                        alt=""
+                      />
+    
+                    </div>
+    
+                    <div class="content-carddflip">
+                      <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 10px;
+                        padding: 20px;
+                      "
+                      class="bottom-container"
+                    >
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          column-gap: 8px;
+                        "
+                        class="first-wrapper flex flex-row gap-x-2"
+                      >
+                        <span
+                          style="font-size: 20px; font-weight: 400"
+                          class="text-sm font-medium"
+                          >Name:
+                        </span>
+                        <span style="font-size: 20px">Shekhar Dahiya </span>
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          column-gap: 8px;
+                        "
+                        class="first-wrapper flex flex-row gap-x-2"
+                      >
+                        <span
+                          style="font-size: 17px; font-weight: 500"
+                          class="text-sm font-medium"
+                          >Designation:</span
+                        >
+                        <span style="font-size: 18px">Experience Engineer L2</span>
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          column-gap: 8px;
+                        "
+                        class="first-wrapper flex flex-row gap-x-2"
+                      >
+                        <span
+                          style="font-size: 17px; font-weight: 500"
+                          class="text-sm font-medium"
+                          >Organization:
+                        </span>
+                        <span style="font-size: 18px">Publicis Sapient</span>
+                      </div>
+                      <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          column-gap: 8px;
+                        "
+                        class="first-wrapper flex flex-row gap-x-2"
+                      >
+                        <span
+                          style="font-size: 17px; font-weight: 500"
+                          class="text-sm font-medium"
+                          >Contributed as:</span
+                        >
+                        <span style="font-size: 18px">Design Mentor</span>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+              <div class="card__face card__face--back">
+                    <div class="back-content-card">
+                      <div
+                      style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        column-gap: 8px;
+                      "
+                    >
+                      <span
+                        style="font-size: 15px; font-weight: 500"
+                        class="text-sm font-medium px-3" 
+                        >In which SIH you were participated in :</span
+                      >
+                      <span style="font-size: 16px">SIH 2019, SIH 2020, SIH 2022</span>
+                    </div>  
+                   </div>
+                   <div class="row">
+                    <div class="col-sm-12">
+                      <p class="mb-0">Any overall feedback for the event?</p>
+                    </div>
+                    <div class="col-sm-12">
+                      <p class="text-muted mb-0 feedbackpara">
+                        <i class="bi bi-quote"></i>As a design mentor for SIH 2023, I appreciated the opportunity to guide and support teams in their creative process. I found it rewarding to see the innovative solutions that emerged from the collaboration between the participants and myself. My goal was to provide constructive feedback, offer design principles, and help teams refine their ideas to meet the competition's challenges effectively. I valued the chance to share my expertise and insights, and I hope that my contributions helped teams enhance their projects and grow as designers.
+                      </p>
+                    </div>
+                  </div>                          
+                  </div>
+                    </div>
+                </div> 
+      
+                <div class="scene scene--card">
+                  <div class="cardfour">
+                    <div class="card__face card__face--front">
+      
+                      <div
+                        style="
+                          width: auto;
+                          height: auto;
+                          display: flex;
+                          flex-direction: column;
+                          row-gap: 8px;
+                          border-radius: 16px;
+                        ">
+                        <img
+                          style="
+                            height: 250px;
+                            width: 100%;
+                            border-radius: 10px;
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            object-fit: cover;"
+                          src="../../assets/Thaamara_Kannan_SAS.jpg"
+                          alt=""
+                        />
+      
+                      </div>
+      
+                      <div class="content-carddflip">
+                        <div
+                        style="
+                          display: flex;
+                          flex-direction: column;
+                          row-gap: 10px;
+                          padding: 20px;
+                        "
+                        class="bottom-container"
+                      >
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8px;
+                          "
+                          class="first-wrapper flex flex-row gap-x-2"
+                        >
+                          <span
+                            style="font-size: 20px; font-weight: 400"
+                            class="text-sm font-medium"
+                            >Name:
+                          </span>
+                          <span style="font-size: 20px">THAAMARAI KANNAN SAS</span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8px;
+                          "
+                          class="first-wrapper flex flex-row gap-x-2"
+                        >
+                          <span
+                            style="font-size: 17px; font-weight: 500"
+                            class="text-sm font-medium"
+                            >Designation:</span
+                          >
+                          <span style="font-size: 18px">Product Owner</span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8px;
+                          "
+                          class="first-wrapper flex flex-row gap-x-2"
+                        >
+                          <span
+                            style="font-size: 17px; font-weight: 500"
+                            class="text-sm font-medium"
+                            >Organization:
+                          </span>
+                          <span style="font-size: 18px">XBI4 IND PVT LTD</span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8px;
+                          "
+                          class="first-wrapper flex flex-row gap-x-2"
+                        >
+                          <span
+                            style="font-size: 17px; font-weight: 500"
+                            class="text-sm font-medium"
+                            >Contributed as:</span
+                          >
+                          <span style="font-size: 18px">Evaluator</span>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                <div class="card__face card__face--back">
+                      <div class="back-content-card">
+                        <div
+                        style="
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          column-gap: 8px;
+                        "
+                      >
+                        <span
+                          style="font-size: 15px; font-weight: 500"
+                          class="text-sm font-medium px-3" 
+                          >In which SIH you were participated in :</span
+                        >
+                        <span style="font-size: 16px">SIH 2019</span>
+                      </div>  
+                     </div>
+                     <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0">Any overall feedback for the event?</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="text-muted mb-0 feedbackpara">
+                          <i class="bi bi-quote"></i>I am delighted to have been a part of the Evaluator team in SIH 2023. The guidance provided by the SIH team on Nodal center was excellent, covering all aspects of the evaluation process. While judging was undoubtedly challenging, the mark allocation devised by the SIH was exceptional, ensuring validity at each stage of assessment.
+                        </p>
+                      </div>
+                    </div>                          
+                    </div>
+                      </div>
+                  </div> 
+
+                  <div class="scene scene--card">
+                    <div class="cardfive">
+                      <div class="card__face card__face--front">
+        
+                        <div
+                          style="
+                            width: auto;
+                            height: auto;
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 8px;
+                            border-radius: 16px;
+                            
+                          ">
+                          <img
+                            style="
+                              height: 250px;
+                              width: 100%;
+                              border-radius: 10px;
+                              position: relative;
+                              top: 0;
+                              left: 0;
+                              right: 0;
+                              object-fit: cover;
+                              object-position:center center ;
+                             
+                              "
+                              
+                            src="../../assets/Dinesh_Ram_C.jpg"
+                            alt=""
+                          />
+        
+                        </div>
+        
+                        <div class="content-carddflip">
+                          <div
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 10px;
+                            padding: 20px;
+                          "
+                          class="bottom-container"
+                        >
+                          <div
+                            style="
+                              display: flex;
+                              flex-direction: row;
+                              align-items: center;
+                              column-gap: 8px;
+                            "
+                            class="first-wrapper flex flex-row gap-x-2"
+                          >
+                            <span
+                              style="font-size: 20px; font-weight: 400"
+                              class="text-sm font-medium"
+                              >Name:
+                            </span>
+                            <span style="font-size: 20px">DINESH RAM C</span>
+                          </div>
+                          <div
+                            style="
+                              display: flex;
+                              flex-direction: row;
+                              align-items: center;
+                              column-gap: 8px;
+                            "
+                            class="first-wrapper flex flex-row gap-x-2"
+                          >
+                            <span
+                              style="font-size: 17px; font-weight: 500"
+                              class="text-sm font-medium"
+                              >Designation:</span
+                            >
+                            <span style="font-size: 18px">Software Engineer (Machine Learning)</span>
+                          </div>
+                          <div
+                            style="
+                              display: flex;
+                              flex-direction: row;
+                              align-items: center;
+                              column-gap: 8px;
+                            "
+                            class="first-wrapper flex flex-row gap-x-2"
+                          >
+                            <span
+                              style="font-size: 17px; font-weight: 500"
+                              class="text-sm font-medium"
+                              >Organization:
+                            </span>
+                            <span style="font-size: 18px">Socgen </span>
+                          </div>
+                          <div
+                            style="
+                              display: flex;
+                              flex-direction: row;
+                              align-items: center;
+                              column-gap: 8px;
+                            "
+                            class="first-wrapper flex flex-row gap-x-2"
+                          >
+                            <span
+                              style="font-size: 17px; font-weight: 500"
+                              class="text-sm font-medium"
+                              >Contributed as:</span
+                            >
+                            <span style="font-size: 18px">Evaluator</span>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                  <div class="card__face card__face--back">
+                        <div class="back-content-card">
+                          <div
+                          style="
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8px;
+                          "
+                        >
+                          <span
+                            style="font-size: 15px; font-weight: 500"
+                            class="text-sm font-medium px-3" 
+                            >In which SIH you were participated in:</span
+                          >
+                          <span style="font-size: 15px; padding-right: 5px;">SIH 2020</span>
+                        </div>  
+                       </div>
+                       <div class="row">
+                        <div class="col-sm-12">
+                          <p class="mb-0">Any overall feedback for the event?</p>
+                        </div>
+                        <div class="col-sm-12">
+                          <p class="text-muted mb-0 feedbackpara">
+                            <i class="bi bi-quote"></i>Great event , lot of learning and we made new connections with people.
+                          </p>
+                        </div>
+                      </div>                          
+                      </div>
+                        </div>
+                    </div> 
+
+                    <div class="scene scene--card">
+                      <div class="cardsix">
+                        <div class="card__face card__face--front">
+          
+                          <div
+                            style="
+                              width: auto;
+                              height: auto;
+                              display: flex;
+                              flex-direction: column;
+                              row-gap: 8px;
+                              border-radius: 16px;
+                            ">
+                            <img
+                              style="
+                                height: 250px;
+                                width: 100%;
+                                border-radius: 10px;
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                object-fit: cover;"
+                              src="../../assets/Sanket_Tiwari.jpg"
+                              alt=""
+                            />
+          
+                          </div>
+          
+                          <div class="content-carddflip">
+                            <div
+                            style="
+                              display: flex;
+                              flex-direction: column;
+                              row-gap: 10px;
+                              padding: 20px;
+                            "
+                            class="bottom-container"
+                          >
+                            <div
+                              style="
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                column-gap: 8px;
+                              "
+                              class="first-wrapper flex flex-row gap-x-2"
+                            >
+                              <span
+                                style="font-size: 20px; font-weight: 400"
+                                class="text-sm font-medium"
+                                >Name:
+                              </span>
+                              <span style="font-size: 20px">Sanket Tiwari</span>
+                            </div>
+                            <div
+                              style="
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                column-gap: 8px;
+                              "
+                              class="first-wrapper flex flex-row gap-x-2"
+                            >
+                              <span
+                                style="font-size: 17px; font-weight: 500"
+                                class="text-sm font-medium"
+                                >Designation:</span
+                              >
+                              <span style="font-size: 18px">Sr. Software Developer</span>
+                            </div>
+                            <div
+                              style="
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                column-gap: 8px;
+                              "
+                              class="first-wrapper flex flex-row gap-x-2"
+                            >
+                              <span
+                                style="font-size: 17px; font-weight: 500"
+                                class="text-sm font-medium"
+                                >Organization:
+                              </span>
+                              <span style="font-size: 18px">Socgen</span>
+                            </div>
+                            <div
+                              style="
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                column-gap: 8px;
+                              "
+                              class="first-wrapper flex flex-row gap-x-2"
+                            >
+                              <span
+                                style="font-size: 17px; font-weight: 500"
+                                class="text-sm font-medium"
+                                >Contributed as:</span
+                              >
+                              <span style="font-size: 18px">Evaluator</span>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                    <div class="card__face card__face--back">
+                          <div class="back-content-card">
+                            <div
+                            style="
+                              display: flex;
+                              flex-direction: row;
+                              align-items: center;
+                              column-gap: 8px;
+                            "
+                          >
+                            <span
+                              style="font-size: 15px; font-weight: 500"
+                              class="text-sm font-medium px-3" 
+                              >In which SIH you were participated in :</span
+                            >
+                            <span style="font-size: 16px">SIH 2018, SIH 2019</span>
+                          </div>  
+                         </div>
+                         <div class="row">
+                          <div class="col-sm-12">
+                            <p class="mb-0">Any overall feedback for the event?</p>
+                          </div>
+                          <div class="col-sm-12">
+                            <p class="text-muted mb-0 feedbackpara">
+                              <i class="bi bi-quote"></i>It’s very good platform for all stakeholders of information technology and startup entrepreneurs to take their ideas into a product.
+                            </p>
+                          </div>
+                        </div>                          
+                        </div>
+                          </div>
+                      </div>
+                    
+                      <div class="scene scene--card">
+                        <div class="card7">
+                          <div class="card__face card__face--front">
+            
+                            <div
+                              style="
+                                width: auto;
+                                height: auto;
+                                display: flex;
+                                flex-direction: column;
+                                row-gap: 8px;
+                                border-radius: 16px;
+                              ">
+                              <img
+                                style="
+                                  height: 250px;
+                                  width: 100%;
+                                  border-radius: 10px;
+                                  position: relative;
+                                  top: 0;
+                                  left: 0;
+                                  right: 0;
+                                  object-fit: full  ;
+                                  background-position: center;
+                                  "
+                                  
+                                src="../../assets/AKash_WaDhawane.jpeg"
+                                alt=""
+                              />
+            
+                            </div>
+            
+                            <div class="content-carddflip">
+                              <div
+                              style="
+                                display: flex;
+                                flex-direction: column;
+                                row-gap: 10px;
+                                padding: 20px;
+                              "
+                              class="bottom-container"
+                            >
+                              <div
+                                style="
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  column-gap: 8px;
+                                "
+                                class="first-wrapper flex flex-row gap-x-2"
+                              >
+                                <span
+                                  style="font-size: 20px; font-weight: 400"
+                                  class="text-sm font-medium"
+                                  >Name:
+                                </span>
+                                <span style="font-size: 20px">Akash Wadhawane</span>
+                              </div>
+                              <div
+                                style="
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  column-gap: 8px;
+                                "
+                                class="first-wrapper flex flex-row gap-x-2"
+                              >
+                                <span
+                                  style="font-size: 17px; font-weight: 500"
+                                  class="text-sm font-medium"
+                                  >Designation:</span
+                                >
+                                <span style="font-size: 18px">Associate projects </span>
+                              </div>
+                              <div
+                                style="
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  column-gap: 8px;
+                                "
+                                class="first-wrapper flex flex-row gap-x-2"
+                              >
+                                <span
+                                  style="font-size: 17px; font-weight: 500"
+                                  class="text-sm font-medium"
+                                  >Organization:
+                                </span>
+                                <span style="font-size: 18px">Cognizant</span>
+                              </div>
+                              <div
+                                style="
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  column-gap: 8px;
+                                "
+                                class="first-wrapper flex flex-row gap-x-2"
+                              >
+                                <span
+                                  style="font-size: 17px; font-weight: 500"
+                                  class="text-sm font-medium"
+                                  >Contributed as:</span
+                                >
+                                <span style="font-size: 18px">Design Mentor</span>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                      <div class="card__face card__face--back">
+                            <div class="back-content-card">
+                              <div
+                              style="
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                column-gap: 8px;
+                              "
+                            >
+                              <span
+                                style="font-size: 15px; font-weight: 500"
+                                class="text-sm font-medium px-3" 
+                                >In which SIH you were participated in :</span
+                              >
+                              <span style="font-size: 16px">SIH 2017, SIH 2018</span>
+                            </div>  
+                           </div>
+                           <div class="row">
+                            <div class="col-sm-12">
+                              <p class="mb-0">Any overall feedback for the event?</p>
+                            </div>
+                            <div class="col-sm-12">
+                              <p class="text-muted mb-0 feedbackpara">
+                                <i class="bi bi-quote"></i>I connected with all teams participating in MIT university and suggested some changes or possible improvement in their prototypes and products.
+                              </p>
+                            </div>
+                          </div>                          
+                          </div>
+                            </div>
+                        </div>
+                        <div class="scene scene--card">
+                          <div class="card8">
+                            <div class="card__face card__face--front">
+              
+                              <div
+                                style="
+                                  width: auto;
+                                  height: auto;
+                                  display: flex;
+                                  flex-direction: column;
+                                  row-gap: 8px;
+                                  border-radius: 16px;
+                                ">
+                                <img
+                                  style="
+                                    height: 250px;
+                                    width: 100%;
+                                    border-radius: 10px;
+                                    position: relative;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    object-fit: cover;"
+                                  src="../../assets/Sathyapriyan_Kannan.JPG"
+                                  alt=""
+                                />
+              
+                              </div>
+              
+                              <div class="content-carddflip">
+                                <div
+                                style="
+                                  display: flex;
+                                  flex-direction: column;
+                                  row-gap: 10px;
+                                  padding: 20px;
+                                "
+                                class="bottom-container"
+                              >
+                                <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    column-gap: 8px;
+                                  "
+                                  class="first-wrapper flex flex-row gap-x-2"
+                                >
+                                  <span
+                                    style="font-size: 20px; font-weight: 400"
+                                    class="text-sm font-medium"
+                                    >Name:
+                                  </span>
+                                  <span style="font-size: 20px">Sathyapriyan Kannan</span>
+                                </div>
+                                <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    column-gap: 8px;
+                                  "
+                                  class="first-wrapper flex flex-row gap-x-2"
+                                >
+                                  <span
+                                    style="font-size: 17px; font-weight: 500"
+                                    class="text-sm font-medium"
+                                    >Designation:</span
+                                  >
+                                  <span style="font-size: 18px">Senior Software Engineer</span>
+                                </div>
+                                <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    column-gap: 8px;
+                                  "
+                                  class="first-wrapper flex flex-row gap-x-2"
+                                >
+                                  <span
+                                    style="font-size: 17px; font-weight: 500"
+                                    class="text-sm font-medium"
+                                    >Organization:
+                                  </span>
+                                  <span style="font-size: 18px">Bosch Global Software Technologies</span>
+                                </div>
+                                <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    column-gap: 8px;
+                                  "
+                                  class="first-wrapper flex flex-row gap-x-2"
+                                >
+                                  <span
+                                    style="font-size: 17px; font-weight: 500"
+                                    class="text-sm font-medium"
+                                    >Contributed as:</span
+                                  >
+                                  <span style="font-size: 18px">Evaluator</span>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                        <div class="card__face card__face--back">
+                              <div class="back-content-card">
+                                <div
+                                style="
+                                  display: flex;
+                                  flex-direction: row;
+                                  align-items: center;
+                                  column-gap: 8px;
+                                "
+                              >
+                                <span
+                                  style="font-size: 15px; font-weight: 500"
+                                  class="text-sm font-medium px-3" 
+                                  >In which SIH you were participated in :</span
+                                >
+                                <span style="font-size: 16px">SIH 2018, SIH 2019</span>
+                              </div>  
+                             </div>
+                             <div class="row">
+                              <div class="col-sm-12">
+                                <p class="mb-0">Any overall feedback for the event?</p>
+                              </div>
+                              <div class="col-sm-12">
+                                <p class="text-muted mb-0 feedbackpara">
+                                  <i class="bi bi-quote"></i>It was a great platform to me to give back to the students what I got to learn at my past SIHs and at my current industry. The learnings had always been a two way and it was an absolute pleasure to interact with the best minds of the nation.
+                                </p>
+                              </div>
+                            </div>                          
+                            </div>
+                              </div>
+                          </div>            
+                          <div class="scene scene--card">
+                            <div class="card9">
+                              <div class="card__face card__face--front">
+                
+                                <div
+                                  style="
+                                    width: auto;
+                                    height: auto;
+                                    display: flex;
+                                    flex-direction: column;
+                                    row-gap: 8px;
+                                    border-radius: 16px;
+                                  ">
+                                  <img
+                                    style="
+                                      height: 250px;
+                                      width: 100%;
+                                      border-radius: 10px;
+                                      position: relative;
+                                      top: 0;
+                                      left: 0;
+                                      right: 0;
+                                      object-fit: full;"
+                                    src="../../assets/maheswarim_cse.jpg"
+                                    alt=""
+                                  />
+                
+                                </div>
+                
+                                <div class="content-carddflip">
+                                  <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: column;
+                                    row-gap: 10px;
+                                    padding: 20px;
+                                  "
+                                  class="bottom-container"
+                                >
+                                  <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: row;
+                                      align-items: center;
+                                      column-gap: 8px;
+                                    "
+                                    class="first-wrapper flex flex-row gap-x-2"
+                                  >
+                                    <span
+                                      style="font-size: 20px; font-weight: 400"
+                                      class="text-sm font-medium"
+                                      >Name:
+                                    </span>
+                                    <span style="font-size: 20px">Maheswari M</span>
+                                  </div>
+                                  <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: row;
+                                      align-items: center;
+                                      column-gap: 8px;
+                                    "
+                                    class="first-wrapper flex flex-row gap-x-2"
+                                  >
+                                    <span
+                                      style="font-size: 17px; font-weight: 500"
+                                      class="text-sm font-medium"
+                                      >Designation:</span
+                                    >
+                                    <span style="font-size: 18px">Assistant Professor </span>
+                                  </div>
+                                  <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: row;
+                                      align-items: center;
+                                      column-gap: 8px;
+                                    "
+                                    class="first-wrapper flex flex-row gap-x-2"
+                                  >
+                                    <span
+                                      style="font-size: 17px; font-weight: 500"
+                                      class="text-sm font-medium"
+                                      >Organization:
+                                    </span>
+                                    <span style="font-size: 18px">Anand institute of higher technology</span>
+                                  </div>
+                                  <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: row;
+                                      align-items: center;
+                                      column-gap: 8px;
+                                    "
+                                    class="first-wrapper flex flex-row gap-x-2"
+                                  >
+                                    <span
+                                      style="font-size: 17px; font-weight: 500"
+                                      class="text-sm font-medium"
+                                      >Contributed as:</span
+                                    >
+                                    <span style="font-size: 18px">Design Mentor</span>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                          <div class="card__face card__face--back">
+                                <div class="back-content-card">
+                                  <div
+                                  style="
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    column-gap: 8px;
+                                  "
+                                >
+                                  <span
+                                    style="font-size: 15px; font-weight: 500"
+                                    class="text-sm font-medium px-3" 
+                                    >In which SIH you were participated in :</span
+                                  >
+                                  <span style="font-size: 16px">SIH 2022</span>
+                                </div>  
+                               </div>
+                               <div class="row">
+                                <div class="col-sm-12">
+                                  <p class="mb-0">Any overall feedback for the event?</p>
+                                </div>
+                                <div class="col-sm-12">
+                                  <p class="text-muted mb-0 feedbackpara">
+                                    <i class="bi bi-quote"></i>Great Experience with participants, evaluators and all.
+                                  </p>
+                                </div>
+                              </div>                          
+                              </div>
+                                </div>
+                            </div>
+
+                            <div class="scene scene--card">
+                              <div class="card10">
+                                <div class="card__face card__face--front">
+                  
+                                  <div
+                                    style="
+                                      width: auto;
+                                      height: auto;
+                                      display: flex;
+                                      flex-direction: column;
+                                      row-gap: 8px;
+                                      border-radius: 16px;
+                                    ">
+                                    <img
+                                      style="
+                                        height: 250px;
+                                        width: 100%;
+                                        border-radius: 10px;
+                                        position: relative;
+                                        top: 0;
+                                        left: 0;
+                                        right: 0;
+                                        object-fit: cover;"
+                                      src="../../assets/Smit_Jethva.jpg"
+                                      alt=""
+                                    />
+                  
+                                  </div>
+                  
+                                  <div class="content-carddflip">
+                                    <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: column;
+                                      row-gap: 10px;
+                                      padding: 20px;
+                                    "
+                                    class="bottom-container"
+                                  >
+                                    <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                      class="first-wrapper flex flex-row gap-x-2"
+                                    >
+                                      <span
+                                        style="font-size: 20px; font-weight: 400"
+                                        class="text-sm font-medium"
+                                        >Name:
+                                      </span>
+                                      <span style="font-size: 20px">Smit Jethwa</span>
+                                    </div>
+                                    <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                      class="first-wrapper flex flex-row gap-x-2"
+                                    >
+                                      <span
+                                        style="font-size: 17px; font-weight: 500"
+                                        class="text-sm font-medium"
+                                        >Designation:</span
+                                      >
+                                      <span style="font-size: 18px">Software Developer</span>
+                                    </div>
+                                    <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                      class="first-wrapper flex flex-row gap-x-2"
+                                    >
+                                      <span
+                                        style="font-size: 17px; font-weight: 500"
+                                        class="text-sm font-medium"
+                                        >Organization:
+                                      </span>
+                                      <span style="font-size: 18px">Digital India Corporation</span>
+                                    </div>
+                                    <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                      class="first-wrapper flex flex-row gap-x-2"
+                                    >
+                                      <span
+                                        style="font-size: 17px; font-weight: 500"
+                                        class="text-sm font-medium"
+                                        >Contributed as:</span
+                                      >
+                                      <span style="font-size: 18px">Design Mentor</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                            <div class="card__face card__face--back">
+                                  <div class="back-content-card">
+                                    <div
+                                    style="
+                                      display: flex;
+                                      flex-direction: row;
+                                      align-items: center;
+                                      column-gap: 8px;
+                                    "
+                                  >
+                                    <span
+                                      style="font-size: 15px; font-weight: 500"
+                                      class="text-sm font-medium px-3" 
+                                      >In which SIH you were participated in :</span
+                                    >
+                                    <span style="font-size: 16px">SIH 2017, SIH 2020</span>
+                                  </div>  
+                                 </div>
+                                 <div class="row">
+                                  <div class="col-sm-12">
+                                    <p class="mb-0">Any overall feedback for the event?</p>
+                                  </div>
+                                  <div class="col-sm-12">
+                                    <p class="text-muted mb-0 feedbackpara">
+                                      <i class="bi bi-quote"></i>Navigating problem statements from the Department of Medicine, I encountered a significant challenge due to the inclusion of Sanskrit terminologies unfamiliar to students, hindering their understanding. AICTE's direct sessions with finalists and problem statement setters could have mitigated this issue, facilitating clearer comprehension and fostering more informed approaches to problem-solving, ultimately enhancing collaboration and outcomes in addressing the complexities of the Ministry of AYUSH's problem statements.
+                                    </p>
+                                  </div>
+                                </div>                          
+                                </div>
+                                  </div>
+                              </div>
+
+                              <div class="scene scene--card">
+                                <div class="card11">
+                                  <div class="card__face card__face--front">
+                    
+                                    <div
+                                      style="
+                                        width: auto;
+                                        height: auto;
+                                        display: flex;
+                                        flex-direction: column;
+                                        row-gap: 8px;
+                                        border-radius: 16px;
+                                      ">
+                                      <img
+                                        style="
+                                          height: 250px;
+                                          width: 100%;
+                                          border-radius: 10px;
+                                          position: relative;
+                                          top: 0;
+                                          left: 0;
+                                          right: 0;
+                                          object-fit: cover;"
+                                        src="../../assets/Chhatrapal_Prajapat.jpeg"
+                                        alt=""
+                                      />
+                    
+                                    </div>
+                    
+                                    <div class="content-carddflip">
+                                      <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: column;
+                                        row-gap: 10px;
+                                        padding: 20px;
+                                      "
+                                      class="bottom-container"
+                                    >
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 20px; font-weight: 400"
+                                          class="text-sm font-medium"
+                                          >Name:
+                                        </span>
+                                        <span style="font-size: 20px">Chhatrapal Prajapat</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Designation:</span
+                                        >
+                                        <span style="font-size: 18px">Founder</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Organization:
+                                        </span>
+                                        <span style="font-size: 18px">TechNoCP Web Tech</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Contributed as:</span
+                                        >
+                                        <span style="font-size: 18px">Evaluator</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                              <div class="card__face card__face--back">
+                                    <div class="back-content-card">
+                                      <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                    >
+                                      <span
+                                        style="font-size: 15px; font-weight: 500"
+                                        class="text-sm font-medium px-3" 
+                                        >In which SIH you were participated in :</span
+                                      >
+                                      <span style="font-size: 16px">SIH 2019, SIH 2020, SIH 2022</span>
+                                    </div>  
+                                   </div>
+                                   <div class="row">
+                                    <div class="col-sm-12">
+                                      <p class="mb-0">Any overall feedback for the event?</p>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <p class="text-muted mb-0 feedbackpara">
+                                        <i class="bi bi-quote"></i>The experience in hackathon  is very good, specially the ideas of teams, we fount most of the solutions accurate and intelligible.
+                                      </p>
+                                    </div>
+                                  </div>                          
+                                  </div>
+                                    </div>
+                                </div>
+
+                                <div class="scene scene--card">
+                                  <div class="card12">
+                                    <div class="card__face card__face--front">
+                      
+                                      <div
+                                        style="
+                                          width: auto;
+                                          height: auto;
+                                          display: flex;
+                                          flex-direction: column;
+                                          row-gap: 8px;
+                                          border-radius: 16px;
+                                        ">
+                                        <img
+                                          style="
+                                            height: 250px;
+                                            width: 100%;
+                                            border-radius: 10px;
+                                            position: relative;
+                                            top: 0;
+                                            left: 0;
+                                            right: 0;
+                                            object-fit: cover;"
+                                          src="../../assets/Karthikeyan_S.jpeg"
+                                          alt=""
+                                        />
+                      
+                                      </div>
+                      
+                                      <div class="content-carddflip">
+                                        <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: column;
+                                          row-gap: 10px;
+                                          padding: 20px;
+                                        "
+                                        class="bottom-container"
+                                      >
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 20px; font-weight: 400"
+                                            class="text-sm font-medium"
+                                            >Name:
+                                          </span>
+                                          <span style="font-size: 20px">KARTHIKEYAN S</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Designation:</span
+                                          >
+                                          <span style="font-size: 18px">Project Officer</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Organization:
+                                          </span>
+                                          <span style="font-size: 18px">IIT Madras</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Contributed as:</span
+                                          >
+                                          <span style="font-size: 18px">Design Mentor</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                                <div class="card__face card__face--back">
+                                      <div class="back-content-card">
+                                        <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                      >
+                                        <span
+                                          style="font-size: 15px; font-weight: 500"
+                                          class="text-sm font-medium px-3" 
+                                          >In which SIH you were participated in :</span
+                                        >
+                                        <span style="font-size: 16px">SIH 2019</span>
+                                      </div>  
+                                     </div>
+                                     <div class="row">
+                                      <div class="col-sm-12">
+                                        <p class="mb-0">Any overall feedback for the event?</p>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <p class="text-muted mb-0 feedbackpara">
+                                          <i class="bi bi-quote"></i>The execution of the hackathon, encompassing logistics, communication, and catering, was impeccably carried out. Over the years, the substantial increase in participants and problem statements has broadened the scope for addressing many real-world challenges. Notably, it has nurtured a culture where students with entrepreneurial mindsets can envision their ideas evolving into startup ventures. I thank the Smart India Hackathon team for fostering this opportunity and facilitating a platform encouraging innovation and startup aspirations.
+                                        </p>
+                                      </div>
+                                    </div>                          
+                                    </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="scene scene--card">
+                                <div class="card13">
+                                  <div class="card__face card__face--front">
+                    
+                                    <div
+                                      style="
+                                        width: auto;
+                                        height: auto;
+                                        display: flex;
+                                        flex-direction: column;
+                                        row-gap: 8px;
+                                        border-radius: 16px;
+                                      ">
+                                      <img
+                                        style="
+                                          height: 250px;
+                                          width: 100%;
+                                          border-radius: 10px;
+                                          position: relative;
+                                          top: 0;
+                                          left: 0;
+                                          right: 0;
+                                          object-fit: full;"
+                                        src="../../assets/Samaksh_Wani.jpeg"
+                                        alt=""
+                                      />
+                    
+                                    </div>
+                    
+                                    <div class="content-carddflip">
+                                      <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: column;
+                                        row-gap: 10px;
+                                        padding: 20px;
+                                      "
+                                      class="bottom-container"
+                                    >
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 20px; font-weight: 400"
+                                          class="text-sm font-medium"
+                                          >Name:
+                                        </span>
+                                        <span style="font-size: 20px">Samaksh Wani</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Designation:</span
+                                        >
+                                        <span style="font-size: 18px">Associate Software Engineer</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Organization:
+                                        </span>
+                                        <span style="font-size: 18px">Globant India</span>
+                                      </div>
+                                      <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                        class="first-wrapper flex flex-row gap-x-2"
+                                      >
+                                        <span
+                                          style="font-size: 17px; font-weight: 500"
+                                          class="text-sm font-medium"
+                                          >Contributed as:</span
+                                        >
+                                        <span style="font-size: 18px">Design Mentor</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                              <div class="card__face card__face--back">
+                                    <div class="back-content-card">
+                                      <div
+                                      style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        column-gap: 8px;
+                                      "
+                                    >
+                                      <span
+                                        style="font-size: 15px; font-weight: 500"
+                                        class="text-sm font-medium px-3" 
+                                        >In which SIH you were participated in :</span
+                                      >
+                                      <span style="font-size: 16px">SIH 2020</span>
+                                    </div>  
+                                   </div>
+                                   <div class="row">
+                                    <div class="col-sm-12">
+                                      <p class="mb-0">Any overall feedback for the event?</p>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <p class="text-muted mb-0 feedbackpara">
+                                        <i class="bi bi-quote"></i>It was a Nice Experience gor mentoring the young minds, nice to see the Out of the box solutions, Would like to participate as Mentor or Evaluator in upcoming SIH.
+                                      </p>
+                                    </div>
+                                  </div>                          
+                                  </div>
+                                    </div>
+                                </div>
+
+                                <div class="scene scene--card">
+                                  <div class="card14">
+                                    <div class="card__face card__face--front">
+                      
+                                      <div
+                                        style="
+                                          width: auto;
+                                          height: auto;
+                                          display: flex;
+                                          flex-direction: column;
+                                          row-gap: 8px;
+                                          border-radius: 16px;
+                                        ">
+                                        <img
+                                          style="
+                                            height: 250px;
+                                            width: 100%;
+                                            border-radius: 10px;
+                                            position: relative;
+                                            top: 0;
+                                            left: 0;
+                                            right: 0;
+                                            object-fit: cover;"
+                                          src="../../assets/Yukti Dhawan.JPG  "
+                                          alt=""
+                                        />
+                      
+                                      </div>
+                      
+                                      <div class="content-carddflip">
+                                        <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: column;
+                                          row-gap: 10px;
+                                          padding: 20px;
+                                        "
+                                        class="bottom-container"
+                                      >
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 20px; font-weight: 400"
+                                            class="text-sm font-medium"
+                                            >Name:
+                                          </span>
+                                          <span style="font-size: 20px">Jugti</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Designation:</span
+                                          >
+                                          <span style="font-size: 18px">Software Engineer</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Organization:
+                                          </span>
+                                          <span style="font-size: 18px">Bebo Technologies</span>
+                                        </div>
+                                        <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                          class="first-wrapper flex flex-row gap-x-2"
+                                        >
+                                          <span
+                                            style="font-size: 17px; font-weight: 500"
+                                            class="text-sm font-medium"
+                                            >Contributed as:</span
+                                          >
+                                          <span style="font-size: 18px">Design Mentor</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                                <div class="card__face card__face--back">
+                                      <div class="back-content-card">
+                                        <div
+                                        style="
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          column-gap: 8px;
+                                        "
+                                      >
+                                        <span
+                                          style="font-size: 15px; font-weight: 500"
+                                          class="text-sm font-medium px-3" 
+                                          >In which SIH you were participated in :</span
+                                        >
+                                        <span style="font-size: 16px">SIH 2019, SIH 2020</span>
+                                      </div>  
+                                     </div>
+                                     <div class="row">
+                                      <div class="col-sm-12">
+                                        <p class="mb-0">Any overall feedback for the event?</p>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <p class="text-muted mb-0 feedbackpara">
+                                          <i class="bi bi-quote"></i>SIH 2023 was a resounding success, showcasing the immense potential of India's youth to drive innovation and positive change. The event not only fostered technological advancement but also promoted collaboration, learning, and growth among participants.
+                                        </p>
+                                      </div>
+                                    </div>                          
+                                    </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="scene scene--card">
+                                    <div class="card15">
+                                      <div class="card__face card__face--front">
+                        
+                                        <div
+                                          style="
+                                            width: auto;
+                                            height: auto;
+                                            display: flex;
+                                            flex-direction: column;
+                                            row-gap: 8px;
+                                            border-radius: 16px;
+                                          ">
+                                          <img
+                                            style="
+                                              height: 250px;
+                                              width: 100%;
+                                              border-radius: 10px;
+                                              position: relative;
+                                              top: 0;
+                                              left: 0;
+                                              right: 0;
+                                              object-fit: full;"
+                                            src="../../assets/parth arora.jpg"
+                                            alt=""
+                                          />
+                        
+                                        </div>
+                        
+                                        <div class="content-carddflip">
+                                          <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: column;
+                                            row-gap: 10px;
+                                            padding: 20px;
+                                          "
+                                          class="bottom-container"
+                                        >
+                                          <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: row;
+                                              align-items: center;
+                                              column-gap: 8px;
+                                            "
+                                            class="first-wrapper flex flex-row gap-x-2"
+                                          >
+                                            <span
+                                              style="font-size: 20px; font-weight: 400"
+                                              class="text-sm font-medium"
+                                              >Name:
+                                            </span>
+                                            <span style="font-size: 20px">Parth Arora </span>
+                                          </div>
+                                          <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: row;
+                                              align-items: center;
+                                              column-gap: 8px;
+                                            "
+                                            class="first-wrapper flex flex-row gap-x-2"
+                                          >
+                                            <span
+                                              style="font-size: 17px; font-weight: 500"
+                                              class="text-sm font-medium"
+                                              >Designation:</span
+                                            >
+                                            <span style="font-size: 18px">Senior Software Engineer</span>
+                                          </div>
+                                          <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: row;
+                                              align-items: center;
+                                              column-gap: 8px;
+                                            "
+                                            class="first-wrapper flex flex-row gap-x-2"
+                                          >
+                                            <span
+                                              style="font-size: 17px; font-weight: 500"
+                                              class="text-sm font-medium"
+                                              >Organization:
+                                            </span>
+                                            <span style="font-size: 18px">IBM</span>
+                                          </div>
+                                          <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: row;
+                                              align-items: center;
+                                              column-gap: 8px;
+                                            "
+                                            class="first-wrapper flex flex-row gap-x-2"
+                                          >
+                                            <span
+                                              style="font-size: 17px; font-weight: 500"
+                                              class="text-sm font-medium"
+                                              >Contributed as:</span
+                                            >
+                                            <span style="font-size: 18px">Design Mentor</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                  <div class="card__face card__face--back">
+                                        <div class="back-content-card">
+                                          <div
+                                          style="
+                                            display: flex;
+                                            flex-direction: row;
+                                            align-items: center;
+                                            column-gap: 8px;
+                                          "
+                                        >
+                                          <span
+                                            style="font-size: 15px; font-weight: 500"
+                                            class="text-sm font-medium px-3" 
+                                            >In which SIH you were participated in :</span
+                                          >
+                                          <span style="font-size: 16px">SIH 2020, SIH 2022</span>
+                                        </div>  
+                                       </div>
+                                       <div class="row">
+                                        <div class="col-sm-12">
+                                          <p class="mb-0">Any overall feedback for the event?</p>
+                                        </div>
+                                        <div class="col-sm-12">
+                                          <p class="text-muted mb-0 feedbackpara">
+                                            <i class="bi bi-quote"></i>It was good!.
+                                          </p>
+                                        </div>
+                                      </div>                          
+                                      </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="scene scene--card">
+                                      <div class="card16">
+                                        <div class="card__face card__face--front">
+                          
+                                          <div
+                                            style="
+                                              width: auto;
+                                              height: auto;
+                                              display: flex;
+                                              flex-direction: column;
+                                              row-gap: 8px;
+                                              border-radius: 16px;
+                                            ">
+                                            <img
+                                              style="
+                                                height: 250px;
+                                                width: 100%;
+                                                border-radius: 10px;
+                                                position: relative;
+                                                top: 0;
+                                                left: 0;
+                                                right: 0;
+                                                object-fit: cover;"
+                                              src="../../assets/kaustav Mandal.jpeg"
+                                              alt=""
+                                            />
+                          
+                                          </div>
+                          
+                                          <div class="content-carddflip">
+                                            <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: column;
+                                              row-gap: 10px;
+                                              padding: 20px;
+                                            "
+                                            class="bottom-container"
+                                          >
+                                            <div
+                                              style="
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                column-gap: 8px;
+                                              "
+                                              class="first-wrapper flex flex-row gap-x-2"
+                                            >
+                                              <span
+                                                style="font-size: 20px; font-weight: 400"
+                                                class="text-sm font-medium"
+                                                >Name:
+                                              </span>
+                                              <span style="font-size: 20px">KAUSTAV MANDAL</span>
+                                            </div>
+                                            <div
+                                              style="
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                column-gap: 8px;
+                                              "
+                                              class="first-wrapper flex flex-row gap-x-2"
+                                            >
+                                              <span
+                                                style="font-size: 17px; font-weight: 500"
+                                                class="text-sm font-medium"
+                                                >Designation:</span
+                                              >
+                                              <span style="font-size: 18px">Founder’s Office - Product & Growth</span>
+                                            </div>
+                                            <div
+                                              style="
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                column-gap: 8px;
+                                              "
+                                              class="first-wrapper flex flex-row gap-x-2"
+                                            >
+                                              <span
+                                                style="font-size: 17px; font-weight: 500"
+                                                class="text-sm font-medium"
+                                                >Organization:
+                                              </span>
+                                              <span style="font-size: 18px">GrabOn & WriteGeniusAI</span>
+                                            </div>
+                                            <div
+                                              style="
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                column-gap: 8px;
+                                              "
+                                              class="first-wrapper flex flex-row gap-x-2"
+                                            >
+                                              <span
+                                                style="font-size: 17px; font-weight: 500"
+                                                class="text-sm font-medium"
+                                                >Contributed as:</span
+                                              >
+                                              <span style="font-size: 18px">Design Mentor</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        </div>
+                                    <div class="card__face card__face--back">
+                                          <div class="back-content-card">
+                                            <div
+                                            style="
+                                              display: flex;
+                                              flex-direction: row;
+                                              align-items: center;
+                                              column-gap: 8px;
+                                            "
+                                          >
+                                            <span
+                                              style="font-size: 15px; font-weight: 500"
+                                              class="text-sm font-medium px-3" 
+                                              >In which SIH you were participated in :</span
+                                            >
+                                            <span style="font-size: 16px">SIH 2020</span>
+                                          </div>  
+                                         </div>
+                                         <div class="row">
+                                          <div class="col-sm-12">
+                                            <p class="mb-0">Any overall feedback for the event?</p>
+                                          </div> 
+                                          <div class="col-sm-12">
+                                            <p class="text-muted mb-0 feedbackpara"style=" font-size:small; padding-left: 4px; padding-right: 4px">
+                                              <i class="bi bi-quote"></i>There is a lot of scope for improvement that I felt as a product person. Firstly, some ministries just came up with a problem statement just for the sake of putting forward the hackathon and didn’t back it up with enough data to approach the problem, ultimately contributing to weak solutions where many students were clueless about what to do next. Secondly, there is no official code repository for keeping the developments recorded, resulting in a waste of time, effort, and revenue for the problem-setting bodies. Thirdly, most importantly, the winning teams should be captured immediately by the POCs of Ministries to motivate them to go further beyond just the MVP and build real-world solutions out of it with proper incubation, which I felt was missing, and willing mentors should also be appointed as consultants who are willing to spend their valuable time in building the next unicorn maybe!
+                                            </p>
+                                          </div>
+                                        </div>                          
+                                        </div>
+                                          </div>
+                                      </div>
+                              
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+      <footer class="footer-01">
+        <div class="container">
+          <div class="row">
+            <div class="col mb-0 mb-md-0">
+              <img src="img/logo.png" class="logoimg" alt="" />
+              <br /><br />
+              <p class="foot">
+                All India Council for Technical Education (AICTE), Nelson
+                Mandela Marg, VasantKunj, New Delhi-110070.
+              </p>
+              <ul class="p-0">
+                <i
+                  class="bi bi-envelope"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">micalumni@aicte-india.org</p>
+                <i
+                  class="bi bi-telephone"
+                  style="color: white; font-size: 20px"
+                ></i>
+                <p class="foot">011-29581316</p>
+              </ul>
+            </div>
+
+            <div class="col pl-lg-5 mb-0 mb-md-0">
+              <h2 class="footer-heading">Hackathons:</h2>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://sih.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Smart India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://kavach.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >KAVACH</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://singaporeindiahackathon.com/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Singapore India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://uia.mic.gov.in/"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >UNESCO India Africa Hackathon</a 
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/samadhan"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Samadhan</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/Hackathon/ddh2020"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Drug Discovery Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/india-asean-hackathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >ASEAN - India Hackathon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mic.gov.in/hackathon/toycathon"
+                    target="_blank"
+                    class="py-1 d-block foot"
+                    >Toycathon</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col col-lg-3 mb-0 mb-md-0">
+              <h2 class="footer-heading">Quick Links:</h2>
+              <div class="block-23 mb-3">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="https://mic.gov.in/innovation-council/iic"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Innovation Council</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://ariia.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >ARIIA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://yukti.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Yukti 2.0</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://kapila.mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >KAPILA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://mic.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >MoE’s Innovation Cell</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.aicte-india.org/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >All India Council for Technical Education</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.education.gov.in/"
+                      target="_blank"
+                      class="py-1 d-block foot"
+                      >Ministry of Education</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr width="100%" align="center" color="white" />
+          <div class="row mt-2">
+            <div class="col-md-6 text-left">
+              <p class="copyright foot">
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved
+              </p>
+            </div>
+            <div class="col-md-6 text-right">
+              <p>
+                <a
+                  href="https://www.youtube.com/@MoEInnovationCell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-youtube"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/mhrd.innovationcell/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-instagram"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://twitter.com/mhrd_innovation"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-twitter"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/mhrdInnovation/"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-facebook"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/company/moe-innovation-cell"
+                  target="_blank"
+                  class="mr-3"
+                >
+                  <i
+                    class="bi bi-linkedin"
+                    style="color: white; font-size: 22px"
+                  ></i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.3.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.js"></script>
+    <script>
+      var card = document.querySelector(".card");
+      card.addEventListener("click", function () {
+        card.classList.toggle("is-flipped");
+      });
+
+      var cardTwo = document.querySelector(".cardTwo");
+      cardTwo.addEventListener("click", function () {
+        cardTwo.classList.toggle("is-flipped");
+      });
+
+      var cardThree = document.querySelector(".cardThree");
+      cardThree.addEventListener("click", function () {
+        cardThree.classList.toggle("is-flipped");
+      });
+      var cardfour = document.querySelector(".cardfour");
+      cardfour.addEventListener("click", function () {
+        cardfour.classList.toggle("is-flipped");
+      });
+      var cardfive = document.querySelector(".cardfive");
+      cardfive.addEventListener("click", function () {
+        cardfive.classList.toggle("is-flipped");
+      });
+      var cardsix = document.querySelector(".cardsix");
+      cardsix.addEventListener("click", function () {
+        cardsix.classList.toggle("is-flipped");
+      });
+      var card7 = document.querySelector(".card7");
+      card7.addEventListener("click", function () {
+        card7.classList.toggle("is-flipped");
+      });
+      var card8 = document.querySelector(".card8");
+      card8.addEventListener("click", function () {
+        card8.classList.toggle("is-flipped");
+      });
+      var card9 = document.querySelector(".card9");
+      card9.addEventListener("click", function () {
+        card9.classList.toggle("is-flipped");
+      });
+      var card10 = document.querySelector(".card10");
+      card10.addEventListener("click", function () {
+        card10.classList.toggle("is-flipped");
+      });
+      var card11 = document.querySelector(".card11");
+      card11.addEventListener("click", function () {
+        card11.classList.toggle("is-flipped");
+      });
+      var card12 = document.querySelector(".card12");
+      card12.addEventListener("click", function () {
+        card12.classList.toggle("is-flipped");
+      });
+      var card13 = document.querySelector(".card13");
+      card13.addEventListener("click", function () {
+        card13.classList.toggle("is-flipped");
+      });
+      var card14 = document.querySelector(".card14");
+      card14.addEventListener("click", function () {
+        card14.classList.toggle("is-flipped");
+      });
+      var card15 = document.querySelector(".card15");
+      card15.addEventListener("click", function () {
+        card15.classList.toggle("is-flipped");
+      });
+      var card16 = document.querySelector(".card16");
+      card16.addEventListener("click", function () {
+        card16.classList.toggle("is-flipped");
+      });
+
+      $(".owl-carousel").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 1800,
+        autoplayHoverPause: false,
+        loop: true,
+        margin: 50,
+        responsiveClass: true,
+        nav: true,
+        loop: true,
+        stagePadding: 100,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          568: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
+
+
