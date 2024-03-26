@@ -153,6 +153,7 @@ class Dashboard extends Component {
             draggable
             pauseOnHover
           />
+          
         </>
       );
     }

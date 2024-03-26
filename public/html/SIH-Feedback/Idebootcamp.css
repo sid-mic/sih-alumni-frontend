@@ -1,0 +1,330 @@
+
+/* image gallery css */
+
+h1 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+padding: 8px;
+      text-align: center; /* Aligning all table data in the center */
+      border-bottom: 1px solid #ddd;
+}
+
+thead {
+background-color: #333;
+color: #fff;
+}
+
+tbody tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+background-color: #ddd;
+}
+
+#imageGalleryContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(10, auto);
+  gap: 20px;
+  margin: 32px;
+}
+/* Starts Owl Carousel */
+.owl-prev {
+  background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-left.png")
+    left center no-repeat;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  z-index: 1000;
+  left: 2%;
+  cursor: pointer;
+  color: transparent;
+  margin-top: 0px;
+}
+
+.back-content-card{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+   font-style: normal;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-carddflip{
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+   font-style: normal;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.owl-next {
+  background: url("https://img.icons8.com/ios-filled/50/525D9A/chevron-right.png")
+    right center no-repeat;
+  height: 54px;
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  z-index: 1000;
+  right: 2%;
+  cursor: pointer;
+  color: transparent;
+  margin-top: 0px;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  opacity: 0.5;
+}
+/* Ends Owl Carousel */
+
+.carousel-item {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.cardBodyShadow {
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07),
+    0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+p.mb-0 {
+  font-weight: 500;
+  font-size: 18px;
+  color: #061976;
+}
+
+p.feedbackpara {
+  font-size: 20;
+  font-weight: 500;
+  color: #000 !important;
+}
+
+p.mb-0.committedclass {
+  font-size: 24px;
+}
+
+p.mb-0.committedclass2 {
+  font-size: 22px;
+}
+
+.ntwImg img {
+  border: 2px solid #061976;
+  padding: 8px;
+  margin: 0;
+  height: auto;
+  width: 100%;
+}
+
+.ntwImg {
+  text-align: center;
+}
+
+i.bi.bi-quote {
+  font-size: 36px;
+  color: #d75b00;
+}
+
+p.feedbackpara2 {
+  font-size: 16px;
+  /* font-weight: normal; */
+  color: #000 !important;
+}
+
+p.feedbackpara3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000 !important;
+}
+
+.col-md-12.nWidth .card {
+  width: 90%;
+  float: left;
+}
+
+.col-md-12.nWidth2 .card {
+  width: 90%;
+  float: right;
+}
+
+section.ntwMain {
+  background-image: url(img/bgPattern.png);
+  background-repeat: repeat;
+  padding: 0;
+  background-size: 50%;
+}
+.heading {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    font-size: 13px;
+  }
+  .heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  p.mb-0 {
+    font-size: 13px;
+  }
+  p.subheading {
+    font-weight: 500;
+  }
+  .foot {
+    font-size: 12px;
+  }
+}
+
+.logoimg {
+  width: 100%;
+}
+
+@media screen and (max-width: 580px) {
+  .logoimg {
+    width: calc(100vw - 30px) !important;
+  }
+}
+
+/* footer CSS */
+footer {
+  padding-top: 20px;
+}
+
+.footer-01 {
+  background: #0d1824;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+.footer-01:after {
+  position: absolute;
+  top: -300px;
+  left: -100px;
+  width: 800px;
+  height: 800px;
+  content: "";
+  background: url("https://preview.colorlib.com/theme/bft/bootstrap-footer-11/images/blob-shape.svg");
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.05;
+}
+.footer-01 a {
+  color: #7f72e4;
+}
+.footer-01 p {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-01 .copyright {
+  color: rgba(255, 255, 255, 0.3);
+  color: #999999;
+}
+.footer-01 .footer-heading {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+}
+.footer-01 .footer-heading:after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #7f72e4;
+}
+.footer-01 ul.list-unstyled li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-01 .block-21 .text .heading a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-01 .block-21 .meta > div a {
+  color: #7f72e4;
+}
+.footer-01 .block-23 ul li {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-01 .block-23 ul li a {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-01 .block-23 ul li .icon {
+  color: rgba(255, 255, 255, 0.4);
+}
+.footer-01 .ftco-footer-social li a {
+  background: #7f72e4;
+  color: #fff;
+}
+
+body{
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-header img{
+ 
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  max-width: 100%;
+  max-height: 30%;
+  
+  
+}
+.sub-head{
+text-align: center;
+}
+.sub-head h2{
+font-size: 40px;
+font-weight: 600;
+padding-top: 18px;
+color: #010868;
+outline: #fff;
+}
+.sub-head span{
+font-size: 25px;
+font-weight: bold;
+color: rgb(158,52,1);
+}
+
+.sub-head p{
+font-size: 20px;
+}
+
+.data{
+font-size: 20px;
+padding-top: 50px;
+padding-bottom: 16px;
+/* background: #074C50; */
+font-family: 'Poppins', sans-serif;;
+font-weight: 300;
+}
+.info-label{
+padding: 5px;
+color:#010868;
+;
+
+}
+hr {
+width: calc(30% - 270px); /* Adjust the width considering label width and margin */
+color: black;
+margin: 0 auto; /* Center the <hr> horizontally within its parent container */
+border-color: rgb(168,38,64); /* Set border color to black */
+}

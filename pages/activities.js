@@ -38,14 +38,21 @@ export default function Activities() {
                        {/* <Hero user={user} isAuth={isAuth} auth={auth} /> */}
           <div className="main-outer" style={{width:'100%'}}>
           <div className="container" style={{margin:'0 auto'}}>
-            
+          
             <Programs />
+    
+        
           </div>
           <Footer />
           </div>
+
+         
            
         </>
       )}
     </div>
+
+    
+    
   );
 }

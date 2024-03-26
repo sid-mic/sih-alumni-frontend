@@ -12,7 +12,7 @@ export const Nav = () => {
             aria-label="Company"
             title="Company"
             className="inline-flex items-center"
-          >
+          > 
             <img className="h-16" src="/assets/logo-all.png"></img>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -25,7 +25,7 @@ export const Nav = () => {
               >
                 About
               </a>
-            </li>
+            </li> 
             <li>
               <a
                 href="/#initiatives"
@@ -52,9 +52,39 @@ export const Nav = () => {
                 href="/activities"
                 aria-label="Product pricing"
                 title="Product pricing"
+                className="relative pl-3 pr-7 py-2.5 ml-4 overflow-hidden font-medium rounded  text-gray-100"
+              >
+                Startups Showcased
+                {/* <span className="absolute top-0 right-0 px-5 py-1 text-xs tracki text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 text-red-800 bg-purple-300">
+                  New
+                </span> */}
+              </a>
+            </li>
+            
+            <li>
+              <a
+                type="button"
+                href="/activities1"
+                aria-label="Product pricing"
+                title="Product pricing"
                 className="relative pl-3 pr-7 py-2.5 ml-4 overflow-hidden font-medium rounded bg-indigo-300 text-gray-900"
               >
-                Activities
+                Contribution  
+                <span className="absolute top-0 right-0 px-5 py-1 text-xs tracki text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 text-red-800 bg-purple-300">
+                  New
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                type="button"
+                href="#"
+                aria-label="Product pricing"
+                title="Product pricing"
+                className="relative pl-3 pr-7 py-2.5 ml-4 overflow-hidden font-medium rounded bg-indigo-300 text-gray-900"
+              >
+                Registration  
                 <span className="absolute top-0 right-0 px-5 py-1 text-xs tracki text-center uppercase whitespace-no-wrap origin-bottom-left transform rotate-45 -translate-y-full translate-x-1/3 text-red-800 bg-purple-300">
                   New
                 </span>

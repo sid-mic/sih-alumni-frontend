@@ -27,11 +27,11 @@ export default function Programs() {
                             <h1
                                 className={
                                     styles.mainHeading +
-                                    "mb-5 pb-2 font-semibold text-2xl text-indblue tracking-wide pl-5"
+                                    "mb-5 pb-2 font-semibold text-2xl text-indblue tracking-wide pl"
                                 }
                             >
-                                SIH Policy Exibition 2023
-                                <hr class="w-auto h-0.5 my-1 bg-gray-200 border-0 rounded"></hr>
+                                {/* SMART INDIA HACKATHON 2023
+                                <hr class="w-auto h-0.5 my-1 bg-gray-200 border-0 rounded"></hr> */}
                             </h1>
                         </div>
                         <div>
@@ -41,20 +41,19 @@ export default function Programs() {
                                     "mb-5 pb-4 px-5 font-semibold text-xl text-red-900 text-center"
                                 }
                             >
-                                AICTE, Ministry of Education pavilion at <br></br>
-                                SIH Policy Exibition (29th-30th July) organized
-                                at Pragati Maidan, New Delhi.
+                           
+                                
                             </h1>
                         </div>
                         <div
-                            className={
-                                styles.boxBorder1 +
-                                " p-8 transition shadow-2xl rounded-2xl hover:shadow-pink-500/10 hover:border-pink-500/10 max-w-full flex"
-                            }
+                            // className={
+                            //     styles.boxBorder1 +
+                            //     " p-8 transition shadow-2xl rounded-2xl hover:shadow-pink-500/10 hover:border-pink-500/10 max-w-full flex"
+                            // }
                         >
-                            <img src="/assets/NEP23.jpeg" class="max-w-3xl" alt="..." />
+                            {/* <img src="/assets/NEP23.jpeg" class="max-w-3xl" alt="..." /> */}
                             <p className="pl-7 font-medium tracking-wide text-black">
-                            The prestigious National Education Policy (NEP) 2023 inaugurated by the Hon'ble Prime Minister of India was held from July 29th to July 30th, 2023, at Pragati Maidan, New Delhi. The mega event witnessed the presence of ministers from different ministries of the Central and State Governments, Foreign Embassies in India, industry leaders, and other esteemed guests. It featured over 12 thematic sessions, exhibitions, and cultural programs, providing an exceptional platform for networking, visibility, and recognition. The event attracted more than 40,000 viewers, ensuring a vibrant and enriching experience. This event celebrated the 3rd Anniversary of the National Education Policy (NEP) 2020 and the 2nd edition of the Akhil Bhartiya Shiksha Samagam.
+                            {/* SIH 2023 brings the next generation evolution by inclusion of new methodology to inculcate the culture of startup and innovation ecosystem across different age groups. */}
                                 <br></br>
                                 {/* <a
                                     href="https://iic.mic.gov.in/national-technology-week"
@@ -64,16 +63,17 @@ export default function Programs() {
                                 >
                                     Know more
                                 </a> */}
-                                <a
-                                    href="/html/SIH-Feedback/SIH.html"
-                                    target="_blank"
+                                    
+                                {/* <a href="/html/SIH-Feedback/Companies.html"
+                                    
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ease-linear transition-all duration-150"
-                                    type="button"
+                                    type="button"f  
                                 >
                                     Feedbacks
-                                </a>
+                                </a> */}
                             </p>
                         </div>
+                        
 
      {/* Seccond Card's */}
                         <div class="mx-auto">
@@ -118,7 +118,7 @@ export default function Programs() {
                                 </a> */}
                                 <a
                                     href="/html/NEP-Feedback/index.html"
-                                    target="_blank"
+                                    
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ease-linear transition-all duration-150"
                                     type="button"
                                 >
@@ -165,7 +165,7 @@ export default function Programs() {
                                 <br></br>
                                 <a
                                     href="https://iic.mic.gov.in/national-technology-week"
-                                    target="_blank"
+                                    // target="_blank"
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ease-linear transition-all duration-150"
                                     type="button"
                                 >
@@ -173,7 +173,7 @@ export default function Programs() {
                                 </a>
                                 <a
                                     href="/html/NTW-Feedback/index.html"
-                                    target="_blank"
+                                    // target="_blank"
                                     className="bg-indblue text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-16 ml-5 ease-linear transition-all duration-150"
                                     type="button"
                                 >
