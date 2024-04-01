@@ -22,6 +22,7 @@ export default function Activities() {
 
     setIsLoading(false);
   }, [""]);
+  
   return (
     //Add svg with parallax scroll
 
